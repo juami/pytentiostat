@@ -7,7 +7,7 @@ The main developers are
 with significant inputs from
 
     Simon J. L. Billinge
-    Michael Spencer
+    Michael Spencer - mspence2@ncsu.edu
     Austin Plymill
     Sun Hwil Bang
     Jeremy Hitt
