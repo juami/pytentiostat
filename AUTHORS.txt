@@ -6,6 +6,7 @@ The developers are
     Simon J. L. Billinge
     Michael Spencer
     Yao Tong
+    Sun Hwi Bang
 
 Contributions and extensive testing of the code was carried out by current
 members of the Haile and Billinge groups
