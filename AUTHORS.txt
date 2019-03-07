@@ -7,6 +7,7 @@ The main developers are
 with significant inputs from
 
     Simon J. L. Billinge
+    Michael Spencer
 
 Contributions and extensive testing of the code was carried out by current
 members of the Haile and Billinge groups
