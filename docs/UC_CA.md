@@ -31,7 +31,3 @@ The program stops applying a potential
 The program stops measuring current and time since start of program
 
 The program issues a prompt that experminet is complete
-
-Pytentiostat plots current (mA) vs. potential (V vs. Ref)
-
-Note: need to export potential and current data to a spreadsheet that will automatically save either during the scanning process or that will be exported after the scan is complete.
