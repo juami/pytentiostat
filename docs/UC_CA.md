@@ -1,4 +1,6 @@
-Use Case: Running Chronoamperometry for a Two or Three Electrode Cell on the JUAMI Potentiostat Intended User: Undergraduate (UG) Researcher at a University in Africa with Introductory Knowledge of Electrochemistry and Chronoamperometry. The instructions in this UC assume that the student already has a two or three electrode cell set up and ready for testing (working electrode, counter electrode, and (optional) reference electrode are all in proper locations and connected to the potentiostat clips). 
+Use Case: Running Chronoamperometry for a Two or Three Electrode Cell on the JUAMI Potentiostat 
+
+Intended User: Undergraduate (UG) Researcher at a University in Africa with Introductory Knowledge of Electrochemistry and Chronoamperometry. The instructions in this UC assume that the student already has a two or three electrode cell set up and ready for testing (working electrode, counter electrode, and (optional) reference electrode are all in proper locations and connected to the potentiostat clips). 
 
 Program Setup:
 
@@ -14,7 +16,7 @@ UG inputs length of time to apply potential
 
 UG inputs current window (the program will automatically turn off if current exceeds this range)
 
-User starts the program
+UG starts the program
 
 The program starts the chronoamperometry experiment
 
