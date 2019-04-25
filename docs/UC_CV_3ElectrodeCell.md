@@ -1,11 +1,17 @@
-Use Case: Running Cyclic Voltammetry for a Three Electrode Cell on the JUAMI Potentiostat
-Intended User: Undergraduate Researcher at a University in Africa with Introductory Knowledge of Electrochemistry and Cyclic Voltammetry. The instructions in this UC assume that the student already has a three electrode cell set up and ready for testing (working electrode, counter electrode, and reference electrode are all in a proper beaker and connected to the potentiostat clips).
+Use Case: Cyclic Voltammetry on the JUAMI Potentiostat
+Intended User: Undergraduate Researcher at a University in Africa with Introductory Knowledge of Electrochemistry and Cyclic Voltammetry. The instructions in this UC assume that the student already has an electrochemical cell set up and ready for testing (working electrode, counter electrode, and possibly reference electrode are all in a proper beaker).
+As a test case - Mike will perform these instructions as someone with knowledge of electrochemistry but little knowledge of Python.
+
 Experimental Setup:
 
-The UC I initially had in mind was for a student that already had a 3-electrode testing cell set up, and they just need instructions for setting up the code. For now, these steps are left out, but I have added some details in the Intended User section above.
+1. Mike plugs the USB cable into the computer and the potentiostat
+1. Mike attaches the red wire to the working electrode (material of interest)
+1. Mike attaches the black clip to the counter electrode
+1. Mike attaches the white clip to the reference electrode if he is using one, or he attaches it to the counter electrode for a two electrode test
 
 Program Setup:
-1. User defines a file name that will be used to export the voltage, current, and time information.
+1. Mike opens the Pytentiostat script (the script is incomplete and requires filling in of user-defined information)
+1. Mike types a file name for the sample being tested (file will contain the voltage, current, and time information)
 1. User inputs Initial Potential (V vs. open circuit voltage (Eocv)
 1. User inputs first turnover potential (V vs. Ref)
 1. User inputs second turnover potential (V)
