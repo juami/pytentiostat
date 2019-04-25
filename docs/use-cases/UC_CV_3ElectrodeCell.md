@@ -38,5 +38,3 @@ Pytentiostat Operations
 1. Pytentiostat stops recording the applied potential, measured current, and time in the spreadsheet
 1. Pytentiostat automatically saves the spreadsheet of collected data
 1. Pytentiostat plots current (mA) vs. potential (V vs. Ref)
-
-change
