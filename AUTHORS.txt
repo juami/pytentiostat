@@ -1,12 +1,15 @@
 This code was developed in the Haile Group at Northwestern University and
 in the Billinge Group at Columbia University with inputs from many others.
+<<<<<<< HEAD
 
 The developers are
+
 
     Simon J. L. Billinge
     Michael Spencer
     Yao Tong
     Austin Plymill
+
 
 Contributions and extensive testing of the code was carried out by current
 members of the Haile and Billinge groups
