@@ -1,12 +1,8 @@
 This code was developed in the Haile Group at Northwestern University and
 in the Billinge Group at Columbia University with inputs from many others.
-The main developers are
+The developers are
 
-    Yao Tong,
 
-with significant inputs from
-
-    
     Simon J. L. Billinge
     Michael Spencer
     Yao Tong
