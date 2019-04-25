@@ -8,10 +8,9 @@ with significant inputs from
 
     
     Simon J. L. Billinge
-    Sun Hwil Bang    
-    Jeremy Hitt
-    Austin Plymill    
     Michael Spencer
+    Yao Tong
+    Austin Plymill
     
         
 Contributions and extensive testing of the code was carried out by current
