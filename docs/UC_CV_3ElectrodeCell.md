@@ -20,13 +20,13 @@ Program Setup:
 1. Mike inputs final potential on line # (typically 0 V vs. Eocv same as initial potential)
 1. Mike types the lower limiting safety potential on line # (the program will automatically turn off if potential exits this range)
 1. Mike types the upper limiting safety potential on line #
-1. Mike clicks run to start the scripted program
+1. Mike clicks run to start the Pytentiostat script
 
 Pytentiostat Operations
 1. Pytentiostat creates the file with the specified file name
 1. Pytentiostat records the user defined parameters in the file
 1. Pytentiostat tells the potentiostat to start measuring current
-1. Pytentiostat stores the applied potential, measured current, and time in the file
+1. Pytentiostat starts storing the applied potential, measured current, and time in the file while simultaneously plotting measured current vs. potential on the screen
 1. Pytentiostat initiates the first cycle by sweeping potential from initial potential to first turnover potential
 1. Pytentiostat sweeps the potential from first turnover potential to second turnover potential (this completes the first cycle)
 1. Pytentiostat sweeps the potential from the second turnover potential to the first turnover potential
@@ -38,5 +38,3 @@ Pytentiostat Operations
 1. Pytentiostat stops recording the applied potential, measured current, and time in the spreadsheet
 1. Pytentiostat automatically saves the spreadsheet of collected data
 1. Pytentiostat plots current (mA) vs. potential (V vs. Ref)
-
-1. Note: need to export potential and current data to a spreadsheet that will automatically save either during the scanning process or that will be exported after the scan is complete.
