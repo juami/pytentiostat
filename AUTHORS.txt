@@ -1,6 +1,5 @@
 This code was developed in the Haile Group at Northwestern University and
 in the Billinge Group at Columbia University with inputs from many others.
-<<<<<<< HEAD
 
 The developers are
 
