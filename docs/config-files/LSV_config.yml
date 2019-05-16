@@ -1,3 +1,5 @@
+output_file_name: <?>
+
 LSV Parameters:
   V_initial:  <?>   #[V vs. ref] initial potential
   V_final:    <?>   #[V vs. ref] final potential
