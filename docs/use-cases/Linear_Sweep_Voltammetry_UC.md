@@ -12,7 +12,7 @@ As a test case - Mike will perform this use case as someone with knowledge of el
 1. Mike attaches the white clip to the reference electrode if he is using one, or he attaches it to the counter electrode for a two electrode test
 
 **Program Setup:**
-1. Mike opens the *Pytentiostat_LSV template* config file in a text editor
+1. Mike opens the *Pytentiostat_LSV template* config file from the docs/config-files directory in a text editor
 1. Mike saves the file to a new name in the working directory
 1. Mike opens the *Getting started - LSV* file for experiment setup instructions
 1. Mike replaces all "<?>" placeholders in the Pytentiostat_LSV template with values specific to the experiment being run
