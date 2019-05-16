@@ -20,11 +20,11 @@ As a test case - Mike will perform this use case as someone with knowledge of el
 1. Mike runs the python code
 
 **Pytentiostat Operations**
-1. Pytentiostat creates an text file with the file name specified in the config file
+1. Pytentiostat creates an text file with output_file_name specified in the config file
 1. Pytentiostat records the user defined parameters in the file
 1. Pytentiostat tells the potentiostat to start measuring current
 1. Pytentiostat starts storing the applied potential, measured current, and time in the file while simultaneously plotting measured current vs. potential on the screen
-1. Pytentiostat initiates the potential sweep from initial potential to final potential
+1. Pytentiostat initiates the potential sweep from V_initial to V_final
 1. Pytentiostat stops applying a potential
 1. Pytentiostat stops measuring current
 1. Pytentiostat stops recording the applied potential, measured current, and time in the spreadsheet
