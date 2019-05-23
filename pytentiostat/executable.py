@@ -11,7 +11,7 @@ if __name__ == '__main__':
     with open('config.json') as json_data_file:
         configdata = json.load(json_data_file)
     ExperimentType = configdata['Experiment']['Type']
-    x = configdata[str(ExperimentType)]['Max_Vol']
+    x = configdata[str(ExperimentType)]['Max_Volage']
 
     PlotCommand = configdata['Plot']['Type']
 
