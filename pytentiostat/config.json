@@ -10,17 +10,17 @@
 
     },
     "LSV":{
-        "Max_Vol":255,
-        "Min_Vol":0,
+        "Max_Volage":255,
+        "Min_Voltage":0,
         "Scan_Rate":5
     },
     "CV":{
-        "Max_Vol":100,
-        "Min_Vol":0,
+        "Max_Voltage":100,
+        "Min_Voltage":0,
         "Scan_Rate":5
     },
     "Constant":{
-        "Vol":90
+        "Voltage":90
     }
 
 }
