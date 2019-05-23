@@ -1,3 +1,4 @@
+#This file is where all the fuctions are defined
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 import numpy
