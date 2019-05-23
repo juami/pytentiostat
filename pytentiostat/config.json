@@ -1,0 +1,26 @@
+{
+    "Experiment":{
+      "Type":"LSV"
+    },
+    "Plot":{
+      "Type":"plot"
+    },
+    "Write":{
+      "Type":"write"
+
+    },
+    "LSV":{
+        "Max_Vol":255,
+        "Min_Vol":0,
+        "Scan_Rate":5
+    },
+    "CV":{
+        "Max_Vol":100,
+        "Min_Vol":0,
+        "Scan_Rate":5
+    },
+    "Constant":{
+        "Vol":90
+    }
+
+}
