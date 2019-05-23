@@ -1,4 +1,6 @@
-Use Case: Running Chronoamperometry for a Two or Three Electrode Cell on the JUAMI Potentiostat through the graphical user interface. Intended User: Undergraduate (UG) Researcher at a University in Africa with Introductory Knowledge of Electrochemistry and Chronoamperometry, and limited experience with Python. The instructions in this UC assume that the student already has a two or three electrode cell set up and ready for testing (working electrode, counter electrode, and (optional) reference electrode are all in proper locations and connected to the potentiostat clips). 
+### Use Case Description ###
+
+Use Case: Running Chronoamperometry for a Two or Three Electrode Cell on the JUAMI Potentiostat through the graphical user interface. Intended User: Undergraduate (UG) Researcher at a University in Africa with Introductory Knowledge of Electrochemistry and Chronoamperometry, and limited experience with Python. The instructions in this UC assume that the student already has a two or three electrode cell set up and ready for testing (working electrode, counter electrode, and (optional) reference electrode are all in proper locations and connected to the potentiostat clips). Additionaly the potentiostat is connected to a computer with the program on it via the usb cable.
 
 ### Program Setup ###
 
@@ -12,6 +14,9 @@ Use Case: Running Chronoamperometry for a Two or Three Electrode Cell on the JUA
 1. UG inputs length of time to wait before applying potential.
 1. UG inputs length of time to apply potential.
 1. UG inputs current window (the program will automatically turn off if current exceeds this range).
+
+### Running the Program ###
+
 1. User starts the program by left clicking on green arrow labeled "Run".
 1. The program prompts the user to choose a destination file to save data to.
 1. UG selects a file path and name that will be used to export the voltage, current, and time information.
