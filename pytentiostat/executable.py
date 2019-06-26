@@ -1,6 +1,6 @@
 # This is what you want to execute
 import json
-from ArduinoBoard import ProgramSetup as PS
+from main import ProgramSetup as PS
 #from DataHandeling import DataHandeling as DH
 
 
