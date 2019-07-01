@@ -2,25 +2,25 @@
     "Experiment":{
       "Type":"LSV"
     },
-    "Plot":{
-      "Type":"plot"
+    "plot":{
+      "Type": true
     },
-    "Write":{
-      "Type":"write"
+    "write":{
+      "Type": true
 
     },
     "LSV":{
-        "Max_Volage":255,
-        "Min_Voltage":0,
-        "Scan_Rate":5
+        "max_voltage":255,
+        "min_voltage":0,
+        "scan_rate":5
     },
     "CV":{
-        "Max_Voltage":100,
-        "Min_Voltage":0,
-        "Scan_Rate":5
+        "max_voltage":100,
+        "min_voltage":0,
+        "scan_rate":5
     },
     "Constant":{
-        "Voltage":90
+        "voltage":90
     }
 
 }

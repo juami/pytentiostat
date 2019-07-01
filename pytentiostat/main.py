@@ -78,7 +78,7 @@ class ProgramSetup(object):
             ax.append(round(xl,4))  # real time on x-axis
             ay1.append(round(val2,4))  # assign Current with respect to xl
             ay2.append(round(val0,4))  # assign Voltage with respect to xl
-            if argv[0] == 'plot':
+            if argv[0] :
                 plt.clf()  # clear previous plots
                 plt.xlim(xl - 40, xl + 40)  # Set up x range
                 plt.ylim(-2500, 2500)  # Set up y range
@@ -92,6 +92,6 @@ class ProgramSetup(object):
         timeArray = numpy.asarray(ax)
         CurrentArray = numpy.asarray(ay1)
         VoltageArray = numpy.asarray(ay2)
-        if argv[1] == 'write':
+        if argv[1] :
             numpy.savetxt('dataset.csv', numpy.column_stack((timeArray, CurrentArray, VoltageArray)))
         return timeArray, CurrentArray, VoltageArray

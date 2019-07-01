@@ -7,14 +7,14 @@ from main import ProgramSetup as PS
 
 if __name__ == '__main__':
     test = PS()
-    #test.setup_arduino()
+    test.setup_arduino()
     with open('config.json') as json_data_file:
-        configdata = json.load(json_data_file)
-    ExperimentType = configdata['Experiment']['Type']
-    x = configdata[str(ExperimentType)]['Max_Voltage']
+        config = json.load(json_data_file)
+    ExperimentType = config['Experiment']['Type']
+    x = config[str(ExperimentType)]['max_voltage']
 
-    PlotCommand = configdata['Plot']['Type']
+    PlotCommand = config['plot']['Type']
 
-    WriteCommand = configdata['Write']['Type']
+    WriteCommand = config['write']['Type']
 
     test.DataProcess(x,PlotCommand,WriteCommand)
