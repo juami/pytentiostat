@@ -10,17 +10,11 @@
 
     },
     "LSV":{
-        "max_voltage":255,
-        "min_voltage":0,
-        "scan_rate":5
+        "max_voltage":2.5,
+        "min_voltage":-2.5
     },
     "CV":{
-        "max_voltage":100,
-        "min_voltage":0,
-        "scan_rate":5
-    },
-    "Constant":{
-        "voltage":90
+        "max_voltage": 2.5,
+        "min_voltage": -2.5
     }
-
 }
