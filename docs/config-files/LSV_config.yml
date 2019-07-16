@@ -1,8 +1,0 @@
-output_file_name: <?>
-
-LSV Parameters:
-  V_initial:  <?>   #[V vs. ref] initial potential
-  V_final:    <?>   #[V vs. ref] final potential
-  SR:         <?>   #[mV/s] sweep rate
-  V_LL:       <?>   #[V vs. ref] lower limiting safety potential
-  V_UL:       <?>   #[V vs. ref] upper limiting safety potential

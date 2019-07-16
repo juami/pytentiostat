@@ -102,7 +102,3 @@ venv.bak/
 
 # mypy
 .mypy_cache/
-
-# file: ~/.gitignore_global
-.DS_Store
-.idea
