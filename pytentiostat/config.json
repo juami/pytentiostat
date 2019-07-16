@@ -1,0 +1,20 @@
+{
+    "Experiment":{
+      "Type":"LSV"
+    },
+    "plot":{
+      "Type": true
+    },
+    "write":{
+      "Type": true
+
+    },
+    "LSV":{
+        "max_voltage":2.5,
+        "min_voltage":-2.5
+    },
+    "CV":{
+        "max_voltage": 2.5,
+        "min_voltage": -2.5
+    }
+}
