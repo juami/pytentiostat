@@ -1,0 +1,23 @@
+# YAML config
+mode: # key
+  linear sweep voltammetry:
+    - start voltage [mV]
+    - end voltage [mV]
+    - step size 
+    - hold time [sec]
+    
+  cyclic voltammetry:
+    - low voltage [mV]
+    - high voltage [mV]
+    - start voltage [mV]
+    - step size 
+    - hold time [sec]
+    - number of cycle
+    
+  chronoamperometry:
+    - start voltage [mV]
+    - first step voltage [mV]
+    - second step voltage [mV]
+    - quiet time [sec]
+    - first step time [msec]
+    - second step time [msec]
