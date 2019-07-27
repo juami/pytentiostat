@@ -50,8 +50,8 @@ print('Configuration file loaded successfully. Beginning experiment...')
 # User defined variables
 quiet_time = 5.0  # specify time for arduino to wait before recording data.
                   # This removes charging current if desired by the user
-start_V = 0.0
-stop_V = 0.70
+start_V = 0.74
+stop_V = -0.74
 sn_rt_V_p_s = 0.1
 '-----------------------------------------------------------------------------'
 '-----------------------------------------------------------------------------'
@@ -72,7 +72,10 @@ min_timestep = 0.005
 
 step_num = abs(int((stop_V - start_V)/min_stp_sz))   # the number of steps between
 StepList = np.linspace(start_V, stop_V, num=step_num)
-TimeStep = (stop_V - start_V)/(sn_rt_V_p_s*step_num)
+TimeStep = abs((stop_V - start_V)/(sn_rt_V_p_s*step_num))
+PWM_steplist = []
+for t in StepList:
+  PWM_steplist.append((t-(-1.0))/(1.0-(-1.0)))  # Mapping voltage value to PWM duty cycle
 StartTime = time.time()
 
 Times = []
@@ -90,10 +93,11 @@ plt.ylabel('current')
 plt.xlabel('Voltage read (V)')
 
 
-d9.write(StepList[0])
+d9.write(PWM_steplist[0])
+print('Quiet time ' + str(quiet_time) + 's')
 time.sleep(quiet_time)
 
-for x in StepList:
+for x in PWM_steplist:
   
   d9.write(x)  # Writes Value Between 0 and 1 (-2.5V to 2.5V) 256 possible
   time.sleep(min_stp_sz)
@@ -111,6 +115,7 @@ for x in StepList:
   plt.pause(1e-17)
   time.sleep(TimeStep)
 
+print('LSV complete')
 plt.show()  
 board.exit()
 
