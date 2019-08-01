@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 from pyfirmata import Arduino, util
 from matplotlib import pyplot as plt
 import time
@@ -50,9 +48,9 @@ print('Configuration file loaded successfully. Beginning experiment...')
 # User defined variables
 quiet_time = 5.0  # specify time for arduino to wait before recording data.
                   # This removes charging current if desired by the user
-start_V = 0.74
-stop_V = -0.74
-sn_rt_V_p_s = 0.1
+start_voltage = 0.74
+stop_voltage = -0.74
+scan_rate_volt_per_s = 0.1
 '-----------------------------------------------------------------------------'
 '-----------------------------------------------------------------------------'
 it = util.Iterator(board)
@@ -70,55 +68,55 @@ min_stp_sz = 1.4/255.0
 min_timestep = 0.005
 
 
-step_num = abs(int((stop_V - start_V)/min_stp_sz))   # the number of steps between
-StepList = np.linspace(start_V, stop_V, num=step_num)
-TimeStep = abs((stop_V - start_V)/(sn_rt_V_p_s*step_num))
-PWM_steplist = []
-for t in StepList:
-  PWM_steplist.append((t-(-1.0))/(1.0-(-1.0)))  # Mapping voltage value to PWM duty cycle
-StartTime = time.time()
+step_num = abs(int((stop_voltage - start_voltage)/min_stp_sz))   # the number of steps between
+steplist = np.linspace(start_voltage, stop_voltage, num=step_num)
+timestep = abs((stop_voltage - start_voltage)/(scan_rate_volt_per_s*step_num))
+pwm_steplist = []
+for t in steplist:
+  pwm_steplist.append((t-(-1.0))/(1.0-(-1.0)))  # Mapping voltage value to PWM duty cycle
+starttime = time.time()
 
-Times = []
-Voltages = []
-Currents = []
+time_list = []
+voltage_list = []
+current_list = []
 
 plt.show()
 
 axes = plt.gca()
 axes.set_xlim(-1,1)
 axes.set_ylim(0,1)
-line, = axes.plot(Voltages, Currents, 'r-')
+line, = axes.plot(voltages, currents, 'r-')
 #plt.xlabel('Time (s)')
 plt.ylabel('current')
 plt.xlabel('Voltage read (V)')
 
 
-d9.write(PWM_steplist[0])
+d9.write(pwm_steplist[0])
 print('Quiet time ' + str(quiet_time) + 's')
 time.sleep(quiet_time)
 
-for x in PWM_steplist:
+for x in pwm_steplist:
   
   d9.write(x)  # Writes Value Between 0 and 1 (-2.5V to 2.5V) 256 possible
   time.sleep(min_stp_sz)
-  Pin0Value = a0.read()  # Reads Value Between 0 and 1 (-2.5V to 2.5V) 1024 possible
-  Pin2Value = a2.read()
-  NowTime = time.time()
-  TimePassed = NowTime-StartTime
-  Times.append(TimePassed)
-  real_voltage = (Pin0Value-0.5)*-1*2.86
-  Voltages.append(real_voltage)
-  Currents.append(Pin2Value)
-  line.set_ydata(Currents)
-  line.set_xdata(Voltages)
+  pin0value = a0.read()  # Reads Value Between 0 and 1 (-2.5V to 2.5V) 1024 possible
+  pin2value = a2.read()
+  nowtime = time.time()
+  timepassed = nowtime-starttime
+  time_list.append(timepassed)
+  real_voltage = (pin0value-0.5)*-1*2.86
+  voltage_list.append(real_voltage)
+  current_list.append(pin2value)
+  line.set_ydata(current_list)
+  line.set_xdata(voltage_list)
   plt.draw()
   plt.pause(1e-17)
-  time.sleep(TimeStep)
+  time.sleep(timestep)
 
 print('LSV complete')
 plt.show()  
 board.exit()
 
 # Saving data
-#data = pd.DataFrame(list(zip(Times,Currents,Voltages)),columns=['time','current','voltage'])
-#data.to_csv('JUAMI_lsvouput.csv')
+#data = pd.DataFrame(list(zip(time_list,current_list,voltage_list)),columns=['time','current','voltage'])
+#data.to_csv('filename here')
