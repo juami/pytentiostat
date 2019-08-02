@@ -56,7 +56,7 @@ def startup_routine():
 def closing_routine(board, d9):
     
     #Prompt
-    print('Experiment Complete')
+    print('Experiment Complete!')
     
     #Show Final Data
     plt.show()  
