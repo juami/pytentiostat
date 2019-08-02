@@ -55,3 +55,4 @@ def plot_updater(experiment_type, data, line):
         line.set_ydata(currents)
         plt.draw()
         plt.pause(1e-17)
+
