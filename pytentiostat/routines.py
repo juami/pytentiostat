@@ -4,7 +4,7 @@ import time
 import serial.tools.list_ports
 
 
-def StartupRoutine():
+def startup_routine():
 
     print('Welcome to the JUAMI pytentiostat interface!')
     print('Searching for potentiostat...')
@@ -53,10 +53,10 @@ def StartupRoutine():
     
     return com, board, a0, a2, d9
 
-def ClosingRoutine(board, d9):
+def closing_routine(board, d9):
     
     #Prompt
-    print('Experiment Complete')
+    print('Experiment Complete!')
     
     #Show Final Data
     plt.show()  
