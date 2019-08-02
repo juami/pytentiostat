@@ -12,5 +12,5 @@ def save_data_to_file(data):
     df.to_csv(filename,index=False,header=True)
     
     #Uncomment after config updated
-    #shutil.move(Filename, Export_File_Destination)
+    #shutil.move(filename, export_file_destination)
     
