@@ -3,7 +3,7 @@ import time
 import numpy as np
 
 #Pytentiostat function files
-import plotter as plotter
+from plotter import plot_initializer, plot_updater
 
 #Constants for every experiment
 conversion_factor = 4.798 # To voltage real voltage range
@@ -31,11 +31,11 @@ voltages = []
 currents = []
 
 #Starting up the plot
-line = plotter.plot_initializer(exp_type)
+line = plot_initializer(exp_type)
 
 
 
-def Experiment(board, a0, a2, d9):
+def experiment(board, a0, a2, d9):
     
     start_time = time.time()
     
@@ -48,7 +48,7 @@ def Experiment(board, a0, a2, d9):
           current_catcher = 0
           
           now_time = time.time()
-          time_passed = now_time-Start_Time
+          time_passed = now_time-start_time
           times.append(time_passed)
           
           while i < average_number:
@@ -72,8 +72,8 @@ def Experiment(board, a0, a2, d9):
           current_average = current_catcher/average_number
           voltages.append(voltage_average)
           currents.append(current_average)
-          collected_data = zip(Times, Voltages, Currents)
-          plotter.plot_updater(exp_type, collected_data, line)
+          collected_data = zip(times, voltages, currents)
+          plot_updater(exp_type, collected_data, line)
           
         return times, voltages, currents
     
