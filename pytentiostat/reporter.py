@@ -2,6 +2,21 @@ import pandas as pd
 
 
 def save_data_to_file(data, filename="Place_Holder.csv"):
+    '''
+    Saves measured data to a csv file
+
+    Parameters
+    ----------
+    data : array
+        the data that will be saved
+    filename : string
+        the name of the file to save. Optional. Defaults to Place_Holder.csv
+
+    Returns
+    -------
+        nothing
+    '''
+
     # These will be imported from config
     export_file_destination = "Place/holder/path"
 
