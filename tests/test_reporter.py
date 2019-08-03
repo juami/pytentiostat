@@ -7,9 +7,9 @@ from pytentiostat.reporter import save_data_to_file
 @pytest.mark.parametrize(
     "input,expected", [
         ([[1, 0, 0]],
-         "Time(s),Voltage(V),Current(mA)\n1,0,0\n1,0,0\n"),
+         "Time(s),Voltage(V),Current(mA)\n1,0,0\n"),
         ([[1, 0, 0], [2, 0, 0]],
-         "Time(s),Voltage(V),Current(mA)\n1,0,0\n1,0,0\n2,0,0"),
+         "Time(s),Voltage(V),Current(mA)\n1,0,0\n2,0,0\n"),
     ]
 )
 def test_save_data_to_file(input, expected, tmpdir):
