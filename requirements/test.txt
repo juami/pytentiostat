@@ -2,4 +2,3 @@ pytest
 coverage
 codecov
 mock
-pytest_mock
