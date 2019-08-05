@@ -9,6 +9,9 @@ class Dummy_port:
         self.description = descr
         self.device = "com"
 
+class Dummy_arduino:
+    def __init__(self):
+        self.name = None
 
 def test_load_arduinos():
     good_port = Dummy_port("Arduino Uno")
@@ -31,6 +34,14 @@ def test_load_arduinos():
 
 
 def test_initialize_arduino():
-    com = "bad_com"
+    da = Dummy_arduino()
+    da.name = "good_arduino"
+
     with pytest.raises(SystemExit):
-        board = _initialize_arduino(com)
+        _initialize_arduino("bad_port")
+    with mock.patch(
+        "pytentiostat.routines.Arduino",
+        return_value=da,
+    ):
+        ard = _initialize_arduino("good_port")
+        assert ard.name == "good_arduino"

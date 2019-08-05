@@ -5,6 +5,7 @@ from pyfirmata import Arduino, util
 import matplotlib.pyplot as plt
 import serial.tools.list_ports
 
+BAUD_RATE = 115200
 
 def _load_arduino():
     print("Searching for potentiostat...")
@@ -25,8 +26,8 @@ def _load_arduino():
 
 def _initialize_arduino(com):
     try:
-        board = Arduino(com, baudrate=115200)  # opens communication to Arduino
-        print("Potentiostat connected {}. Reading configuration file...".format(com))
+        board = Arduino(com, baudrate=BAUD_RATE)  # opens communication to Arduino
+        print("Pytentiostat connected {}. Reading configuration file...".format(com))
     except:
         sys.exit("Error. Could not open COM port")
     return board
