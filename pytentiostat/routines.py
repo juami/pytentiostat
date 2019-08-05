@@ -17,25 +17,24 @@ def _load_arduino():
 
     if n_arduinos > 1:
         sys.exit('More than one Arduino Uno found. Exiting...')
-
     if n_arduinos == 0:
         sys.exit('No JUAMI potentiostat found. Exiting...')
 
     return com
 
-
-def startup_routine():
-    print('Welcome to the JUAMI pytentiostat interface!')
-
-    com = _load_arduino()
+def _initialize_arduino(com):
     try:
         board = Arduino(com, baudrate=115200)  # opens communication to Arduino
         print(
             'Potentiostat connected {}. Reading configuration file...'.format(com))
     except:
-        print('Error. Could not open COM port')
-        time.sleep(5)
-        sys.exit('Could not read config file. Exiting...')
+        sys.exit('Error. Could not open COM port')
+    return board
+
+def startup_routine():
+    print('Welcome to the JUAMI pytentiostat interface!')
+    com = _load_arduino()
+    board = _initialize_arduino(com)
     try:
         time.sleep(0)  # Place holder until config file is finished
         # config = yaml.safe_load(file)

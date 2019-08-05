@@ -1,7 +1,8 @@
 import mock
 import pytest
 
-from pytentiostat.routines import _load_arduino
+from pytentiostat.routines import _load_arduino, _initialize_arduino
+from serial.serialutil import SerialException
 
 
 class Dummy_port():
@@ -25,3 +26,7 @@ def test_load_arduinos():
     with pytest.raises(SystemExit):
         _load_arduino()
 
+def test_initialize_arduino():
+    com = "bad_com"
+    with pytest.raises(SystemExit):
+        board = _initialize_arduino(com)
