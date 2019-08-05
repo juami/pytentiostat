@@ -1,4 +1,5 @@
-ruamel.yaml
 pytest
 coverage
 codecov
+mock
+pytest_mock
