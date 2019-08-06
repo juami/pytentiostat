@@ -12,15 +12,13 @@ def _load_arduino():
     ports = list(serial.tools.list_ports.comports())
     n_arduinos = 0
     for p in ports:  # Checking for Arduino Unos connected
-        if "Arduino Un" == p.description:
+        if "Arduino Uno" == p.description:
             com = p.device
             n_arduinos += 1
-
     if n_arduinos > 1:
         sys.exit("More than one Arduino Uno found. Exiting...")
     if n_arduinos == 0:
         sys.exit("No JUAMI potentiostat found. Exiting...")
-
     return com
 
 
@@ -34,11 +32,26 @@ def _initialize_arduino(com):
 
 
 def startup_routine():
+    '''
+    Initializes the communication port with the JUAMI potentistat
+
+    The funtion does this that and the other and exits if it isn't happy and
+    dings some pins and so on.
+
+    Returns
+    -------
+    bunch of things.
+    com : string
+      the name of the port with the potentiostat on it
+
+    '''
+
     print("Welcome to the JUAMI pytentiostat interface!")
     com = _load_arduino()
     board = _initialize_arduino(com)
     try:
-        time.sleep(0)  # Place holder until config file is finished
+        # FIXME Place holder until config file is finished
+        time.sleep(0)
         # config = yaml.safe_load(file)
     except:
         sys.exit("Could not read config file. Exiting...")
