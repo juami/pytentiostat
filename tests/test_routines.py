@@ -5,18 +5,20 @@ from pytentiostat.routines import _load_arduino, _initialize_arduino
 
 
 class Dummy_port:
-    def __init__(self, descr):
-        self.description = descr
+    def __init__(self):
+        self.description = "default"
         self.device = "com"
 
 class Dummy_arduino:
     def __init__(self):
         self.name = None
 
-def test_load_arduinos():
-    good_port = Dummy_port("Arduino Uno")
+def test_load_arduino():
+    good_port = Dummy_port()
+    good_port.description = "Arduino Uno"
     good_port.device = "good com"
-    bad_port = Dummy_port("Not Arduino")
+    bad_port = Dummy_port()
+    bad_port.description = "Not Arduino"
     with mock.patch(
         "pytentiostat.routines.serial.tools.list_ports.comports",
         return_value=[good_port],

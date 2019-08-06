@@ -5,14 +5,14 @@ from pyfirmata import Arduino, util
 import matplotlib.pyplot as plt
 import serial.tools.list_ports
 
-BAUD_RATE = 115200
+_BAUD_RATE = 115200
 
 def _load_arduino():
     print("Searching for potentiostat...")
     ports = list(serial.tools.list_ports.comports())
     n_arduinos = 0
     for p in ports:  # Checking for Arduino Unos connected
-        if "Arduino Uno" in p.description:
+        if "Arduino Un" == p.description:
             com = p.device
             n_arduinos += 1
 
@@ -26,7 +26,7 @@ def _load_arduino():
 
 def _initialize_arduino(com):
     try:
-        board = Arduino(com, baudrate=BAUD_RATE)  # opens communication to Arduino
+        board = Arduino(com, baudrate=_BAUD_RATE)  # opens communication to Arduino
         print("Pytentiostat connected {}. Reading configuration file...".format(com))
     except:
         sys.exit("Error. Could not open COM port")
