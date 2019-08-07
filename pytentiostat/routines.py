@@ -12,7 +12,7 @@ def _load_arduino():
     ports = list(serial.tools.list_ports.comports())
     n_arduinos = 0
     for p in ports:  # Checking for Arduino Unos connected
-        if "Arduino Uno" == p.description:
+        if "Arduino Uno" in p.description:
             com = p.device
             n_arduinos += 1
     if n_arduinos > 1:
@@ -35,14 +35,15 @@ def startup_routine():
     '''
     Initializes the communication port with the JUAMI potentistat
 
-    The funtion does this that and the other and exits if it isn't happy and
-    dings some pins and so on.
-
     Returns
     -------
-    bunch of things.
+    Map of hardware
     com : string
       the name of the port with the potentiostat on it
+    board : serial communication for board
+    a0 : location of analog read pin 0
+    a2 : location of analog read pin 2
+    d9 : location of digital pwm pin 9
 
     '''
 
@@ -62,9 +63,9 @@ def startup_routine():
     it.start()
 
     # Setup Arduino pins
-    a0 = board.get_pin("a:0:i")  # Analog pin 0
-    a2 = board.get_pin("a:2:i")  # Analog pin 2
-    d9 = board.get_pin("d:9:p")  # Digital pin 9 (PWM)
+    a0 = board.get_pin("a:0:i")  
+    a2 = board.get_pin("a:2:i") 
+    d9 = board.get_pin("d:9:p")  
 
     return com, board, a0, a2, d9
 
@@ -84,5 +85,4 @@ def closing_routine(board, d9):
     #Show Final Data
     plt.show()
 
-if __name__ == "__main__":
-    startup_routine()
+
