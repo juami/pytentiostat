@@ -24,4 +24,4 @@
 
 ### Environmental Limitations
 1. Temperature range of -40C to 85C
-..* Calibrated at room temperature and may need to be recalibrated at different operating temperature
+  * Calibrated at room temperature and may need to be recalibrated at different operating temperature
