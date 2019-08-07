@@ -58,12 +58,11 @@ def closing_routine(board, d9):
     #Prompt
     print('Experiment Complete!')
     
-    #Show Final Data
-    plt.show()  
-    
     #Reset PWM
     d9.write(0)
     
     #Close Connection
     board.exit()
 
+    #Show Final Data
+    plt.show()

@@ -1,18 +1,25 @@
 from matplotlib import pyplot as plt
 
 def plot_initializer(experiment_type):
-
     times = []
     voltages = []
     currents = []
 
-    #Let's start and setup initial plot parameters
+    # Stuff from config
+    exp_type = 'CV'
+    exp_time = 15
+
+    # Let's start and setup initial plot parameters
     plt.show()
     axes = plt.gca()
     axes.set_xlim(-2.5, 2.5)
     axes.set_ylim(-2.5, 2.5)
 
-    #Let's switch commands based on experiment run
+    # This is just for testing
+    if exp_type == 'CA':
+        axes.set_xlim(0, 2 * exp_time)
+
+    # Let's switch commands based on experiment run
     if experiment_type == 'LSV':
         line, = axes.plot(voltages, currents, 'r-')
         plt.xlabel('Voltage (V)')
@@ -31,13 +38,13 @@ def plot_initializer(experiment_type):
         plt.ylabel('Current (mA)')
         return line
 
-def plot_updater(experiment_type, data, line):
 
-    #Let's first unzip and collect Data
-    listy=list(data)
+def plot_updater(experiment_type, data, line):
+    # Let's first unzip and collect Data
+    listy = list(data)
     times, voltages, currents = zip(*listy)
 
-    #Let's switch commands based on experiment run
+    # Let's switch commands based on experiment run
     if experiment_type == 'LSV':
         line.set_xdata(voltages)
         line.set_ydata(currents)
