@@ -2,17 +2,17 @@
 
 ## Operational Limitations
 
-### Writing Limitation
+### Writing Limitations
 1. Voltage from -2.5V to 2.5V (Slightly lower from voltage drop off on instrument)
 1. ~20mV step size (5V/256 from PWM limitation)
 1. PWM Frequency is 31372.55 Hz (Starts new duty cycle every 31.9 microseconds)
 
-### Reading Limitation
+### Reading Limitations
 1. Voltage ~5mV step size
 1. Resistance resolution dependent on shunt resistor [Will be clarified later]
 1. Maximum current dependent on shunt resistor [Will be clarified later]
 
-### Read/Write Limitation
+### Read/Write Limitations
 1. Current Standard is 30ms timestep (6 ms read/write cycle averaged 5 times)
 1. Baudrate can transfer at 115,200 bits/s
 
