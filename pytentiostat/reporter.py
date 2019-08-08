@@ -23,6 +23,7 @@ def save_data_to_file(data, filename="Place_Holder.csv"):
     list_data = list(data)
     df = pd.DataFrame(data=list_data,
                       columns=['Time(s)', 'Voltage(V)', 'Current(mA)'])
+
     with open(filename, mode='w', newline='\n') as f:
         df.to_csv(f, index=False, header=True)
 
