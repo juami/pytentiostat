@@ -1,13 +1,10 @@
 from matplotlib import pyplot as plt
+from config_reader import get_exp_type, get_exp_time
 
-def plot_initializer(experiment_type):
+def plot_initializer():
     times = []
     voltages = []
     currents = []
-
-    # Stuff from config
-    exp_type = 'CV'
-    exp_time = 15
 
     # Let's start and setup initial plot parameters
     plt.show()
@@ -20,46 +17,49 @@ def plot_initializer(experiment_type):
         axes.set_xlim(0, 2 * exp_time)
 
     # Let's switch commands based on experiment run
-    if experiment_type == 'LSV':
+    if exp_type == 'LSV':
         line, = axes.plot(voltages, currents, 'r-')
         plt.xlabel('Voltage (V)')
         plt.ylabel('Current (mA)')
         return line
 
-    elif experiment_type == 'CA':
+    elif exp_type == 'CA':
         line, = axes.plot(times, currents, 'r-')
         plt.xlabel('Time (s)')
         plt.ylabel('Current (mA)')
         return line
 
-    elif experiment_type == 'CV':
+    elif exp_type == 'CV':
         line, = axes.plot(voltages, currents, 'r-')
         plt.xlabel('Voltage (V)')
         plt.ylabel('Current (mA)')
         return line
 
 
-def plot_updater(experiment_type, data, line):
+def plot_updater(data, line):
     # Let's first unzip and collect Data
     listy = list(data)
     times, voltages, currents = zip(*listy)
 
     # Let's switch commands based on experiment run
-    if experiment_type == 'LSV':
+    if exp_type == 'LSV':
         line.set_xdata(voltages)
         line.set_ydata(currents)
         plt.draw()
         plt.pause(1e-17)
 
-    elif experiment_type == 'CA':
+    elif exp_type == 'CA':
         line.set_xdata(times)
         line.set_ydata(currents)
         plt.draw()
         plt.pause(1e-17)
 
-    if experiment_type == 'CV':
+    if exp_type == 'CV':
         line.set_xdata(voltages)
         line.set_ydata(currents)
         plt.draw()
         plt.pause(1e-17)
 
+# Stuff from config
+exp_type = get_exp_type()
+exp_time = get_exp_time()
