@@ -1,7 +1,11 @@
 import pandas as pd
+import shutil
 
+from config_reader import get_output_params
 
-def save_data_to_file(data, filename="Place_Holder.csv"):
+filename, export_file_destination = get_output_params()
+
+def save_data_to_file(data):
     '''
     Saves measured data to a csv file
 
@@ -17,9 +21,6 @@ def save_data_to_file(data, filename="Place_Holder.csv"):
         nothing
     '''
 
-    # These will be imported from config
-    export_file_destination = "Place/holder/path"
-
     list_data = list(data)
     df = pd.DataFrame(data=list_data,
                       columns=['Time(s)', 'Voltage(V)', 'Current(mA)'])
@@ -27,13 +28,12 @@ def save_data_to_file(data, filename="Place_Holder.csv"):
     with open(filename, mode='w', newline='\n') as f:
         df.to_csv(f, index=False, header=True)
 
-    # Uncomment after config updated
-    # shutil.move(filename, export_file_destination)
+    shutil.move(filename, export_file_destination)
 
 
 if __name__ == "__main__":
     # used for debugging.  Does the function write the right file?
     #
-    save_data_to_file([[1, 1, 1], [2, 2, 2]], filename="save_data_test.txt")
-    o = open("save_data_test.txt", "r")
+    save_data_to_file([[1, 1, 1], [2, 2, 2]], filename=filename)
+    o = open(filename, "r")
     print(o.read())
