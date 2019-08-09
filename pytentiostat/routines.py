@@ -5,6 +5,8 @@ from pyfirmata import Arduino, util
 import matplotlib.pyplot as plt
 import serial.tools.list_ports
 
+from config_reader import get_rest_time
+
 _BAUD_RATE = 115200
 
 def _load_arduino():
@@ -51,9 +53,8 @@ def startup_routine():
     com = _load_arduino()
     board = _initialize_arduino(com)
     try:
-        # FIXME Place holder until config file is finished
-        time.sleep(0)
-        # config = yaml.safe_load(file)
+        rest_time = get_rest_time()
+        time.sleep(rest_time)
     except:
         sys.exit("Could not read config file. Exiting...")
 
@@ -84,5 +85,4 @@ def closing_routine(board, d9):
 
     #Show Final Data
     plt.show()
-
 
