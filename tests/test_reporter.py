@@ -2,6 +2,7 @@ import os
 import pytest
 
 from pytentiostat.reporter import save_data_to_file
+from pytentiostat.config_reader import get_output_params
 
 
 @pytest.mark.parametrize(
