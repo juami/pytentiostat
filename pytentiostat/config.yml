@@ -1,8 +1,8 @@
 general_parameters:
   experiment_type: CV
   rest_time: 0
-  data_output_filename: MyData.csv
-  data_output_path: 'C:\Users\austi\Desktop'
+  data_output_filename: MyData
+  data_output_path: default
 linear_sweep_voltammetry:
   start_voltage: 0 #V
   end_voltage: 1 #V
