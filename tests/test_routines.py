@@ -2,7 +2,7 @@ import mock
 import pytest
 
 from pytentiostat.routines import _load_arduino, _initialize_arduino
-
+from pytentiostat.config_reader import get_rest
 
 class Dummy_port:
     def __init__(self):
