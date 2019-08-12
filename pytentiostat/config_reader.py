@@ -1,15 +1,24 @@
-from yaml import load
-try:
-    from yaml import CLoader as Loader
-except ImportError:
-    from yaml import Loader
+from yaml import safe_load
+import datetime
+import time
+import sys
 
 def get_output_params():
     
     data_out_name = data['general_parameters']['data_output_filename']
     data_out_path = data['general_parameters']['data_output_path']
     
-    return data_out_name, data_out_path
+    default_condition = 'N'
+    
+    if data_out_path == 'default':
+        default_condition = 'Y'
+    
+    currentDT = datetime.datetime.now()
+    ts = currentDT.strftime('%H_%M_%S')
+    
+    out_name_ts = data_out_name + '_' + ts + '.csv'
+    
+    return out_name_ts, data_out_path, default_condition
 
 def  get_lsv_params():
     
@@ -48,11 +57,13 @@ def get_exp_time():
     
     return exp_time
 
-def get_rest_time():
+def get_rest():
     
-    rest_time = data['general_parameters']['rest_time']
-    
-    return rest_time
+    try:
+        rest_time = data['general_parameters']['rest_time']
+        time.sleep(rest_time)
+    except:
+        sys.exit("Could not read config file. Exiting...")
 
 def get_adv_params():
     
@@ -65,10 +76,9 @@ def get_adv_params():
     return conversion_factor, shunt_resistor, time_step, average_number, time_per_measurement
 
 #Load the config files
-stream = open('config.yml', 'r')
-data = load(stream, Loader=Loader)
-stream.close()
+with open('config.yml','r') as stream:
+    data = safe_load(stream)
 
-adv_stream = open('adv_config.yml', 'r')
-adv_data = load(adv_stream, Loader=Loader)
-adv_stream.close
+
+with open('adv_config.yml','r') as adv_stream:
+    adv_data = safe_load(adv_stream)
