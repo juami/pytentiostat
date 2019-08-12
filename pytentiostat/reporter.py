@@ -1,9 +1,8 @@
 import pandas as pd
-import shutil
-
+import os
 from config_reader import get_output_params
 
-filename, export_file_destination = get_output_params()
+filename, export_destination, default_condition = get_output_params()
 
 def save_data_to_file(data):
     '''
@@ -24,12 +23,15 @@ def save_data_to_file(data):
     list_data = list(data)
     df = pd.DataFrame(data=list_data,
                       columns=['Time(s)', 'Voltage(V)', 'Current(mA)'])
-
-    with open(filename, mode='w', newline='\n') as f:
+    
+    export_path = export_destination
+    
+    if default_condition == 'Y':
+    
+        export_path = os.path.join(os.path.join(os.environ['USERPROFILE']), 'Desktop')
+    
+    with open(os.path.join(export_path, filename), mode='w', newline='\n') as f:
         df.to_csv(f, index=False, header=True)
-
-    shutil.move(filename, export_file_destination)
-
 
 if __name__ == "__main__":
     # used for debugging.  Does the function write the right file?
