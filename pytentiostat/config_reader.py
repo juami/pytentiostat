@@ -75,10 +75,13 @@ def get_adv_params():
     
     return conversion_factor, shunt_resistor, time_step, average_number, time_per_measurement
 
+#Config file Location
+configlocation = ''    
+
 #Load the config files
-with open('config.yml','r') as stream:
+with open(configlocation+'config.yml','r') as stream:
     data = safe_load(stream)
 
 
-with open('adv_config.yml','r') as adv_stream:
+with open(configlocation+'adv_config.yml','r') as adv_stream:
     adv_data = safe_load(adv_stream)
