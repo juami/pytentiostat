@@ -1,11 +1,10 @@
-import time
 import sys
 
 from pyfirmata import Arduino, util
 import matplotlib.pyplot as plt
 import serial.tools.list_ports
 
-from config_reader import get_rest_time
+from config_reader import get_rest
 
 _BAUD_RATE = 115200
 
@@ -50,15 +49,11 @@ def startup_routine():
     '''
 
     print("Welcome to the JUAMI pytentiostat interface!")
+    
     com = _load_arduino()
     board = _initialize_arduino(com)
-    try:
-        rest_time = get_rest_time()
-        time.sleep(rest_time)
-    except:
-        sys.exit("Could not read config file. Exiting...")
-
-    print("Configuration file loaded successfully. Beginning experiment...")
+    
+    get_rest()
 
     it = util.Iterator(board)
     it.start()
@@ -85,4 +80,3 @@ def closing_routine(board, d9):
 
     #Show Final Data
     plt.show()
-
