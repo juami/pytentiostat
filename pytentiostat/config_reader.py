@@ -1,9 +1,22 @@
-from yaml import safe_load
+import yaml
 import datetime
 import time
 import sys
+import os
+
+def parse_config_files(configlocation=""):
+    
+    with open(os.path.join(configlocation,'config.yml'),'r') as stream:
+        data = yaml.safe_load(stream)
+
+    with open(os.path.join(configlocation,'adv_config.yml'),'r') as adv_stream:
+        adv_data = yaml.safe_load(adv_stream)
+        
+    return data, adv_data
 
 def get_output_params():
+    
+    data, adv_data = parse_config_files()
     
     data_out_name = data['general_parameters']['data_output_filename']
     data_out_path = data['general_parameters']['data_output_path']
@@ -22,6 +35,8 @@ def get_output_params():
 
 def  get_lsv_params():
     
+    data, adv_data = parse_config_files()
+    
     start_voltage = data['linear_sweep_voltammetry']['start_voltage']
     end_voltage = data['linear_sweep_voltammetry']['end_voltage']
     sweep_rate = data['linear_sweep_voltammetry']['sweep_rate']
@@ -30,12 +45,16 @@ def  get_lsv_params():
 
 def get_ca_params():
     
+    data, adv_data = parse_config_files()
+    
     voltage = data['chronoamperometry']['voltage']
     time = data['chronoamperometry']['time']
     
     return voltage, time
 
 def get_cv_params():
+    
+    data, adv_data = parse_config_files()
     
     start_voltage = data['cyclic_voltomoetry']['start_voltage']
     first_turnover = data['cyclic_voltomoetry']['first_turnover_voltage']
@@ -47,17 +66,23 @@ def get_cv_params():
 
 def get_exp_type():
     
+    data, adv_data = parse_config_files()
+    
     exp_type = data['general_parameters']['experiment_type']
     
     return exp_type
 
 def get_exp_time():
     
+    data, adv_data = parse_config_files()
+    
     exp_time = data['chronoamperometry']['time']
     
     return exp_time
 
 def get_rest():
+    
+    data, adv_data = parse_config_files()
     
     try:
         rest_time = data['general_parameters']['rest_time']
@@ -66,6 +91,8 @@ def get_rest():
         sys.exit("Could not read config file. Exiting...")
 
 def get_adv_params():
+    
+    data, adv_data = parse_config_files()
     
     conversion_factor = adv_data['conversion_factor']
     shunt_resistor = adv_data['shunt_resistor']
@@ -76,13 +103,9 @@ def get_adv_params():
     
     return conversion_factor, shunt_resistor, time_step, average_number, time_per_measurement, time_factor
 
-#Config file Location
-configlocation = ''    
-
-#Load the config files
-with open(configlocation+'config.yml','r') as stream:
-    data = safe_load(stream)
-
-
-with open(configlocation+'adv_config.yml','r') as adv_stream:
-    adv_data = safe_load(adv_stream)
+if __name__ == '__main__':
+    
+    # used for debugging.  Does the function load the configs?
+    data, adv_data = parse_config_files('pytentiostat/tests/static')
+    data_out_name = data['general_parameters']['data_output_filename']
+    print(data_out_name)
