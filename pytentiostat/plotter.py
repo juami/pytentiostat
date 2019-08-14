@@ -1,7 +1,11 @@
 from matplotlib import pyplot as plt
 from config_reader import get_exp_type, get_exp_time
 
-def plot_initializer():
+def plot_initializer(config_data):
+    
+    exp_type = get_exp_type(config_data)
+    exp_time = get_exp_time(config_data)
+    
     times = []
     voltages = []
     currents = []
@@ -36,7 +40,10 @@ def plot_initializer():
         return line
 
 
-def plot_updater(data, line):
+def plot_updater(config_data, data, line):
+    
+    exp_type = get_exp_type(config_data)
+    
     # Let's first unzip and collect Data
     listy = list(data)
     times, voltages, currents = zip(*listy)
@@ -59,7 +66,3 @@ def plot_updater(data, line):
         line.set_ydata(currents)
         plt.draw()
         plt.pause(1e-17)
-
-# Stuff from config
-exp_type = get_exp_type()
-exp_time = get_exp_time()
