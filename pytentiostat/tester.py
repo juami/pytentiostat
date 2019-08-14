@@ -7,7 +7,7 @@ from plotter import plot_initializer, plot_updater
 import config_reader as cr
 
 # Constants for every experiment
-conversion_factor, shunt_resistor, time_step, average_number, time_per_measurement = cr.get_adv_params()
+conversion_factor, shunt_resistor, time_step, average_number, time_per_measurement, time_factor = cr.get_adv_params()
 
 # This will be loaded from config
 exp_type = cr.get_exp_type()
@@ -15,6 +15,7 @@ exp_type = cr.get_exp_type()
 if exp_type == 'LSV':
     
     start_voltage, end_voltage, sweep_rate = cr.get_lsv_params()
+    sweep_rate = sweep_rate*time_factor
     normalized_start = (start_voltage + 2.5) / 5  # for PWM
     normalized_end = (end_voltage + 2.5) / 5
 
@@ -36,6 +37,7 @@ elif exp_type == 'CA':
 elif exp_type == 'CV':
 
     start_voltage, first_turnover, second_turnover, sweep_rate, cycle_number = cr.get_cv_params()
+    sweep_rate = sweep_rate*time_factor
     normalized_start = (start_voltage + 2.5) / 5
     norm_first_turnover = (first_turnover + 2.5) / 5
     norm_second_turnover = (second_turnover + 2.5) / 5
@@ -65,12 +67,13 @@ line = plot_initializer()
 
 
 def experiment(board, a0, a2, d9):
-    start_time = time.time()
 
     if exp_type == 'LSV':
         
         d9.write(normalized_start)
         cr.get_rest()
+        
+        start_time = time.time()
 
         for x in steps_list:
 
@@ -83,7 +86,6 @@ def experiment(board, a0, a2, d9):
             times.append(time_passed)
 
             while i < average_number:
-                time.sleep(time_step)
                 d9.write(x)  # Writes Value Between 0 and 1 (-2.5V to 2.5V) 256 possible
                 time.sleep(time_step)
                 pin0value = a0.read()  # Reads Value Between 0 and 1 (-2.5V to 2.5V) 1024 possible
@@ -110,6 +112,8 @@ def experiment(board, a0, a2, d9):
         
         d9.write(normalized_voltage)
         cr.get_rest()
+        
+        start_time = time.time()
 
         for x in steps_list:
 
@@ -146,6 +150,8 @@ def experiment(board, a0, a2, d9):
         return times, voltages, currents
 
     elif exp_type == 'CV':
+        
+        start_time = time.time()
         
         for x in first_steps_list:
             
