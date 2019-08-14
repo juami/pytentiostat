@@ -68,6 +68,9 @@ def experiment(board, a0, a2, d9):
     start_time = time.time()
 
     if exp_type == 'LSV':
+        
+        d9.write(normalized_start)
+        cr.get_rest()
 
         for x in steps_list:
 
@@ -104,6 +107,9 @@ def experiment(board, a0, a2, d9):
         return times, voltages, currents
 
     elif exp_type == 'CA':
+        
+        d9.write(normalized_voltage)
+        cr.get_rest()
 
         for x in steps_list:
 
@@ -142,6 +148,9 @@ def experiment(board, a0, a2, d9):
     elif exp_type == 'CV':
         
         for x in first_steps_list:
+            
+            d9.write(normalized_start)
+            cr.get_rest()
     
             i = 0
             voltage_catcher = 0
