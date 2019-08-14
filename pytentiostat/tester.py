@@ -29,7 +29,7 @@ elif exp_type == 'CA':
     
     voltage, time_for_range = cr.get_ca_params()
     normalized_voltage = (voltage + 2.5) / 5
-    time_for_range = 15  # s
+    time_for_range = time_for_range/time_factor
     step_number = int(time_for_range / time_per_measurement)
 
     steps_list = [normalized_voltage] * step_number
@@ -65,193 +65,74 @@ currents = []
 # Starting up the plot
 line = plot_initializer()
 
+def start_exp(d9):
+    
+    d9.write(normalized_start)
+    cr.get_rest()       
+    start_time = time.time()
+    
+    return start_time
+
+def read_write(start_time, d9, a0, a2, steps_list, average, line):
+    
+    for x in steps_list:
+        
+        #update time
+        now_time = time.time()
+        time_passed = now_time - start_time
+        times.append(time_passed)
+        
+        i = 0
+        voltage_catcher = 0
+        current_catcher = 0
+    
+        while i < average_number:
+            d9.write(x)  # Writes Value Between 0 and 1 (-2.5V to 2.5V) 256 possible
+            time.sleep(time_step)
+            pin0value = a0.read()  # Reads Value Between 0 and 1 (-2.5V to 2.5V) 1024 possible
+            pin2value = a2.read()
+    
+            real_voltage = (pin0value - 0.5) * -1 * conversion_factor
+            real_current = ((pin2value - 0.5) * -1 * conversion_factor) / shunt_resistor
+    
+            voltage_catcher = voltage_catcher + real_voltage
+            current_catcher = current_catcher + real_current
+    
+            i = i + 1
+        
+        voltage_average = voltage_catcher / average
+        current_average = current_catcher / average
+        voltages.append(voltage_average)
+        currents.append(current_average)
+        collected_data = zip(times, voltages, currents)
+        plot_updater(collected_data, line)
 
 def experiment(board, a0, a2, d9):
 
     if exp_type == 'LSV':
         
-        d9.write(normalized_start)
-        cr.get_rest()
-        
-        start_time = time.time()
-
-        for x in steps_list:
-
-            i = 0
-            voltage_catcher = 0
-            current_catcher = 0
-
-            now_time = time.time()
-            time_passed = now_time - start_time
-            times.append(time_passed)
-
-            while i < average_number:
-                d9.write(x)  # Writes Value Between 0 and 1 (-2.5V to 2.5V) 256 possible
-                time.sleep(time_step)
-                pin0value = a0.read()  # Reads Value Between 0 and 1 (-2.5V to 2.5V) 1024 possible
-                pin2value = a2.read()
-
-                real_voltage = (pin0value - 0.5) * -1 * conversion_factor
-                real_current = ((pin2value - 0.5) * -1 * conversion_factor) / shunt_resistor
-
-                voltage_catcher = voltage_catcher + real_voltage
-                current_catcher = current_catcher + real_current
-
-                i = i + 1
-
-            voltage_average = voltage_catcher / average_number
-            current_average = current_catcher / average_number
-            voltages.append(voltage_average)
-            currents.append(current_average)
-            collected_data = zip(times, voltages, currents)
-            plot_updater(collected_data, line)
+        start_time = start_exp(d9)
+            
+        read_write(start_time, d9, a0, a2, steps_list, average_number, line)
 
         return times, voltages, currents
 
     elif exp_type == 'CA':
         
-        d9.write(normalized_voltage)
-        cr.get_rest()
-        
-        start_time = time.time()
+        start_time = start_exp(d9)
 
-        for x in steps_list:
-
-            i = 0
-            voltage_catcher = 0
-            current_catcher = 0
-
-            now_time = time.time()
-            time_passed = now_time - start_time
-            times.append(time_passed)
-
-            while i < average_number:
-                time.sleep(time_step)
-                d9.write(x)  # Writes Value Between 0 and 1 (-2.5V to 2.5V) 256 possible
-                time.sleep(time_step)
-                pin0value = a0.read()  # Reads Value Between 0 and 1 (-2.5V to 2.5V) 1024 possible
-                pin2value = a2.read()
-
-                real_voltage = (pin0value - 0.5) * -1 * conversion_factor
-                real_current = ((pin2value - 0.5) * -1 * conversion_factor) / shunt_resistor
-
-                voltage_catcher = voltage_catcher + real_voltage
-                current_catcher = current_catcher + real_current
-
-                i = i + 1
-
-            voltage_average = voltage_catcher / average_number
-            current_average = current_catcher / average_number
-            voltages.append(voltage_average)
-            currents.append(current_average)
-            collected_data = zip(times, voltages, currents)
-            plot_updater(collected_data, line)
+        read_write(start_time, d9, a0, a2, steps_list, average_number, line)
 
         return times, voltages, currents
 
     elif exp_type == 'CV':
         
-        start_time = time.time()
+        start_time = start_exp(d9)
         
-        for x in first_steps_list:
-            
-            d9.write(normalized_start)
-            cr.get_rest()
-    
-            i = 0
-            voltage_catcher = 0
-            current_catcher = 0
-    
-            now_time = time.time()
-            time_passed = now_time - start_time
-            times.append(time_passed)
-    
-            while i < average_number:
-                time.sleep(time_step)
-                d9.write(x)  # Writes Value Between 0 and 1 (-2.5V to 2.5V) 256 possible
-                time.sleep(time_step)
-                pin0value = a0.read()  # Reads Value Between 0 and 1 (-2.5V to 2.5V) 1024 possible
-                pin2value = a2.read()
-    
-                real_voltage = (pin0value - 0.5) * -1 * conversion_factor
-                real_current = ((pin2value - 0.5) * -1 * conversion_factor) / shunt_resistor
-    
-                voltage_catcher = voltage_catcher + real_voltage
-                current_catcher = current_catcher + real_current
-    
-                i = i + 1
-    
-            voltage_average = voltage_catcher / average_number
-            current_average = current_catcher / average_number
-            voltages.append(voltage_average)
-            currents.append(current_average)
-            collected_data = zip(times, voltages, currents)
-            plot_updater(collected_data, line)
-    
-        for x in second_steps_list:
-    
-            i = 0
-            voltage_catcher = 0
-            current_catcher = 0
-    
-            now_time = time.time()
-            time_passed = now_time - start_time
-            times.append(time_passed)
-    
-            while i < average_number:
-                time.sleep(time_step)
-                d9.write(x)  # Writes Value Between 0 and 1 (-2.5V to 2.5V) 256 possible
-                time.sleep(time_step)
-                pin0value = a0.read()  # Reads Value Between 0 and 1 (-2.5V to 2.5V) 1024 possible
-                pin2value = a2.read()
-    
-                real_voltage = (pin0value - 0.5) * -1 * conversion_factor
-                real_current = ((pin2value - 0.5) * -1 * conversion_factor) / shunt_resistor
-    
-                voltage_catcher = voltage_catcher + real_voltage
-                current_catcher = current_catcher + real_current
-    
-                i = i + 1
-    
-            voltage_average = voltage_catcher / average_number
-            current_average = current_catcher / average_number
-            voltages.append(voltage_average)
-            currents.append(current_average)
-            collected_data = zip(times, voltages, currents)
-            plot_updater(collected_data, line)
-    
-        for x in third_steps_list:
-    
-            i = 0
-            voltage_catcher = 0
-            current_catcher = 0
-    
-            now_time = time.time()
-            time_passed = now_time - start_time
-            times.append(time_passed)
-    
-            while i < average_number:
-                time.sleep(time_step)
-                d9.write(x)  # Writes Value Between 0 and 1 (-2.5V to 2.5V) 256 possible
-                time.sleep(time_step)
-                pin0value = a0.read()  # Reads Value Between 0 and 1 (-2.5V to 2.5V) 1024 possible
-                pin2value = a2.read()
-    
-                real_voltage = (pin0value - 0.5) * -1 * conversion_factor
-                real_current = ((pin2value - 0.5) * -1 * conversion_factor) / shunt_resistor
-    
-                voltage_catcher = voltage_catcher + real_voltage
-                current_catcher = current_catcher + real_current
-    
-                i = i + 1
-    
-            voltage_average = voltage_catcher / average_number
-            current_average = current_catcher / average_number
-            voltages.append(voltage_average)
-            currents.append(current_average)
-            collected_data = zip(times, voltages, currents)
-            plot_updater(collected_data, line)
-
+        read_write(start_time, d9, a0, a2, first_steps_list, average_number, line) 
+        read_write(start_time, d9, a0, a2, second_steps_list, average_number, line)  
+        read_write(start_time, d9, a0, a2, third_steps_list, average_number, line)
+        
         return times, voltages, currents
 
     else:
