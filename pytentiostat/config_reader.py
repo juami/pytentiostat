@@ -71,7 +71,7 @@ def get_adv_params():
     shunt_resistor = adv_data['shunt_resistor']
     time_step = adv_data['time_step']
     average_number = adv_data['average_number']
-    time_per_measurement = time_step * 2 * average_number
+    time_per_measurement = time_step * average_number
     time_factor = adv_data['time_factor']
     
     return conversion_factor, shunt_resistor, time_step, average_number, time_per_measurement, time_factor
