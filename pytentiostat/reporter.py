@@ -2,9 +2,7 @@ import pandas as pd
 import os
 from config_reader import get_output_params
 
-filename, export_destination, default_condition = get_output_params()
-
-def save_data_to_file(data):
+def save_data_to_file(config_data, data):
     '''
     Saves measured data to a csv file
 
@@ -19,6 +17,8 @@ def save_data_to_file(data):
     -------
         nothing
     '''
+
+    filename, export_destination, default_condition = get_output_params(config_data)
 
     list_data = list(data)
     df = pd.DataFrame(data=list_data,
@@ -36,6 +36,9 @@ def save_data_to_file(data):
 if __name__ == "__main__":
     # used for debugging.  Does the function write the right file?
     #
-    save_data_to_file([[1, 1, 1], [2, 2, 2]], filename=filename)
+    
+    filename, export_destination, default_condition = get_output_params(config_data)
+    
+    save_data_to_file(config_data, [[1, 1, 1], [2, 2, 2]], filename=filename)
     o = open(filename, "r")
     print(o.read())
