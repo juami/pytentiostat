@@ -4,8 +4,6 @@ from pyfirmata import Arduino, util
 import matplotlib.pyplot as plt
 import serial.tools.list_ports
 
-from config_reader import get_rest
-
 _BAUD_RATE = 115200
 
 def _load_arduino():
@@ -52,8 +50,6 @@ def startup_routine():
     
     com = _load_arduino()
     board = _initialize_arduino(com)
-    
-    get_rest()
 
     it = util.Iterator(board)
     it.start()
@@ -73,7 +69,7 @@ def closing_routine(board, d9):
     
     #Reset PWM
 
-    d9.write(0)
+    d9.write(0.5)
 
     # Close Connection
     board.exit()
