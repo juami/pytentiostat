@@ -1,5 +1,5 @@
 conversion_factor: 4.798  
 shunt_resistor: 0.202
-time_step: 0.006  
+time_step: 0.02  
 average_number: 9
-time_factor: 1
+time_factor: 1.35
