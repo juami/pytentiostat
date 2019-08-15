@@ -4,7 +4,6 @@ import datetime
 
 from pytentiostat.reporter import save_data_to_file
 from pytentiostat.config_reader import parse_config_files
-from pytentiostat.config_reader import get_output_params
 
 THIS_DIR = os.path.dirname(os.path.abspath(__file__))
 
