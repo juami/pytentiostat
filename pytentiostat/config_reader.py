@@ -37,21 +37,18 @@ def parse_config_files(configlocation=None):
     return config_data, adv_config_data
 
 
-def get_output_params(config_data):
+def get_output_params(config_data, override_ts=None):
     data_out_name = config_data["general_parameters"]["data_output_filename"]
     data_out_path = config_data["general_parameters"]["data_output_path"]
-
-    default_condition = "N"
-
-    if data_out_path == "default":
-        default_condition = "Y"
-
-    currentDT = datetime.datetime.now()
-    ts = currentDT.strftime("%H_%M_%S")
-
+    if data_out_path.lower() == "desktop":
+        data_out_path = os.path.join(os.path.join(os.environ["USERPROFILE"]),
+                                   "Desktop")
+    ts = datetime.datetime.now().strftime("%H_%M_%S")
+    if override_ts:
+        ts = override_ts
     out_name_ts = data_out_name + "_" + ts + ".csv"
 
-    return out_name_ts, data_out_path, default_condition
+    return out_name_ts, data_out_path
 
 
 def get_lsv_params(config_data):
