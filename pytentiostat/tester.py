@@ -6,7 +6,7 @@ import numpy as np
 from plotter import plot_initializer, plot_updater
 import config_reader as cr
 
-# Global lists for data to be used by functions
+# Global lists for config_data to be used by functions
 times = []
 voltages = []
 currents = []

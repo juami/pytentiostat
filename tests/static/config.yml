@@ -1,6 +1,6 @@
 general_parameters:
-  experiment_type: CV
-  rest_time: 0
+  experiment_type: LSV
+  rest_time: 0.5
   data_output_filename: MyData
   data_output_path: default
 linear_sweep_voltammetry:

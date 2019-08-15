@@ -1,16 +1,16 @@
 import pandas as pd
 import os
-from config_reader import get_output_params
+from pytentiostat.config_reader import get_output_params
 
 
 def save_data_to_file(config_data, data):
     """
-    Saves measured data to a csv file
+    Saves measured config_data to a csv file
 
     Parameters
     ----------
     data : array
-        the data that will be saved
+        the config_data that will be saved
     filename : string
         the name of the file to save. Optional. Defaults to Place_Holder.csv
 
