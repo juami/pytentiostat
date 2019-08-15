@@ -1,7 +1,8 @@
 import pandas as pd
+import os
+from config_reader import get_output_params
 
-
-def save_data_to_file(data, filename="Place_Holder.csv"):
+def save_data_to_file(config_data, data):
     '''
     Saves measured data to a csv file
 
@@ -17,23 +18,27 @@ def save_data_to_file(data, filename="Place_Holder.csv"):
         nothing
     '''
 
-    # These will be imported from config
-    export_file_destination = "Place/holder/path"
+    filename, export_destination, default_condition = get_output_params(config_data)
 
     list_data = list(data)
     df = pd.DataFrame(data=list_data,
                       columns=['Time(s)', 'Voltage(V)', 'Current(mA)'])
-
-    with open(filename, mode='w', newline='\n') as f:
+    
+    export_path = export_destination
+    
+    if default_condition == 'Y':
+    
+        export_path = os.path.join(os.path.join(os.environ['USERPROFILE']), 'Desktop')
+    
+    with open(os.path.join(export_path, filename), mode='w', newline='\n') as f:
         df.to_csv(f, index=False, header=True)
-
-    # Uncomment after config updated
-    # shutil.move(filename, export_file_destination)
-
 
 if __name__ == "__main__":
     # used for debugging.  Does the function write the right file?
     #
-    save_data_to_file([[1, 1, 1], [2, 2, 2]], filename="save_data_test.txt")
-    o = open("save_data_test.txt", "r")
+    
+    filename, export_destination, default_condition = get_output_params(config_data)
+    
+    save_data_to_file(config_data, [[1, 1, 1], [2, 2, 2]], filename=filename)
+    o = open(filename, "r")
     print(o.read())
