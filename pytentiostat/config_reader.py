@@ -15,7 +15,9 @@ def parse_config_files(configlocation=None):
     Parameters
     ----------
     configlocation : str
-        the path on the filesystem to the config file
+        the path on the filesystem to the config file.  Optional.  If not
+        specified pytentiostat looks in the current directory for the
+        config files.
 
     Returns
     -------
