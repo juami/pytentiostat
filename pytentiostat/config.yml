@@ -1,5 +1,5 @@
 general_parameters:
-  experiment_type: LSV
+  experiment_type: CA
   rest_time: 0.5
   data_output_filename: MyData
   data_output_path: desktop
@@ -15,4 +15,4 @@ cyclic_voltomoetry:
   number_of_cycles: 1
 chronoamperometry:
   voltage: 1 #V
-  time: 15 #s
+  time: 10 #s
