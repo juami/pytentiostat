@@ -1,10 +1,10 @@
-from matplotlib import pyplot as plt
-from config_reader import get_exp_type, get_exp_time
+import matplotlib.pyplot as plt
+import pytentiostat.config_reader
 
 
 def plot_initializer(config_data):
-    exp_type = get_exp_type(config_data)
-    exp_time = get_exp_time(config_data)
+    exp_type = pytentiostat.config_reader.get_exp_type(config_data)
+    exp_time = pytentiostat.config_reader.get_exp_time(config_data)
 
     times = []
     voltages = []
@@ -41,7 +41,7 @@ def plot_initializer(config_data):
 
 
 def plot_updater(config_data, data, line):
-    exp_type = get_exp_type(config_data)
+    exp_type = pytentiostat.config_reader.get_exp_type(config_data)
 
     # Let's first unzip and collect Data
     listy = list(data)
