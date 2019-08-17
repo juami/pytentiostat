@@ -124,9 +124,6 @@ def experiment(data, adv_data, board, a0, a2, d9):
             norm_second_turnover, normalized_start, num=third_step_number
         )
 
-    times = []
-    voltages = []
-    currents = []
 
     # Starting up the plot
     line = plot_initializer(data)
@@ -155,7 +152,7 @@ def experiment(data, adv_data, board, a0, a2, d9):
 
     elif exp_type == "CA":
 
-        start_time = start_exp(d9, normalized_start, data)
+        start_time = start_exp(d9, normalized_voltage, data)
 
         read_write(
             start_time,
