@@ -10,5 +10,5 @@ def test_parse_config_files():
     confdir = os.path.join(THIS_DIR, 'static/')
     config_data, adv_config_data = parse_config_files(confdir)
     expected_average_number = adv_config_data["average_number"]
-    Int_check = is_instance(expected_average_number, int)
+    Int_check = isinstance(expected_average_number, int)
     assert Int_check == True
