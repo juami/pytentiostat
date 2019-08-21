@@ -21,7 +21,7 @@ def test_save_data_to_file(input, expected, tmpdir):
     out_name_ts = "testfile" + "_" + ts + ".csv"
     file = tmpdir.join(out_name_ts)
     confdir = os.path.join(THIS_DIR, 'static/')
-    config_data, adv_config_data = parse_config_file(confdir)
+    config_data = parse_config_file(confdir)
     save_data_to_file(config_data, input, override_outpath=tmpdir, override_ts=ts)
     with open(file, "r") as f:
         actual = f.read()
