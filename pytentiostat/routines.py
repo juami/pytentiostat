@@ -8,6 +8,21 @@ _BAUD_RATE = 115200
 
 
 def _load_arduino():
+    '''
+    Gets a list of all serial ports connected and counts how many
+    Arduino Unos are connected
+
+    Raises
+    ______
+    SystemExit
+        If the number of Arduino Unos found is not equal to one
+
+    Returns
+    _______
+    com: str
+        Name of the com port for the Arduino Uno connected
+
+    '''
     print("Searching for potentiostat...")
     ports = list(serial.tools.list_ports.comports())
     n_arduinos = 0
@@ -70,7 +85,6 @@ def closing_routine(board, d9):
     print("Experiment Complete!")
 
     # Reset PWM
-
     d9.write(0.5)
 
     # Close Connection

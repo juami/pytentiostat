@@ -40,6 +40,25 @@ def parse_config_files(configlocation=None):
 
 
 def get_output_params(config_data, override_ts=None):
+    '''
+    Reads the path value for saving data from the dictionary, config_data,
+    and appends a time stamp to the file name for saving data.
+
+    Parameters
+    __________
+    config_data:
+        Contains the data read from config.yaml
+    override_ts:
+        Optional parameter if the user wants to overwrite a previous file
+
+    Returns
+    _______
+    out_name_ts: str
+        file name with time stamp appended at the end
+    data_out_path: str
+        path location where to save the data
+
+    '''
     data_out_name = config_data["general_parameters"]["data_output_filename"]
     data_out_path = config_data["general_parameters"]["data_output_path"]
     if data_out_path.lower() == "desktop":
@@ -91,11 +110,12 @@ def get_exp_time(config_data):
 
 
 def get_rest(config_data):
+    rest_time = config_data["general_parameters"]["rest_time"]
     try:
-        rest_time = config_data["general_parameters"]["rest_time"]
-        time.sleep(rest_time)
+        rest_time = float(rest_time)
     except:
-        sys.exit("Could not read config file. Exiting...")
+        sys.exit("The input for rest time was not a number")
+
 
 
 def get_adv_params(adv_config_data):
