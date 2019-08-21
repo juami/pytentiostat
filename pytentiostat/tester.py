@@ -3,8 +3,8 @@ import time
 import numpy as np
 
 # Pytentiostat function files
-from plotter import plot_initializer, plot_updater
-import config_reader as cr
+from pytentiostat.plotter import plot_initializer, plot_updater
+import pytentiostat.config_reader as cr
 
 # Global lists for config_data to be used by functions
 times = []
