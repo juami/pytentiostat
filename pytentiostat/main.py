@@ -1,5 +1,5 @@
 # Pytentiostat function files
-from pytentiostat.config_reader import parse_config_files
+from pytentiostat.config_reader import parse_config_file
 from pytentiostat.reporter import save_data_to_file
 from pytentiostat.tester import experiment
 from pytentiostat.routines import startup_routine, closing_routine
