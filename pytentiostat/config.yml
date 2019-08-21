@@ -1,0 +1,18 @@
+general_parameters:
+  experiment_type: CA
+  rest_time: 0.5
+  data_output_filename: MyData
+  data_output_path: desktop
+linear_sweep_voltammetry:
+  start_voltage: 0 #V
+  end_voltage: 1 #V
+  sweep_rate: 100 #mV/s
+cyclic_voltomoetry:
+  start_voltage: 0.5 #V
+  first_turnover_voltage: 1 #V
+  second_turnover_voltage: 0 #V
+  sweep_rate: 100 #mV/s
+  number_of_cycles: 1
+chronoamperometry:
+  voltage: 1 #V
+  time: 10 #s

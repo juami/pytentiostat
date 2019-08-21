@@ -2,3 +2,5 @@ python
 xonsh
 pyfirmata
 pandas
+matplotlib
+pyyaml

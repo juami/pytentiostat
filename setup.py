@@ -18,4 +18,5 @@ setup(
     package_data={"pytentiostat": ["config/*"]},
     include_package_data=True,
     url="http:/github.com/juami/pytentiostat",
+    scripts=["scripts/pytentiostat"],
 )
