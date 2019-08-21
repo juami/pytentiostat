@@ -9,6 +9,5 @@ def test_parse_config_files():
 
     confdir = os.path.join(THIS_DIR, 'static/')
     config_data = parse_config_file(confdir)
-    expected_average_number = config_data["advanced_parameters"]["average_number"]
-    Int_check = isinstance(expected_average_number, int)
-    assert Int_check == True
+    dict_check = isinstance(config_data, dict)
+    assert dict_check == True
