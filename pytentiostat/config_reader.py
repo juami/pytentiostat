@@ -5,12 +5,11 @@ import sys
 import os
 
 
-def parse_config_files(configlocation=None):
+def parse_config_file(configlocation=None):
     '''
     Reads config data from the config file
 
-    the config file must be called config.yml.  There must also be a file
-    called adv_config.yml
+    the config file must be called config.yml.
 
     Parameters
     ----------
@@ -23,8 +22,6 @@ def parse_config_files(configlocation=None):
     -------
     config_data : dict
         the configuration data
-    adv_config_data : dict
-        the less user-facing config data.
 
     '''
     if not configlocation:
@@ -32,11 +29,7 @@ def parse_config_files(configlocation=None):
     with open(os.path.join(configlocation, "config.yml"), "r") as stream:
         config_data = yaml.safe_load(stream)
 
-    with open(os.path.join(configlocation, "adv_config.yml"),
-              "r") as adv_stream:
-        adv_config_data = yaml.safe_load(adv_stream)
-
-    return config_data, adv_config_data
+    return config_data
 
 
 def get_output_params(config_data, override_ts=None):
@@ -99,12 +92,12 @@ def get_rest(config_data):
 
 
 def get_adv_params(adv_config_data):
-    conversion_factor = adv_config_data["conversion_factor"]
-    shunt_resistor = adv_config_data["shunt_resistor"]
-    time_step = adv_config_data["time_step"]
-    average_number = adv_config_data["average_number"]
+    conversion_factor = adv_config_data["advanced_parameters"]["conversion_factor"]
+    shunt_resistor = adv_config_data["advanced_parameters"]["shunt_resistor"]
+    time_step = adv_config_data["advanced_parameters"]["time_step"]
+    average_number = adv_config_data["advanced_parameters"]["average_number"]
     time_per_measurement = time_step * average_number
-    time_factor = adv_config_data["time_factor"]
+    time_factor = adv_config_data["advanced_parameters"]["time_factor"]
 
     return (
         conversion_factor,
@@ -118,6 +111,6 @@ def get_adv_params(adv_config_data):
 
 if __name__ == "__main__":
     # used for debugging.  Does the function load the configs?
-    data, adv_data = parse_config_files("pytentiostat/tests/static")
+    data = parse_config_files("pytentiostat/tests/static")
     data_out_name = data["general_parameters"]["data_output_filename"]
     print(data_out_name)
