@@ -59,11 +59,15 @@ def get_output_params(config_data, override_ts=None):
         path location where to save the data
 
     '''
-    data_out_name = config_data["general_parameters"]["data_output_filename"]
-    data_out_path = config_data["general_parameters"]["data_output_path"]
+    try:
+        data_out_name = config_data["general_parameters"]["data_output_filename"]
+        data_out_path = config_data["general_parameters"]["data_output_path"]
+    except:
+        sys.exit("Could not read config.yaml")
+
     if data_out_path.lower() == "desktop":
         data_out_path = os.path.join(os.path.join(os.path.expanduser('~')),
-                                   "Desktop")
+                                     "Desktop")
     ts = datetime.datetime.now().strftime("%H_%M_%S")
     if override_ts:
         ts = override_ts
@@ -112,7 +116,7 @@ def get_exp_time(config_data):
 def get_rest(config_data):
     rest_time = config_data["general_parameters"]["rest_time"]
     try:
-        rest_time = float(rest_time)
+        rest_time_fl = float(rest_time)
     except:
         sys.exit("The input for rest time was not a number")
 
@@ -135,6 +139,23 @@ def get_adv_params(adv_config_data):
         time_factor,
     )
 
+def check_config_inputs(arg):
+    '''
+    Checks that all the data that should be numerical from that config
+    can be represented as a float.
+
+    Parameters
+    __________
+    arg: unknown
+        any argument can be passed.
+
+    Returns
+    _______
+    is_number: Boolean
+        Value is True if the arg is a number, False if not.
+    '''
+    is_number = isinstance(float(arg), float)
+    return is_number
 
 if __name__ == "__main__":
     # used for debugging.  Does the function load the configs?
