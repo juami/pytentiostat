@@ -54,13 +54,16 @@ def startup_routine():
 
     Returns
     -------
-    Map of hardware
-    com : string
-      the name of the port with the potentiostat on it
-    board : serial communication for board
-    a0 : location of analog read pin 0
-    a2 : location of analog read pin 2
-    d9 : location of digital pwm pin 9
+    com: str
+        the name of the port connected to the Arduino Uno
+    board: pyFirmata/Arduino object
+        Serial object used to communicate to the Arduino
+    a0: pyFirmata/Arduino object
+        object used to read the voltage from pin a0.
+    a2: pyFirmata/Arduino object
+        object used to read the current from pin a2.
+    d9: pyFirmata/Arduino object
+        object used to write the voltage with PWM on pin 9.
 
     """
 

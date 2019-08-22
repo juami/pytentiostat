@@ -12,7 +12,25 @@ voltages = []
 currents = []
 
 
-def start_exp(d9, normalized_start, data):
+def start_exp(d9, normalized_start):
+    '''
+    Initializes the writing pin and gets the current time before the experiment
+    starts
+
+    Parameters
+    __________
+    d9: pyFirmata/Arduino object
+        object that represents the digital pin 9 on the Arduino. Instance
+        created in routines.py, startup_routine().
+    normalized_start: float
+        Number from 0 to 1 that sets the duty cycle of pin 9 before the
+        experiment starts
+
+    Returns
+    _______
+    start_time: float
+        Starting time of the experiment
+    '''
 
     d9.write(normalized_start)
     start_time = time.time()
@@ -23,6 +41,41 @@ def start_exp(d9, normalized_start, data):
 def read_write(
     start_time, d9, a0, a2, steps_list, average, line, time_step, cf, sr, data
 ):
+    """
+    Writes voltages to pin 9 using d9, reads voltages from pin 0 and 2 using a0
+    and a2, and calculates current from the voltage on a2.
+
+    Parameters
+    __________
+    start_time: float
+        Time the experiment starts
+    d9: pyFirmata/Arduino object
+        object used to write the voltage with PWM on pin 9.
+    a0: pyFirmata/Arduino object
+        object used to read the voltage from pin a0.
+    a2: pyFirmata/Arduino object
+        object used to read the voltage from pin a2.
+    steps_list: list
+        List that contains the voltages that should be written in LSV
+        and CV experiments
+    average: int
+        Number of times the readings are averaged before being recorded.
+    line: pyplot object
+        Determines the axes labels in the plot. Created in plotter.py,
+        plot_initializer().
+    time_step: float
+        Time to wait between points
+    cf: float
+        Conversion factor to correct the current and voltage readings
+    sr: float
+        Shunt resistor used to correct the current reading
+    data: dict
+        Dictionary that contains the data read from the config file.
+
+    Returns
+    _______
+    nothing
+    """
 
     for x in steps_list:
 
@@ -60,6 +113,33 @@ def read_write(
 
 
 def experiment(data, adv_data, board, a0, a2, d9):
+    """
+    Determines which experiment to run and applies the appropriate voltages
+    to perform the experiment based on the inputs from the config file. Plots
+    the data for and returns the data as lists to be saved.
+
+    data: dict
+        Dictionary containing data read from the config file
+    adv_data: dict
+        Dictionary containing data read from the config file
+    board: pyFirmata/Arduino object
+        Serial object used to communicate to the Arduino
+    a0: pyFirmata/Arduino object
+        object used to read the voltage from pin a0.
+    a2: pyFirmata/Arduino object
+        object used to read the voltage from pin a2.
+    d9: pyFirmata/Arduino object
+        object used to write the voltage with PWM from pin 9.
+
+    Returns
+    _______
+    times: list
+        List of floats containing the time each data point was recorded at
+    voltages: list
+        List of floats containing the corrected voltages at each data point
+    currents: list
+        List of floats containing the corrected currents at each data point
+    """
 
     # Constants for every experiment
     conversion_factor, shunt_resistor, time_step, average_number, time_per_measurement, time_factor = cr.get_adv_params(
