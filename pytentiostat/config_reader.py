@@ -26,11 +26,14 @@ def parse_config_file(configlocation=None):
     '''
     if not configlocation:
         configlocation = "./"
-    with open(os.path.join(configlocation, "config.yml"), "r") as stream:
-        config_data = yaml.safe_load(stream)
-
-    return config_data
-
+    
+    try:
+        with open(os.path.join(configlocation, "config.yml"), "r") as stream:
+            config_data = yaml.safe_load(stream)
+            return config_data
+        
+    except FileNotFoundError:
+        sys.exit("Could not find directory or config. Exiting...")
 
 def get_output_params(config_data, override_ts=None):
     data_out_name = config_data["general_parameters"]["data_output_filename"]
