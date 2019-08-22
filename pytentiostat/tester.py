@@ -15,7 +15,6 @@ currents = []
 def start_exp(d9, normalized_start, data):
 
     d9.write(normalized_start)
-    cr.get_rest(data)
     start_time = time.time()
 
     return start_time
