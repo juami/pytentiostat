@@ -1,5 +1,6 @@
 import yaml
 import os
+import pytest
 
 from pytentiostat.config_reader import parse_config_file, get_adv_params
 
