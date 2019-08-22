@@ -26,20 +26,26 @@ def parse_config_file(configlocation=None):
     '''
     if not configlocation:
         configlocation = "./"
-    
     try:
-        with open(os.path.join(configlocation, "config.yml"), "r") as stream:
-            config_data = yaml.safe_load(stream)
-            return config_data
-        
+        files_in_configlocation = os.listdir(configlocation)
+        config_check = "Not Found"
+        for i in files_in_configlocation:
+            if (i == "config.yml"):
+                config_check = "Found"
+        if (config_check != "Found"):
+            sys.exit("Could not find config file. Exiting...")
+        else:
+            with open(os.path.join(configlocation, "config.yml"), "r") as stream:
+                config_data = yaml.safe_load(stream)
+                return config_data
     except FileNotFoundError:
-        sys.exit("Could not find directory or config. Exiting...")
+        sys.exit("Could not find directory. Exiting...")
 
 def get_output_params(config_data, override_ts=None):
     data_out_name = config_data["general_parameters"]["data_output_filename"]
     data_out_path = config_data["general_parameters"]["data_output_path"]
     if data_out_path.lower() == "desktop":
-        data_out_path = os.path.join(os.path.join(os.path.expanduser('~')),
+        data_out_path = os.path.join(os.path.join(os.path.expanduser("~")),
                                    "Desktop")
     ts = datetime.datetime.now().strftime("%H_%M_%S")
     if override_ts:
