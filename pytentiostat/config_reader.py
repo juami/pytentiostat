@@ -33,13 +33,13 @@ def parse_config_file(configlocation=None):
             if (i == "config.yml"):
                 config_check = "Found"
         if (config_check != "Found"):
-            sys.exit("Could not find config file. Exiting...")
+            sys.exit("No file named config.yml found in config directory {}. Exiting...".format(configlocation))
         else:
             with open(os.path.join(configlocation, "config.yml"), "r") as stream:
                 config_data = yaml.safe_load(stream)
                 return config_data
     except FileNotFoundError:
-        sys.exit("Could not find directory. Exiting...")
+        sys.exit("Directory containing config file, {}, not found. Exiting...".format(configlocation))
 
 def get_output_params(config_data, override_ts=None):
     data_out_name = config_data["general_parameters"]["data_output_filename"]
