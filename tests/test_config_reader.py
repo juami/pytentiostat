@@ -16,8 +16,7 @@ def test_parse_config_files():
         assert pytest_exit_object.value.code == 42  
         assert pytest_exit_object.sys.stdout.getline().strip() == "Directory containing config file, {}, not found. Exiting...".format("Not_Real_Directory")
     with pytest.raises(SystemExit) as pytest_exit_object:
-        os.makedirs("/Dummy_Directory")
-        config_data = parse_config_file("/Dummy_Directory")
+        config_data = parse_config_file(THIS_DIR)
         assert pytest_exit_object.type == SystemExit 
         assert pytest_exit_object.value.code == 42  
-        assert pytest_exit_object.sys.stdout.getline().strip() == "No file named config.yml found in config directory /Dummy_Directory. Exiting..."
+        assert pytest_exit_object.sys.stdout.getline().strip() == "No file named config.yml found in config directory {}. Exiting...".format(THIS_DIR)
