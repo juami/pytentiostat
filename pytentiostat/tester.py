@@ -22,7 +22,7 @@ def start_exp(d9, normalized_start, data):
 
 
 def read_write(
-    start_time, d9, a0, a2, steps_list, average, line, time_step, cf, sr, data
+    start_time, d9, a0, a2, steps_list, average, line, time_step, cf, sr, config_data
 ):
 
     for x in steps_list:
@@ -57,22 +57,22 @@ def read_write(
         voltages.append(voltage_average)
         currents.append(current_average)
         collected_data = zip(times, voltages, currents)
-        plot_updater(data, collected_data, line)
+        plot_updater(config_data, collected_data, line)
 
 
-def experiment(data, adv_data, board, a0, a2, d9):
+def experiment(config_data, board, a0, a2, d9):
 
     # Constants for every experiment
     conversion_factor, shunt_resistor, time_step, average_number, time_per_measurement, time_factor = cr.get_adv_params(
-        adv_data
+        config_data
     )
 
     # This will be loaded from config
-    exp_type = cr.get_exp_type(data)
+    exp_type = cr.get_exp_type(config_data)
 
     if exp_type == "LSV":
 
-        start_voltage, end_voltage, sweep_rate = cr.get_lsv_params(data)
+        start_voltage, end_voltage, sweep_rate = cr.get_lsv_params(config_data)
         sweep_rate = sweep_rate * time_factor
         normalized_start = (start_voltage + 2.5) / 5  # for PWM
         normalized_end = (end_voltage + 2.5) / 5
@@ -85,7 +85,7 @@ def experiment(data, adv_data, board, a0, a2, d9):
 
     elif exp_type == "CA":
 
-        voltage, time_for_range = cr.get_ca_params(data)
+        voltage, time_for_range = cr.get_ca_params(config_data)
         normalized_voltage = (voltage + 2.5) / 5
         time_for_range = time_for_range / time_factor
         step_number = int(time_for_range / time_per_measurement)
@@ -95,7 +95,7 @@ def experiment(data, adv_data, board, a0, a2, d9):
     elif exp_type == "CV":
 
         start_voltage, first_turnover, second_turnover, sweep_rate, cycle_number = cr.get_cv_params(
-            data
+            config_data
         )
         sweep_rate = sweep_rate * time_factor
         normalized_start = (start_voltage + 2.5) / 5
@@ -126,13 +126,13 @@ def experiment(data, adv_data, board, a0, a2, d9):
 
 
     # Starting up the plot
-    line = plot_initializer(data)
+    line = plot_initializer(config_data)
 
     # Main experiment part
 
     if exp_type == "LSV":
 
-        start_time = start_exp(d9, normalized_start, data)
+        start_time = start_exp(d9, normalized_start, config_data)
 
         read_write(
             start_time,
@@ -145,14 +145,14 @@ def experiment(data, adv_data, board, a0, a2, d9):
             time_step,
             conversion_factor,
             shunt_resistor,
-            data,
+            config_data,
         )
 
         return times, voltages, currents
 
     elif exp_type == "CA":
 
-        start_time = start_exp(d9, normalized_voltage, data)
+        start_time = start_exp(d9, normalized_voltage, config_data)
 
         read_write(
             start_time,
@@ -165,14 +165,14 @@ def experiment(data, adv_data, board, a0, a2, d9):
             time_step,
             conversion_factor,
             shunt_resistor,
-            data,
+            config_data,
         )
 
         return times, voltages, currents
 
     elif exp_type == "CV":
 
-        start_time = start_exp(d9, normalized_start, data)
+        start_time = start_exp(d9, normalized_start, config_data)
 
         read_write(
             start_time,
@@ -185,7 +185,7 @@ def experiment(data, adv_data, board, a0, a2, d9):
             time_step,
             conversion_factor,
             shunt_resistor,
-            data,
+            config_data,
         )
         read_write(
             start_time,
@@ -198,7 +198,7 @@ def experiment(data, adv_data, board, a0, a2, d9):
             time_step,
             conversion_factor,
             shunt_resistor,
-            data,
+            config_data,
         )
         read_write(
             start_time,
@@ -211,7 +211,7 @@ def experiment(data, adv_data, board, a0, a2, d9):
             time_step,
             conversion_factor,
             shunt_resistor,
-            data,
+            config_data,
         )
 
         return times, voltages, currents
@@ -219,3 +219,4 @@ def experiment(data, adv_data, board, a0, a2, d9):
     else:
 
         print("Valid experiment type not entered")
+
