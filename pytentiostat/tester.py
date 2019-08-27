@@ -1,6 +1,7 @@
 # Standard Libraries
 import time
 import numpy as np
+import sys
 
 # Pytentiostat function files
 from pytentiostat.plotter import plot_initializer, plot_updater
@@ -142,9 +143,16 @@ def experiment(data, adv_data, board, a0, a2, d9):
     """
 
     # Constants for every experiment
-    conversion_factor, shunt_resistor, time_step, average_number, time_per_measurement, time_factor = cr.get_adv_params(
+    conversion_factor, shunt_resistor, time_step, average_number, time_factor = cr.get_adv_params(
         adv_data
     )
+
+    # Check the values in adv_config.yml
+    for i in [conversion_factor, shunt_resistor, time_step, average_number, time_factor]:
+        if not cr.check_config_inputs(i):
+            print("\x1b[0;31;0m" + "Error! \nThe value ", i, " in adv.config.yml is not a number" + "\x1b[0m")
+            sys.exit()
+    time_per_measurement = time_step * average_number
 
     # This will be loaded from config
     exp_type = cr.get_exp_type(data)
@@ -152,6 +160,13 @@ def experiment(data, adv_data, board, a0, a2, d9):
     if exp_type == "LSV":
 
         start_voltage, end_voltage, sweep_rate = cr.get_lsv_params(data)
+
+        # Check the values from config.yml
+        for i in [start_voltage, end_voltage, sweep_rate]:
+            if not cr.check_config_inputs(i):
+                print("\x1b[0;31;0m" + "Error! \nThe value ", i, " in config.yml is not a number" + "\x1b[0m")
+                sys.exit()
+
         sweep_rate = sweep_rate * time_factor
         normalized_start = (start_voltage + 2.5) / 5  # for PWM
         normalized_end = (end_voltage + 2.5) / 5
@@ -165,6 +180,13 @@ def experiment(data, adv_data, board, a0, a2, d9):
     elif exp_type == "CA":
 
         voltage, time_for_range = cr.get_ca_params(data)
+
+        # Check the values from config.yml
+        for i in [voltage, time_for_range]:
+            if not cr.check_config_inputs(i):
+                print("\x1b[0;31;0m" + "Error! \nThe value ", i, " in adv.config.yml is not a number" + "\x1b[0m")
+                sys.exit()
+
         normalized_voltage = (voltage + 2.5) / 5
         time_for_range = time_for_range / time_factor
         step_number = int(time_for_range / time_per_measurement)
@@ -176,6 +198,13 @@ def experiment(data, adv_data, board, a0, a2, d9):
         start_voltage, first_turnover, second_turnover, sweep_rate, cycle_number = cr.get_cv_params(
             data
         )
+
+        # Check the values from config.yml
+        for i in [start_voltage, first_turnover, second_turnover, sweep_rate, cycle_number]:
+            if not cr.check_config_inputs(i):
+                print("\x1b[0;31;0m" + "Error! \nThe value ", i, " in adv.config.yml is not a number" + "\x1b[0m")
+                sys.exit()
+
         sweep_rate = sweep_rate * time_factor
         normalized_start = (start_voltage + 2.5) / 5
         norm_first_turnover = (first_turnover + 2.5) / 5
@@ -203,6 +232,9 @@ def experiment(data, adv_data, board, a0, a2, d9):
             norm_second_turnover, normalized_start, num=third_step_number
         )
 
+    else:
+        sys.exit("Error! \nThe experiment_type field in config.yml is not an accepted value")
+
 
     # Starting up the plot
     line = plot_initializer(data)
@@ -211,7 +243,7 @@ def experiment(data, adv_data, board, a0, a2, d9):
 
     if exp_type == "LSV":
 
-        start_time = start_exp(d9, normalized_start, data)
+        start_time = start_exp(d9, normalized_start)
 
         read_write(
             start_time,
@@ -231,7 +263,7 @@ def experiment(data, adv_data, board, a0, a2, d9):
 
     elif exp_type == "CA":
 
-        start_time = start_exp(d9, normalized_voltage, data)
+        start_time = start_exp(d9, normalized_voltage)
 
         read_write(
             start_time,
@@ -251,7 +283,7 @@ def experiment(data, adv_data, board, a0, a2, d9):
 
     elif exp_type == "CV":
 
-        start_time = start_exp(d9, normalized_start, data)
+        start_time = start_exp(d9, normalized_start)
 
         read_write(
             start_time,
@@ -294,7 +326,3 @@ def experiment(data, adv_data, board, a0, a2, d9):
         )
 
         return times, voltages, currents
-
-    else:
-
-        print("Valid experiment type not entered")

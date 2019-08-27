@@ -115,10 +115,7 @@ def get_exp_time(config_data):
 
 def get_rest(config_data):
     rest_time = config_data["general_parameters"]["rest_time"]
-    try:
-        rest_time_fl = float(rest_time)
-    except:
-        sys.exit("The input for rest time was not a number")
+    return rest_time
 
 
 
@@ -127,7 +124,6 @@ def get_adv_params(adv_config_data):
     shunt_resistor = adv_config_data["shunt_resistor"]
     time_step = adv_config_data["time_step"]
     average_number = adv_config_data["average_number"]
-    time_per_measurement = time_step * average_number
     time_factor = adv_config_data["time_factor"]
 
     return (
@@ -135,8 +131,8 @@ def get_adv_params(adv_config_data):
         shunt_resistor,
         time_step,
         average_number,
-        time_per_measurement,
         time_factor,
+
     )
 
 def check_config_inputs(arg):
@@ -154,8 +150,10 @@ def check_config_inputs(arg):
     is_number: Boolean
         Value is True if the arg is a number, False if not.
     '''
-    is_number = isinstance(float(arg), float)
-    return is_number
+    try:
+        return isinstance(float(arg), float)
+    except:
+        return False
 
 if __name__ == "__main__":
     # used for debugging.  Does the function load the configs?
