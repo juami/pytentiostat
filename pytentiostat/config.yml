@@ -14,5 +14,5 @@ cyclic_voltomoetry:
   sweep_rate: 100 #mV/s
   number_of_cycles: 1
 chronoamperometry:
-  voltage: 1 #V
+  voltage: 1j #V
   time: 10 #s

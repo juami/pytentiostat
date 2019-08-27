@@ -184,7 +184,7 @@ def experiment(data, adv_data, board, a0, a2, d9):
         # Check the values from config.yml
         for i in [voltage, time_for_range]:
             if not cr.check_config_inputs(i):
-                print("\x1b[0;31;0m" + "Error! \nThe value ", i, " in adv.config.yml is not a number" + "\x1b[0m")
+                print("\x1b[0;31;0m" + "Error! \nThe value ", i, " in config.yml is not a number" + "\x1b[0m")
                 sys.exit()
 
         normalized_voltage = (voltage + 2.5) / 5
@@ -202,7 +202,7 @@ def experiment(data, adv_data, board, a0, a2, d9):
         # Check the values from config.yml
         for i in [start_voltage, first_turnover, second_turnover, sweep_rate, cycle_number]:
             if not cr.check_config_inputs(i):
-                print("\x1b[0;31;0m" + "Error! \nThe value ", i, " in adv.config.yml is not a number" + "\x1b[0m")
+                print("\x1b[0;31;0m" + "Error! \nThe value ", i, " in config.yml is not a number" + "\x1b[0m")
                 sys.exit()
 
         sweep_rate = sweep_rate * time_factor
