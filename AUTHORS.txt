@@ -7,6 +7,7 @@ The developers are
     Michael Spencer
     Yao Tong
     Austin Plymill
+    Jeremy Hitt
 
 Contributions and extensive testing of the code was carried out by current
 members of the Haile and Billinge groups
