@@ -100,6 +100,7 @@ def get_rest(config_data):
 
 def get_adv_params(adv_config_data):
     conversion_factor = adv_config_data["advanced_parameters"]["conversion_factor"]
+    setpoint_adjuster = adv_config_data["advanced_parameters"]["setpoint_adjuster"]
     shunt_resistor = adv_config_data["advanced_parameters"]["shunt_resistor"]
     time_step = adv_config_data["advanced_parameters"]["time_step"]
     average_number = adv_config_data["advanced_parameters"]["average_number"]
@@ -107,6 +108,7 @@ def get_adv_params(adv_config_data):
 
     return (
         conversion_factor,
+        setpoint_adjuster,
         shunt_resistor,
         time_step,
         average_number,

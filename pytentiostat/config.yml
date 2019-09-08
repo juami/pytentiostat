@@ -1,6 +1,6 @@
 #General parameters to edit for an experiment
 general_parameters:
-  experiment_type: CV
+  experiment_type: LSV
   rest_time: 0.5 #s
   data_output_filename: MyData
   data_output_path: desktop
@@ -16,11 +16,12 @@ cyclic_voltammetry:
   number_of_cycles: 1
 chronoamperometry:
   voltage: 1 #V
-  time: 10 #s
+  time: 15 #s
  
 #Only advanced users should edit advanced parameters 
 advanced_parameters:
-  conversion_factor: 4.798  
+  conversion_factor: 4.798
+  setpoint_adjuster: 1.03
   shunt_resistor: 0.202 #mOhm
   time_step: 0.02  #us
   average_number: 9

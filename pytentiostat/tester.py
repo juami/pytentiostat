@@ -145,11 +145,12 @@ def experiment(config_data, board, a0, a2, d9):
 
     """
     # Constants for every experiment
-    conversion_factor, shunt_resistor, time_step, average_number, time_factor = cr.get_adv_params(
+    conversion_factor, setpoint_adjuster, shunt_resistor, time_step, average_number, time_factor = cr.get_adv_params(
         config_data
     )
+
     # Check the values in adv_config.yml
-    for i in [conversion_factor, shunt_resistor, time_step, average_number, time_factor]:
+    for i in [conversion_factor, setpoint_adjuster, shunt_resistor, time_step, average_number, time_factor]:
         if not cr.check_config_inputs(i):
             print("\x1b[0;31;0m" + "Error! \nThe value ", i, " in adv.config.yml is not a number" + "\x1b[0m")
             sys.exit()
@@ -173,7 +174,7 @@ def experiment(config_data, board, a0, a2, d9):
         time_for_range = voltage_range / (sweep_rate / 1000)  # s
         step_number = int(time_for_range / time_per_measurement)
 
-        steps_list = np.linspace(normalized_start, normalized_end, num=step_number)
+        steps_list = np.linspace(normalized_start, normalized_end, num=step_number)*setpoint_adjuster
 
     elif exp_type == "CA":
 
@@ -187,7 +188,7 @@ def experiment(config_data, board, a0, a2, d9):
         time_for_range = time_for_range / time_factor
         step_number = int(time_for_range / time_per_measurement)
 
-        steps_list = [normalized_voltage] * step_number
+        steps_list = np.linspace(normalized_voltage, normalized_voltage, step_number)*setpoint_adjuster
 
     elif exp_type == "CV":
 
@@ -218,13 +219,13 @@ def experiment(config_data, board, a0, a2, d9):
 
         first_steps_list = np.linspace(
             normalized_start, norm_first_turnover, num=first_step_number
-        )
+        )*setpoint_adjuster
         second_steps_list = np.linspace(
             norm_first_turnover, norm_second_turnover, num=second_step_number
-        )
+        )*setpoint_adjuster
         third_steps_list = np.linspace(
             norm_second_turnover, normalized_start, num=third_step_number
-        )
+        )*setpoint_adjuster
     else:
         sys.exit("Error! \nThe experiment_type field in config.yml is not an accepted value")
 
