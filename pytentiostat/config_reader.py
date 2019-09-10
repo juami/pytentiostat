@@ -96,6 +96,11 @@ def get_rest(config_data):
     rest_time = config_data["general_parameters"]["rest_time"]
 
     return rest_time
+    
+def get_steps(config_data):
+    step_number = config_data["general_parameters"]["step_number"]
+    
+    return step_number
 
 
 def get_adv_params(adv_config_data):
@@ -104,7 +109,6 @@ def get_adv_params(adv_config_data):
     shunt_resistor = adv_config_data["advanced_parameters"]["shunt_resistor"]
     time_step = adv_config_data["advanced_parameters"]["time_step"]
     average_number = adv_config_data["advanced_parameters"]["average_number"]
-    time_factor = adv_config_data["advanced_parameters"]["time_factor"]
 
     return (
         conversion_factor,
@@ -112,7 +116,6 @@ def get_adv_params(adv_config_data):
         shunt_resistor,
         time_step,
         average_number,
-        time_factor,
     )
 def check_config_inputs(arg):
     """
