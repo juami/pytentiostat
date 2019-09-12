@@ -158,14 +158,14 @@ def experiment(config_data, board, a0, a2, d9):
 
     """
     # Constants for every experiment
-    conversion_factor, setpoint_adjuster, shunt_resistor, time_step, average_number = cr.get_adv_params(
+    conversion_factor, set_gain, set_offset, shunt_resistor, time_step, average_number = cr.get_adv_params(
         config_data
     )
     
     step_number = cr.get_steps(config_data)
 
     # Check the values in advanced parameters in config.yml
-    for i in [conversion_factor, setpoint_adjuster, shunt_resistor, time_step, average_number]:
+    for i in [conversion_factor, setpoint_gain, setpoint_offset, shunt_resistor, time_step, average_number]:
         if not cr.check_config_inputs(i):
             print("\x1b[0;31;0m" + "Error! \nThe value ", i, " in adv.config.yml is not a number" + "\x1b[0m")
             sys.exit()
@@ -187,7 +187,7 @@ def experiment(config_data, board, a0, a2, d9):
         voltage_range = abs(end_voltage - start_voltage)  # V
         time_for_range = voltage_range / (sweep_rate / 1000)  # s
 
-        steps_list = np.linspace(normalized_start, normalized_end, num=step_number+1)*setpoint_adjuster
+        steps_list = np.linspace(normalized_start, normalized_end, num=step_number+1)*set_gain+set_offset
 
     elif exp_type == "CA":
 
@@ -199,7 +199,7 @@ def experiment(config_data, board, a0, a2, d9):
                 sys.exit()
         normalized_voltage = (voltage + 2.5) / 5
 
-        steps_list = np.linspace(normalized_voltage, normalized_voltage, step_number+1)*setpoint_adjuster
+        steps_list = np.linspace(normalized_voltage, normalized_voltage, step_number+1)*set_gain+set_offset
 
     elif exp_type == "CV":
 
@@ -226,13 +226,13 @@ def experiment(config_data, board, a0, a2, d9):
 
         first_steps_list = np.linspace(
             normalized_start, norm_first_turnover, num=step_number+1
-        )*setpoint_adjuster
+        )*set_gain+set_offset
         second_steps_list = np.linspace(
             norm_first_turnover, norm_second_turnover, num=step_number+1
-        )*setpoint_adjuster
+        )*set_gain+set_offset
         third_steps_list = np.linspace(
             norm_second_turnover, normalized_start, num=step_number+1
-        )*setpoint_adjuster
+        )*set_gain+set_offset
     else:
         sys.exit("Error! \nThe experiment_type field in config.yml is not an accepted value")
 
