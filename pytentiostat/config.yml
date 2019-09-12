@@ -22,7 +22,8 @@ chronoamperometry:
 #Only advanced users should edit advanced parameters 
 advanced_parameters:
   conversion_factor: 4.798
-  setpoint_adjuster: 1.03
+  setpoint_gain: 1.03
+  setpoint_offset: 0
   shunt_resistor: 0.202 #mOhm
   time_step: 0.003  #s
   average_number: 9
