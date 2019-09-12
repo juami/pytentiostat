@@ -83,7 +83,7 @@ def read_write(
     
     starting_time = time.time()
     ending_time = starting_time + time_for_range
-    times_list = np.linspace(starting_time, ending_time, num=step_number)
+    times_list = np.linspace(starting_time, ending_time, num=step_number+1)
     times_diff_list = [x - starting_time for x in times_list]
     times_diff_list.append(0)
     t = 1
@@ -188,7 +188,7 @@ def experiment(config_data, board, a0, a2, d9):
         voltage_range = abs(end_voltage - start_voltage)  # V
         time_for_range = voltage_range / (sweep_rate / 1000)  # s
 
-        steps_list = np.linspace(normalized_start, normalized_end, num=step_number)*setpoint_adjuster
+        steps_list = np.linspace(normalized_start, normalized_end, num=step_number+1)*setpoint_adjuster
 
     elif exp_type == "CA":
 
@@ -201,7 +201,7 @@ def experiment(config_data, board, a0, a2, d9):
         normalized_voltage = (voltage + 2.5) / 5
         time_for_range = time_for_range
 
-        steps_list = np.linspace(normalized_voltage, normalized_voltage, step_number)*setpoint_adjuster
+        steps_list = np.linspace(normalized_voltage, normalized_voltage, step_number+1)*setpoint_adjuster
 
     elif exp_type == "CV":
 
@@ -227,13 +227,13 @@ def experiment(config_data, board, a0, a2, d9):
         third_time_range = third_voltage_range / (sweep_rate / 1000)  # s
 
         first_steps_list = np.linspace(
-            normalized_start, norm_first_turnover, num=step_number
+            normalized_start, norm_first_turnover, num=step_number+1
         )*setpoint_adjuster
         second_steps_list = np.linspace(
-            norm_first_turnover, norm_second_turnover, num=step_number
+            norm_first_turnover, norm_second_turnover, num=step_number+1
         )*setpoint_adjuster
         third_steps_list = np.linspace(
-            norm_second_turnover, normalized_start, num=step_number
+            norm_second_turnover, normalized_start, num=step_number+1
         )*setpoint_adjuster
     else:
         sys.exit("Error! \nThe experiment_type field in config.yml is not an accepted value")
