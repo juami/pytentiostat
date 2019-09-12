@@ -106,7 +106,7 @@ def get_steps(config_data):
 def get_adv_params(adv_config_data):
     conversion_factor = adv_config_data["advanced_parameters"]["conversion_factor"]
     set_gain = adv_config_data["advanced_parameters"]["setpoint_adjuster"]
-    set_offset = adv_config_data["advanced_parameters"]["setpoint_offset
+    set_offset = adv_config_data["advanced_parameters"]["setpoint_offset"]
     shunt_resistor = adv_config_data["advanced_parameters"]["shunt_resistor"]
     time_step = adv_config_data["advanced_parameters"]["time_step"]
     average_number = adv_config_data["advanced_parameters"]["average_number"]
