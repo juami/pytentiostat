@@ -181,7 +181,6 @@ def experiment(config_data, board, a0, a2, d9):
             if not cr.check_config_inputs(i):
                 print("\x1b[0;31;0m" + "Error! \nThe value ", i, " in config.yml is not a number" + "\x1b[0m")
                 sys.exit()
-        sweep_rate = sweep_rate
         normalized_start = (start_voltage + 2.5) / 5  # for PWM
         normalized_end = (end_voltage + 2.5) / 5
 
@@ -199,7 +198,6 @@ def experiment(config_data, board, a0, a2, d9):
                 print("\x1b[0;31;0m" + "Error! \nThe value ", i, " in config.yml is not a number" + "\x1b[0m")
                 sys.exit()
         normalized_voltage = (voltage + 2.5) / 5
-        time_for_range = time_for_range
 
         steps_list = np.linspace(normalized_voltage, normalized_voltage, step_number+1)*setpoint_adjuster
 
@@ -213,7 +211,7 @@ def experiment(config_data, board, a0, a2, d9):
             if not cr.check_config_inputs(i):
                 print("\x1b[0;31;0m" + "Error! \nThe value ", i, " in config.yml is not a number" + "\x1b[0m")
                 sys.exit()
-        sweep_rate = sweep_rate
+                
         normalized_start = (start_voltage + 2.5) / 5
         norm_first_turnover = (first_turnover + 2.5) / 5
         norm_second_turnover = (second_turnover + 2.5) / 5
