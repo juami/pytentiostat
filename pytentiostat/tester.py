@@ -165,7 +165,7 @@ def experiment(config_data, board, a0, a2, d9):
     step_number = cr.get_steps(config_data)
 
     # Check the values in advanced parameters in config.yml
-    for i in [conversion_factor, setpoint_gain, setpoint_offset, shunt_resistor, time_step, average_number]:
+    for i in [conversion_factor, set_gain, set_offset, shunt_resistor, time_step, average_number]:
         if not cr.check_config_inputs(i):
             print("\x1b[0;31;0m" + "Error! \nThe value ", i, " in adv.config.yml is not a number" + "\x1b[0m")
             sys.exit()
