@@ -241,6 +241,8 @@ def experiment(config_data, board, a0, a2, d9):
     line = plot_initializer(config_data)
 
     # Main experiment part
+    
+    pin_objects = (d9, a0, a2)
 
     if exp_type == "LSV":
 
@@ -248,9 +250,7 @@ def experiment(config_data, board, a0, a2, d9):
 
         read_write(
             start_time,
-            d9,
-            a0,
-            a2,
+            *pin_objects,
             step_number,
             steps_list,
             time_for_range,
@@ -270,9 +270,7 @@ def experiment(config_data, board, a0, a2, d9):
 
         read_write(
             start_time,
-            d9,
-            a0,
-            a2,
+            *pin_objects
             step_number,
             steps_list,
             time_for_range,
@@ -292,9 +290,7 @@ def experiment(config_data, board, a0, a2, d9):
 
         read_write(
             start_time,
-            d9,
-            a0,
-            a2,
+            *pin_objects
             step_number,
             first_steps_list,
             first_time_range,
@@ -307,9 +303,7 @@ def experiment(config_data, board, a0, a2, d9):
         )
         read_write(
             start_time,
-            d9,
-            a0,
-            a2,
+            *pin_objects
             step_number,
             second_steps_list,
             second_time_range,
@@ -322,9 +316,7 @@ def experiment(config_data, board, a0, a2, d9):
         )
         read_write(
             start_time,
-            d9,
-            a0,
-            a2,
+            *pin_objects
             step_number,
             third_steps_list,
             third_time_range,
