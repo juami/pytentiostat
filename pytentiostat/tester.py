@@ -34,14 +34,15 @@ def start_exp(d9, normalized_start, data):
 
     """
     d9.write(normalized_start)
-    cr.get_rest(data)
+    rest_time = cr.get_rest(data)
+    time.sleep(rest_time)
     start_time = time.time()
 
     return start_time
 
 
 def read_write(
-    start_time, d9, a0, a2, steps_list, average, line, time_step, cf, sr, config_data
+    start_time, d9, a0, a2, step_number, steps_list, time_for_range, average, line, time_step, cf, sr, config_data
 ):
     """
     Writes voltages to pin 9 using d9, reads voltages from pin 0 and 2 using a0
@@ -79,7 +80,14 @@ def read_write(
     nothing
 
     """
-
+    
+    starting_time = time.time()
+    ending_time = starting_time + time_for_range
+    times_list = np.linspace(starting_time, ending_time, num=step_number+1)
+    times_diff_list = [x - starting_time for x in times_list]
+    times_diff_list.append(0)
+    t = 1
+    
     for x in steps_list:
 
         # update time
@@ -90,7 +98,7 @@ def read_write(
         i = 0
         voltage_catcher = 0
         current_catcher = 0
-
+        
         while i < average:
             d9.write(x)  # Writes Value Between 0 and 1 (-2.5V to 2.5V) 256 possible
             time.sleep(time_step)
@@ -98,13 +106,10 @@ def read_write(
                 a0.read()
             )  # Reads Value Between 0 and 1 (-2.5V to 2.5V) 1024 possible
             pin2value = a2.read()
-
             real_voltage = (pin0value - 0.5) * -1 * cf
             real_current = ((pin2value - 0.5) * -1 * cf) / sr
-
             voltage_catcher = voltage_catcher + real_voltage
             current_catcher = current_catcher + real_current
-
             i = i + 1
 
         voltage_average = voltage_catcher / average
@@ -112,9 +117,17 @@ def read_write(
         voltages.append(voltage_average)
         currents.append(current_average)
         collected_data = zip(times, voltages, currents)
-        plot_updater(config_data, collected_data, line)
-
-
+        plot_updater(config_data, collected_data, line)  
+        rel_time = 0
+        
+        while rel_time < times_diff_list[t]:
+        
+                time.sleep(time_step)
+                now_time = time.time()
+                rel_time = now_time-start_time
+        
+        t = t+1
+        
 def experiment(config_data, board, a0, a2, d9):
     """
     Determines which experiment to run and applies the appropriate voltages
@@ -145,11 +158,14 @@ def experiment(config_data, board, a0, a2, d9):
 
     """
     # Constants for every experiment
-    conversion_factor, shunt_resistor, time_step, average_number, time_factor = cr.get_adv_params(
+    conversion_factor, set_gain, set_offset, shunt_resistor, time_step, average_number = cr.get_adv_params(
         config_data
     )
-    # Check the values in adv_config.yml
-    for i in [conversion_factor, shunt_resistor, time_step, average_number, time_factor]:
+    
+    step_number = cr.get_steps(config_data)
+
+    # Check the values in advanced parameters in config.yml
+    for i in [conversion_factor, set_gain, set_offset, shunt_resistor, time_step, average_number]:
         if not cr.check_config_inputs(i):
             print("\x1b[0;31;0m" + "Error! \nThe value ", i, " in adv.config.yml is not a number" + "\x1b[0m")
             sys.exit()
@@ -165,15 +181,13 @@ def experiment(config_data, board, a0, a2, d9):
             if not cr.check_config_inputs(i):
                 print("\x1b[0;31;0m" + "Error! \nThe value ", i, " in config.yml is not a number" + "\x1b[0m")
                 sys.exit()
-        sweep_rate = sweep_rate * time_factor
         normalized_start = (start_voltage + 2.5) / 5  # for PWM
         normalized_end = (end_voltage + 2.5) / 5
 
         voltage_range = abs(end_voltage - start_voltage)  # V
         time_for_range = voltage_range / (sweep_rate / 1000)  # s
-        step_number = int(time_for_range / time_per_measurement)
 
-        steps_list = np.linspace(normalized_start, normalized_end, num=step_number)
+        steps_list = np.linspace(normalized_start, normalized_end, num=step_number+1)*set_gain+set_offset
 
     elif exp_type == "CA":
 
@@ -184,10 +198,8 @@ def experiment(config_data, board, a0, a2, d9):
                 print("\x1b[0;31;0m" + "Error! \nThe value ", i, " in config.yml is not a number" + "\x1b[0m")
                 sys.exit()
         normalized_voltage = (voltage + 2.5) / 5
-        time_for_range = time_for_range / time_factor
-        step_number = int(time_for_range / time_per_measurement)
 
-        steps_list = [normalized_voltage] * step_number
+        steps_list = np.linspace(normalized_voltage, normalized_voltage, step_number+1)*set_gain+set_offset
 
     elif exp_type == "CV":
 
@@ -199,7 +211,7 @@ def experiment(config_data, board, a0, a2, d9):
             if not cr.check_config_inputs(i):
                 print("\x1b[0;31;0m" + "Error! \nThe value ", i, " in config.yml is not a number" + "\x1b[0m")
                 sys.exit()
-        sweep_rate = sweep_rate * time_factor
+                
         normalized_start = (start_voltage + 2.5) / 5
         norm_first_turnover = (first_turnover + 2.5) / 5
         norm_second_turnover = (second_turnover + 2.5) / 5
@@ -212,19 +224,15 @@ def experiment(config_data, board, a0, a2, d9):
         second_time_range = second_voltage_range / (sweep_rate / 1000)  # s
         third_time_range = third_voltage_range / (sweep_rate / 1000)  # s
 
-        first_step_number = int(first_time_range / time_per_measurement)
-        second_step_number = int(second_time_range / time_per_measurement)
-        third_step_number = int(third_time_range / time_per_measurement)
-
         first_steps_list = np.linspace(
-            normalized_start, norm_first_turnover, num=first_step_number
-        )
+            normalized_start, norm_first_turnover, num=step_number+1
+        )*set_gain+set_offset
         second_steps_list = np.linspace(
-            norm_first_turnover, norm_second_turnover, num=second_step_number
-        )
+            norm_first_turnover, norm_second_turnover, num=step_number+1
+        )*set_gain+set_offset
         third_steps_list = np.linspace(
-            norm_second_turnover, normalized_start, num=third_step_number
-        )
+            norm_second_turnover, normalized_start, num=step_number+1
+        )*set_gain+set_offset
     else:
         sys.exit("Error! \nThe experiment_type field in config.yml is not an accepted value")
 
@@ -233,6 +241,8 @@ def experiment(config_data, board, a0, a2, d9):
     line = plot_initializer(config_data)
 
     # Main experiment part
+    
+    pin_objects = (d9, a0, a2)
 
     if exp_type == "LSV":
 
@@ -240,10 +250,10 @@ def experiment(config_data, board, a0, a2, d9):
 
         read_write(
             start_time,
-            d9,
-            a0,
-            a2,
+            *pin_objects,
+            step_number,
             steps_list,
+            time_for_range,
             average_number,
             line,
             time_step,
@@ -260,10 +270,10 @@ def experiment(config_data, board, a0, a2, d9):
 
         read_write(
             start_time,
-            d9,
-            a0,
-            a2,
+            *pin_objects
+            step_number,
             steps_list,
+            time_for_range,
             average_number,
             line,
             time_step,
@@ -280,10 +290,10 @@ def experiment(config_data, board, a0, a2, d9):
 
         read_write(
             start_time,
-            d9,
-            a0,
-            a2,
+            *pin_objects
+            step_number,
             first_steps_list,
+            first_time_range,
             average_number,
             line,
             time_step,
@@ -293,10 +303,10 @@ def experiment(config_data, board, a0, a2, d9):
         )
         read_write(
             start_time,
-            d9,
-            a0,
-            a2,
+            *pin_objects
+            step_number,
             second_steps_list,
+            second_time_range,
             average_number,
             line,
             time_step,
@@ -306,10 +316,10 @@ def experiment(config_data, board, a0, a2, d9):
         )
         read_write(
             start_time,
-            d9,
-            a0,
-            a2,
+            *pin_objects
+            step_number,
             third_steps_list,
+            third_time_range,
             average_number,
             line,
             time_step,
