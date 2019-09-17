@@ -23,12 +23,11 @@ def test_parse_config_file():
         assert pytest_exit_object.sys.stdout.getline().strip() == "No file named config.yml found in config directory {}. Exiting...".format(THIS_DIR)
 
 def test_get_output_params():
-    mock_config = {"general_parameters": {"data_output_filename": "Data", "data_output_path": "Desktop"}}
-    with mock.patch.dict(mock_config, {"general_parameters": {"data_output_filename": 1.1, "data_output_path": 2.2}}):
-        out_name, out_path = get_output_params(MOCK_CONFIG)
-        assert out_name == "1.1"
-        assert out_path == "2.2"
-        check_extension = out_name.split(".")
-        assert check_extension[1] == "csv"
+    test_config = {"general_parameters": {"data_output_filename": 1.1, "data_output_path": 2.2}
+    out_name, out_path = get_output_params(test_config)
+    assert out_name == "1.1"
+    assert out_path == "2.2"
+    check_extension = out_name.split(".")
+    assert check_extension[1] == "csv"
         
     
