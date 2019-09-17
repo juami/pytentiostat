@@ -25,8 +25,10 @@ def test_parse_config_file():
 def test_get_output_params():
     test_config = {"general_parameters": {"data_output_filename": 1.1, "data_output_path": 2.2}}
     out_name, out_path = get_output_params(test_config)
-    assert out_name == "1.1"
-    assert out_path == "2.2"
+    check_out_name = out_name.split("_")
+    assert check_out_name[0] == "1.1"
+    check_out_path = out_name.split("_")
+    assert check_out_path[0] == "2.2"
     check_extension = out_name.split(".")
     assert check_extension[1] == "csv"
         
