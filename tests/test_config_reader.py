@@ -29,7 +29,6 @@ def test_get_output_params():
     assert check_out_name[0] == "1.1"
     check_out_path = out_path.split("_")
     assert check_out_path[0] == "2.2"
-    check_extension = out_name.split(".")
-    assert check_extension[1] == "csv"
+    assert check_out_name[-3:] == "csv"
         
     
