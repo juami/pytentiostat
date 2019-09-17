@@ -44,6 +44,8 @@ def parse_config_file(configlocation=None):
 def get_output_params(config_data, override_ts=None):
     data_out_name = config_data["general_parameters"]["data_output_filename"]
     data_out_path = config_data["general_parameters"]["data_output_path"]
+    data_out_name = str(data_out_name)
+    data_out_path = str(data_out_path)
     if data_out_path.lower() == "desktop":
         data_out_path = os.path.join(os.path.join(os.path.expanduser("~")),
                                    "Desktop")
