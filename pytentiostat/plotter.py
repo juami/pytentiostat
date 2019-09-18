@@ -54,12 +54,18 @@ def plot_initializer(config_data):
 
 def plot_updater(config_data, data, line):
     """
-    Initializes plot based on experiment type and parameters in the config file.
+    Updates the plot based on the read/write in tester.
 
     Parameters
     ----------
     config_data : dict
         Parameters from the config file
+        
+    data : tuple
+        Time, Voltage, and Current from current read/write cycle
+        
+    line : Line2D Instance
+        Line to add to plot
         
     Returns
     -------
