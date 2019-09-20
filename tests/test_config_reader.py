@@ -6,6 +6,12 @@ from pytentiostat.config_reader import parse_config_file, get_adv_params, get_ou
 
 THIS_DIR = os.path.dirname(os.path.abspath(__file__))
 
+@pytest.mark.parametrize(
+    "input,expected_name,expected_path",
+    [
+        ({"general_parameters": {"data_output_filename": 1.1, "data_output_path": 2.2}}, "1.1", "2.2")
+    ],
+
 def test_parse_config_file():
     confdir = os.path.join(THIS_DIR, 'static/')
     config_data = parse_config_file(confdir)
@@ -30,4 +36,11 @@ def test_get_output_params():
     assert check_out_path[0] == "2.2"
     assert out_name[-3:] == "csv"
         
+def test_get_out_params(input, expected_name, expected_path):
+    out_name, outpath = get_output_params(input)
+    check_out_name = out_name.split("_")
+    check_out_path = out_path.split("_")
+    assert check_out_name[0] == expected_name
+    assert check_out_path[0] == expected_path
+    assert out_name[-3:] == "csv"
     
