@@ -27,7 +27,6 @@ def test_parse_config_file():
         ({"general_parameters": {"data_output_filename": 1.1, "data_output_path": 2.2}}, "1.1", "2.2")
     ],
 )
-        
 def test_get_out_params(input, expected_name, expected_path):
     out_name, out_path = get_output_params(input)
     check_out_name = out_name.split("_")
