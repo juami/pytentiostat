@@ -11,6 +11,7 @@ THIS_DIR = os.path.dirname(os.path.abspath(__file__))
     [
         ({"general_parameters": {"data_output_filename": 1.1, "data_output_path": 2.2}}, "1.1", "2.2")
     ],
+)
 
 def test_parse_config_file():
     confdir = os.path.join(THIS_DIR, 'static/')
