@@ -26,7 +26,7 @@ def test_parse_config_file():
     [
         ({"general_parameters": {"data_output_filename": 1.1, "data_output_path": 2.2}}, "1.1", "2.2"),
         ({"general_parameters": {"data_output_filename": "my_data", "data_output_path": 2.2}}, "my_data", "2.2"),
-        ({"general_parameters": {"data_output_filename": 1.1, "data_output_path": tmp_path}}, "1.1", tmp_path),
+        ({"general_parameters": {"data_output_filename": 1.1, "data_output_path": tmpdir}}, "1.1", tmpdir),
         ({"general_parameters": {"data_output_filename": 1.1, "data_output_path": desktop}}, "1.1", "~/Desktop")
     ],
 )
