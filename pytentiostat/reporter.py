@@ -33,7 +33,7 @@ def save_data_to_file(config_data, data, override_outpath=None, override_ts=None
 if __name__ == "__main__":
     # used for debugging.  Does the function write the right file?
     #
-
+    config_data = []
     filename, export_destination = get_output_params(
         config_data)
 

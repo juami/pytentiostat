@@ -13,8 +13,8 @@ def plot_initializer(config_data):
     # Let's start and setup initial plot parameters
     plt.show()
     axes = plt.gca()
-    axes.set_xlim(-2.5, 2.5)
-    axes.set_ylim(-2.5, 2.5)
+    axes.set_xlim(-2, 2)
+    axes.set_ylim(-20, 20)
 
     # This is just for testing
     if exp_type == "CA":
