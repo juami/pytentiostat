@@ -38,7 +38,7 @@ def test_get_output_params():
 )
         
 def test_get_out_params(input, expected_name, expected_path):
-    out_name, outpath = get_output_params(input)
+    out_name, out_path = get_output_params(input)
     check_out_name = out_name.split("_")
     check_out_path = out_path.split("_")
     assert check_out_name[0] == expected_name
