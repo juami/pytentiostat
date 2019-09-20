@@ -33,7 +33,20 @@ def save_data_to_file(config_data, data, override_outpath=None, override_ts=None
 if __name__ == "__main__":
     # used for debugging.  Does the function write the right file?
     #
-    config_data = []
+    config_data = {"general_parameters": {"experiment_type": None, "rest_time": None,
+                                          "step_number": None, "data_output_filename": None,
+                                          "data_output_path": None},
+                   "linear_sweep_voltammetry": {"start_voltage": None, "end_voltage": None,
+                                                "sweep_rate": None},
+                   "cyclic_voltammetry": {"start_voltage": None, "first_turnover_voltage":
+                                          None, "second_turnover_voltage": None, "sweep_rate":
+                                          None,
+                                          "number_of_cycles": None},
+                   "chronoamperometry": {"voltage": None, "time": None},
+                   "advanced_parameters": {"conversion_factor": None, "setpoint_gain": None,
+                                           "setpoint_offset": None, "shunt_resistor": None,
+                                           "time_step": None, "average_number": None}}
+
     filename, export_destination = get_output_params(
         config_data)
 
