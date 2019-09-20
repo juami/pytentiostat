@@ -24,7 +24,10 @@ def test_parse_config_file():
 @pytest.mark.parametrize(
     "input,expected_name,expected_path",
     [
-        ({"general_parameters": {"data_output_filename": 1.1, "data_output_path": 2.2}}, "1.1", "2.2")
+        ({"general_parameters": {"data_output_filename": 1.1, "data_output_path": 2.2}}, "1.1", "2.2"),
+        ({"general_parameters": {"data_output_filename": "my_data", "data_output_path": 2.2}}, "my_data", "2.2"),
+        ({"general_parameters": {"data_output_filename": 1.1, "data_output_path": tmpfile}}, "1.1", tmpfile),
+        ({"general_parameters": {"data_output_filename": 1.1, "data_output_path": desktop}}, "1.1", "~/Desktop")
     ],
 )
 def test_get_out_params(input, expected_name, expected_path):
