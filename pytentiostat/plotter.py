@@ -9,7 +9,7 @@ def plot_initializer(config_data):
     Parameters
     ----------
     config_data : dict
-        The parameters from the config file
+        The parameters from the config file.
         
     Returns
     -------
@@ -59,7 +59,7 @@ def plot_updater(config_data, data, line):
     Parameters
     ----------
     config_data : dict
-        Parameters from the config file      
+        The parameters from the config file.  
     data : tuple
         Time, Voltage, and Current from current read/write cycle
     line : Line2D Instance
