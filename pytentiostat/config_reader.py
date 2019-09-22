@@ -16,12 +16,12 @@ def parse_config_file(configlocation=None):
     configlocation : str, optional
         The path on the filesystem to the config file. If not
         specified pytentiostat looks in the current directory for the
-        config files.
+        config file.
 
     Returns
     -------
     config_data : dict
-        the configuration data
+        The configuration data.
     """
     
     if not configlocation:
@@ -49,16 +49,17 @@ def get_output_params(config_data, override_ts=None):
     ----------
     config_data : dict
         The configuration data
-    override_ts : (str, optional)
+    override_ts : str, optional
         Unique string to append to output filename string.  If not specified will add a time stamp
         hours, minutes, and seconds the experiment was conducted at as a unique identifier.
 
     Returns
     -------
     out_name_ts : str
-        The output filename with unique identifier.    
+        The output filename with unique identifier. The unique identifier is the time in hours, minutes, and seconds
+        at which the experiment was conducted.
     data_out_path : str
-        The path to which the output file will be written to.
+        The path to the directory to which the file will be written.
     """
     
     data_out_name = config_data["general_parameters"]["data_output_filename"]
@@ -112,8 +113,7 @@ def get_ca_params(config_data):
     Returns
     -------
     voltage : float
-        The voltage which will be held at in volts.
-        
+        The voltage which will be held constant over the course of the experiment in volts.        
     time: float
         How long the voltage will be held in seconds.
 
@@ -177,7 +177,7 @@ def get_exp_type(config_data):
     return exp_type
 
 
-def get_exp_time(config_data):
+def get_exp_duration(config_data):
     """
     Returns how long the experiment is to be run for the chronoamperometry case.
 
