@@ -7,12 +7,13 @@ import os
 
 def parse_config_file(configlocation=None):
     """
-    Reads config data from the config file
-    the config file must be called config.yml.
+    Reads config data from the config file.
+    
+    The config file must be called config.yml.
 
     Parameters
     ----------
-    configlocation : (str, optional)
+    configlocation : str, optional
         The path on the filesystem to the config file. If not
         specified pytentiostat looks in the current directory for the
         config files.
@@ -42,7 +43,7 @@ def parse_config_file(configlocation=None):
 
 def get_output_params(config_data, override_ts=None):
     """
-    Obtains output filename and output filepath from config file data
+    Returns the output filename and output filepath from the config file data.
 
     Parameters
     ----------
@@ -75,7 +76,7 @@ def get_output_params(config_data, override_ts=None):
 
 def get_lsv_params(config_data):
     """
-    Obtains the parameters for a linear sweep voltammetry experiment
+    Returns the parameters for a linear sweep voltammetry experiment from the config data.
 
     Parameters
     ----------
@@ -101,7 +102,7 @@ def get_lsv_params(config_data):
 
 def get_ca_params(config_data):
     """
-    Obtains the parameters for a chronoamperometry experiment
+    Returns the parameters for a chronoamperometry experiment from the config data.
 
     Parameters
     ----------
@@ -126,7 +127,7 @@ def get_ca_params(config_data):
 
 def get_cv_params(config_data):
     """
-    Obtains the parameters for a cyclic voltammetry experiment
+    Returns the parameters for a cyclic voltammetry experiment from the config data.
 
     Parameters
     ----------
@@ -158,7 +159,7 @@ def get_cv_params(config_data):
 
 def get_exp_type(config_data):
     """
-    Obtains the type of experiment
+    Returns the type of experiment from the config data.
 
     Parameters
     ----------
@@ -178,7 +179,7 @@ def get_exp_type(config_data):
 
 def get_exp_time(config_data):
     """
-    Obtains the how long the experiment is to be run for the chronoamperometry case
+    Returns how long the experiment is to be run for the chronoamperometry case.
 
     Parameters
     ----------
@@ -198,7 +199,7 @@ def get_exp_time(config_data):
 
 def get_rest(config_data):
     """
-    Obtains how long to hold before experiment starts
+    Returns how long to hold before experiment starts from the config data.
 
     Parameters
     ----------
@@ -218,7 +219,7 @@ def get_rest(config_data):
     
 def get_steps(config_data):
     """
-    Obtains how many points will be measured during experiment
+    Returns how many points will be measured during experiment from the config data.
 
     Parameters
     ----------
@@ -238,7 +239,7 @@ def get_steps(config_data):
 
 def get_adv_params(adv_config_data):
     """
-    Obtains parameters that shouldn't be altered by beginning users largely related to calibration.
+    Returns parameters that shouldn't be altered by beginning users largely related to calibration from the config data.
 
     Parameters
     ----------
