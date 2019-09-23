@@ -4,7 +4,7 @@ import pytentiostat.config_reader
 
 def plot_initializer(config_data):
     exp_type = pytentiostat.config_reader.get_exp_type(config_data)
-    exp_time = pytentiostat.config_reader.get_exp_time(config_data)
+    exp_duration = pytentiostat.config_reader.get_exp_duration(config_data)
 
     times = []
     voltages = []
@@ -18,7 +18,7 @@ def plot_initializer(config_data):
 
     # This is just for testing
     if exp_type == "CA":
-        axes.set_xlim(0, 2 * exp_time)
+        axes.set_xlim(0, 2 * exp_duration)
 
     # Let's switch commands based on experiment run
     if exp_type == "LSV":
