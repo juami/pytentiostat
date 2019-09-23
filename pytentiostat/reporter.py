@@ -38,9 +38,8 @@ if __name__ == "__main__":
                                           "data_output_path": ""},
                    "linear_sweep_voltammetry": {"start_voltage": "", "end_voltage": "",
                                                 "sweep_rate": ""},
-                   "cyclic_voltammetry": {"start_voltage": "", "first_turnover_voltage":
-                                          "", "second_turnover_voltage": "", "sweep_rate":
-                                          "",
+                   "cyclic_voltammetry": {"start_voltage": "", "first_turnover_voltage": "",
+                                          "second_turnover_voltage": "", "sweep_rate": "",
                                           "number_of_cycles": ""},
                    "chronoamperometry": {"voltage": "", "time": ""},
                    "advanced_parameters": {"conversion_factor": "", "setpoint_gain": "",
