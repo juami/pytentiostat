@@ -47,6 +47,8 @@ while True:
             board_instance.configure_board()
             reconfig = None
             continue
+        if reconfig == None:
+            break
 
 
 try:
