@@ -39,11 +39,11 @@ while True:
         if reconfig == "":
             reconfig = None
             continue
-        if reconfig == "New":
+        if reconfig.lower() == "new":
             config_data = parse_config_file()
             reconfig = None
             continue
-        if reconfig == "Reconnect":
+        if reconfig.lower() == "reconnect":
             board_instance.configure_board()
             reconfig = None
             continue
