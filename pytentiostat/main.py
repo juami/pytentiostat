@@ -4,6 +4,7 @@ from pytentiostat.reporter import save_data_to_file
 from pytentiostat.tester import experiment
 from pytentiostat.routines import startup_routine, closing_routine
 import sys
+import time
 
 
 
@@ -44,7 +45,11 @@ while True:
             reconfig = "string"
             continue
         if reconfig.lower() == "reconnect":
+            closing_routine(board_instance.board, board_instance.pin_d9)
+            time.sleep(1)
             board_instance.configure_board()
+            board_objects = (board_instance.pin_a0, board_instance.pin_a2, board_instance.pin_d9)
+            time.sleep(2)
             reconfig = "string"
             continue
         if reconfig == "string":
