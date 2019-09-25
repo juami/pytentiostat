@@ -26,7 +26,7 @@ except KeyboardInterrupt:
 
 board_objects = (board_instance.pin_a0, board_instance.pin_a2, board_instance.pin_d9)
 
-reconfig = None
+reconfig = "sting"
 
 while True:
     try:
@@ -37,17 +37,17 @@ while True:
                          "If you want to do a different experiment, type \"New\"\n"
                          "If you need to reconnect the poteniostat, type \"Reconnect\"")
         if reconfig == "":
-            reconfig = None
+            reconfig = "string"
             continue
         if reconfig.lower() == "new":
             config_data = parse_config_file()
-            reconfig = None
+            reconfig = "string"
             continue
         if reconfig.lower() == "reconnect":
             board_instance.configure_board()
-            reconfig = None
+            reconfig = "string"
             continue
-        if reconfig == None:
+        if reconfig == "string":
             break
 
 
