@@ -3,6 +3,7 @@ from pytentiostat.config_reader import parse_config_file
 from pytentiostat.reporter import save_data_to_file
 from pytentiostat.tester import experiment
 from pytentiostat.routines import startup_routine, closing_routine
+from pytentiostat.plotter import plot_updater, plot_initializer
 import sys
 import time
 
@@ -39,17 +40,27 @@ while True:
                          "If you need to reconnect the poteniostat, type \"Reconnect\"")
         if reconfig == "":
             reconfig = "string"
+            times, voltages, currents = [], [], []
+            line = plot_initializer(config_data)
+            data = zip(times, voltages, currents)
+            plot_updater(config_data, data, line)
             continue
         if reconfig.lower() == "new":
             config_data = parse_config_file()
+            times, voltages, currents = [], [], []
+            line = plot_initializer(config_data)
+            data = zip(times, voltages, currents)
+            plot_updater(config_data, data, line)
             reconfig = "string"
             continue
         if reconfig.lower() == "reconnect":
+            times, voltages, currents = [], [], []
+            line = plot_initializer(config_data)
+            data = zip(times, voltages, currents)
+            plot_updater(config_data, data, line)
             closing_routine(board_instance.board, board_instance.pin_d9)
-            time.sleep(1)
             board_instance.configure_board()
             board_objects = (board_instance.pin_a0, board_instance.pin_a2, board_instance.pin_d9)
-            time.sleep(2)
             reconfig = "string"
             continue
         if reconfig == "string":
