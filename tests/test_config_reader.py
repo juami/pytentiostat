@@ -31,15 +31,18 @@ def test_parse_config_file():
 )
 def test_get_out_params(input, expected_name, expected_path, tmpdir):
     out_name, out_path = get_output_params(input)
-    check_out_name = out_name.split("_")
-    check_out_path = out_path.split("_")
+    split_out_name = out_name.split("_")
+    check_out_name = ""
+    for x in split_out_name[-3]:
+        check_out_name = check_out_name + x
+    split_out_path = out_path.split("_")
     assert check_out_name[0] == expected_name
     assert out_name[-3:] == "csv"
-    if (expected_path != "~/Desktop"):
-        assert check_out_path[0] == expected_path
+    if (expected_path != "Desktop"):
+        assert split_out_path[0] == expected_path
     else: 
-        check_out_path = out_path.split("/")
-        assert check_out_path[-1] == expected_path
+        split_out_path = out_path.split("/")
+        assert split_out_path[-1] == expected_path
     tmpdict = {"general_parameters": {"data_output_filename": expected_name, "data_output_path": tmpdir}}
     tmp_out_path = get_output_params(tmpdict)[1]
     check_tmp_out_path = tmp_out_path.split("_")
