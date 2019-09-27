@@ -26,7 +26,7 @@ def test_parse_config_file():
     [
         ({"general_parameters": {"data_output_filename": 1.1, "data_output_path": 2.2}}, "1.1", "2.2"),
         ({"general_parameters": {"data_output_filename": "my_data", "data_output_path": 2.2}}, "my_data", "2.2"),
-        ({"general_parameters": {"data_output_filename": 1.1, "data_output_path": "desktop"}}, "1.1", "~/Desktop")
+        ({"general_parameters": {"data_output_filename": 1.1, "data_output_path": "desktop"}}, "1.1", "Desktop")
     ],
 )
 def test_get_out_params(input, expected_name, expected_path, tmpdir):
@@ -34,8 +34,12 @@ def test_get_out_params(input, expected_name, expected_path, tmpdir):
     check_out_name = out_name.split("_")
     check_out_path = out_path.split("_")
     assert check_out_name[0] == expected_name
-    assert check_out_path[0] == expected_path
     assert out_name[-3:] == "csv"
+    if (expected_path != "~/Desktop"):
+        assert check_out_path[0] == expected_path
+    else: 
+        check_out_path = out_path.split("/")
+        assert check_out_path[-1] == expected_path
     tmpdict = {"general_parameters": {"data_output_filename": expected_name, "data_output_path": tmpdir}}
     tmp_out_path = get_output_params(tmpdict)[1]
     check_tmp_out_path = tmp_out_path.split("_")
