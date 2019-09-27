@@ -32,9 +32,7 @@ def test_parse_config_file():
 def test_get_out_params(input, expected_name, expected_path, tmpdir):
     out_name, out_path = get_output_params(input)
     split_out_name = out_name.split("_")
-    check_out_name = ""
-    for x in split_out_name[-3]:
-        check_out_name = check_out_name + x
+    check_out_name = "".join(split_out_name[:-3])
     split_out_path = out_path.split("_")
     assert check_out_name[0] == expected_name
     assert out_name[-3:] == "csv"
