@@ -32,7 +32,7 @@ def test_parse_config_file():
 def test_get_out_params(input, expected_name, expected_path, tmpdir):
     out_name, out_path = get_output_params(input)
     split_out_name = out_name.split("_")
-    check_out_name = "".join(split_out_name[:-3])
+    check_out_name = "_".join(split_out_name[:-3])
     split_out_path = out_path.split("_")
     assert check_out_name == expected_name
     assert out_name[-3:] == "csv"
@@ -43,6 +43,5 @@ def test_get_out_params(input, expected_name, expected_path, tmpdir):
         assert split_out_path[-1] == expected_path
     tmpdict = {"general_parameters": {"data_output_filename": expected_name, "data_output_path": tmpdir}}
     tmp_out_path = get_output_params(tmpdict)[1]
-    check_tmp_out_path = tmp_out_path.split("_")
-    assert check_tmp_out_path[0] == tmpdir
+    assert tmp_out_path == tmpdir
     
