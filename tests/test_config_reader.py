@@ -34,7 +34,7 @@ def test_get_out_params(input, expected_name, expected_path, tmpdir):
     split_out_name = out_name.split("_")
     check_out_name = "".join(split_out_name[:-3])
     split_out_path = out_path.split("_")
-    assert check_out_name[0] == expected_name
+    assert check_out_name == expected_name
     assert out_name[-3:] == "csv"
     if (expected_path != "Desktop"):
         assert split_out_path[0] == expected_path
