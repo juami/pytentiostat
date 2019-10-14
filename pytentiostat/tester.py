@@ -88,7 +88,7 @@ def read_write(
     times_diff_list.append(0)
     t = 1
     times, voltages, currents = [], [], []
-    
+
     for x in steps_list:
 
         # update time
@@ -288,7 +288,6 @@ def experiment(config_data, board, a0, a2, d9):
     elif exp_type == "CV":
 
         start_time = start_exp(d9, normalized_start, config_data)
-        
         for i in range(cycle_number):
             read_write(
                 start_time,
