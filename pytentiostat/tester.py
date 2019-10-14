@@ -129,7 +129,7 @@ def read_write(
         
         t = t+1
         
-def experiment(config_data, board, a0, a2, d9):
+def experiment(config_data, a0, a2, d9):
     """
     Determines which experiment to run and applies the appropriate voltages
     to perform the experiment based on the inputs from the config file. Plots
