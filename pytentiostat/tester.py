@@ -87,6 +87,7 @@ def read_write(
     times_diff_list = [x - starting_time for x in times_list]
     times_diff_list.append(0)
     t = 1
+    times, voltages, currents = [], [], []
     
     for x in steps_list:
 
