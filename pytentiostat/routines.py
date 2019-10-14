@@ -50,7 +50,7 @@ def startup_routine():
     """
 
     print("Welcome to the JUAMI pytentiostat interface!")
-
+    connect = input("Press enter to connect to a JUAMI potentiostat.")
     com = _load_arduino()
     board = _initialize_arduino(com)
 

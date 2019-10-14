@@ -17,8 +17,6 @@ class BoardCom:
         self.com, self.board, self.pin_a0, self.pin_a2, self.pin_d9 = startup_routine()
 
 
-config_data = parse_config_file()
-
 try:
     # Initialize Experiment
     board_instance = BoardCom()
@@ -28,9 +26,10 @@ except KeyboardInterrupt:
              "Exiting...")
 
 board_objects = (board_instance.pin_a0, board_instance.pin_a2, board_instance.pin_d9)
-
+parse = input("Press enter to load the config file.")
+config_data = parse_config_file()
 reconfig = "string"
-
+start = input("Press enter to start the experiment.")
 while True:
     try:
         # Run the experiment and get the config_data
