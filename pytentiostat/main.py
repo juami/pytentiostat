@@ -58,13 +58,9 @@ while True:
         else:
             sys.exit("Value error. Exiting...")
 
-try:
-    # Generate a config_data report
-    collected_data = zip(times, voltages, currents)
-    save_data_to_file(config_data, collected_data)
-except KeyboardInterrupt:
-    sys.exit("Interrupted while saving!")
-
+# Generate a config_data report
+collected_data = zip(times, voltages, currents)
+save_data_to_file(config_data, collected_data)
 
 # Wrap things up
 closing_routine(board_instance.board, board_instance.pin_d9)

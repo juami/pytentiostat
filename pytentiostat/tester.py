@@ -7,10 +7,6 @@ import numpy as np
 from pytentiostat.plotter import plot_initializer, plot_updater
 import pytentiostat.config_reader as cr
 
-# Global lists for config_data to be used by functions
-times = []
-voltages = []
-currents = []
 
 
 def start_exp(d9, normalized_start, data):
@@ -42,8 +38,9 @@ def start_exp(d9, normalized_start, data):
 
 
 def read_write(
-    start_time, d9, a0, a2, step_number, steps_list, time_for_range, average, line, time_step, cf, sr, config_data
-):
+    start_time, d9, a0, a2, step_number, steps_list, time_for_range, average, line, time_step, cf, sr, config_data,
+        times, voltages, currents):
+
     """
     Writes voltages to pin 9 using d9, reads voltages from pin 0 and 2 using a0
     and a2, and calculates current from the voltage on a2.
@@ -87,7 +84,6 @@ def read_write(
     times_diff_list = [x - starting_time for x in times_list]
     times_diff_list.append(0)
     t = 1
-    times, voltages, currents = [], [], []
 
     for x in steps_list:
 
@@ -128,6 +124,8 @@ def read_write(
                 rel_time = now_time-start_time
         
         t = t+1
+
+    return times, voltages, currents
         
 def experiment(config_data, a0, a2, d9):
     """
@@ -162,7 +160,7 @@ def experiment(config_data, a0, a2, d9):
     conversion_factor, set_gain, set_offset, shunt_resistor, time_step, average_number = cr.get_adv_params(
         config_data
     )
-    
+    times, voltages, currents = [], [], []
     step_number = cr.get_steps(config_data)
 
     # Check the values in advanced parameters in config.yml
@@ -249,7 +247,7 @@ def experiment(config_data, a0, a2, d9):
 
         start_time = start_exp(d9, normalized_start, config_data)
 
-        read_write(
+        times, voltages, currents = read_write(
             start_time,
             *pin_objects,
             step_number,
@@ -261,6 +259,9 @@ def experiment(config_data, a0, a2, d9):
             conversion_factor,
             shunt_resistor,
             config_data,
+            times,
+            voltages,
+            currents
         )
 
         return times, voltages, currents
@@ -269,7 +270,7 @@ def experiment(config_data, a0, a2, d9):
 
         start_time = start_exp(d9, normalized_voltage, config_data)
 
-        read_write(
+        times, voltages, currents = read_write(
             start_time,
             *pin_objects,
             step_number,
@@ -281,6 +282,9 @@ def experiment(config_data, a0, a2, d9):
             conversion_factor,
             shunt_resistor,
             config_data,
+            times,
+            voltages,
+            currents
         )
 
         return times, voltages, currents
@@ -289,7 +293,7 @@ def experiment(config_data, a0, a2, d9):
 
         start_time = start_exp(d9, normalized_start, config_data)
         for i in range(cycle_number):
-            read_write(
+            times1, voltages1, currents1 = read_write(
                 start_time,
                 *pin_objects,
                 step_number,
@@ -301,8 +305,11 @@ def experiment(config_data, a0, a2, d9):
                 conversion_factor,
                 shunt_resistor,
                 config_data,
+                times,
+                voltages,
+                currents
             )
-            read_write(
+            times2, voltages2, currents2 = read_write(
                 start_time,
                 *pin_objects,
                 step_number,
@@ -314,8 +321,11 @@ def experiment(config_data, a0, a2, d9):
                 conversion_factor,
                 shunt_resistor,
                 config_data,
+                times,
+                voltages,
+                currents
             )
-            read_write(
+            times3, voltages3, currents3 = read_write(
                 start_time,
                 *pin_objects,
                 step_number,
@@ -327,7 +337,13 @@ def experiment(config_data, a0, a2, d9):
                 conversion_factor,
                 shunt_resistor,
                 config_data,
+                times,
+                voltages,
+                currents
             )
+            times.append(times1 + times2 + times3)
+            voltages.append(voltages1 + voltages2 + voltages3)
+            currents.append(currents1 + currents2 + currents3)
             i = i+1
 
         return times, voltages, currents
