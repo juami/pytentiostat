@@ -78,19 +78,3 @@ def closing_routine(board, d9):
 
     # Show Final Data
     plt.show()
-
-
-def verify_input(string):
-    while True:
-        if string == "":
-            break
-        elif string.lower() == "new":
-            break
-        elif string.lower() == "reconnect":
-            break
-        else:
-            string = input("Invalid input.\n To restart the same experiment, press Enter. \n"
-                           "If you want to do a different experiment, edit and save the config file then type"
-                           " \"new\" and press enter\n"
-                           "If you need to reconnect the poteniostat, type \"Reconnect\" \n")
-    return string
