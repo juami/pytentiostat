@@ -2,7 +2,7 @@
 from pytentiostat.config_reader import parse_config_file
 from pytentiostat.reporter import save_data_to_file
 from pytentiostat.tester import experiment
-from pytentiostat.routines import startup_routine, closing_routine, verify_input
+from pytentiostat.routines import startup_routine, closing_routine
 from pytentiostat.plotter import plot_updater, plot_initializer
 import matplotlib.pyplot as plt
 import sys
@@ -28,11 +28,10 @@ except KeyboardInterrupt:
 board_objects = (board_instance.pin_a0, board_instance.pin_a2, board_instance.pin_d9)
 parse = input("Press enter to load the config file.")
 config_data = parse_config_file()
-reconfig = "string"
-start = input("Press enter to start the experiment.")
 while True:
     try:
         # Run the experiment and get the config_data
+        start = input("Press enter to start the experiment.")
         times, voltages, currents = experiment(config_data, *board_objects)
         break
     except KeyboardInterrupt:
@@ -40,22 +39,21 @@ while True:
                          "If you want to do a different experiment, edit and save the config file then type"
                          " \"new\" and press enter\n"
                          "If you need to reconnect the poteniostat, type \"Reconnect\" \n")
-        reconfig = verify_input(reconfig)
-        if reconfig == "":
-            reconfig = "string"
-            plt.close()
-        elif reconfig.lower() == "new":
-            reconfig = "string"
+        if reconfig.lower() == "new":
             plt.close()
             config_data = parse_config_file()
         elif reconfig.lower() == "reconnect":
-            reconfig = "string"
             plt.close()
             closing_routine(board_instance.board, board_instance.pin_d9)
             board_instance.configure_board()
             board_objects = (board_instance.pin_a0, board_instance.pin_a2, board_instance.pin_d9)
         else:
-            sys.exit("Value error. Exiting...")
+            plt.close()
+            abort = input("Would you like to save the data? [y/n]")
+            if abort.lower() == "y":
+                break
+            else:
+                continue
 
 # Generate a config_data report
 collected_data = zip(times, voltages, currents)
