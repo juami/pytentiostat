@@ -40,6 +40,7 @@ The steps below describe how to prepare an electrochemical cell designed that ca
 reduction and oxidation of potassium ferricyanide.
 
 Materials for ferricyanide experiment:
+
 #. Glassware for electrochemical cell: three-neck flask
 #. Glassware for solution preparation: volumetric flask and glass or plastic jar/bottle
 #. Working electrode:
