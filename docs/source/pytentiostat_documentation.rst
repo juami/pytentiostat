@@ -12,6 +12,7 @@ Welcome to Pytentiostat's documentation!
 
    gettingstarted.rst
    experimentsetup.rst
+   backgroundechemtechniques.rst
 
 
 Indices and tables
