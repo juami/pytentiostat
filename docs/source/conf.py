@@ -49,6 +49,7 @@ exclude_patterns = []
 #
 html_theme = 'sphinxdoc'
 html_logo = 'pytentiostat_logo.png'
+html_favicon = 'pytentiostat_favicon.png'
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
