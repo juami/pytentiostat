@@ -18,8 +18,8 @@
 # -- Project information -----------------------------------------------------
 
 project = 'Pytentiostat'
-copyright = '2019, Mike Spencer'
-author = 'Mike Spencer'
+copyright = '2019'
+author = 'Simon J. L. Billinge, Austin Plymill, Jeremy Hitt, Yao Tong, Michael Spencer, Sun Hwi Bang, Weizi Yuan'
 
 
 # -- General configuration ---------------------------------------------------
