@@ -1,4 +1,4 @@
-## Use Case: Running default config on the JUAMI Potentiostat for Alpha release.
+## Use Case (UC): Running default config on the JUAMI Potentiostat for Alpha release.
 Intended User: Graduate student (GS) familiar with dev team and basic electrochemistry concepts. The instructions in this UC assume that the student has a resistor they can attach clips to.
 Assumes little to no knowledge of python. Assumes access to a Windows computer.
 
@@ -12,23 +12,23 @@ Assumes little to no knowledge of python. Assumes access to a Windows computer.
 
 ### Experimental Setup:
 1. GS plugs the USB cable into the computer and the potentiostat.
-1. GS attaches alligator clips to the resistor; one side with the working electrode and the other side with counter and reference Electrodes.
+1. GS attaches alligator clips to the resistor; one side with the working electrode and the other side with counter and reference electrodes.
 
 ### Program Setup:
 1. GS copies the default example config file to an easy to navigate to directory (WD).
 1. GS opens up a console window.
-1. GS navigates to WD.
+1. GS navigates to the WD.
 1. GS types command pytentiostat.
 
 ### Pytentiostat Operation:
-1. Pytentiostat prints "Welcome to the JUAMI pytentiostat interface!".
+1. Pytentiostat prints to console "Welcome to the JUAMI pytentiostat interface!".
 1. Pyentiostat prompts "Press enter to connect to a JUAMI potentiostat.".
 1. GS presses enter.
-1. Pytentiostat prints "Searching for potentiostat...".
-1. Pyentiostat prints "Pytentiostat connected COM. Reading configuration file...".
-1. Pytentiostat prints "Press enter to load the config file".
+1. Pytentiostat prints to console "Searching for potentiostat...".
+1. Pyentiostat prints to console "Pytentiostat connected COM. Reading configuration file...".
+1. Pytentiostat prints to console "Press enter to load the config file".
 1. GS presses enter.
-1. Pytentiostat prints "Press enter to start the experiment".
+1. Pytentiostat prints to console "Press enter to start the experiment".
 1. Pytentiostat runs experiment in config.
 1. Pyentiostat displays plot of real-time data to user.
 1. After running experiment, pytentiostat promopts "Would you like to save the data? [y/n]".
