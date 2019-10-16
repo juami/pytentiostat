@@ -10,16 +10,14 @@ To post questions about anything to do with pytentiostat, please submit an issue
 
 pytentiostat provides a Python API package to the JUAMI potentiostat
 
-The goal of the xpdAn package is to simplify your analysis workflow during beamtime, so that you can focus more on the scientific aspects of your experiment.
-
 To get started, please go to :ref:`quick_start`
 
-If you have suggestions for new features in xpdAcq, or want to report a bug or simply ask a question about the software, please post it as a new thread at XPD-Users
+If you have suggestions for new features in pytentiostat, or want to report a bug or simply ask a question about the software, please post it as a new thread at XPD-Users
 
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
-
+   :caption: Getting Started
 
 
 Indices and tables
