@@ -29,35 +29,36 @@ board_objects = (board_instance.pin_a0, board_instance.pin_a2, board_instance.pi
 parse = input("Press enter to load the config file.")
 config_data = parse_config_file()
 while True:
-    try:
         # Run the experiment and get the config_data
         start = input("Press enter to start the experiment.")
-        times, voltages, currents = experiment(config_data, *board_objects)
-        break
-    except KeyboardInterrupt:
-        reconfig = input("Experiment interrupted. To restart the same experiment, press Enter. \n"
-                         "If you want to do a different experiment, edit and save the config file then type"
-                         " \"new\" and press enter\n"
-                         "If you need to reconnect the poteniostat, type \"Reconnect\" \n")
-        if reconfig.lower() == "new":
-            plt.close()
-            config_data = parse_config_file()
-        elif reconfig.lower() == "reconnect":
-            plt.close()
-            closing_routine(board_instance.board, board_instance.pin_d9)
-            board_instance.configure_board()
-            board_objects = (board_instance.pin_a0, board_instance.pin_a2, board_instance.pin_d9)
-        else:
-            plt.close()
-            abort = input("Would you like to save the data? [y/n]")
-            if abort.lower() == "y":
-                break
+        times, voltages, currents, interrupt = experiment(config_data, *board_objects)
+        if interrupt:
+            reconfig = input("Experiment interrupted. To restart the same experiment, press Enter. \n"
+                             "If you want to do a different experiment, edit and save the config file then type"
+                             " \"new\" and press enter\n"
+                             "If you need to reconnect the poteniostat, type \"reconnect\" \n")
+            if reconfig.lower() == "new":
+                plt.close()
+                config_data = parse_config_file()
+            elif reconfig.lower() == "reconnect":
+                plt.close()
+                closing_routine(board_instance.board, board_instance.pin_d9)
+                board_instance.configure_board()
+                board_objects = (board_instance.pin_a0, board_instance.pin_a2, board_instance.pin_d9)
             else:
-                continue
+                plt.close()
+                abort = input("Would you like to save the data? [y/n]")
+                if abort.lower() == "y":
+                    temp_data = zip(times, voltages, currents)
+                    save_data_to_file(config_data, temp_data)
+                    print("Saved.")
+                else:
+                    continue
 
 # Generate a config_data report
 collected_data = zip(times, voltages, currents)
 save_data_to_file(config_data, collected_data)
+print("Saved.")
 
 # Wrap things up
 closing_routine(board_instance.board, board_instance.pin_d9)

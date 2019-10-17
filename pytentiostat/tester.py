@@ -2,6 +2,7 @@
 import time
 import sys
 import numpy as np
+import threading
 
 # Pytentiostat function files
 from pytentiostat.plotter import plot_initializer, plot_updater
@@ -77,55 +78,61 @@ def read_write(
     nothing
 
     """
-    
-    starting_time = time.time()
-    ending_time = starting_time + time_for_range
-    times_list = np.linspace(starting_time, ending_time, num=step_number+1)
-    times_diff_list = [x - starting_time for x in times_list]
-    times_diff_list.append(0)
-    t = 1
+    interrupt = False
+    try:
+        starting_time = time.time()
+        ending_time = starting_time + time_for_range
+        times_list = np.linspace(starting_time, ending_time, num=step_number+1)
+        times_diff_list = [x - starting_time for x in times_list]
+        times_diff_list.append(0)
+        t = 1
 
-    for x in steps_list:
+        for x in steps_list:
 
-        # update time
-        now_time = time.time()
-        time_passed = now_time - start_time
-        times.append(time_passed)
+            # update time
+            now_time = time.time()
+            time_passed = now_time - start_time
+            times.append(time_passed)
 
-        i = 0
-        voltage_catcher = 0
-        current_catcher = 0
-        
-        while i < average:
-            d9.write(x)  # Writes Value Between 0 and 1 (-2.5V to 2.5V) 256 possible
-            time.sleep(time_step)
-            pin0value = (
-                a0.read()
-            )  # Reads Value Between 0 and 1 (-2.5V to 2.5V) 1024 possible
-            pin2value = a2.read()
-            real_voltage = (pin0value - 0.5) * -1 * cf
-            real_current = ((pin2value - 0.5) * -1 * cf) / sr
-            voltage_catcher = voltage_catcher + real_voltage
-            current_catcher = current_catcher + real_current
-            i = i + 1
+            i = 0
+            voltage_catcher = 0
+            current_catcher = 0
 
-        voltage_average = voltage_catcher / average
-        current_average = current_catcher / average
-        voltages.append(voltage_average)
-        currents.append(current_average)
-        collected_data = zip(times, voltages, currents)
-        plot_updater(config_data, collected_data, line)  
-        rel_time = 0
-        
-        while rel_time < times_diff_list[t]:
-        
+            while i < average:
+                d9.write(x)  # Writes Value Between 0 and 1 (-2.5V to 2.5V) 256 possible
                 time.sleep(time_step)
-                now_time = time.time()
-                rel_time = now_time-start_time
-        
-        t = t+1
+                pin0value = (
+                    a0.read()
+                )  # Reads Value Between 0 and 1 (-2.5V to 2.5V) 1024 possible
+                pin2value = a2.read()
+                real_voltage = (pin0value - 0.5) * -1 * cf
+                real_current = ((pin2value - 0.5) * -1 * cf) / sr
+                voltage_catcher = voltage_catcher + real_voltage
+                current_catcher = current_catcher + real_current
+                i = i + 1
 
-    return times, voltages, currents
+            voltage_average = voltage_catcher / average
+            current_average = current_catcher / average
+            voltages.append(voltage_average)
+            currents.append(current_average)
+            collected_data = zip(times, voltages, currents)
+            thread = threading.Thread(target=plot_updater(config_data, collected_data, line))
+            thread.start()
+            thread.join()
+            rel_time = 0
+
+            while rel_time < times_diff_list[t]:
+
+                    time.sleep(time_step)
+                    now_time = time.time()
+                    rel_time = now_time-start_time
+
+            t = t+1
+
+        return times, voltages, currents, interrupt
+    except KeyboardInterrupt:
+        interrupt = True
+        return times, voltages, currents, interrupt
         
 def experiment(config_data, a0, a2, d9):
     """
@@ -247,7 +254,7 @@ def experiment(config_data, a0, a2, d9):
 
         start_time = start_exp(d9, normalized_start, config_data)
 
-        times, voltages, currents = read_write(
+        times, voltages, currents, interrupt = read_write(
             start_time,
             *pin_objects,
             step_number,
@@ -270,7 +277,7 @@ def experiment(config_data, a0, a2, d9):
 
         start_time = start_exp(d9, normalized_voltage, config_data)
 
-        times, voltages, currents = read_write(
+        times, voltages, currents, interrupt = read_write(
             start_time,
             *pin_objects,
             step_number,
@@ -293,7 +300,7 @@ def experiment(config_data, a0, a2, d9):
 
         start_time = start_exp(d9, normalized_start, config_data)
         for i in range(cycle_number):
-            times1, voltages1, currents1 = read_write(
+            times1, voltages1, currents1, interrupt = read_write(
                 start_time,
                 *pin_objects,
                 step_number,
@@ -309,7 +316,7 @@ def experiment(config_data, a0, a2, d9):
                 voltages,
                 currents
             )
-            times2, voltages2, currents2 = read_write(
+            times2, voltages2, currents2, interrupt = read_write(
                 start_time,
                 *pin_objects,
                 step_number,
@@ -325,7 +332,7 @@ def experiment(config_data, a0, a2, d9):
                 voltages,
                 currents
             )
-            times3, voltages3, currents3 = read_write(
+            times3, voltages3, currents3, interrupt = read_write(
                 start_time,
                 *pin_objects,
                 step_number,

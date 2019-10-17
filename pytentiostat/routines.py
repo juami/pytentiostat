@@ -26,7 +26,7 @@ def _initialize_arduino(com):
     try:
         board = Arduino(com,
                         baudrate=_BAUD_RATE)  # opens communication to Arduino
-        print("Pytentiostat connected {}. Reading configuration file...".format(
+        print("Pytentiostat connected {}.".format(
             com))
     except:
         sys.exit("Error. Could not open COM port")
