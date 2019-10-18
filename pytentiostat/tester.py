@@ -288,9 +288,7 @@ def experiment(config_data, board, a0, a2, d9):
 
         start_time = start_exp(d9, normalized_start, config_data)
         
-        i=0
-        
-        while i < cycle_number:
+        for i in range(cycle_number):
 
             read_write(
                 start_time,
