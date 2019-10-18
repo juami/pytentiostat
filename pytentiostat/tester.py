@@ -289,7 +289,6 @@ def experiment(config_data, board, a0, a2, d9):
         start_time = start_exp(d9, normalized_start, config_data)
         
         for i in range(cycle_number):
-
             read_write(
                 start_time,
                 *pin_objects,
@@ -329,7 +328,6 @@ def experiment(config_data, board, a0, a2, d9):
                 shunt_resistor,
                 config_data,
             )
-            
             i = i+1
 
         return times, voltages, currents
