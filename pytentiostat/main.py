@@ -33,6 +33,7 @@ while True:
         start = input("Press enter to start the experiment.")
         times, voltages, currents, interrupt = experiment(config_data, *board_objects)
         if interrupt:
+            interrupt = False
             reconfig = input("Experiment interrupted. To restart the same experiment, press Enter. \n"
                              "If you want to do a different experiment, edit and save the config file then type"
                              " \"new\" and press enter\n"
@@ -47,13 +48,15 @@ while True:
                 board_objects = (board_instance.pin_a0, board_instance.pin_a2, board_instance.pin_d9)
             else:
                 plt.close()
-                abort = input("Would you like to save the data? [y/n]")
-                if abort.lower() == "y":
+                save = input("Would you like to save the data? [y/n]")
+                if save.lower() == "y":
                     temp_data = zip(times, voltages, currents)
                     save_data_to_file(config_data, temp_data)
                     print("Saved.")
                 else:
                     continue
+        else:
+            break
 
 # Generate a config_data report
 collected_data = zip(times, voltages, currents)
