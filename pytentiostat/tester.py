@@ -270,7 +270,7 @@ def experiment(config_data, board, a0, a2, d9):
 
         read_write(
             start_time,
-            *pin_objects
+            *pin_objects,
             step_number,
             steps_list,
             time_for_range,
@@ -287,45 +287,47 @@ def experiment(config_data, board, a0, a2, d9):
     elif exp_type == "CV":
 
         start_time = start_exp(d9, normalized_start, config_data)
-
-        read_write(
-            start_time,
-            *pin_objects
-            step_number,
-            first_steps_list,
-            first_time_range,
-            average_number,
-            line,
-            time_step,
-            conversion_factor,
-            shunt_resistor,
-            config_data,
-        )
-        read_write(
-            start_time,
-            *pin_objects
-            step_number,
-            second_steps_list,
-            second_time_range,
-            average_number,
-            line,
-            time_step,
-            conversion_factor,
-            shunt_resistor,
-            config_data,
-        )
-        read_write(
-            start_time,
-            *pin_objects
-            step_number,
-            third_steps_list,
-            third_time_range,
-            average_number,
-            line,
-            time_step,
-            conversion_factor,
-            shunt_resistor,
-            config_data,
-        )
+        
+        for i in range(cycle_number):
+            read_write(
+                start_time,
+                *pin_objects,
+                step_number,
+                first_steps_list,
+                first_time_range,
+                average_number,
+                line,
+                time_step,
+                conversion_factor,
+                shunt_resistor,
+                config_data,
+            )
+            read_write(
+                start_time,
+                *pin_objects,
+                step_number,
+                second_steps_list,
+                second_time_range,
+                average_number,
+                line,
+                time_step,
+                conversion_factor,
+                shunt_resistor,
+                config_data,
+            )
+            read_write(
+                start_time,
+                *pin_objects,
+                step_number,
+                third_steps_list,
+                third_time_range,
+                average_number,
+                line,
+                time_step,
+                conversion_factor,
+                shunt_resistor,
+                config_data,
+            )
+            i = i+1
 
         return times, voltages, currents
