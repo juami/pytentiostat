@@ -11,11 +11,15 @@ import pytentiostat.config_reader as cr
 
 
 interrupt = False
+exp_running = False
 
 
 def signal_handler(signum, frame):
-    global interrupt
-    interrupt = True
+    if exp_running:
+        global interrupt
+        interrupt = True
+    else:
+        sys.exit(KeyboardInterrupt)
 
 
 signal.signal(signal.SIGINT, signal_handler)
@@ -89,7 +93,8 @@ def read_write(
     nothing
 
     """
-    global interrupt
+    global interrupt, exp_running
+    exp_running = True
     starting_time = time.time()
     ending_time = starting_time + time_for_range
     times_list = np.linspace(starting_time, ending_time, num=step_number+1)
@@ -129,6 +134,7 @@ def read_write(
         plot_updater(config_data, collected_data, line)
         rel_time = 0
         if interrupt:
+            exp_running = False
             return times, voltages, currents, interrupt
         while rel_time < times_diff_list[t]:
 
@@ -137,7 +143,7 @@ def read_write(
                 rel_time = now_time-start_time
 
         t = t+1
-
+    exp_running = False
     return times, voltages, currents, interrupt
 
         
