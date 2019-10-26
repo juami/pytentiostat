@@ -19,7 +19,7 @@ def signal_handler(signum, frame):
         global interrupt
         interrupt = True
     else:
-        sys.exit(KeyboardInterrupt)
+        raise KeyboardInterrupt
 
 
 signal.signal(signal.SIGINT, signal_handler)
