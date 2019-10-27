@@ -19,7 +19,7 @@ try:
     board_instance = BoardCom()
     # com, board, a0, a2, d9 = startup_routine()
 except KeyboardInterrupt:
-    sys.exit("Connection interrupted. Make sure the potentiostat is plugged in then restart the software.\n"
+    sys.exit("Connection interrupted by user. Make sure the potentiostat is plugged in then restart the software.\n"
              "Exiting...")
 
 board_objects = (board_instance.pin_a0, board_instance.pin_a2, board_instance.pin_d9)
