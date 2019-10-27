@@ -26,7 +26,7 @@ def _initialize_arduino(com):
     try:
         board = Arduino(com,
                         baudrate=_BAUD_RATE)  # opens communication to Arduino
-        print("Pytentiostat connected {}.".format(
+        print("Pytentiostat connected to {}.\n".format(
             com))
     except:
         sys.exit("Error. Could not open COM port")
@@ -67,7 +67,7 @@ def startup_routine():
 
 def closing_routine(board, d9):
     # Prompt
-    print("Experiment Complete!")
+    print("Experiment Complete! Closing...")
 
     # Reset PWM
 

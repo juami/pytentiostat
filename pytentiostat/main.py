@@ -13,9 +13,6 @@ class BoardCom:
     def __init__(self):
         self.com, self.board, self.pin_a0, self.pin_a2, self.pin_d9 = startup_routine()
 
-    def configure_board(self):
-        self.com, self.board, self.pin_a0, self.pin_a2, self.pin_d9 = startup_routine()
-
 
 try:
     # Initialize Experiment
@@ -29,39 +26,44 @@ board_objects = (board_instance.pin_a0, board_instance.pin_a2, board_instance.pi
 parse = input("Press enter to load the config file.")
 config_data = parse_config_file()
 while True:
-        # Run the experiment and get the config_data
-        start = input("Press enter to start the experiment.")
-        times, voltages, currents, interrupt = experiment(config_data, *board_objects)
-        if interrupt:
-            interrupt = False
-            reconfig = input("Experiment interrupted. To restart the same experiment, press Enter. \n"
-                             "If you want to do a different experiment, edit and save the config file then type"
-                             " \"new\" and press enter\n"
-                             "If you need to reconnect the poteniostat, type \"reconnect\" \n")
-            if reconfig.lower() == "new":
-                plt.close()
-                config_data = parse_config_file()
-            elif reconfig.lower() == "reconnect":
-                plt.close()
-                closing_routine(board_instance.board, board_instance.pin_d9)
-                board_instance.configure_board()
-                board_objects = (board_instance.pin_a0, board_instance.pin_a2, board_instance.pin_d9)
-            else:
-                plt.close()
-                save = input("Would you like to save the data? [y/n]")
+    while True:
+            # Run the experiment and get the config_data
+            start = input("Press enter to start the experiment.")
+            times, voltages, currents, interrupt = experiment(config_data, *board_objects)
+            if interrupt:
+                save = input("Experiment interrupted. Would you like to save the data? [y/n]: ")
                 if save.lower() == "y":
                     temp_data = zip(times, voltages, currents)
                     save_data_to_file(config_data, temp_data)
                     print("Saved.")
+                reconfig = input("\nIf you want to do a different experiment, edit and save the config file then type"
+                                 " \"new\" and press enter.\n"
+                                 "If you need to reconnect the poteniostat, type \"reconnect\" then press enter.\n"
+                                 "To close, just press enter. \n")
+                if reconfig.lower() == "new":
+                    plt.close()
+                    config_data = parse_config_file()
+                elif reconfig.lower() == "reconnect":
+                    plt.close()
+                    closing_routine(board_instance.board, board_instance.pin_d9)
+                    board_instance.__init__()
+                    board_objects = (board_instance.pin_a0, board_instance.pin_a2, board_instance.pin_d9)
                 else:
-                    continue
-        else:
-            break
+                    break
+            else:
+                break
 
-# Generate a config_data report
-collected_data = zip(times, voltages, currents)
-save_data_to_file(config_data, collected_data)
-print("Saved.")
+    # Generate a config_data report
+    if not interrupt:
+        collected_data = zip(times, voltages, currents)
+        save_data_to_file(config_data, collected_data)
+        print("Saved.")
+    stop = input("\nWould you like to repeat the last experiment? [y/n]: ")
+    if stop.lower() != "y":
+        break
+    else:
+        interrupt = False
+        plt.close()
 
 # Wrap things up
 closing_routine(board_instance.board, board_instance.pin_d9)
