@@ -27,6 +27,10 @@ Measured Waveform:
 After completion of an LSV experiment the data file contains time, voltage and current. Using this information, one
 can plot current vs. voltage, which is typically the most useful way to plot the results from a LSV scan.
 
+Some applications the LSV can be uniquely used for are measuring current vs. voltage of a resistor, measuring the current
+response of an irreversible process (where cyclic voltammetry would not provide additional information) and when one
+desires to retain the oxidized or reduced form of the electrode material without reversing it back to its original state.
+
 Cyclic Voltammetry
 -------------------
 
