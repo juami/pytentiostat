@@ -42,10 +42,32 @@ desires to retain the oxidized or reduced form of the electrode material without
 Cyclic Voltammetry
 -------------------
 
+Similar to LSV, cyclic voltammetry sweeps between two user-defined potentials at a specific sweep rate. However, as the
+name suggests, this technique performs the forward and reverse scans in a cyclic manner for a certain number of cycles.
+This provides information about performance characteristics, reversibility and kinetic difference between anodic and
+cathodic processes.
+
+User Inputs:
+* start_voltage
+* first_turnover_voltage
+* second_turnover_voltage
+* sweep_rate
+* number_of_cycles
+
+Applied Waveform:
+
+.. todo::
+
+   Add figure of waveform: V vs. t
+
+Measured Waveform:
+
+.. todo::
+
+   Add sample measured waveform: i vs. t
+
 
 
 Chronoamperometry
 ------------------
-
-
 
