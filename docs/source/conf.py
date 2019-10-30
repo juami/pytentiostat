@@ -48,8 +48,8 @@ exclude_patterns = []
 # a list of builtin themes.
 #
 html_theme = 'sphinxdoc'
-html_logo = 'pytentiostat_logo.png'
-html_favicon = 'pytentiostat_favicon.png'
+html_logo = 'pytentiostat_logo_10212019.png'
+html_favicon = 'pytentiostat_favicon_10212019.png'
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
