@@ -49,7 +49,8 @@ while True:
                     board_instance.__init__()
                     board_objects = (board_instance.pin_a0, board_instance.pin_a2, board_instance.pin_d9)
                 else:
-                    break
+                    closing_routine(board_instance.board, board_instance.pin_d9)
+                    sys.exit(0)
             else:
                 break
 
