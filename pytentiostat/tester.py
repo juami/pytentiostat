@@ -2,15 +2,27 @@
 import time
 import sys
 import numpy as np
+import signal
+
 
 # Pytentiostat function files
 from pytentiostat.plotter import plot_initializer, plot_updater
 import pytentiostat.config_reader as cr
 
-# Global lists for config_data to be used by functions
-times = []
-voltages = []
-currents = []
+
+interrupt = False
+exp_running = False
+
+
+def signal_handler(signum, frame):
+    if exp_running:
+        global interrupt
+        interrupt = True
+    else:
+        raise KeyboardInterrupt
+
+
+signal.signal(signal.SIGINT, signal_handler)
 
 
 def start_exp(d9, normalized_start, data):
@@ -42,8 +54,9 @@ def start_exp(d9, normalized_start, data):
 
 
 def read_write(
-    start_time, d9, a0, a2, step_number, steps_list, time_for_range, average, line, time_step, cf, sr, config_data
-):
+    start_time, d9, a0, a2, step_number, steps_list, time_for_range, average, line, time_step, cf, sr, config_data,
+        times, voltages, currents):
+
     """
     Writes voltages to pin 9 using d9, reads voltages from pin 0 and 2 using a0
     and a2, and calculates current from the voltage on a2.
@@ -80,14 +93,15 @@ def read_write(
     nothing
 
     """
-    
+    global interrupt, exp_running
+    exp_running = True
     starting_time = time.time()
     ending_time = starting_time + time_for_range
     times_list = np.linspace(starting_time, ending_time, num=step_number+1)
     times_diff_list = [x - starting_time for x in times_list]
     times_diff_list.append(0)
     t = 1
-    
+
     for x in steps_list:
 
         # update time
@@ -98,7 +112,7 @@ def read_write(
         i = 0
         voltage_catcher = 0
         current_catcher = 0
-        
+
         while i < average:
             d9.write(x)  # Writes Value Between 0 and 1 (-2.5V to 2.5V) 256 possible
             time.sleep(time_step)
@@ -117,18 +131,23 @@ def read_write(
         voltages.append(voltage_average)
         currents.append(current_average)
         collected_data = zip(times, voltages, currents)
-        plot_updater(config_data, collected_data, line)  
+        plot_updater(config_data, collected_data, line)
         rel_time = 0
-        
+        if interrupt:
+            exp_running = False
+            return times, voltages, currents, interrupt
         while rel_time < times_diff_list[t]:
-        
+
                 time.sleep(time_step)
                 now_time = time.time()
                 rel_time = now_time-start_time
-        
+
         t = t+1
+    exp_running = False
+    return times, voltages, currents, interrupt
+
         
-def experiment(config_data, board, a0, a2, d9):
+def experiment(config_data, a0, a2, d9):
     """
     Determines which experiment to run and applies the appropriate voltages
     to perform the experiment based on the inputs from the config file. Plots
@@ -157,11 +176,13 @@ def experiment(config_data, board, a0, a2, d9):
         List of floats containing the corrected currents at each data point
 
     """
+    global interrupt
+    interrupt = False
     # Constants for every experiment
     conversion_factor, set_gain, set_offset, shunt_resistor, time_step, average_number = cr.get_adv_params(
         config_data
     )
-    
+    Times, Voltages, Currents = [], [], []
     step_number = cr.get_steps(config_data)
 
     # Check the values in advanced parameters in config.yml
@@ -248,7 +269,7 @@ def experiment(config_data, board, a0, a2, d9):
 
         start_time = start_exp(d9, normalized_start, config_data)
 
-        read_write(
+        Times, Voltages, Currents, interrupt = read_write(
             start_time,
             *pin_objects,
             step_number,
@@ -260,15 +281,18 @@ def experiment(config_data, board, a0, a2, d9):
             conversion_factor,
             shunt_resistor,
             config_data,
+            Times,
+            Voltages,
+            Currents
         )
 
-        return times, voltages, currents
+        return Times, Voltages, Currents, interrupt
 
     elif exp_type == "CA":
 
         start_time = start_exp(d9, normalized_voltage, config_data)
 
-        read_write(
+        Times, Voltages, Currents, interrupt = read_write(
             start_time,
             *pin_objects,
             step_number,
@@ -280,16 +304,18 @@ def experiment(config_data, board, a0, a2, d9):
             conversion_factor,
             shunt_resistor,
             config_data,
+            Times,
+            Voltages,
+            Currents
         )
 
-        return times, voltages, currents
+        return Times, Voltages, Currents, interrupt
 
     elif exp_type == "CV":
 
         start_time = start_exp(d9, normalized_start, config_data)
-        
         for i in range(cycle_number):
-            read_write(
+            Times, Voltages, Currents, interrupt = read_write(
                 start_time,
                 *pin_objects,
                 step_number,
@@ -301,8 +327,11 @@ def experiment(config_data, board, a0, a2, d9):
                 conversion_factor,
                 shunt_resistor,
                 config_data,
+                Times,
+                Voltages,
+                Currents
             )
-            read_write(
+            Times, Voltages, Currents, interrupt = read_write(
                 start_time,
                 *pin_objects,
                 step_number,
@@ -314,8 +343,11 @@ def experiment(config_data, board, a0, a2, d9):
                 conversion_factor,
                 shunt_resistor,
                 config_data,
+                Times,
+                Voltages,
+                Currents
             )
-            read_write(
+            Times, Voltages, Currents, interrupt = read_write(
                 start_time,
                 *pin_objects,
                 step_number,
@@ -327,7 +359,10 @@ def experiment(config_data, board, a0, a2, d9):
                 conversion_factor,
                 shunt_resistor,
                 config_data,
+                Times,
+                Voltages,
+                Currents
             )
             i = i+1
 
-        return times, voltages, currents
+        return Times, Voltages, Currents, interrupt
