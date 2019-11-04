@@ -8,6 +8,16 @@ _BAUD_RATE = 115200
 
 
 def _load_arduino():
+    """
+    Creates a list of all the active serial ports and then checks how many arduino unos are connected
+    If only one is found, it's COM port is returned. If any other number is found, the corresponding
+    error message is printed and the program exits.
+
+    Returns
+    _______
+    com: string of the COM port the arduino is connected to.
+
+    """
     print("Searching for potentiostat...")
     ports = list(serial.tools.list_ports.comports())
     n_arduinos = 0
@@ -23,6 +33,17 @@ def _load_arduino():
 
 
 def _initialize_arduino(com):
+    """
+    Creates board object with Arduino(). If the connection fails it prints an error message and exits.
+    Parameters
+    __________
+    com: string of the COM port that the potentiostat is connected to.
+
+    Returns
+    _______
+    nothing
+
+    """
     try:
         board = Arduino(com,
                         baudrate=_BAUD_RATE)  # opens communication to Arduino
@@ -66,6 +87,19 @@ def startup_routine():
 
 
 def closing_routine(board, d9):
+    """
+    Called after experiment is finished. Function brings the potential back to 0 V and closes the board object.
+
+    Parameters
+    __________
+    board: board object for communication
+    d9: pin object for digital pin 9
+
+    Returns
+    _______
+    nothing
+
+    """
     # Prompt
     print("Experiment Complete! Closing...")
 

@@ -15,6 +15,21 @@ exp_running = False
 
 
 def signal_handler(signum, frame):
+    """
+    Signal handler is called by signal.signal() when Ctrl+c is pressed by the user.
+    It checks to see if exp_running is true and if so, it sets the global interrupt to true.
+    If exp_running is false, it raises KeyboardInterrupt.
+
+    Parameters
+    __________
+    signum: the signal number that caused the interruption
+    frame: the current stack frame
+
+    Returns
+    _______
+    nothing
+
+    """
     if exp_running:
         global interrupt
         interrupt = True
