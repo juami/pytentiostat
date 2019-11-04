@@ -53,6 +53,8 @@ def start_exp(d9, normalized_start, data):
     normalized_start: float
         Number from 0 to 1 that sets the duty cycle of pin 9 before the
         experiment starts
+    data: dict
+        Dictionary containing data read from the config file
 
     Returns
     _______
@@ -100,12 +102,25 @@ def read_write(
         Conversion factor to correct the current and voltage readings
     sr: float
         Shunt resistor used to correct the current reading
-    data: dict
+    config_data: dict
         Dictionary that contains the data read from the config file.
+    times: list
+        Contains the time measured during the experiment at each data point
+    voltages: list
+        Contains the voltage measured at each data point
+    currents: list
+        Contains the current measured at each data point
 
     Returns
     _______
-    nothing
+    times: list
+        Contains the time measured during the experiment at each data point
+    voltages: list
+        Contains the voltage measured at each data point
+    currents: list
+        Contains the current measured at each data point
+    interrupt: Bool
+        True if the experiment has been interrupted by Ctrl+C
 
     """
     global interrupt, exp_running
@@ -183,12 +198,14 @@ def experiment(config_data, a0, a2, d9):
 
     Returns
     _______
-    times: list
+    Times: list
         List of floats containing the time each data point was recorded at
-    voltages: list
+    Voltages: list
         List of floats containing the corrected voltages at each data point
-    currents: list
+    Currents: list
         List of floats containing the corrected currents at each data point
+    interrupt: Bool
+        True if the experiment has been interrupted by Ctrl+C
 
     """
     global interrupt

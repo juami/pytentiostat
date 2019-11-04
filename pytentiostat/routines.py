@@ -15,7 +15,8 @@ def _load_arduino():
 
     Returns
     _______
-    com: string of the COM port the arduino is connected to.
+    com: string
+        COM port the arduino is connected to.
 
     """
     print("Searching for potentiostat...")
@@ -37,7 +38,8 @@ def _initialize_arduino(com):
     Creates board object with Arduino(). If the connection fails it prints an error message and exits.
     Parameters
     __________
-    com: string of the COM port that the potentiostat is connected to.
+    com: string
+        COM port that the potentiostat is connected to.
 
     Returns
     _______
