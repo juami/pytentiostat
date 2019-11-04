@@ -103,7 +103,9 @@ def read_write(
     t = 1
 
     for x in steps_list:
-
+        if interrupt:
+            exp_running = False
+            return times, voltages, currents, interrupt
         # update time
         now_time = time.time()
         time_passed = now_time - start_time
@@ -133,9 +135,7 @@ def read_write(
         collected_data = zip(times, voltages, currents)
         plot_updater(config_data, collected_data, line)
         rel_time = 0
-        if interrupt:
-            exp_running = False
-            return times, voltages, currents, interrupt
+
         while rel_time < times_diff_list[t]:
 
                 time.sleep(time_step)
