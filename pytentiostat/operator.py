@@ -135,16 +135,12 @@ def read_write(
         rel_time = 0
         if Interrupt:
             exp_running = False
-            return times, voltages, currents, Interrupt
         while rel_time < times_diff_list[t]:
-
                 time.sleep(time_step)
                 now_time = time.time()
                 rel_time = now_time-start_time
-
         t = t+1
     Exp_running = False
-
         
 def experiment(config_data, a0, a2, d9):
     """
