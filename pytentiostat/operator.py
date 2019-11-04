@@ -90,7 +90,7 @@ def read_write(
 
     Returns
     _______
-    None
+    nothing
 
     """
     global Interrupt, Exp_running
@@ -136,11 +136,14 @@ def read_write(
         if Interrupt:
             exp_running = False
         while rel_time < times_diff_list[t]:
+
                 time.sleep(time_step)
                 now_time = time.time()
                 rel_time = now_time-start_time
+
         t = t+1
     Exp_running = False
+
         
 def experiment(config_data, a0, a2, d9):
     """
@@ -164,13 +167,12 @@ def experiment(config_data, a0, a2, d9):
     Returns
     _______
     times: list
-        list containing recorded relative experiment times
+        List of floats containing the time each data point was recorded at
     voltages: list
-        list containing recorded experiment voltages
+        List of floats containing the corrected voltages at each data point
     currents: list
-        list containing recordered experiment currents
-    Interrupt: bool
-        bool of interrupt status
+        List of floats containing the corrected currents at each data point
+
     """
     global Interrupt
     Interrupt = False
@@ -214,7 +216,7 @@ def experiment(config_data, a0, a2, d9):
             if not cr.check_config_inputs(i):
                 print("\x1b[0;31;0m" + "Error! \nThe value ", i, " in config.yml is not a number" + "\x1b[0m")
                 sys.exit()
-        normalized_voltage = (voltage + 2.5) / 5
+        normalized_start = (voltage + 2.5) / 5
 
         steps_list = np.linspace(normalized_voltage, normalized_voltage, step_number+1)*set_gain+set_offset
 
@@ -236,20 +238,27 @@ def experiment(config_data, a0, a2, d9):
         first_voltage_range = abs(first_turnover - start_voltage)  # V
         second_voltage_range = abs(second_turnover - start_voltage)  # V
         third_voltage_range = abs(start_voltage - second_turnover)  # V
+        total_voltage_range = first_voltage_range + second_voltage_range + third_voltage_range
+        first_steps = int(step_number*(first_voltage_range/total_voltage_range))
+        second_steps = int(step_number*(second_voltage_range/total_voltage_range))
+        third_steps = step_number - first_steps - second_steps
 
         first_time_range = first_voltage_range / (sweep_rate / 1000)  # s
         second_time_range = second_voltage_range / (sweep_rate / 1000)  # s
         third_time_range = third_voltage_range / (sweep_rate / 1000)  # s
 
         first_steps_list = np.linspace(
-            normalized_start, norm_first_turnover, num=step_number+1
+            normalized_start, norm_first_turnover, num=first_steps, endpoint=False
         )*set_gain+set_offset
         second_steps_list = np.linspace(
-            norm_first_turnover, norm_second_turnover, num=step_number+1
+            norm_first_turnover, norm_second_turnover, num=second_steps, endpoint=False
         )*set_gain+set_offset
         third_steps_list = np.linspace(
-            norm_second_turnover, normalized_start, num=step_number+1
+            norm_second_turnover, normalized_start, num=third_steps+1
         )*set_gain+set_offset
+        
+        time_range = first_time_range+second_time_range+third_time_range
+        steps_list = np.concatenate((first_steps_list, second_steps_list, third_steps_list), axis=None)
     else:
         sys.exit("Error! \nThe experiment_type field in config.yml is not an accepted value")
 
@@ -261,32 +270,9 @@ def experiment(config_data, a0, a2, d9):
     
     pin_objects = (d9, a0, a2)
 
-    if exp_type == "LSV":
+    if exp_type == "LSV" or exp_type == "CA":
 
         start_time = start_exp(d9, normalized_start, config_data)
-
-        read_write(
-            start_time,
-            *pin_objects,
-            step_number,
-            steps_list,
-            time_for_range,
-            average_number,
-            line,
-            time_step,
-            conversion_factor,
-            shunt_resistor,
-            config_data,
-            times,
-            voltages,
-            currents
-        )
-
-        return times, voltages, currents, Interrupt
-
-    elif exp_type == "CA":
-
-        start_time = start_exp(d9, normalized_voltage, config_data)
 
         read_write(
             start_time,
@@ -315,40 +301,8 @@ def experiment(config_data, a0, a2, d9):
                 start_time,
                 *pin_objects,
                 step_number,
-                first_steps_list,
-                first_time_range,
-                average_number,
-                line,
-                time_step,
-                conversion_factor,
-                shunt_resistor,
-                config_data,
-                times,
-                voltages,
-                currents
-            )
-            read_write(
-                start_time,
-                *pin_objects,
-                step_number,
-                second_steps_list,
-                second_time_range,
-                average_number,
-                line,
-                time_step,
-                conversion_factor,
-                shunt_resistor,
-                config_data,
-                times,
-                voltages,
-                currents
-            )
-            read_write(
-                start_time,
-                *pin_objects,
-                step_number,
-                third_steps_list,
-                third_time_range,
+                steps_list,
+                time_range,
                 average_number,
                 line,
                 time_step,
