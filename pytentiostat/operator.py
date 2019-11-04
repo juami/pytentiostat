@@ -90,7 +90,7 @@ def read_write(
 
     Returns
     _______
-    nothing
+    None
 
     """
     global Interrupt, Exp_running
@@ -167,8 +167,14 @@ def experiment(config_data, a0, a2, d9):
 
     Returns
     _______
-    None
-
+    times: list
+        list containing recorded relative experiment times
+    voltages: list
+        list containing recorded experiment voltages
+    currents: list
+        list containing recordered experiment currents
+    Interrupt: bool
+        bool of interrupt status
     """
     global Interrupt
     Interrupt = False
