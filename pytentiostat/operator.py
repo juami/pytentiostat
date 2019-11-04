@@ -144,7 +144,6 @@ def read_write(
 
         t = t+1
     Exp_running = False
-    return times, voltages, currents, Interrupt
 
         
 def experiment(config_data, a0, a2, d9):
@@ -168,12 +167,7 @@ def experiment(config_data, a0, a2, d9):
 
     Returns
     _______
-    times: list
-        List of floats containing the time each data point was recorded at
-    voltages: list
-        List of floats containing the corrected voltages at each data point
-    currents: list
-        List of floats containing the corrected currents at each data point
+    None
 
     """
     global Interrupt
@@ -269,7 +263,7 @@ def experiment(config_data, a0, a2, d9):
 
         start_time = start_exp(d9, normalized_start, config_data)
 
-        times, voltages, currents, Interrupt = read_write(
+        read_write(
             start_time,
             *pin_objects,
             step_number,
@@ -292,7 +286,7 @@ def experiment(config_data, a0, a2, d9):
 
         start_time = start_exp(d9, normalized_voltage, config_data)
 
-        times, voltages, currents, Interrupt = read_write(
+        read_write(
             start_time,
             *pin_objects,
             step_number,
@@ -315,7 +309,7 @@ def experiment(config_data, a0, a2, d9):
 
         start_time = start_exp(d9, normalized_start, config_data)
         for i in range(cycle_number):
-            times, voltages, currents, Interrupt = read_write(
+            read_write(
                 start_time,
                 *pin_objects,
                 step_number,
@@ -331,7 +325,7 @@ def experiment(config_data, a0, a2, d9):
                 voltages,
                 currents
             )
-            times, voltages, currents, Interrupt = read_write(
+            read_write(
                 start_time,
                 *pin_objects,
                 step_number,
@@ -347,7 +341,7 @@ def experiment(config_data, a0, a2, d9):
                 voltages,
                 currents
             )
-            times, voltages, currents, Interrupt = read_write(
+            read_write(
                 start_time,
                 *pin_objects,
                 step_number,
