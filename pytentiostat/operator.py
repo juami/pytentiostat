@@ -70,33 +70,33 @@ def read_write(
     Parameters
     -------
     start_time: float
-        Time the experiment starts
+        The time the experiment starts
     d9: pyFirmata/Arduino object
-        object used to write the voltage with PWM on pin 9.
+        The software object used for pin d9.
     a0: pyFirmata/Arduino object
-        object used to read the voltage from pin a0.
+        The software object used for pin a0.
     a2: pyFirmata/Arduino object
-        object used to read the voltage from pin a2.
+        The software object used for pin a2.
     steps_list: list
-        List that contains the voltages that should be written in LSV
+        The list that contains the voltages that should be written in LSV
         and CV experiments
     average: int
-        Number of times the readings are averaged before being recorded.
+        The number of times the readings are averaged before being recorded.
     line: pyplot object
         Determines the axes labels in the plot. Created in plotter.py,
         plot_initializer().
     time_step: float
-        Time to wait between points
+        The time to wait between points
     cf: float
-        Conversion factor to correct the current and voltage readings
+        The multiplicitave conversion factor to correct the current and voltage readings
     sr: float
-        Shunt resistor used to correct the current reading
+        The resistance of shunt resistor used to correct current reading
     data: dict
-        Dictionary that contains the data read from the config file.
+        The dictionary that contains the data read from the config file.
 
     Returns
     -------
-    nothing
+    None
 
     """
     global Interrupt, Exp_running
