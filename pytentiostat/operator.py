@@ -4,15 +4,12 @@ import sys
 import numpy as np
 import signal
 
-
 # Pytentiostat function files
 from pytentiostat.plotter import plot_initializer, plot_updater
 import pytentiostat.config_reader as cr
 
-
 Interrupt = False
 Exp_running = False
-
 
 def signal_handler(signum, frame):
     if Exp_running:
@@ -21,9 +18,7 @@ def signal_handler(signum, frame):
     else:
         raise KeyboardInterrupt
 
-
 signal.signal(signal.SIGINT, signal_handler)
-
 
 def start_exp(d9, normalized_start, data):
     """
@@ -51,7 +46,6 @@ def start_exp(d9, normalized_start, data):
     start_time = time.time()
 
     return start_time
-
 
 def read_write(
     start_time, d9, a0, a2, step_number, steps_list, time_for_range, average, line, time_step, cf, sr, config_data,
@@ -143,7 +137,6 @@ def read_write(
 
         t = t+1
     Exp_running = False
-
         
 def experiment(config_data, a0, a2, d9):
     """
@@ -261,7 +254,6 @@ def experiment(config_data, a0, a2, d9):
         steps_list = np.concatenate((first_steps_list, second_steps_list, third_steps_list), axis=None)
     else:
         sys.exit("Error! \nThe experiment_type field in config.yml is not an accepted value")
-
 
     # Starting up the plot
     line = plot_initializer(config_data)
