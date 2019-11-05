@@ -1,6 +1,5 @@
 import yaml
 import datetime
-import time
 import sys
 import os
 
@@ -38,9 +37,9 @@ def parse_config_file(configlocation=None):
             with open(os.path.join(configlocation, "config.yml"), "r") as stream:
                 config_data = yaml.safe_load(stream)
                 print("Config loaded.\n")
+                param_checker(config_data)
                 return config_data
-            param_checker(config_data)
-
+                
     except FileNotFoundError:
         sys.exit("Directory containing config file, {}, not found. Exiting...".format(configlocation))
         
@@ -86,14 +85,14 @@ def param_checker(config_data):
     for i in [data_out_name, data_out_path]:
         bool = isinstance(i, str)
         if bool == False:
-            print("Error! \nThe value ", i, " in config.yml is not a string.")
-            sys.exit()
+            print("Warning! \nThe value ", i, " in config.yml is not a string.")
+#            sys.exit()
     
     for i in [average_number, cycle_number, step_number]:
         bool = isinstance(i, int)
         if bool == False:
-            print("Error! \nThe value ", i, " in config.yml is not an integer.")
-            sys.exit()
+            print("Warning! \nThe value ", i, " in config.yml is not an integer.")
+#            sys.exit()
                 
     for i in [conversion_factor, cv_start_voltage, cv_sweep_rate, end_voltage, 
               exp_time, first_turnover, lsv_start_voltage, lsv_sweep_rate, rest_time, 
@@ -103,21 +102,21 @@ def param_checker(config_data):
         if bool == False:
             bool = isinstance(i, int)
         if bool == False:
-            print("Error! \nThe value ", i, " in config.yml is not a number.")
-            sys.exit()
+            print("Warning! \nThe value ", i, " in config.yml is not a number.")
+#            sys.exit()
     
     for i in [rest_time, step_number, lsv_sweep_rate, cv_sweep_rate,
              cycle_number, exp_time, conversion_factor, set_gain,
              shunt_resistor, time_step, average_number]:
         if i<=0:
-                print("Error! \nThe value ", i, " needs to be changed to a value >= 0.")
-                sys.exit()
+                print("Warning! \nThe value ", i, " needs to be changed to a value >= 0.")
+ #               sys.exit()
             
     #Check if an available experiment is selected
     exp_types = ['LSV', 'CV', 'CA']
     if exp_type not in  exp_types:
-        print("Error! \n",exp_type," in config.yml is not a valid experiment type.")
-        sys.exit()
+        print("Warning! \n",exp_type," in config.yml is not a valid experiment type.")
+#        sys.exit()
         
     #Check if within experimental limitations
     voltage_ub = 2.2
@@ -138,8 +137,8 @@ def param_checker(config_data):
         time_for_range = exp_time
     
     if time_for_range == 0:
-        print("Error! \nTime for given experiment = 0.")
-        sys.exit()
+        print("Warning! \nTime for given experiment = 0.")
+#        sys.exit()
     
     lag_tolerance = 2    
     print(time_for_range, time_per_step)
@@ -148,16 +147,16 @@ def param_checker(config_data):
     for i in [cv_start_voltage, first_turnover, second_turnover,
               lsv_start_voltage, end_voltage, voltage]:
         if i<voltage_lb or i>voltage_ub:
-            print("Error! \nVoltages in config.yml should be < ",voltage_ub,
+            print("Warning! \nVoltages in config.yml should be < ",voltage_ub,
                   " and > ", voltage_lb,".")
-            sys.exit()
+#            sys.exit()
     if time_step < time_step_lb:
-        print("Error! \nTime step must be >=",time_step_lb,".")
+        print("Warning! \nTime step must be >=",time_step_lb,".")
         sys.exit()
     if step_number > step_number_ub:
-        print("Error! \nStep number must be <=",step_number_ub,
+        print("Warning! \nStep number must be <=",step_number_ub,
               " given the other input parameters.")
-        sys.exit()        
+#        sys.exit()        
 
 def get_output_params(config_data, override_ts=None):
     data_out_name = config_data["general_parameters"]["data_output_filename"]
@@ -260,6 +259,5 @@ def check_config_inputs(arg):
 
 if __name__ == "__main__":
     # used for debugging.  Does the function load the configs?
-    data = parse_config_file("pytentiostat/tests/static")
-    data_out_name = data["general_parameters"]["data_output_filename"]
-    print(data_out_name)
+    data = parse_config_file()
+    
