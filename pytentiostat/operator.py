@@ -26,7 +26,7 @@ def start_exp(d9, normalized_start, data):
     starts
 
     Parameters
-    __________
+    -------
     d9: pyFirmata/Arduino object
         object that represents the digital pin 9 on the Arduino. Instance
         created in routines.py, startup_routine().
@@ -35,7 +35,7 @@ def start_exp(d9, normalized_start, data):
         experiment starts
 
     Returns
-    _______
+    -------
     start_time: float
         Starting time of the experiment
 
@@ -56,7 +56,7 @@ def read_write(
     and a2, and calculates current from the voltage on a2.
 
     Parameters
-    __________
+    -------
     start_time: float
         Time the experiment starts
     d9: pyFirmata/Arduino object
@@ -83,7 +83,7 @@ def read_write(
         Dictionary that contains the data read from the config file.
 
     Returns
-    _______
+    -------
     nothing
 
     """
@@ -158,7 +158,7 @@ def experiment(config_data, a0, a2, d9):
         object used to write the voltage with PWM from pin 9.
 
     Returns
-    _______
+    -------
     times: list
         List of floats containing the time each data point was recorded at
     voltages: list
