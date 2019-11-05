@@ -37,9 +37,9 @@ def parse_config_file(configlocation=None):
         else:
             with open(os.path.join(configlocation, "config.yml"), "r") as stream:
                 config_data = yaml.safe_load(stream)
-                param_checker(config_data)
                 print("Config loaded.\n")
                 return config_data
+            param_checker(config_data)
 
     except FileNotFoundError:
         sys.exit("Directory containing config file, {}, not found. Exiting...".format(configlocation))
