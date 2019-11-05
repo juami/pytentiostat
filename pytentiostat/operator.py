@@ -48,21 +48,16 @@ def start_exp(d9, normalized_start, data):
 
     Returns
     -------
-    start_time: float
-        Starting time of the experiment
+    None
 
     """
     d9.write(normalized_start)
     rest_time = cr.get_rest(data)
     time.sleep(rest_time)
-    start_time = time.time()
-
-    return start_time
 
 def read_write(
-    start_time, d9, a0, a2, step_number, steps_list, time_for_range, average, line, time_step, cf, sr, config_data,
+    d9, a0, a2, step_number, steps_list, time_for_range, average, line, time_step, cf, sr, config_data,
         times, voltages, currents):
-
     """
     Writes voltages to pin 9 using d9, reads voltages from pin 0 and 2 using a0
     and a2, and calculates current from the voltage on a2.
@@ -274,10 +269,9 @@ def experiment(config_data, a0, a2, d9):
 
     if exp_type == "LSV" or exp_type == "CA":
 
-        start_time = start_exp(d9, normalized_start, config_data)
+        start_exp(d9, normalized_start, config_data)
 
         read_write(
-            start_time,
             *pin_objects,
             step_number,
             steps_list,
@@ -297,10 +291,9 @@ def experiment(config_data, a0, a2, d9):
 
     elif exp_type == "CV":
 
-        start_time = start_exp(d9, normalized_start, config_data)
+        start_exp(d9, normalized_start, config_data)
         for i in range(cycle_number):
             read_write(
-                start_time,
                 *pin_objects,
                 step_number,
                 steps_list,
