@@ -109,7 +109,6 @@ def read_write(
     t = 1
 
     for x in steps_list:
-
         # update time
         now_time = time.time()
         time_passed = now_time - start_time
@@ -142,7 +141,6 @@ def read_write(
         if Interrupt:
             exp_running = False
         while rel_time < times_diff_list[t]:
-
                 time.sleep(time_step)
                 now_time = time.time()
                 rel_time = now_time-start_time
