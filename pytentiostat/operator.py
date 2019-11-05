@@ -75,7 +75,7 @@ def read_write(
     steps_list: list
         The list that contains the voltages that should be written in LSV
         and CV experiments
-    average: int
+    number_averaged: int
         The number of times the readings are averaged before being recorded.
     line: pyplot object
         Determines the axes labels in the plot. Created in plotter.py,
@@ -113,7 +113,7 @@ def read_write(
         voltage_catcher = 0
         current_catcher = 0
 
-        while i < average:
+        while i < number_averaged:
             d9.write(x)  # Writes Value Between 0 and 1 (-2.5V to 2.5V) 256 possible
             time.sleep(time_step)
             pin0value = (
