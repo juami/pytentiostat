@@ -37,11 +37,127 @@ def parse_config_file(configlocation=None):
         else:
             with open(os.path.join(configlocation, "config.yml"), "r") as stream:
                 config_data = yaml.safe_load(stream)
+                param_checker(config_data)
                 print("Config loaded.\n")
                 return config_data
 
     except FileNotFoundError:
         sys.exit("Directory containing config file, {}, not found. Exiting...".format(configlocation))
+        
+def param_checker(config_data):
+        """
+    Checks the parameters in the config file.
+
+    If finds a parameter that is incorrect, will prompt user what is incorrect.
+    Parameters
+    ----------
+    config_data : dict
+        Dictionary containing the data for parameters in the config file.
+
+    Returns
+    -------
+    None
+
+    """
+    #Obtain all the parameters in parsable way
+    average_number = config_data["advanced_parameters"]["average_number"]
+    conversion_factor = config_data["advanced_parameters"]["conversion_factor"]
+    cv_start_voltage = config_data["cyclic_voltammetry"]["start_voltage"]
+    cv_sweep_rate = config_data["cyclic_voltammetry"]["sweep_rate"]
+    cycle_number = config_data["cyclic_voltammetry"]["number_of_cycles"]
+    data_out_name = config_data["general_parameters"]["data_output_filename"]
+    data_out_path = config_data["general_parameters"]["data_output_path"]
+    end_voltage = config_data["linear_sweep_voltammetry"]["end_voltage"]
+    exp_time = config_data["chronoamperometry"]["time"]
+    exp_type = config_data["general_parameters"]["experiment_type"]
+    lsv_start_voltage = config_data["linear_sweep_voltammetry"]["start_voltage"]
+    first_turnover = config_data["cyclic_voltammetry"]["first_turnover_voltage"]
+    lsv_sweep_rate = config_data["linear_sweep_voltammetry"]["sweep_rate"]
+    rest_time = config_data["general_parameters"]["rest_time"]
+    second_turnover = config_data["cyclic_voltammetry"]["second_turnover_voltage"]
+    set_gain = config_data["advanced_parameters"]["setpoint_gain"]
+    set_offset = config_data["advanced_parameters"]["setpoint_offset"]
+    shunt_resistor = config_data["advanced_parameters"]["shunt_resistor"]
+    step_number = config_data["general_parameters"]["step_number"]
+    time_step = config_data["advanced_parameters"]["time_step"]
+    voltage = config_data["chronoamperometry"]["voltage"]
+    
+    #Check if every variable is of the correct type
+    for i in [data_out_name, data_out_path]:
+            bool = isinstance(i, str)
+            if bool == False:
+                print("Error! \nThe value ", i, " in config.yml is not a string.")
+                sys.exit()
+    
+    for i in [average_number, cycle_number, step_number]:
+            bool = isinstance(i, int)
+            if bool == False:
+                print("Error! \nThe value ", i, " in config.yml is not an integer.")
+                sys.exit()
+                
+    for i in [conversion_factor, cv_start_voltage, cv_sweep_rate, end_voltage, 
+              exp_time, first_turnover, lsv_start_voltage, lsv_sweep_rate, rest_time, 
+              second_turnover, set_gain, set_offset, shunt_resistor, time_step,
+              voltage]:
+            bool = isinstance(i, float)
+            if bool == False:
+                bool = isinstance(i, int)
+            if bool == False:
+                print("Error! \nThe value ", i, " in config.yml is not a number.")
+                sys.exit()
+    
+    for i in [rest_time, step_number, lsv_sweep_rate, cv_sweep_rate,
+             cycle_number, exp_time, conversion_factor, set_gain,
+             shunt_resistor, time_step, average_number]:
+        if i<=0:
+                print("Error! \nThe value ", i, " needs to be changed to a value >= 0.")
+                sys.exit()
+            
+    #Check if an available experiment is selected
+    exp_types = ['LSV', 'CV', 'CA']
+    if exp_type not in  exp_types:
+        print("Error! \n",exp_type," in config.yml is not a valid experiment type.")
+        sys.exit()
+        
+    #Check if within experimental limitations
+    voltage_ub = 2.2
+    voltage_lb = -2.2
+    time_step_lb = 0.003
+    time_per_step = time_step*average_number
+    
+    if exp_type == 'LSV':
+        voltage_range = abs(end_voltage-lsv_start_voltage)
+        time_for_range = voltage_range / (lsv_sweep_rate / 1000)
+    elif exp_type == 'CV':
+        first_voltage_range = abs(cv_start_voltage - first_turnover)  
+        second_voltage_range = abs(first_turnover - second_turnover)  
+        third_voltage_range = abs(second_turnover - cv_start_voltage)
+        voltage_range = first_voltage_range+second_voltage_range+third_voltage_range
+        time_for_range = voltage_range / (cv_sweep_rate / 1000)
+    elif exp_type == 'CA':
+        time_for_range = exp_time
+    
+    if time_for_range == 0:
+        print("Error! \nTime for given experiment = 0.")
+        sys.exit()
+    
+    lag_tolerance = 2    
+    print(time_for_range, time_per_step)
+    step_number_ub = int(1/(lag_tolerance*time_per_step/time_for_range))
+    
+    for i in [cv_start_voltage, first_turnover, second_turnover,
+              lsv_start_voltage, end_voltage, voltage]:
+        if i<voltage_lb or i>voltage_ub:
+            print("Error! \nVoltages in config.yml should be < ",voltage_ub,
+                  " and > ", voltage_lb,".")
+            sys.exit()
+    if time_step < time_step_lb:
+        print("Error! \nTime step must be >=",time_step_lb,".")
+        sys.exit()
+    if step_number > step_number_ub:
+        print("Error! \nStep number must be <=",step_number_ub,
+              " given the other input parameters.")
+        sys.exit()        
 
 def get_output_params(config_data, override_ts=None):
     data_out_name = config_data["general_parameters"]["data_output_filename"]
