@@ -74,6 +74,18 @@ start menu and running the following line.
 If the Miniconda installation was successful, a list of available packages will appear.
 
 
-.. rubric:: Pytentiostat Package Installation
+Pytentiostat Package Installation
+----------------------------------
 
-Once python and the conda environment are installed, installing the pytentiostat package is simple.
+Once python and the conda are installed, the pytentiostat package installation is simple. Follow these steps to complete
+the Pytentiostat installation!
+
+#. Open the anaconda prompt from the start menu.
+#. Navigate to the directory you would like to install the software, e.g. desktop
+#. In the command line, type:
+
+.. code-block::
+
+   >conda-forge Pytentiostat
+
+#. Verify that the package was installed by navigating to the folder in a file explorer and attempt to open...
