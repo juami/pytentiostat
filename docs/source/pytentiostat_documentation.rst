@@ -11,6 +11,7 @@ Welcome to Pytentiostat's documentation!
    :caption: Contents:
 
    gettingstarted.rst
+   potentiostat_operation.rst
    experimentsetup.rst
 
 
