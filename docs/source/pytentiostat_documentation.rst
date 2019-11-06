@@ -12,6 +12,7 @@ Welcome to Pytentiostat's documentation!
 
    gettingstarted.rst
    experimentsetup.rst
+   installation_instructions.rst
 
 
 Indices and tables
