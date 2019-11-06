@@ -80,12 +80,12 @@ Pytentiostat Package Installation
 Once python and the conda are installed, the pytentiostat package installation is simple. Follow these steps to complete
 the Pytentiostat installation!
 
-#. Open the anaconda prompt from the start menu.
-#. Navigate to the directory you would like to install the software, e.g. desktop
-#. In the command line, type:
+1. Open the anaconda prompt from the start menu.
+2. Navigate to the directory you would like to install the software, e.g. desktop
+3. In the command line, type:
 
 .. code-block::
 
    >conda-forge Pytentiostat
 
-#. Verify that the package was installed by navigating to the folder in a file explorer and attempt to open...
+4. Verify that the package was installed by navigating to the folder in a file explorer and attempt to open...
