@@ -85,14 +85,13 @@ def param_checker(config_data):
     for i in [data_out_name, data_out_path]:
         bool = isinstance(i, str)
         if bool == False:
-            print("Warning! \nThe value ", i, " in config.yml is not a string.")
-#            sys.exit()
+            sys.exit("Warning! \nThe value ", i, " in config.yml is not a string. \nExiting...")
+                      
     
     for i in [average_number, cycle_number, step_number]:
         bool = isinstance(i, int)
         if bool == False:
-            print("Warning! \nThe value ", i, " in config.yml is not an integer.")
-#            sys.exit()
+            sys.exit("Warning! \nThe value ", i, " in config.yml is not an integer. \nExiting...")
                 
     for i in [conversion_factor, cv_start_voltage, cv_sweep_rate, end_voltage, 
               exp_time, first_turnover, lsv_start_voltage, lsv_sweep_rate, rest_time, 
@@ -102,21 +101,18 @@ def param_checker(config_data):
         if bool == False:
             bool = isinstance(i, int)
         if bool == False:
-            print("Warning! \nThe value ", i, " in config.yml is not a number.")
-#            sys.exit()
+            sys.exit("Warning! \nThe value ", i, " in config.yml is not a number. \nExiting...")
     
     for i in [rest_time, step_number, lsv_sweep_rate, cv_sweep_rate,
              cycle_number, exp_time, conversion_factor, set_gain,
              shunt_resistor, time_step, average_number]:
         if i<=0:
-                print("Warning! \nThe value ", i, " needs to be changed to a value >= 0.")
- #               sys.exit()
+                sys.exit("Warning! \nThe value ", i, " needs to be changed to a value >= 0. \nExiting...")
             
     #Check if an available experiment is selected
     exp_types = ['LSV', 'CV', 'CA']
     if exp_type not in  exp_types:
-        print("Warning! \n",exp_type," in config.yml is not a valid experiment type.")
-#        sys.exit()
+        sys.exit("Warning! \n",exp_type," in config.yml is not a valid experiment type. \nExiting...")
         
     #Check if within experimental limitations
     voltage_ub = 2.2
@@ -137,8 +133,7 @@ def param_checker(config_data):
         time_for_range = exp_time
     
     if time_for_range == 0:
-        print("Warning! \nTime for given experiment = 0.")
-#        sys.exit()
+        sys.exit("Warning! \nTime for given experiment = 0. \nExiting...")
     
     lag_tolerance = 2    
     print(time_for_range, time_per_step)
@@ -147,16 +142,13 @@ def param_checker(config_data):
     for i in [cv_start_voltage, first_turnover, second_turnover,
               lsv_start_voltage, end_voltage, voltage]:
         if i<voltage_lb or i>voltage_ub:
-            print("Warning! \nVoltages in config.yml should be < ",voltage_ub,
-                  " and > ", voltage_lb,".")
-#            sys.exit()
+            sys.exit("Warning! \nVoltages in config.yml should be < ",voltage_ub,
+                  " and > ", voltage_lb,". \nExiting...")
     if time_step < time_step_lb:
-        print("Warning! \nTime step must be >=",time_step_lb,".")
-        sys.exit()
+        sys.exit("Warning! \nTime step must be >=",time_step_lb,". \nExiting...")
     if step_number > step_number_ub:
-        print("Warning! \nStep number must be <=",step_number_ub,
-              " given the other input parameters.")
-#        sys.exit()        
+        sys.exit("Warning! \nStep number must be <=",step_number_ub,
+              " given the other input parameters. \nExiting...")      
 
 def get_output_params(config_data, override_ts=None):
     data_out_name = config_data["general_parameters"]["data_output_filename"]
