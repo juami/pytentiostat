@@ -10,7 +10,6 @@ Welcome to Pytentiostat's documentation!
    :maxdepth: 2
    :caption: Contents:
 
-   gettingstarted.rst
    experimentsetup.rst
    installation_instructions.rst
 

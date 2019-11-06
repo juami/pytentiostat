@@ -1,14 +1,17 @@
 .. The purpose of this file is to provide instructions on how to install the software necessary to access and run
    the pytentiostat software package.
 
-Installation
-=============
+Installation Instructions
+=========================
 
-.. rubric:: Conda Installation
+.. seealso::
+   Instructions are listed below for installing Miniconda, but the full user documentation for Anaconda is available at
+   https://conda.io/projects/conda/en/latest/user-guide/install/index.html
 
-.. seealso:: https://conda.io/projects/conda/en/latest/user-guide/install/index.html
+System Requirments
+------------------
 
-Before installing Conda, the following system requirements must be met:
+Before installing Anaconda, the following system requirements must be met:
 
 * 32- or 64-bit computer
 * 400 MB disk space
@@ -21,8 +24,12 @@ Before installing Conda, the following system requirements must be met:
 If you do not already have one of the required versions of Python, follow the instructions below.
 
 .. note::
-   We used Python 3._ for the Pytentiostat software, so it is encouraged to download that version to ensure
+
+   We used Python 3.7 for the Pytentiostat software, so it is encouraged to download that version to ensure
    compatibility.
+
+Python Installation
+--------------------
 
 Go to the following page that corresponds with the operating system that you are working on.
 
@@ -30,13 +37,16 @@ Go to the following page that corresponds with the operating system that you are
 * MacOS:        https://www.python.org/downloads/mac-osx/
 * Linux/UNIX:   https://www.python.org/downloads/source/
 
-Click on the download for the latest release of Python 3.7. Double click the .exe file and follow prompts to proceed
+Click on the download link for the latest release of Python 3.7. Double click the .exe file and follow prompts to proceed
 with installation.
 
------------------------------------------------------------------------------
-| Here we need to add instructions to install pycosat, PyYaml, and Requests.|
------------------------------------------------------------------------------
+Install pycosat, PyYaml, and Requests.
+---------------------------------------
 
+In the start menu, find and open the python prompt.
+
+Miniconda Installation
+-----------------------
 Once all system requirements are met, navigate to the following conda installation page corresponding to the operating
 system you are using.
 
@@ -49,11 +59,17 @@ link for the 32- or 64- bit installer. This downloads an executable file. Once t
 the installer hashes using the instructions found at https://conda.io/projects/conda/en/latest/user-guide/install/download.html#hash-verification.
 
 Once the installer hashes have been verified, double click the .exe file and follow on-screen prompts to complete the
-installation. If you do not have settings preferences, continue with defaults. When the installation is complete, you
-can test whether it was successful by navigating to the anaconda prompt in the start menu and running the following line.
+installation. If you do not have settings preferences, continue with defaults.
 
-.. code-block:: conda
-   conda list
+Verify the Installation was Successful
+---------------------------------------
+
+When the installation is complete, you can test whether it was successful by navigating to the anaconda prompt in the
+start menu and running the following line.
+
+.. code-block::
+
+   >conda list
 
 If the Miniconda installation was successful, a list of available packages will appear.
 
