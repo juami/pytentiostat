@@ -204,7 +204,7 @@ def experiment(config_data, a0, a2, d9):
     conversion_factor, set_gain, set_offset, shunt_resistor, time_step, average_number = cr.get_adv_params(
         config_data
     )
-    Times, Voltages, Currents = [], [], []
+    times, voltages, currents = [], [], []
     step_number = cr.get_steps(config_data)
 
     # Check the values in advanced parameters in config.yml
@@ -291,7 +291,7 @@ def experiment(config_data, a0, a2, d9):
 
         start_time = start_exp(d9, normalized_start, config_data)
 
-        Times, Voltages, Currents, interrupt = read_write(
+        times, voltages, currents, interrupt = read_write(
             start_time,
             *pin_objects,
             step_number,
@@ -303,18 +303,18 @@ def experiment(config_data, a0, a2, d9):
             conversion_factor,
             shunt_resistor,
             config_data,
-            Times,
-            Voltages,
-            Currents
+            times,
+            voltages,
+            currents
         )
 
-        return Times, Voltages, Currents, interrupt
+        return times, voltages, currents, interrupt
 
     elif exp_type == "CA":
 
         start_time = start_exp(d9, normalized_voltage, config_data)
 
-        Times, Voltages, Currents, interrupt = read_write(
+        times, voltages, currents, interrupt = read_write(
             start_time,
             *pin_objects,
             step_number,
@@ -326,18 +326,18 @@ def experiment(config_data, a0, a2, d9):
             conversion_factor,
             shunt_resistor,
             config_data,
-            Times,
-            Voltages,
-            Currents
+            times,
+            voltages,
+            currents
         )
 
-        return Times, Voltages, Currents, interrupt
+        return times, voltages, currents, interrupt
 
     elif exp_type == "CV":
 
         start_time = start_exp(d9, normalized_start, config_data)
         for i in range(cycle_number):
-            Times, Voltages, Currents, interrupt = read_write(
+            times, voltages, currents, interrupt = read_write(
                 start_time,
                 *pin_objects,
                 step_number,
@@ -349,11 +349,11 @@ def experiment(config_data, a0, a2, d9):
                 conversion_factor,
                 shunt_resistor,
                 config_data,
-                Times,
-                Voltages,
-                Currents
+                times,
+                voltages,
+                currents
             )
-            Times, Voltages, Currents, interrupt = read_write(
+            times, voltages, currents, interrupt = read_write(
                 start_time,
                 *pin_objects,
                 step_number,
@@ -365,11 +365,11 @@ def experiment(config_data, a0, a2, d9):
                 conversion_factor,
                 shunt_resistor,
                 config_data,
-                Times,
-                Voltages,
-                Currents
+                times,
+                voltages,
+                currents
             )
-            Times, Voltages, Currents, interrupt = read_write(
+            times, voltages, currents, interrupt = read_write(
                 start_time,
                 *pin_objects,
                 step_number,
@@ -381,10 +381,10 @@ def experiment(config_data, a0, a2, d9):
                 conversion_factor,
                 shunt_resistor,
                 config_data,
-                Times,
-                Voltages,
-                Currents
+                times,
+                voltages,
+                currents
             )
             i = i+1
 
-        return Times, Voltages, Currents, interrupt
+        return times, voltages, currents, interrupt
