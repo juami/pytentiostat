@@ -1,4 +1,5 @@
-================
+.. _experiment-setup:
+
 Experiment Setup
 ================
 
