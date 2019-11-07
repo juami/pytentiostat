@@ -99,20 +99,20 @@ def read_write(
     config_data: dict
         The dictionary that contains the data read from the config file.
     times: list
-        The list of time passed in seconds during experiment at each point
+        The initial list of time passed in seconds during the experiment at each point
     voltages: list
-        The voltage measured at each point
+        The initial voltages measured at each point
     currents: list
-        The current measured at each point
+        The the initial currents measured at each point
 
     Returns
     -------
     times: list
-        The list of time passed in seconds during experiment at each point
+        The updated list of time passed in seconds during the experiment at each point
     voltages: list
-        The voltage measured at each point
+        The updated voltages measured at each point
     currents: list
-        The current measured at each point
+        The updated currents measured at each point
     interrupt: Bool
         True if the experiment has been interrupted by Ctrl+C
     """
@@ -189,12 +189,12 @@ def experiment(config_data, a0, a2, d9):
 
     Returns
     -------
-    Times: list
-        The list of time passed in seconds during experiment at each point
-    Voltages: list
-        The voltage measured at each point
-    Currents: list
-        The current measured at each point
+    times: list
+        The list of time passed in seconds during the experiment at each point
+    voltages: list
+        The voltages measured at each point
+    currents: list
+        The currents measured at each point
     interrupt: Bool
         True if the experiment has been interrupted by Ctrl+C
     """
