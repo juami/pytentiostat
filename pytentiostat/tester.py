@@ -24,10 +24,6 @@ def signal_handler(signum, frame):
     ----------
     signum: the signal number that caused the interruption
     frame: the current stack frame
-
-    Returns
-    -------
-    nothing
     """
     if exp_running:
         global interrupt

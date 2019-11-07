@@ -39,10 +39,6 @@ def _initialize_arduino(com):
     ----------
     com: string
         the COM port that the potentiostat is connected to.
-
-    Returns
-    -------
-    nothing
     """
     try:
         board = Arduino(com,
@@ -93,10 +89,6 @@ def closing_routine(board, d9):
     ----------
     board: board object for communication
     d9: pin object for digital pin 9
-
-    Returns
-    -------
-    nothing
     """
     # Prompt
     print("Experiment Complete! Closing...")

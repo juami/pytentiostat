@@ -13,10 +13,6 @@ def save_data_to_file(config_data, data, override_outpath=None, override_ts=None
         the config_data that will be saved
     filename : string
         the name of the file to save. Optional. Defaults to Place_Holder.csv
-
-    Returns
-    -------
-        nothing
     """
 
     filename, export_path = get_output_params(
