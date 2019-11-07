@@ -49,7 +49,7 @@ def start_exp(d9, normalized_start, data):
         Number from 0 to 1 that sets the duty cycle of pin 9 before the
         experiment starts
     data: dict
-        Dictionary containing data read from the config file
+        The dictionary containing data read from the config file
 
     Returns
     -------
@@ -97,22 +97,22 @@ def read_write(
     sr: float
         Shunt resistor used to correct the current reading
     config_data: dict
-        Dictionary that contains the data read from the config file.
+        The dictionary that contains the data read from the config file.
     times: list
-        Contains the time measured during the experiment at each data point
+        The list of time passed in seconds during experiment at each point
     voltages: list
-        Contains the voltage measured at each data point
+        The list of voltages measured during experiment at each point
     currents: list
-        Contains the current measured at each data point
+        The list of currents measured during experiment at each point
 
     Returns
     -------
     times: list
-        Contains the time measured during the experiment at each data point
+        The list of time passed in seconds during experiment at each point
     voltages: list
-        Contains the voltage measured at each data point
+        The list of voltages measured during experiment at each point
     currents: list
-        Contains the current measured at each data point
+        The list of currents measured during experiment at each point
     interrupt: Bool
         True if the experiment has been interrupted by Ctrl+C
     """
@@ -179,8 +179,7 @@ def experiment(config_data, a0, a2, d9):
     Parameters
     ----------
     config_data: dict
-        Dictionary containing data read from the config file
-        Serial object used to communicate to the Arduino
+        The dictionary containing data read from the config file
     a0: pyFirmata/Arduino object
         object used to read the voltage from pin a0.
     a2: pyFirmata/Arduino object
@@ -191,11 +190,11 @@ def experiment(config_data, a0, a2, d9):
     Returns
     -------
     Times: list
-        List of floats containing the time each data point was recorded at
+        The list of time passed in seconds during experiment at each point
     Voltages: list
-        List of floats containing the corrected voltages at each data point
+        The list of voltages measured during experiment at each point
     Currents: list
-        List of floats containing the corrected currents at each data point
+        The list of currents measured during experiment at each point
     interrupt: Bool
         True if the experiment has been interrupted by Ctrl+C
     """
