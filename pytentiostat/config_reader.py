@@ -85,13 +85,15 @@ def param_checker(config_data):
     for i in [data_out_name, data_out_path]:
         bool = isinstance(i, str)
         if bool == False:
-            sys.exit("Warning! \nThe value ", i, " in config.yml is not a string. \nExiting...")
+            srti = str(i)
+            sys.exit("Warning! \nThe value " + stri + " in config.yml is not a string. \nExiting...")
                       
     
     for i in [average_number, cycle_number, step_number]:
         bool = isinstance(i, int)
         if bool == False:
-            sys.exit("Warning! \nThe value ", i, " in config.yml is not an integer. \nExiting...")
+            srti = str(i)
+            sys.exit("Warning! \nThe value " + stri + " in config.yml is not an integer. \nExiting...")
                 
     for i in [conversion_factor, cv_start_voltage, cv_sweep_rate, end_voltage, 
               exp_time, first_turnover, lsv_start_voltage, lsv_sweep_rate, rest_time, 
@@ -101,18 +103,21 @@ def param_checker(config_data):
         if bool == False:
             bool = isinstance(i, int)
         if bool == False:
-            sys.exit("Warning! \nThe value ", i, " in config.yml is not a number. \nExiting...")
+            srti = str(i)
+            sys.exit("Warning! \nThe value " + stri + " in config.yml is not a number. \nExiting...")
     
     for i in [rest_time, step_number, lsv_sweep_rate, cv_sweep_rate,
              cycle_number, exp_time, conversion_factor, set_gain,
              shunt_resistor, time_step, average_number]:
         if i<=0:
-                sys.exit("Warning! \nThe value ", i, " needs to be changed to a value >= 0. \nExiting...")
+                srti = str(i)
+                sys.exit("Warning! \nThe value " + stri + " needs to be changed to a value >= 0. \nExiting...")
             
     #Check if an available experiment is selected
     exp_types = ['LSV', 'CV', 'CA']
     if exp_type not in  exp_types:
-        sys.exit("Warning! \n",exp_type," in config.yml is not a valid experiment type. \nExiting...")
+        str_exp = str(exp_type)
+        sys.exit("Warning! \n" + str_exp + " in config.yml is not a valid experiment type. \nExiting...")
         
     #Check if within experimental limitations
     voltage_ub = 2.2
@@ -142,12 +147,15 @@ def param_checker(config_data):
     for i in [cv_start_voltage, first_turnover, second_turnover,
               lsv_start_voltage, end_voltage, voltage]:
         if i<voltage_lb or i>voltage_ub:
-            sys.exit("Warning! \nVoltages in config.yml should be < ",voltage_ub,
-                  " and > ", voltage_lb,". \nExiting...")
+            str_vub = str(voltage_ub)
+            str_vlb = str(voltage_lb)
+            sys.exit("Warning! \nVoltages in config.yml should be < "+ str_vub + " and > "+ str_vlb + ". \nExiting...")
     if time_step < time_step_lb:
-        sys.exit("Warning! \nTime step must be >=",time_step_lb,". \nExiting...")
+        str_stlb = str(time_step_lb)
+        sys.exit("Warning! \nTime step must be >=" + str_stlb + ". \nExiting...")
     if step_number > step_number_ub:
-        sys.exit("Warning! \nStep number must be <=",step_number_ub,
+        str_snub = str(step_number_ub)
+        sys.exit("Warning! \nStep number must be <=" + str_snub +
               " given the other input parameters. \nExiting...")      
 
 def get_output_params(config_data, override_ts=None):
