@@ -14,10 +14,9 @@ def _load_arduino():
     error message is printed and the program exits.
 
     Returns
-    _______
+    -------
     com: string
-        COM port the arduino is connected to.
-
+        the COM port the arduino is connected to.
     """
     print("Searching for potentiostat...")
     ports = list(serial.tools.list_ports.comports())
@@ -37,14 +36,13 @@ def _initialize_arduino(com):
     """
     Creates board object with Arduino(). If the connection fails it prints an error message and exits.
     Parameters
-    __________
+    ----------
     com: string
-        COM port that the potentiostat is connected to.
+        the COM port that the potentiostat is connected to.
 
     Returns
-    _______
+    -------
     nothing
-
     """
     try:
         board = Arduino(com,
@@ -69,7 +67,6 @@ def startup_routine():
     a0 : location of analog read pin 0
     a2 : location of analog read pin 2
     d9 : location of digital pwm pin 9
-
     """
 
     print("Welcome to the JUAMI pytentiostat interface!")
@@ -93,14 +90,13 @@ def closing_routine(board, d9):
     Called after experiment is finished. Function brings the potential back to 0 V and closes the board object.
 
     Parameters
-    __________
+    ----------
     board: board object for communication
     d9: pin object for digital pin 9
 
     Returns
-    _______
+    -------
     nothing
-
     """
     # Prompt
     print("Experiment Complete! Closing...")

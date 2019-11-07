@@ -21,14 +21,13 @@ def signal_handler(signum, frame):
     If exp_running is false, it raises KeyboardInterrupt.
 
     Parameters
-    __________
+    ----------
     signum: the signal number that caused the interruption
     frame: the current stack frame
 
     Returns
-    _______
+    -------
     nothing
-
     """
     if exp_running:
         global interrupt
@@ -46,7 +45,7 @@ def start_exp(d9, normalized_start, data):
     starts
 
     Parameters
-    __________
+    ----------
     d9: pyFirmata/Arduino object
         object that represents the digital pin 9 on the Arduino. Instance
         created in routines.py, startup_routine().
@@ -57,10 +56,9 @@ def start_exp(d9, normalized_start, data):
         Dictionary containing data read from the config file
 
     Returns
-    _______
+    -------
     start_time: float
         Starting time of the experiment
-
     """
     d9.write(normalized_start)
     rest_time = cr.get_rest(data)
@@ -79,7 +77,7 @@ def read_write(
     and a2, and calculates current from the voltage on a2.
 
     Parameters
-    __________
+    ----------
     start_time: float
         Time the experiment starts
     d9: pyFirmata/Arduino object
@@ -112,7 +110,7 @@ def read_write(
         Contains the current measured at each data point
 
     Returns
-    _______
+    -------
     times: list
         Contains the time measured during the experiment at each data point
     voltages: list
@@ -121,7 +119,6 @@ def read_write(
         Contains the current measured at each data point
     interrupt: Bool
         True if the experiment has been interrupted by Ctrl+C
-
     """
     global interrupt, exp_running
     exp_running = True
@@ -183,11 +180,10 @@ def experiment(config_data, a0, a2, d9):
     to perform the experiment based on the inputs from the config file. Plots
     the data for and returns the data as lists to be saved.
 
-    data: dict
+    Parameters
+    ----------
+    config_data: dict
         Dictionary containing data read from the config file
-    adv_data: dict
-        Dictionary containing data read from the config file
-    board: pyFirmata/Arduino object
         Serial object used to communicate to the Arduino
     a0: pyFirmata/Arduino object
         object used to read the voltage from pin a0.
@@ -197,7 +193,7 @@ def experiment(config_data, a0, a2, d9):
         object used to write the voltage with PWM from pin 9.
 
     Returns
-    _______
+    -------
     Times: list
         List of floats containing the time each data point was recorded at
     Voltages: list
@@ -206,7 +202,6 @@ def experiment(config_data, a0, a2, d9):
         List of floats containing the corrected currents at each data point
     interrupt: Bool
         True if the experiment has been interrupted by Ctrl+C
-
     """
     global interrupt
     interrupt = False
