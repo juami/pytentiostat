@@ -5,6 +5,7 @@ import matplotlib.pyplot as plt
 import serial.tools.list_ports
 
 _BAUD_RATE = 115200
+RESTING_DUTY_CYCLE = 0.5
 
 
 def _load_arduino():
@@ -95,7 +96,7 @@ def closing_routine(board, d9):
 
     # Reset PWM
 
-    d9.write(0.5)
+    d9.write(RESTING_DUTY_CYCLE)
 
     # Close Connection
     board.exit()
