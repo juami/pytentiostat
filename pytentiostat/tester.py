@@ -101,18 +101,18 @@ def read_write(
     times: list
         The list of time passed in seconds during experiment at each point
     voltages: list
-        The list of voltages measured during experiment at each point
+        The voltage measured at each point
     currents: list
-        The list of currents measured during experiment at each point
+        The current measured at each point
 
     Returns
     -------
     times: list
         The list of time passed in seconds during experiment at each point
     voltages: list
-        The list of voltages measured during experiment at each point
+        The voltage measured at each point
     currents: list
-        The list of currents measured during experiment at each point
+        The current measured at each point
     interrupt: Bool
         True if the experiment has been interrupted by Ctrl+C
     """
@@ -192,9 +192,9 @@ def experiment(config_data, a0, a2, d9):
     Times: list
         The list of time passed in seconds during experiment at each point
     Voltages: list
-        The list of voltages measured during experiment at each point
+        The voltage measured at each point
     Currents: list
-        The list of currents measured during experiment at each point
+        The current measured at each point
     interrupt: Bool
         True if the experiment has been interrupted by Ctrl+C
     """
