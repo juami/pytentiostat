@@ -96,7 +96,7 @@ def param_checker(config_data):
               exp_time, first_turnover, lsv_start_voltage, lsv_sweep_rate, rest_time, 
               second_turnover, set_gain, set_offset, shunt_resistor, time_step,
               voltage]:
-        if isinstance(i, float) and isinstance(i, int) == False:
+        if isinstance(i, (float, int)) == False:
             stri = str(i) 
             sys.exit("Warning! \nThe value " + stri + " in config.yml is not a number. \nExiting...")
     
