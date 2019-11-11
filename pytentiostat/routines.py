@@ -5,9 +5,20 @@ import matplotlib.pyplot as plt
 import serial.tools.list_ports
 
 _BAUD_RATE = 115200
+RESTING_DUTY_CYCLE = 0.5
 
 
 def _load_arduino():
+    """
+    Creates a list of all the active serial ports and then checks how many arduino unos are connected
+    If only one is found, it's COM port is returned. If any other number is found, the corresponding
+    error message is printed and the program exits.
+
+    Returns
+    -------
+    com: string
+        the COM port the arduino is connected to.
+    """
     print("Searching for potentiostat...")
     ports = list(serial.tools.list_ports.comports())
     n_arduinos = 0
@@ -23,6 +34,13 @@ def _load_arduino():
 
 
 def _initialize_arduino(com):
+    """
+    Creates board object with Arduino(). If the connection fails it prints an error message and exits.
+    Parameters
+    ----------
+    com: string
+        the COM port that the potentiostat is connected to.
+    """
     try:
         board = Arduino(com,
                         baudrate=_BAUD_RATE)  # opens communication to Arduino
@@ -46,7 +64,6 @@ def startup_routine():
     a0 : location of analog read pin 0
     a2 : location of analog read pin 2
     d9 : location of digital pwm pin 9
-
     """
 
     print("Welcome to the JUAMI pytentiostat interface!")
@@ -66,12 +83,20 @@ def startup_routine():
 
 
 def closing_routine(board, d9):
+    """
+    Called after experiment is finished. Function brings the potential back to 0 V and closes the board object.
+
+    Parameters
+    ----------
+    board: board object for communication
+    d9: pin object for digital pin 9
+    """
     # Prompt
     print("Experiment Complete! Closing...")
 
     # Reset PWM
 
-    d9.write(0.5)
+    d9.write(RESTING_DUTY_CYCLE)
 
     # Close Connection
     board.exit()

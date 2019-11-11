@@ -21,7 +21,6 @@ def parse_config_file(configlocation=None):
     -------
     config_data : dict
         the configuration data
-
     """
     if not configlocation:
         configlocation = "./"
@@ -242,15 +241,14 @@ def check_config_inputs(arg):
     can be represented as a float.
 
     Parameters
-    __________
+    ----------
     arg: unknown
         any argument can be passed.
 
     Returns
-    _______
+    -------
     is_number: Boolean
         Value is True if the arg is a number, False if not.
-
     """
     try:
         return isinstance(float(arg), float)
