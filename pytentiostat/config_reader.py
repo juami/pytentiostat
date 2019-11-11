@@ -22,7 +22,6 @@ def parse_config_file(configlocation=None):
     -------
     config_data : dict
         the configuration data
-
     """
     if not configlocation:
         configlocation = "./"
@@ -37,7 +36,9 @@ def parse_config_file(configlocation=None):
         else:
             with open(os.path.join(configlocation, "config.yml"), "r") as stream:
                 config_data = yaml.safe_load(stream)
+                print("Config loaded.\n")
                 return config_data
+
     except FileNotFoundError:
         sys.exit("Directory containing config file, {}, not found. Exiting...".format(configlocation))
 
@@ -125,15 +126,14 @@ def check_config_inputs(arg):
     can be represented as a float.
 
     Parameters
-    __________
+    ----------
     arg: unknown
         any argument can be passed.
 
     Returns
-    _______
+    -------
     is_number: Boolean
         Value is True if the arg is a number, False if not.
-
     """
     try:
         return isinstance(float(arg), float)

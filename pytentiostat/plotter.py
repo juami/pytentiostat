@@ -3,6 +3,14 @@ import pytentiostat.config_reader
 
 
 def plot_initializer(config_data):
+    """
+    Initializes plot based on experiment type and parameters in the config file.
+
+    Parameters
+    ----------
+    config_data : dict
+        The parameters from the config file.
+    """
     exp_type = pytentiostat.config_reader.get_exp_type(config_data)
     exp_time = pytentiostat.config_reader.get_exp_time(config_data)
 
@@ -41,6 +49,18 @@ def plot_initializer(config_data):
 
 
 def plot_updater(config_data, data, line):
+    """
+    Updates the plot based on the read/write in tester.
+
+    Parameters
+    ----------
+    config_data : dict
+        The parameters from the config file.  
+    data : tuple
+        Time, Voltage, and Current from current read/write cycle
+    line : Line2D Instance
+        Line to add to plot
+    """
     exp_type = pytentiostat.config_reader.get_exp_type(config_data)
 
     # Let's first unzip and collect Data

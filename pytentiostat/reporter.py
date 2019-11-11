@@ -13,10 +13,6 @@ def save_data_to_file(config_data, data, override_outpath=None, override_ts=None
         the config_data that will be saved
     filename : string
         the name of the file to save. Optional. Defaults to Place_Holder.csv
-
-    Returns
-    -------
-        nothing
     """
 
     filename, export_path = get_output_params(
@@ -33,6 +29,18 @@ def save_data_to_file(config_data, data, override_outpath=None, override_ts=None
 if __name__ == "__main__":
     # used for debugging.  Does the function write the right file?
     #
+    config_data = {"general_parameters": {"experiment_type": "", "rest_time": "",
+                                          "step_number": "", "data_output_filename": "",
+                                          "data_output_path": ""},
+                   "linear_sweep_voltammetry": {"start_voltage": "", "end_voltage": "",
+                                                "sweep_rate": ""},
+                   "cyclic_voltammetry": {"start_voltage": "", "first_turnover_voltage": "",
+                                          "second_turnover_voltage": "", "sweep_rate": "",
+                                          "number_of_cycles": ""},
+                   "chronoamperometry": {"voltage": "", "time": ""},
+                   "advanced_parameters": {"conversion_factor": "", "setpoint_gain": "",
+                                           "setpoint_offset": "", "shunt_resistor": "",
+                                           "time_step": "", "average_number": ""}}
 
     filename, export_destination = get_output_params(
         config_data)
