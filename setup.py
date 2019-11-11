@@ -11,7 +11,7 @@ names = [
 
 setup(
     name="pytentiostat",
-    version='0.0.2',
+    version='0.0.5',
     packages=find_packages(),
     description="python API for JUAMI potentiostat",
     zip_safe=False,
