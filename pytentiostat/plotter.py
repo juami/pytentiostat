@@ -10,10 +10,6 @@ def plot_initializer(config_data):
     ----------
     config_data : dict
         The parameters from the config file.
-        
-    Returns
-    -------
-        nothing
     """
     exp_type = pytentiostat.config_reader.get_exp_type(config_data)
     exp_time = pytentiostat.config_reader.get_exp_time(config_data)
@@ -64,10 +60,6 @@ def plot_updater(config_data, data, line):
         Time, Voltage, and Current from current read/write cycle
     line : Line2D Instance
         Line to add to plot
-        
-    Returns
-    -------
-        nothing
     """
     exp_type = pytentiostat.config_reader.get_exp_type(config_data)
 

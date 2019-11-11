@@ -15,6 +15,16 @@ exp_running = False
 
 
 def signal_handler(signum, frame):
+    """
+    Signal handler is called by signal.signal() when Ctrl+c is pressed by the user.
+    It checks to see if exp_running is true and if so, it sets the global interrupt to true.
+    If exp_running is false, it raises KeyboardInterrupt.
+
+    Parameters
+    ----------
+    signum: the signal number that caused the interruption
+    frame: the current stack frame
+    """
     if exp_running:
         global interrupt
         interrupt = True
@@ -31,19 +41,20 @@ def start_exp(d9, normalized_start, data):
     starts
 
     Parameters
-    __________
+    ----------
     d9: pyFirmata/Arduino object
         object that represents the digital pin 9 on the Arduino. Instance
         created in routines.py, startup_routine().
     normalized_start: float
         Number from 0 to 1 that sets the duty cycle of pin 9 before the
         experiment starts
+    data: dict
+        The dictionary containing data read from the config file
 
     Returns
-    _______
+    -------
     start_time: float
         Starting time of the experiment
-
     """
     d9.write(normalized_start)
     rest_time = cr.get_rest(data)
@@ -62,7 +73,7 @@ def read_write(
     and a2, and calculates current from the voltage on a2.
 
     Parameters
-    __________
+    ----------
     start_time: float
         Time the experiment starts
     d9: pyFirmata/Arduino object
@@ -85,13 +96,25 @@ def read_write(
         Conversion factor to correct the current and voltage readings
     sr: float
         Shunt resistor used to correct the current reading
-    data: dict
-        Dictionary that contains the data read from the config file.
+    config_data: dict
+        The dictionary that contains the data read from the config file.
+    times: list
+        The initial list of time passed in seconds during the experiment at each point
+    voltages: list
+        The initial voltages measured at each point
+    currents: list
+        The the initial currents measured at each point
 
     Returns
-    _______
-    nothing
-
+    -------
+    times: list
+        The updated list of time passed in seconds during the experiment at each point
+    voltages: list
+        The updated voltages measured at each point
+    currents: list
+        The updated currents measured at each point
+    interrupt: Bool
+        True if the experiment has been interrupted by Ctrl+C
     """
     global interrupt, exp_running
     exp_running = True
@@ -153,12 +176,10 @@ def experiment(config_data, a0, a2, d9):
     to perform the experiment based on the inputs from the config file. Plots
     the data for and returns the data as lists to be saved.
 
-    data: dict
-        Dictionary containing data read from the config file
-    adv_data: dict
-        Dictionary containing data read from the config file
-    board: pyFirmata/Arduino object
-        Serial object used to communicate to the Arduino
+    Parameters
+    ----------
+    config_data: dict
+        The dictionary containing data read from the config file
     a0: pyFirmata/Arduino object
         object used to read the voltage from pin a0.
     a2: pyFirmata/Arduino object
@@ -167,14 +188,15 @@ def experiment(config_data, a0, a2, d9):
         object used to write the voltage with PWM from pin 9.
 
     Returns
-    _______
+    -------
     times: list
-        List of floats containing the time each data point was recorded at
+        The list of time passed in seconds during the experiment at each point
     voltages: list
-        List of floats containing the corrected voltages at each data point
+        The voltages measured at each point
     currents: list
-        List of floats containing the corrected currents at each data point
-
+        The currents measured at each point
+    interrupt: Bool
+        True if the experiment has been interrupted by Ctrl+C
     """
     global interrupt
     interrupt = False
@@ -182,7 +204,7 @@ def experiment(config_data, a0, a2, d9):
     conversion_factor, set_gain, set_offset, shunt_resistor, time_step, average_number = cr.get_adv_params(
         config_data
     )
-    Times, Voltages, Currents = [], [], []
+    times, voltages, currents = [], [], []
     step_number = cr.get_steps(config_data)
 
     # Check the values in advanced parameters in config.yml
@@ -269,7 +291,7 @@ def experiment(config_data, a0, a2, d9):
 
         start_time = start_exp(d9, normalized_start, config_data)
 
-        Times, Voltages, Currents, interrupt = read_write(
+        times, voltages, currents, interrupt = read_write(
             start_time,
             *pin_objects,
             step_number,
@@ -281,18 +303,18 @@ def experiment(config_data, a0, a2, d9):
             conversion_factor,
             shunt_resistor,
             config_data,
-            Times,
-            Voltages,
-            Currents
+            times,
+            voltages,
+            currents
         )
 
-        return Times, Voltages, Currents, interrupt
+        return times, voltages, currents, interrupt
 
     elif exp_type == "CA":
 
         start_time = start_exp(d9, normalized_voltage, config_data)
 
-        Times, Voltages, Currents, interrupt = read_write(
+        times, voltages, currents, interrupt = read_write(
             start_time,
             *pin_objects,
             step_number,
@@ -304,18 +326,18 @@ def experiment(config_data, a0, a2, d9):
             conversion_factor,
             shunt_resistor,
             config_data,
-            Times,
-            Voltages,
-            Currents
+            times,
+            voltages,
+            currents
         )
 
-        return Times, Voltages, Currents, interrupt
+        return times, voltages, currents, interrupt
 
     elif exp_type == "CV":
 
         start_time = start_exp(d9, normalized_start, config_data)
         for i in range(cycle_number):
-            Times, Voltages, Currents, interrupt = read_write(
+            times, voltages, currents, interrupt = read_write(
                 start_time,
                 *pin_objects,
                 step_number,
@@ -327,11 +349,11 @@ def experiment(config_data, a0, a2, d9):
                 conversion_factor,
                 shunt_resistor,
                 config_data,
-                Times,
-                Voltages,
-                Currents
+                times,
+                voltages,
+                currents
             )
-            Times, Voltages, Currents, interrupt = read_write(
+            times, voltages, currents, interrupt = read_write(
                 start_time,
                 *pin_objects,
                 step_number,
@@ -343,11 +365,11 @@ def experiment(config_data, a0, a2, d9):
                 conversion_factor,
                 shunt_resistor,
                 config_data,
-                Times,
-                Voltages,
-                Currents
+                times,
+                voltages,
+                currents
             )
-            Times, Voltages, Currents, interrupt = read_write(
+            times, voltages, currents, interrupt = read_write(
                 start_time,
                 *pin_objects,
                 step_number,
@@ -359,10 +381,10 @@ def experiment(config_data, a0, a2, d9):
                 conversion_factor,
                 shunt_resistor,
                 config_data,
-                Times,
-                Voltages,
-                Currents
+                times,
+                voltages,
+                currents
             )
             i = i+1
 
-        return Times, Voltages, Currents, interrupt
+        return times, voltages, currents, interrupt
