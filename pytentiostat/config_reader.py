@@ -82,15 +82,13 @@ def param_checker(config_data):
     
     #Check if every variable is of the correct type
     for i in [data_out_name, data_out_path]:
-        bool = isinstance(i, str)
-        if bool == False:
+        if isinstance(i, str) == False:
             srti = str(i)
             sys.exit("Warning! \nThe value " + stri + " in config.yml is not a string. \nExiting...")
                       
     
     for i in [average_number, cycle_number, step_number]:
-        bool = isinstance(i, int)
-        if bool == False:
+        if isinstance(i, int) == False:
             srti = str(i)
             sys.exit("Warning! \nThe value " + stri + " in config.yml is not an integer. \nExiting...")
                 
@@ -98,11 +96,8 @@ def param_checker(config_data):
               exp_time, first_turnover, lsv_start_voltage, lsv_sweep_rate, rest_time, 
               second_turnover, set_gain, set_offset, shunt_resistor, time_step,
               voltage]:
-        bool = isinstance(i, float)
-        if bool == False:
-            bool = isinstance(i, int)
-        if bool == False:
-            srti = str(i)
+        if isinstance(i, float) or isinstance(i, int) == False:
+            srti = str(i) 
             sys.exit("Warning! \nThe value " + stri + " in config.yml is not a number. \nExiting...")
     
     for i in [rest_time, step_number, lsv_sweep_rate, cv_sweep_rate,
