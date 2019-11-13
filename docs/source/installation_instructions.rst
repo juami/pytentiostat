@@ -55,13 +55,13 @@ Once the miniconda installation is complete, proceed with the pytentiostat packa
 
 1. Open the anaconda prompt from the start menu.
 
-2. Create a conda environment where <mycondaenv> is the name you assign to your environment and <x> is the version of Python
-   you would like to use (the available list of python versions can be seen by typing :code:`conda search "^python$"`). To create
-   the conda environment, type:
+2. Create a conda environment where <mycondaenv> is the name you assign to your environment. You can verify that Python
+   version 3 is available by typing :code:`conda search "^python$"` and checking the list of available Python versions.
+   To create the conda environment, type:
 
 .. code-block::
 
-   conda create -n <mycondaenv> python=<x> anaconda
+   conda create -n <mycondaenv> python=3 anaconda
 
 3. Type :code:`y` to install the python version and the anaconda packaged libraries in the path_to_your_anaconda_location/anaconda/envs/mycondaenv.
 
