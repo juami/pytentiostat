@@ -11,8 +11,6 @@ Installation Instructions
 System Requirements
 -------------------
 
-Before installing Anaconda, the following system requirements must be met:
-
 * 32- or 64-bit computer
 * 400 MB disk space
 * Windows, MacOS, or Linux
@@ -45,7 +43,7 @@ start menu and running the following line.
 
 .. code-block::
 
-   >conda list
+   conda list
 
 If the Miniconda installation was successful, a list of available packages will appear.
 
@@ -56,25 +54,27 @@ pytentiostat Package Installation
 Once the miniconda installation is complete, proceed with the pytentiostat package installation as follows.
 
 1. Open the anaconda prompt from the start menu.
-2. Create a conda environment where *mycondaenv* is the name you assign to your environment and *x.x* is the version of Python
-   you would like to use (the available list of python versions can be seen by typing conda search "^python$"). To create
+
+2. Create a conda environment where <mycondaenv> is the name you assign to your environment and <x> is the version of Python
+   you would like to use (the available list of python versions can be seen by typing :code:`conda search "^python$"`). To create
    the conda environment, type:
 
 .. code-block::
 
-   conda create -n mycondaenv python=x.x anaconda
+   conda create -n <mycondaenv> python=<x> anaconda
 
-3. Type *y* to install the python version and the anaconda packaged libraries in the path_to_your_anaconda_location/anaconda/envs/mycondaenv.
+3. Type :code:`y` to install the python version and the anaconda packaged libraries in the path_to_your_anaconda_location/anaconda/envs/mycondaenv.
+
 4. Activate the environment you created.
 
 .. code-block::
 
-   conda activate mycondaenv
+   conda activate <mycondaenv>
 
 5. Install the pytentiostat package.
 
 .. code-block::
 
-   conda install -n mycondaenv [pytentiostat]
+   conda install [pytentiostat]
 
-6. Verify that the package was installed by ...
+
