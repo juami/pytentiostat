@@ -8,8 +8,8 @@ Installation Instructions
    Instructions are listed below for installing Miniconda, but the full user documentation for Anaconda is available at
    https://conda.io/projects/conda/en/latest/user-guide/install/index.html
 
-System Requirments
-------------------
+System Requirements
+-------------------
 
 Before installing Anaconda, the following system requirements must be met:
 
@@ -20,30 +20,6 @@ Before installing Anaconda, the following system requirements must be met:
 * pycosat
 * PyYaml
 * Requests
-
-If you do not already have one of the required versions of Python, follow the instructions below.
-
-.. note::
-
-   We used Python 3.7 for the Pytentiostat software, so it is encouraged to download that version to ensure
-   compatibility.
-
-Python Installation
---------------------
-
-Go to the following page that corresponds with the operating system that you are working on.
-
-* Windows:      https://www.python.org/downloads/windows/
-* MacOS:        https://www.python.org/downloads/mac-osx/
-* Linux/UNIX:   https://www.python.org/downloads/source/
-
-Click on the download link for the latest release of Python 3.7. Double click the .exe file and follow prompts to proceed
-with installation.
-
-Install pycosat, PyYaml, and Requests.
----------------------------------------
-
-In the start menu, find and open the python prompt.
 
 Miniconda Installation
 -----------------------
@@ -61,8 +37,8 @@ the installer hashes using the instructions found at https://conda.io/projects/c
 Once the installer hashes have been verified, double click the .exe file and follow on-screen prompts to complete the
 installation. If you do not have settings preferences, continue with defaults.
 
-Verify the Installation was Successful
----------------------------------------
+Verify the Miniconda Installation was Successful
+------------------------------------------------
 
 When the installation is complete, you can test whether it was successful by navigating to the anaconda prompt in the
 start menu and running the following line.
@@ -74,18 +50,31 @@ start menu and running the following line.
 If the Miniconda installation was successful, a list of available packages will appear.
 
 
-Pytentiostat Package Installation
+pytentiostat Package Installation
 ----------------------------------
 
-Once python and the conda are installed, the pytentiostat package installation is simple. Follow these steps to complete
-the Pytentiostat installation!
+Once the miniconda installation is complete, proceed with the pytentiostat package installation as follows.
 
 1. Open the anaconda prompt from the start menu.
-2. Navigate to the directory you would like to install the software, e.g. desktop
-3. In the command line, type:
+2. Create a conda environment where *mycondaenv* is the name you assign to your environment and *x.x* is the version of Python
+   you would like to use (the available list of python versions can be seen by typing conda search "^python$"). To create
+   the conda environment, type:
 
 .. code-block::
 
-   >conda-forge Pytentiostat
+   conda create -n mycondaenv python=x.x anaconda
 
-4. Verify that the package was installed by navigating to the folder in a file explorer and attempt to open...
+3. Type *y* to install the python version and the anaconda packaged libraries in the path_to_your_anaconda_location/anaconda/envs/mycondaenv.
+4. Activate the environment you created.
+
+.. code-block::
+
+   conda activate mycondaenv
+
+5. Install the pytentiostat package.
+
+.. code-block::
+
+   conda install -n mycondaenv [pytentiostat]
+
+6. Verify that the package was installed by ...
