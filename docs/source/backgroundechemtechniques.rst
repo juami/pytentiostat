@@ -46,10 +46,11 @@ desires to retain the oxidized or reduced form of the electrode material without
 Cyclic Voltammetry (CV)
 -----------------------
 
-Similar to LSV, cyclic voltammetry sweeps between two user-defined potentials at a specific sweep rate. However, as the
-name suggests, this technique performs the forward and reverse scans in a cyclic manner for a certain number of cycles.
-This provides information about performance characteristics, reversibility and kinetic difference between anodic and
-cathodic processes.
+Cyclic voltammetry sweeps the potential of an electrode between two user-defined turnover potentials at a constant sweep
+rate. In one cycle, voltage is swept from the start voltage to the first turnover potential, then from the first turnover
+potential to the second turnover potential, and finally back to the initial voltage. This process can be repeated for a
+number of cycles. This provides information about performance characteristics, reversibility and kinetic difference
+between anodic and cathodic processes.
 
 User Inputs:
 
@@ -67,7 +68,7 @@ Measured Waveform:
 
 .. image:: images/
 
-Similar to LSV, it is useful to plot i vs. V, as shown below. This can provide information such as overpotential and
+It is useful to plot i vs. V, as shown below. This can provide information such as overpotential and
 changes in peak separation as a function of sweep rate for experiments that involve cycles with multiple sweep rates.
 
 .. image:: images/cv_ferricyanide_001.jpg
