@@ -20,18 +20,22 @@ User Inputs:
 
 Applied Waveform:
 
-.. image::
+.. image:: images/lsv_v_vs_t_ferricyanide_001.jpg
+   :scale: 40 %
+   :align: center
 
 Measured Waveform:
 
-.. image::
+.. image:: images/lsv_i_vs_t_ferricyanide_001.jpg
+   :scale: 40 %
+   :align: center
 
 After completion of an LSV experiment the data file contains time, voltage and current. Using this information, one
 can plot current vs. voltage, shown below, which is typically the most useful way to plot the results from a LSV scan. Additional
 LSV measurements with different sweep rates can be used to investigate changes in electrochemical behavior as a function
 rate.
 
-.. image:: lsv_ferricyanide_001.jpg
+.. image:: images/lsv_voltammogram_ferricyanide_001.jpg
    :scale: 40 %
    :align: center
 
@@ -57,16 +61,16 @@ User Inputs:
 
 Applied Waveform:
 
-.. image::
+.. image:: images/
 
 Measured Waveform:
 
-.. image::
+.. image:: images/
 
 Similar to LSV, it is useful to plot i vs. V, as shown below. This can provide information such as overpotential and
 changes in peak separation as a function of sweep rate for experiments that involve cycles with multiple sweep rates.
 
-.. image:: cv_ferricyanide_001.jpg
+.. image:: images/cv_ferricyanide_001.jpg
    :scale: 40 %
    :align: center
 
