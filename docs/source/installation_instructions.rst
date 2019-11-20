@@ -8,6 +8,7 @@ Installation Instructions
    Instructions are listed below for installing Miniconda, but the full user documentation for Anaconda is available at
    https://conda.io/projects/conda/en/latest/user-guide/install/index.html
 
+-------------------
 System Requirements
 -------------------
 
@@ -19,10 +20,10 @@ System Requirements
 * PyYaml
 * Requests
 
+-----------------------
 Miniconda Installation
 -----------------------
-Once all system requirements are met, navigate to the following conda installation page corresponding to the operating
-system you are using.
+Navigate to the following conda installation page corresponding to the operating system you are using.
 
 * Windows:  https://conda.io/projects/conda/en/latest/user-guide/install/windows.html
 * MacOS:    https://conda.io/projects/conda/en/latest/user-guide/install/macos.html
@@ -32,9 +33,10 @@ Following the instructions on the documentation page, click the installer link f
 link for the 32- or 64- bit installer. This downloads an executable file. Once the file is downloaded, you should verify
 the installer hashes using the instructions found at https://conda.io/projects/conda/en/latest/user-guide/install/download.html#hash-verification.
 
-Once the installer hashes have been verified, double click the .exe file and follow on-screen prompts to complete the
+Next, double click the .exe file and follow on-screen prompts to complete the
 installation. If you do not have settings preferences, continue with defaults.
 
+------------------------------------------------
 Verify the Miniconda Installation was Successful
 ------------------------------------------------
 
@@ -48,33 +50,99 @@ start menu and running the following line.
 If the Miniconda installation was successful, a list of available packages will appear.
 
 
-pytentiostat Package Installation
-----------------------------------
+-------------------------------------------------
+pytentiostat Package Installation - conda install
+-------------------------------------------------
 
-Once the miniconda installation is complete, proceed with the pytentiostat package installation as follows.
 
-1. Open the anaconda prompt from the start menu.
+.. topic:: Anaconda Prompt
 
-2. Create a conda environment where <mycondaenv> is the name you assign to your environment. You can verify that Python
-   version 3 is available by typing :code:`conda search "^python$"` and checking the list of available Python versions.
-   To create the conda environment, type:
+   #. Open the anaconda prompt from the start menu.
 
-.. code-block::
+   #. Create a conda environment where <mycondaenv> is the name you assign to your environment. You can verify that Python
+      version 3 is available by typing :code:`conda search "^python$"` and checking the list of available Python versions.
+      To create the conda environment, type:
 
-   conda create -n <mycondaenv> python=3 anaconda
+      .. code-block::
 
-3. Type :code:`y` to install the python version and the anaconda packaged libraries in the path_to_your_anaconda_location/anaconda/envs/mycondaenv.
+         conda create -n <mycondaenv> python=3 anaconda
 
-4. Activate the environment you created.
+   #. Type :code:`y` to install the python version and the anaconda packaged libraries in the path_to_your_anaconda_location/anaconda/envs/mycondaenv.
 
-.. code-block::
+   #. Activate the environment you created.
 
-   conda activate <mycondaenv>
+      .. code-block::
 
-5. Install the pytentiostat package.
+         conda activate <mycondaenv>
 
-.. code-block::
+   #. Install the pytentiostat package.
 
-   conda install [pytentiostat]
+      .. code-block::
 
+         conda install [pytentiostat]
+
+.. topic:: Windows Command Prompt
+
+   #. Open command prompt, which can be found by searching cmd in the start menu.
+   #. Set the path to where Anaconda was installed.
+
+      .. code-block::
+
+         >SETX PATH "%PATH%;C:\Users\mikes\Anaconda3\Scripts;C:\Users\mikes\Anaconda3\Library\bin;C:\Users\mikes\Anaconda3\condabin"
+         SUCCESS: Specified value was saved.
+
+   #. Verify that conda is installed by typing :code:`conda -V`. You should see the version of conda that is installed.
+   #. Type :code:`conda update conda` to update conda to the most recent version and type :code:`y` when asked whether
+      or not to proceed.
+   #.
+
+.. topic:: MacOS Terminal
+
+   add instructions
+
+
+.. topic:: Linux Terminal
+
+   add instructions
+
+
+-------------------------------------------------------
+pytentiostat Installation Instructions - GitHub install
+-------------------------------------------------------
+
+.. topic:: Anaconda Prompt
+
+   add instructions
+
+.. topic:: Windows Command Prompt
+
+   #. Go to https://github.com/juami/pytentiostat
+
+   #. Click Clone or download, and click Download ZIP (shown below).
+
+      .. image:: images/github_download.png
+
+   #. Unzip the files and move them to a different directory, if you don't want them to stay in downloads.
+
+   #. Open command prompt by searching cmd in start menu.
+
+   #. In the command prompt, navigate to top level folder that contains the pytentiostat README.txt file.
+
+   #. Run the setup file by typing :code:`python setup.py develop`
+
+   #. Navigate to pytentiostat folder using :code:`cd pytentiostat`
+
+   #. To start an experiment, run the main file by typing :code:`python main.py`
+
+   #. Follow command line prompts to execute the experiment.
+
+
+.. topic:: MacOS Terminal
+
+   add instructions
+
+
+.. topic:: Linux Terminal
+
+   add instructions
 
