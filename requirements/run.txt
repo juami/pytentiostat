@@ -1,6 +1,9 @@
 python
-xonsh
 pyfirmata
 pandas
 matplotlib
 pyyaml
+pandas
+numpy
+serial
+signal
