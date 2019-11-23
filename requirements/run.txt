@@ -1,9 +1,6 @@
-python
+python >=3
 pyfirmata
-pandas
 matplotlib
 pyyaml
 pandas
 numpy
-serial
-signal
