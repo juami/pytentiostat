@@ -18,8 +18,8 @@
 # -- Project information -----------------------------------------------------
 
 project = 'Pytentiostat'
-copyright = "2019, 'Simon J. L. Billinge, Austin Plymill, Jeremy Hitt, Yao Tong, Michael Spencer, Sun Hwi Bang, Weizi Yuan"
-author = "'Simon J. L. Billinge, Austin Plymill, Jeremy Hitt, Yao Tong, Michael Spencer, Sun Hwi Bang, Weizi Yuan"
+copyright = "2019, 'Austin Plymill, Jeremy Hitt, Yao Tong, Michael Spencer, Sun Hwi Bang, Weizi Yuan, Simon J. L. Billinge"
+author = "'Austin Plymill, Jeremy Hitt, Yao Tong, Michael Spencer, Sun Hwi Bang, Weizi Yuan, Simon J. L. Billinge"
 
 # The full version, including alpha/beta/rc tags
 release = '0.0.5'
@@ -47,7 +47,7 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 #
-html_theme = 'alabaster'
+html_theme = 'sphinx_rtd_theme'
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
