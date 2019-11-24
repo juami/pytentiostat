@@ -1,6 +1,7 @@
-python
-xonsh
+python >=3
 pyfirmata
-pandas
 matplotlib
 pyyaml
+pandas
+numpy
+pyserial
