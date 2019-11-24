@@ -3,6 +3,15 @@ Pytentiostat Change Log
 
 .. current developments
 
+v0.0.5
+====================
+
+**Added:**
+
+- docstrings and tests
+
+
+
 v0.0.3
 ====================
 
