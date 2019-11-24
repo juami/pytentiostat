@@ -13,12 +13,12 @@
 # import os
 # import sys
 # sys.path.insert(0, os.path.abspath('.'))
-
+import sphinx_rtd_theme
 
 # -- Project information -----------------------------------------------------
 
 project = 'Pytentiostat'
-copyright = "2019, 'Austin Plymill, Jeremy Hitt, Yao Tong, Michael Spencer, Sun Hwi Bang, Weizi Yuan, Simon J. L. Billinge"
+copyright = "2019, Austin Plymill, Jeremy Hitt, Yao Tong, Michael Spencer, Sun Hwi Bang, Weizi Yuan, Simon J. L. Billinge"
 author = "Austin Plymill, Jeremy Hitt, Yao Tong, Michael Spencer, Sun Hwi Bang, Weizi Yuan, Simon J. L. Billinge"
 
 # The full version, including alpha/beta/rc tags
