@@ -8259,19 +8259,19 @@
      <bool>false</bool>
     </property>
     <property name="currentText">
-     <string>Ag/AgCl</string>
+     <string>Vref</string>
     </property>
     <property name="insertPolicy">
      <enum>QComboBox::InsertAtBottom</enum>
     </property>
     <item>
      <property name="text">
-      <string>Ag/AgCl</string>
+      <string>Vref</string>
      </property>
     </item>
     <item>
      <property name="text">
-      <string>SCE</string>
+      <string>Vocv</string>
      </property>
     </item>
    </widget>
@@ -8294,19 +8294,19 @@
      <bool>false</bool>
     </property>
     <property name="currentText">
-     <string>Ag/AgCl</string>
+     <string>Vref</string>
     </property>
     <property name="insertPolicy">
      <enum>QComboBox::InsertAtBottom</enum>
     </property>
     <item>
      <property name="text">
-      <string>Ag/AgCl</string>
+      <string>Vref</string>
      </property>
     </item>
     <item>
      <property name="text">
-      <string>SCE</string>
+      <string>Vocv</string>
      </property>
     </item>
    </widget>
