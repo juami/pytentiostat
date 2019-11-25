@@ -20,6 +20,10 @@ the installer hashes using the instructions found at https://conda.io/projects/c
 Next, double click the .exe file and follow on-screen prompts to complete the
 installation. If you do not have settings preferences, continue with defaults.
 
+.. seealso::
+   If there are any problems with the installation, see the full user documentation for Miniconda at
+   https://conda.io/projects/conda/en/latest/user-guide/install/index.html
+
 .. rubric:: Pytentiostat package installation
 
 .. topic:: Easy install using Anaconda Prompt
