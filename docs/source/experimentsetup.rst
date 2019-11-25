@@ -3,6 +3,19 @@
 Experiment Setup
 ================
 
+In general, minimal setup is required to use the JUAMI potentiostat. Here we will present some general guideline on how
+to prepare and run an experiment. The following subsections will go into a bit more detail about setting up a test on
+a resistor, three-electrode experiment, and a two-electrode experiment. If you have not completed the installation
+procedure, please go to (link) prior to continuing.
+
+Guidelines:
+
+*   After completing the installation procedure, connect the JUAMI Potentiostat to your computer using the USB-B male to
+    USB-A male adaptor.
+*   
+
+.. _test-resistor:
+
 Testing a Resistor
 -------------------
 .. note::
@@ -10,6 +23,7 @@ Testing a Resistor
    JUAMI potentiostat.
 
 
+.. _three-electrode-test:
 
 Three-electrode Electrochemical Experiment
 -------------------------------------------
