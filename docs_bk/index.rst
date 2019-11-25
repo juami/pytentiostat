@@ -1,9 +1,9 @@
-.. Pytentiostat documentation master file, created by
-   sphinx-quickstart on Sat Nov 23 21:28:51 2019.
+.. pytentiostat documentation master file, created by
+   sphinx-quickstart on Thu Feb  7 10:49:24 2019.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to Pytentiostat's documentation!
+Welcome to pytentiostat's documentation!
 ========================================
 
 To post questions about anything to do with pytentiostat, please submit an issue at github.com/juami/pytentiostat
@@ -20,13 +20,8 @@ If you have suggestions for new features in pytentiostat, or want to report a bu
 
 .. toctree::
    :maxdepth: 2
-
-   gettingstarted
-
-.. toctree::
-   :maxdepth: 2
-
-   experimentsetup
+   :caption: Contents:
+   :caption: Getting Started
 
 
 Indices and tables
