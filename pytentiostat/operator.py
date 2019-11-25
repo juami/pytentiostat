@@ -159,6 +159,8 @@ def read_write(
       
 def experiment(config_data, a0, a2, d9):
     """
+    Writes experiment to send to read_write.
+    
     Determines which experiment to run and applies the appropriate voltages
     to perform the experiment based on the inputs from the config file. Plots
     the data for and returns the data as lists to be saved.
