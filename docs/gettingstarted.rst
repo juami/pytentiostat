@@ -73,5 +73,27 @@ Pytentiostat package installation
 
 .. topic:: Windows Command Prompt
 
+   #. Open the command prompt by typing cmd in the start menu search bar and press enter.
+
+   #. Navigate to the Scripts folder inside of the Miniconda3 directory that was created upon installation.
+
+   #. Setup the channel for conda-forge.
+
+      .. code-block::
+
+         conda config --add channels conda-forge
+
+   #. Install the pytentiostat package
+
+      .. code-block::
+
+         conda install pytentiostat
+
+   #. It is possible to see all versions of pytentiostat installed on your computer using:
+
+      .. code-block::
+
+         conda search pytentiostat --channel conda-forge
+
 
 
