@@ -7,7 +7,8 @@
 Getting Started
 ================
 
-.. rubric:: Miniconda Installation
+Miniconda Installation
+----------------------
 
 Navigate to the following conda installation page corresponding to the operating system you are using.
 
@@ -26,7 +27,8 @@ installation. If you do not have settings preferences, continue with defaults.
    If there are any problems with the installation, see the full user documentation for Miniconda at
    https://conda.io/projects/conda/en/latest/user-guide/install/index.html
 
-.. rubric:: Pytentiostat package installation
+Pytentiostat package installation
+---------------------------------
 
 .. topic:: Easy install using Anaconda Prompt
 
@@ -59,3 +61,7 @@ installation. If you do not have settings preferences, continue with defaults.
       .. code-block::
 
          conda install --channels conda-forge pytentiostat
+
+.. topic:: Windows Command Prompt
+
+
