@@ -14,8 +14,10 @@ Interrupt = False
 Exp_running = False
 
 
-def signal_handler(signum, frame):
+def _signal_handler(signum, frame):
     """
+    Changes behavior of keyboard interrupt when experiment is running.
+    
     Signal handler is called by signal.signal() when Ctrl+c is pressed by the user.
     It checks to see if exp_running is true and if so, it sets the global interrupt to true.
     If exp_running is false, it raises KeyboardInterrupt.
@@ -32,7 +34,7 @@ def signal_handler(signum, frame):
         raise KeyboardInterrupt
 
 
-signal.signal(signal.SIGINT, signal_handler)
+signal.signal(signal.SIGINT, _signal_handler)
 
 
 def start_exp(d9, normalized_start, data):
