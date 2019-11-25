@@ -88,9 +88,9 @@ def edit_file(ui):
 
     ui.experiment_queue.clearSelection()
 
-def delete_file(ui):
+def remove_file(ui):
     """
-    Delete the highlighted config file.
+    Remove the highlighted config file.
 
     Parameters
     ------

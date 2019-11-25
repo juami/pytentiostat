@@ -7,7 +7,7 @@ from PyQt5.QtWidgets import QApplication,QMainWindow,QGridLayout
 from mainwindow_GUI import Ui_MainWindow
 # GUI function
 from GUI_routines import find_port_main,disconnect_port_main,_load_arduino
-from GUI_file_operation import add_exp,load_file,edit_file,delete_file
+from GUI_file_operation import add_exp,load_file,edit_file,remove_file
 from GUI_run_exp import run_exp_main
 
 
@@ -45,7 +45,7 @@ ui.load_experiment_button.clicked.connect(partial(load_file,ui))
 ui.edit_experiment_button.clicked.connect((partial(edit_file,ui)))
 
 #'Delete'
-ui.delete_experiment_button.clicked.connect(partial(delete_file,ui))
+ui.remove_experiment_button.clicked.connect(partial(remove_file,ui))
 
 #'Start/Abort Experiment'
 grid = QGridLayout()   # set up the layout for live plot
