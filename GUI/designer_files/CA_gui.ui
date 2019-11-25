@@ -7555,19 +7555,19 @@ background-color: rgb(240, 240, 240);</string>
      <bool>false</bool>
     </property>
     <property name="currentText">
-     <string>Ag/AgCl</string>
+     <string>Vref</string>
     </property>
     <property name="insertPolicy">
      <enum>QComboBox::InsertAtBottom</enum>
     </property>
     <item>
      <property name="text">
-      <string>Ag/AgCl</string>
+      <string>Vref</string>
      </property>
     </item>
     <item>
      <property name="text">
-      <string>SCE</string>
+      <string>Vocv</string>
      </property>
     </item>
    </widget>
@@ -7588,12 +7588,12 @@ background-color: rgb(240, 240, 240);</string>
 background-color: rgb(228, 228, 228);</string>
    </property>
   </widget>
-  <action name="actionAg_AgCl">
+  <action name="actionVref">
    <property name="text">
-    <string>Ag/AgCl</string>
+    <string>Vref</string>
    </property>
   </action>
-  <action name="actionSCE">
+  <action name="actionV">
    <property name="text">
     <string>SCE</string>
    </property>

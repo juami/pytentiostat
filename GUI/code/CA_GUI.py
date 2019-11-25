@@ -2623,11 +2623,11 @@ class Ui_CA(object):
         self.generate_preview_button.setStatusTip(_translate("CA", "Click this button to generate a preview of the experiment to be run."))
         self.generate_preview_button.setText(_translate("CA", "Generate Preview"))
         self.rest_time_units_label_2.setText(_translate("CA", "s"))
-        self.voltage_ref.setCurrentText(_translate("CA", "Ag/AgCl"))
-        self.voltage_ref.setItemText(0, _translate("CA", "Ag/AgCl"))
-        self.voltage_ref.setItemText(1, _translate("CA", "SCE"))
-        self.actionAg_AgCl.setText(_translate("CA", "Ag/AgCl"))
-        self.actionSCE.setText(_translate("CA", "SCE"))
+        self.voltage_ref.setCurrentText(_translate("CA", "Vref"))
+        self.voltage_ref.setItemText(0, _translate("CA", "Vref"))
+        self.voltage_ref.setItemText(1, _translate("CA", "Vocv"))
+        self.actionVref.setText(_translate("CA", "Vref"))
+        self.actionVocv.setText(_translate("CA", "Vocv"))
 
 
 if __name__ == "__main__":
