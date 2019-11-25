@@ -57,7 +57,6 @@ def param_checker(config_data):
     None
 
     """
-    #Obtain all the parameters in parsable way
     average_number = config_data["advanced_parameters"]["average_number"]
     conversion_factor = config_data["advanced_parameters"]["conversion_factor"]
     cv_start_voltage = config_data["cyclic_voltammetry"]["start_voltage"]
@@ -80,7 +79,6 @@ def param_checker(config_data):
     time_step = config_data["advanced_parameters"]["time_step"]
     voltage = config_data["chronoamperometry"]["voltage"]
     
-    #Check if every variable is of the correct type
     for i in [data_out_name, data_out_path]:
         if isinstance(i, str) == False:
             stri = str(i)
@@ -107,13 +105,11 @@ def param_checker(config_data):
                 srti = str(i)
                 sys.exit("Warning! \nThe value " + stri + " needs to be changed to a value >= 0. \nExiting...")
             
-    #Check if an available experiment is selected
     exp_types = ['LSV', 'CV', 'CA']
     if exp_type not in  exp_types:
         str_exp = str(exp_type)
         sys.exit("Warning! \n" + str_exp + " in config.yml is not a valid experiment type. \nExiting...")
         
-    #Check if within experimental limitations
     voltage_ub = 2.2
     voltage_lb = -2.2
     time_step_lb = 0.003
