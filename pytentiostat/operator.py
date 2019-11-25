@@ -106,6 +106,7 @@ def read_write(
     None
     """
     global Interrupt, Exp_running
+    voltage_offset = 0.5
     Exp_running = True
     start_time = time.time()
     ending_time = start_time + time_for_range
@@ -135,8 +136,8 @@ def read_write(
                 a0.read()
             )  # Reads Value Between 0 and 1 (-2.5V to 2.5V) 1024 possible
             pin2value = a2.read()
-            real_voltage = (pin0value - 0.5) * -1 * cf
-            real_current = ((pin2value - 0.5) * -1 * cf) / sr
+            real_voltage = (pin0value - voltage_offset) * -cf
+            real_current = (pin2value - voltage_offset) * -cf) / sr
             voltage_catcher = voltage_catcher + real_voltage
             current_catcher = current_catcher + real_current
             i = i + 1
