@@ -42,7 +42,8 @@ Pytentiostat package installation
 
          conda create -n <mycondaenv> python=3 anaconda
 
-   #. Type :code:`y` to install the python version and the anaconda packaged libraries in the path_to_your_anaconda_location/anaconda/envs/mycondaenv.
+   #. Type :code:`y` and press enter to install the python version and the anaconda packaged libraries in the
+      path_to_your_anaconda_location/anaconda/envs/mycondaenv.
 
    #. Activate the environment you created.
 
@@ -60,8 +61,17 @@ Pytentiostat package installation
 
       .. code-block::
 
-         conda install --channels conda-forge pytentiostat
+         conda install pytentiostat
+
+      When asked whether to proceed, type :code:`y` and press enter to complete the installation.
+
+   #. It is possible to see all versions of pytentiostat installed on your computer using:
+
+      .. code-block::
+
+         conda search pytentiostat --channel conda-forge
 
 .. topic:: Windows Command Prompt
+
 
 
