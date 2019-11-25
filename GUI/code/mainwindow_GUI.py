@@ -2004,6 +2004,7 @@ class Ui_MainWindow(object):
         self.start_abort_experiment_label.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\">Start/Stop Experiment</p></body></html>"))
         self.find_potentiostat_button.setStatusTip(_translate("MainWindow", "Click this button to find a select a compatible config file to add to the experiment queue."))
         self.find_potentiostat_button.setText(_translate("MainWindow", "Find Potentiostat"))
+        self.find_potentiostat_button.setStyleSheet("QPushButton:hover{color: white}  QPushButton:pressed{color: white}")
         self.stop_experiment_button.setStatusTip(_translate("MainWindow", "Press this button to abort current experiment."))
         #self.arduino_connection_name.setItemText(0, _translate("MainWindow", "COM3"))
         self.disconnect_potentiostat_button.setStatusTip(_translate("MainWindow", "Click this button to find a select a compatible config file to add to the experiment queue."))
