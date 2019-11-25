@@ -119,7 +119,7 @@ def read_write(
         if Interrupt:
             Exp_running = False
 
-        # update time
+        # update time relative to time when experiment started
         now_time = time.time()
         time_passed = now_time - start_time
         times.append(time_passed)
