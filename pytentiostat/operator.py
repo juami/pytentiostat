@@ -137,7 +137,7 @@ def read_write(
             )  # Reads Value Between 0 and 1 (-2.5V to 2.5V) 1024 possible
             pin2value = a2.read()
             real_voltage = (pin0value - voltage_offset) * -cf
-            real_current = (pin2value - voltage_offset) * -cf) / sr
+            real_current = (pin2value - voltage_offset) * -cf / sr
             voltage_catcher = voltage_catcher + real_voltage
             current_catcher = current_catcher + real_current
             i = i + 1
