@@ -1,7 +1,7 @@
 # Pytentiostat function files
 from pytentiostat.config_reader import parse_config_file
 from pytentiostat.reporter import save_data_to_file
-from pytentiostat.tester import experiment
+from pytentiostat.operator import experiment
 from pytentiostat.routines import startup_routine, closing_routine
 from pytentiostat.plotter import plot_updater, plot_initializer
 import matplotlib.pyplot as plt

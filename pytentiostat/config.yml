@@ -1,6 +1,6 @@
 #General parameters to edit for an experiment
 general_parameters:
-  experiment_type: LSV
+  experiment_type: CV
   rest_time: 0.5 #s
   step_number: 100
   data_output_filename: MyData
