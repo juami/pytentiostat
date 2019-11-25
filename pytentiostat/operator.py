@@ -65,6 +65,8 @@ def read_write(
         times, voltages, currents):
 
     """
+    Performs a submitted read/write schedule to carry out an experiment.
+    
     Writes voltages to pin 9 using d9, reads voltages from pin 0 and 2 using a0
     and a2, and calculates current from the voltage on a2.
 
