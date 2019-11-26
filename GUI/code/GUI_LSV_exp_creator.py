@@ -1,7 +1,8 @@
 import yaml,os,datetime
 import numpy as np
 from functools import partial
-from PyQt5.QtWidgets import QGridLayout
+from PyQt5.QtGui import QIcon
+from PyQt5.QtWidgets import QGridLayout, QListWidgetItem
 from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
 from matplotlib.figure import Figure
 
@@ -256,7 +257,7 @@ def get_parameters(exp,exp_type,AP_parameters):
 
     return config_params
 
-def write_to_file_LSV(LSV,LSV_window,AP_params):
+def write_to_file_LSV(ui,LSV,LSV_window,AP_params):
     """
     This function is connect to save file button.
 
@@ -271,8 +272,18 @@ def write_to_file_LSV(LSV,LSV_window,AP_params):
     """
     config_params = get_parameters(LSV, 'LSV', AP_params)
     config_writer_LSV(*config_params)
+    data_out_name = config_params[3]
+    data_out_path = config_params[4]
+    filename = os.path.join(data_out_path, data_out_name + "_LSV_config.yml")
     if warning('The file has been saved. Do you want to exit the window?'):
         LSV_window.close()
+        filename_parse = filename.split('/')[-1].strip()
+        item = QListWidgetItem()
+        icon = QIcon("../pics/icon_lsv.ico")
+        item.setData(1, icon)
+        item.setData(2, filename_parse)
+        item.setData(3, filename)
+        ui.experiment_queue.addItem(item)
 
 def LSV_window_writer(exp,config_data):
     """
@@ -323,5 +334,5 @@ def LSV_main(ui):
     LSV.select_output_filepath_button.clicked.connect(partial(load_folder,LSV))
     LSV.advanced_parameters_button.clicked.connect(partial(load_APwindow,LSV,AP_params))
     LSV.generate_preview_button.clicked.connect(partial(preview_LSV, LSV, grid))
-    LSV.save_experiment_file_button.clicked.connect(partial(write_to_file_LSV,LSV,LSV_window,AP_params))
+    LSV.save_experiment_file_button.clicked.connect(partial(write_to_file_LSV,ui,LSV,LSV_window,AP_params))
     return LSV
