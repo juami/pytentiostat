@@ -327,13 +327,34 @@ def write_to_file_CV(ui,CV,CV_window,AP_params):
 
     """
     config_params = get_parameters(CV,'CV',AP_params)
-    config_writer_CV(*config_params)
     data_out_name = config_params[3]
     data_out_path = config_params[4]
+    filename_list = os.listdir(data_out_path)
+    config_writer_CV(*config_params)
     filename = os.path.join(data_out_path, data_out_name + "_CV_config.yml")
-    if warning('The file has been saved. Do you want to exit the window?'):
+    filename_parse = filename.split('/')[-1].strip()
+    # list all the filename in the experiment queue, stored in queue_filename
+    queue_filename = []
+    for x in range(ui.experiment_queue.count()):
+        queue_filename.append(ui.experiment_queue.item(x).data(2).split('.yml')[0]+'.yml')
+
+    if filename_parse in filename_list:
+        if warning('The filename exists. Do you want to overwrite it?'):
+            CV_window.close()
+            if filename_parse not in queue_filename:
+                item = QListWidgetItem()
+                icon = QIcon("../pics/icon_cv.ico")
+                item.setData(1, icon)
+                item.setData(2, filename_parse)
+                item.setData(3, filename)
+                ui.experiment_queue.addItem(item)
+                return
+            else:
+                return
+        else:
+            return
+    if warning('The file is saved. Do you want to exit the window?'):
         CV_window.close()
-        filename_parse = filename.split('/')[-1].strip()
         item = QListWidgetItem()
         icon = QIcon("../pics/icon_cv.ico")
         item.setData(1, icon)
