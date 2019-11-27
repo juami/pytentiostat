@@ -9,10 +9,18 @@ def save_data_to_file(config_data, data, override_outpath=None, override_ts=None
 
     Parameters
     ----------
+    config_data : dictionary
+        The parameters from the config file.
     data : array
-        the config_data that will be saved
-    filename : string
-        the name of the file to save. Optional. Defaults to Place_Holder.csv
+        The data that will be output to a file.
+    override_outpath : string
+        The path to which the file will be saved to. Optional. Default is saved in config directory
+    override_ts : string
+        String to replace timestamp in name. Optional. Defaults to leaving timestamp.
+    Returns
+    -------
+        nothing
+
     """
 
     filename, export_path = get_output_params(
