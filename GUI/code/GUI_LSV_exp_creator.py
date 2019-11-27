@@ -54,6 +54,13 @@ def load_APwindow(LSV,AP_params):
 
     """
     AP,AP_window = LSV.AP_window()
+    AP.experiment_conversion_factor.setText(str(AP_params[0]))
+    AP.experiment_setpoint_gain.setText(str(AP_params[1]))
+    AP.experiment_setpoint_offset.setText(str(AP_params[2]))
+    AP.experiment_shunt_resistor.setText(str(AP_params[3]))
+    AP.experiment_time_step.setText(str(AP_params[4]))
+    AP.experiment_averag_number.setText(str(AP_params[5]))
+
     def change_params():
         """
         This function is connected to 'Save' button to save changed parameters.
@@ -312,7 +319,7 @@ def LSV_window_writer(exp,config_data):
     exp.experiment_sweep_rate.setText(str(config_data["linear_sweep_voltammetry"]["sweep_rate"]))
 
 ## PartV: Main
-def LSV_main(ui):
+def LSV_main(ui,config_data=None):
     """
     This function is connect to 'CA' button in the Experiment Type window
 
@@ -330,6 +337,13 @@ def LSV_main(ui):
     grid = QGridLayout()
     LSV.plot_area.setLayout(grid)
     AP_params = [4.798, 1.03, 0, 0.202, 0.003, 9]
+    if config_data:
+        AP_params[0] = config_data["advanced_parameters"]["conversion_factor"]
+        AP_params[1] = config_data["advanced_parameters"]["setpoint_gain"]
+        AP_params[2] = config_data["advanced_parameters"]["setpoint_offset"]
+        AP_params[3] = config_data["advanced_parameters"]["shunt_resistor"]
+        AP_params[4] = config_data["advanced_parameters"]["time_step"]
+        AP_params[5] = config_data["advanced_parameters"]["average_number"]
 
     LSV.select_output_filepath_button.clicked.connect(partial(load_folder,LSV))
     LSV.advanced_parameters_button.clicked.connect(partial(load_APwindow,LSV,AP_params))

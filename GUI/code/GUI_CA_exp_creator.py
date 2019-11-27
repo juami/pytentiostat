@@ -58,6 +58,13 @@ def load_APwindow(CA,AP_params):
 
     """
     AP,AP_window = CA.AP_window()
+    AP.experiment_conversion_factor.setText(str(AP_params[0]))
+    AP.experiment_setpoint_gain.setText(str(AP_params[1]))
+    AP.experiment_setpoint_offset.setText(str(AP_params[2]))
+    AP.experiment_shunt_resistor.setText(str(AP_params[3]))
+    AP.experiment_time_step.setText(str(AP_params[4]))
+    AP.experiment_averag_number.setText(str(AP_params[5]))
+
     def change_params():
         """
         This function is connected to 'Save' button to save changed parameters.
@@ -343,7 +350,7 @@ def CA_window_writer(exp,config_data):
     exp.experiment_time.setText(str(config_data["chronoamperometry"]["time"]))
 
 ## PartV: Main
-def CA_main(ui):
+def CA_main(ui,config_data=None):
     """
     This function is connect to 'CA' button in the Experiment Type window
 
@@ -360,7 +367,14 @@ def CA_main(ui):
     CA,CA_window = ui.show_CAwindow()                      # Initialize the CA window - CA window pops up
     grid = QGridLayout()                         # Initialize the layout for preview graph
     CA.plot_area.setLayout(grid)
-    AP_params = [4.798,1.03,0,0.202,0.003,9]     # Default AP_params: [conv_fact, set_gain, set_offset, sr, ts,avg_num]
+    AP_params = [4.798, 1.03, 0, 0.202, 0.003,9]  # Default AP_params: [conv_fact, set_gain, set_offset, sr, ts,avg_num]
+    if config_data:
+        AP_params[0] = config_data["advanced_parameters"]["conversion_factor"]
+        AP_params[1] = config_data["advanced_parameters"]["setpoint_gain"]
+        AP_params[2] = config_data["advanced_parameters"]["setpoint_offset"]
+        AP_params[3] = config_data["advanced_parameters"]["shunt_resistor"]
+        AP_params[4] = config_data["advanced_parameters"]["time_step"]
+        AP_params[5] = config_data["advanced_parameters"]["average_number"]
 
     CA.select_output_filepath_button.clicked.connect(partial(load_folder,CA))
     CA.advanced_parameters_button.clicked.connect(partial(load_APwindow,CA,AP_params))

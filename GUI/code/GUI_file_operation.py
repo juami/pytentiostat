@@ -75,13 +75,13 @@ def edit_file(ui):
 
     exp = None
     if 'CA' in filename:
-        exp = CA_main(ui)
+        exp = CA_main(ui,config_data)
         CA_window_writer(exp,config_data)
     elif 'CV' in filename:
-        exp = CV_main(ui)
+        exp = CV_main(ui,config_data)
         CV_window_writer(exp, config_data)
     elif 'LSV' in filename:
-        exp = LSV_main(ui)
+        exp = LSV_main(ui,config_data)
         LSV_window_writer(exp, config_data)
     if exp is None:
         warning('Please rename the file with experiment type: CA/CV/LSV!')
