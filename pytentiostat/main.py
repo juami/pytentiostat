@@ -31,7 +31,6 @@ while True:
             start = input("Press enter to start the experiment.")
             times, voltages, currents, interrupt = experiment(config_data, *board_objects)
             if interrupt:
-                plt.show()
                 save = input("Experiment interrupted. Would you like to save the data? [y/n]: ")
                 if save.lower() == "y":
                     temp_data = zip(times, voltages, currents)
