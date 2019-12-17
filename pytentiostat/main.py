@@ -59,7 +59,6 @@ while True:
         collected_data = zip(times, voltages, currents)
         save_data_to_file(config_data, collected_data)
         print("Saved.")
-    plt.show()
     stop = input("\nWould you like to repeat the last experiment? [y/n]: ")
     if stop.lower() != "y":
         break
