@@ -1,11 +1,12 @@
 **Added:** None
 
-**Changed:** plotter.py
+**Changed:** None
 
 **Deprecated:** None
 
 **Removed:** None
 
-**Fixed:** #114
+**Fixed:**
+* Fixed bug that caused window to lose focus and prevent keyboard interrupt
 
 **Security:** None
