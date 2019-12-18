@@ -3,7 +3,10 @@ Intended User: Graduate student (GS) who knows basic electrochemistry. Requires 
 
 ### Before Installation: 
 1. Member of dev team gives GS a JUAMI Potentiostat with a 1kOhm resistor.
-1. GS installs miniconda on their computer.
+1. GS checks if miniconda installed on their computer.
+ 1. GS opens a terminal. 
+ 1. GS types conda. 
+ 1. If user recieves message "'conda' is not a recognized...", user enters "pip install conda" into the command line.
 
 ### Installation:
 1. GS recieves email from member of dev team with link to release page.
