@@ -24,7 +24,7 @@ Intended User: Graduate student (GS) who knows basic electrochemistry. Requires 
 1. Pyentiostat prompts "Press enter to connect to a JUAMI potentiostat.".
 1. GS presses enter.
 1. Pytentiostat prints to console "Searching for potentiostat...".
-1. Pyentiostat prints to console "Pytentiostat connected COM. Reading configuration file...".
+1. Pyentiostat prints to console "Pytentiostat connected to COM".
 1. Pytentiostat prints to console "Press enter to load the config file".
 1. GS presses enter.
 1. Pytentiostat prints to console "Press enter to start the experiment".
