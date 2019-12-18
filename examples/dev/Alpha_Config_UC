@@ -31,6 +31,6 @@ Intended User: Graduate student (GS) who knows basic electrochemistry. Requires 
 1. Pytentiostat runs experiment in config.
 1. Pyentiostat displays plot of real-time data to user.
 1. After running experiment, pytentiostat saves the data to their desktop.
-1. Pytentiostat promopts "Would you like to repeat the last experiment? [y/n].
+1. Pytentiostat promopts "Would you like to repeat the last experiment? [y/n]".
 1. GS types n.
 1. Pytentiostat program closes.
