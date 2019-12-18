@@ -20,16 +20,16 @@ def _load_arduino():
         the COM port the arduino is connected to.
     """
     print("Searching for potentiostat...")
-    ports = list(serial.tools.list_ports.comports())
+    ports = list(serial.tools.list_ports.grep(r'tty|Arduino|COM'))
     n_arduinos = 0
     for p in ports:  # Checking for Arduino Unos connected
-        if re.search("tty|Arduino Uno|COM",p.description) is not None:
+        if re.match(r'tty|Arduino|COM',p.description) is not None:
             com = p.device
             n_arduinos += 1
     if n_arduinos > 1:
         sys.exit("More than one Arduino Uno found. Exiting...")
     if n_arduinos == 0:
-        sys.exit("No Arduino Uno found. Exiting...")
+        sys.exit("No JUAMI potentiostat found. Exiting...")
     return com
 
 
@@ -43,15 +43,13 @@ def _initialize_arduino(com):
     try:
         board = Arduino(com,
                         baudrate=_BAUD_RATE)  # opens communication to Arduino
-
-
+        if board.firmware == 'pytentiostat_firmata.ino':
+            print("Pytentiostat connected to {}.\n".format(
+            com))
+        else:
+            print('the board is not a Pytentiostat')
     except:
         sys.exit("Error. Could not open COM port")
-
-    if board.firmware == 'pytentiostat_firmata.ino':  # check if the board have the right firmware
-        print("Pytentiostat connected to {}.\n".format(com))
-    else:
-        sys.exit('the board is not a pytentiostat')
     return board
 
 
