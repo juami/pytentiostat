@@ -1,6 +1,5 @@
 ## Use Case (UC): Running default config on the JUAMI Potentiostat for Alpha release.
-Intended User: Graduate student (GS) familiar with dev team and basic electrochemistry concepts. The instructions in this UC assume that the student has a resistor they can attach clips to.
-Assumes little to no knowledge of python. Assumes access to a Windows computer.
+Intended User: Graduate student (GS) who knows basic electrochemistry. Requires Windows OS. No python knowledge required.
 
 ### Before Installation: 
 1. Member of dev team gives GS a JUAMI Potentiostat with a 1kOhm resistor.
@@ -12,7 +11,7 @@ Assumes little to no knowledge of python. Assumes access to a Windows computer.
 
 ### Experimental Setup:
 1. GS plugs the USB cable into the computer and the potentiostat.
-1. GS attaches alligator clips to the resistor; one side with the working electrode and the other side with counter and reference electrodes.
+1. GS attaches working electrode to one side of the resistor and attaches the remaining electrodes to the other side.
 
 ### Program Setup:
 1. GS copies the default example config file to an easy to navigate to directory (WD).
