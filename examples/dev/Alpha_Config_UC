@@ -3,7 +3,7 @@ Intended User: Graduate student (GS) who knows basic electrochemistry. Requires 
 
 ### Before Installation: 
 1. Member of dev team gives GS a JUAMI Potentiostat with a 1kOhm resistor.
-1. GS installs python on their computer.
+1. GS installs miniconda on their computer.
 
 ### Installation:
 1. GS recieves email from member of dev team with link to release page.
