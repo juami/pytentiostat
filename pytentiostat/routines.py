@@ -1,5 +1,5 @@
 import sys
-
+import re
 from pyfirmata import Arduino, util
 import matplotlib.pyplot as plt
 import serial.tools.list_ports
@@ -20,10 +20,10 @@ def _load_arduino():
         the COM port the arduino is connected to.
     """
     print("Searching for potentiostat...")
-    ports = list(serial.tools.list_ports.comports())
+    ports = list(serial.tools.list_ports.grep(r'tty|Arduino|COM'))
     n_arduinos = 0
     for p in ports:  # Checking for Arduino Unos connected
-        if "Arduino Uno" in p.description:
+        if re.match(r'tty|Arduino|COM',p.description) is not None:
             com = p.device
             n_arduinos += 1
     if n_arduinos > 1:
@@ -43,8 +43,11 @@ def _initialize_arduino(com):
     try:
         board = Arduino(com,
                         baudrate=_BAUD_RATE)  # opens communication to Arduino
-        print("Pytentiostat connected to {}.\n".format(
+        if board.firmware == 'pytentiostat_firmata.ino':
+            print("Pytentiostat connected to {}.\n".format(
             com))
+        else:
+            print('the board is not a Pytentiostat')
     except:
         sys.exit("Error. Could not open COM port")
     return board
