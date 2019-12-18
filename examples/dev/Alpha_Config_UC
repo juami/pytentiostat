@@ -30,9 +30,7 @@ Intended User: Graduate student (GS) who knows basic electrochemistry. Requires 
 1. Pytentiostat prints to console "Press enter to start the experiment".
 1. Pytentiostat runs experiment in config.
 1. Pyentiostat displays plot of real-time data to user.
-1. After running experiment, pytentiostat promopts "Would you like to save the data? [y/n]".
-1. GS types y.
-1. Pytentiostat saves the data to their desktop.
-1. Pytentiostat prompts if user wants to run another experiment.
+1. After running experiment, pytentiostat saves the data to their desktop.
+1. Pytentiostat promopts "Would you like to repeat the last experiment? [y/n].
 1. GS types n.
 1. Pytentiostat program closes.
