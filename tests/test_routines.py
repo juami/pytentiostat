@@ -38,7 +38,7 @@ def test_load_arduino():
 def test_initialize_arduino():
     da = Dummy_arduino()
     da.name = "good_arduino"
-
+    da.firmware = "pytentiostat_firmata.ino"
     with pytest.raises(SystemExit):
         _initialize_arduino("bad_port")
     with mock.patch(
