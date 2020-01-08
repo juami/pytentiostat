@@ -47,4 +47,4 @@ def test_initialize_arduino():
     ):
         ard = _initialize_arduino("good_port")
         assert ard.name == "good_arduino"
-        assert ard.firmware == "pytensiostat_firmata.ino"
+        assert ard.firmware == "pytentiostat_firmata.ino"
