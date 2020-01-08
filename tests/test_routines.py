@@ -12,7 +12,6 @@ class Dummy_port:
 class Dummy_arduino:
     def __init__(self):
         self.name = None
-        self.firmware = None
 
 def test_load_arduino():
     good_port = Dummy_port()
@@ -37,26 +36,14 @@ def test_load_arduino():
 
 
 def test_initialize_arduino():
-    pot = Dummy_arduino()
-    pot.name = "good_arduino"
-    pot.firmware = "pytentiostat_firmata.ino"
-    no_pot = Dummy_arduino()
-    no_pot.name = 'bad_arduino'
-    no_pot.firmware = "zaraza"
+    da = Dummy_arduino()
+    da.name = "good_arduino"
+    da.firmware = "pytentiostat_firmata.ino"
     with pytest.raises(SystemExit):
         _initialize_arduino("bad_port")
     with mock.patch(
         "pytentiostat.routines.Arduino",
-        return_value=pot,
+        return_value=da,
     ):
         ard = _initialize_arduino("good_port")
         assert ard.name == "good_arduino"
-    with pytest.raises(SystemExit):
-        with mock.patch(
-            "pytentiostat.routines.Arduino",
-            return_value=no_pot,
-        ):
-            ard = _initialize_arduino("good_port")
-            assert ard.name == "bad_arduino"
-
-
