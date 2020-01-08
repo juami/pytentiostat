@@ -49,8 +49,7 @@ def _initialize_arduino(com):
         sys.exit("Error. Could not open COM port")
 
     if board.firmware == 'pytentiostat_firmata.ino':  # check if the board have the right firmware
-        print("Pytentiostat connected to {}.\n".format(
-            com))
+        print("Pytentiostat connected to {}.\n".format(com))
     else:
         sys.exit('the board is not a pytentiostat')
     return board
