@@ -2,7 +2,8 @@
 
 echo Installing python
 START /WAIT python-3.8.1-amd64
-echo next step
+python --version
+if errorlevel 1 goto NoPython
 pip install cycler-0.10.0-py2.py3-none-any.whl
 pip install pytz-2019.3-py2.py3-none-any.whl
 pip install kiwisolver-1.1.0-cp38-none-win_amd64.whl
@@ -34,3 +35,8 @@ pip install coverage-5.0.3-cp38-cp38m-win_amd64.whl
 pip install mock-3.0.5-py2.py3-none-any.whl
 pip install codecov-2.0.15-py2.py3-none-any.whl
 python pytentiostat/setup.py
+goto:eof
+
+:NoPython
+echo Python installation failed. Please retry.
+
