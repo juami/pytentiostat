@@ -40,4 +40,5 @@ goto:eof
 
 :NoPython
 echo Python installation failed. Please retry.
+@pause
 goto:eof
