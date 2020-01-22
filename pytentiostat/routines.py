@@ -26,10 +26,11 @@ def _load_arduino():
         if re.search("tty|Arduino Uno|COM",p.description) is not None:
             com = p.device
             n_arduinos += 1
+            print("INFO: Arduino Uno found at port.\n".format(com))
     if n_arduinos > 1:
-        sys.exit("More than one Arduino Uno found. Exiting...")
+        sys.exit("ERROR: More than one Arduino Uno found. Exiting...")
     if n_arduinos == 0:
-        sys.exit("No Arduino Uno found. Exiting...")
+        sys.exit("ERROR: No Arduino Uno found. Exiting...")
     return com
 
 
@@ -46,12 +47,12 @@ def _initialize_arduino(com):
 
 
     except:
-        sys.exit("Error. Could not open COM port")
+        sys.exit("Error: Could not open port Arduino Uno is connected to. Exiting…")
 
     if board.firmware == 'pytentiostat_firmata.ino':  # check if the board have the right firmware
-        print("Pytentiostat connected to {}.\n".format(com))
+        print("INFO: Pytentiostat connected to {}.\n".format(com))
     else:
-        sys.exit('the board is not a pytentiostat')
+        sys.exit("ERROR: Arduino Uno connected does not have correct firmware uploaded. Exitining...")
     return board
 
 
