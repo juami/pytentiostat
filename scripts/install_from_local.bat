@@ -1,5 +1,6 @@
 :: This batch script will install python 3.8, pytentiostat and it's necessary packages
 @echo off
+cd ../local_install
 echo Installing python
 START /WAIT python-3.8.1-amd64
 python --version
