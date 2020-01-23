@@ -1,8 +1,8 @@
 .. instructions for creating a USB that can install pytentiostat
 
-===================================================
-Instructions for installing pytentiostat with a USB
-===================================================
+=============================================================================
+Instructions for installing pytentiostat onto a *Windows* computer with a USB
+=============================================================================
 
 - First, copy the entire top level directory onto a USB flash drive.
 - **Important:** Download the Python 3.8 installer and required wheel files onto the USB. \
