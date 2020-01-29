@@ -2,7 +2,7 @@
 import os,csv
 ## Local libraries
 # GUI window
-from PyQt5.QtGui import QIcon
+from PySide2.QtGui import QIcon
 from warning_GUI import warning
 # GUI function
 from GUI_plotter import Ui_Plot
