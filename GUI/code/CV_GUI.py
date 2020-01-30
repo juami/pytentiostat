@@ -1,13 +1,5 @@
-# -*- coding: utf-8 -*-
-
-# Form implementation generated from reading ui file 'CV_gui_1.ui'
-#
-# Created by: PyQt5 UI code generator 5.13.1
-#
-# WARNING! All changes made in this file will be lost!
-
 ## Standard library
-from PyQt5 import QtCore, QtGui, QtWidgets
+from PySide2 import QtCore, QtGui, QtWidgets
 ## Local library
 # GUI_function
 from GUI_load_config import Ui_Load
@@ -2035,7 +2027,6 @@ class Ui_CV(object):
         brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.NoRole, brush)
-        self.advanced_parameters_button.setPalette(palette)
         font = QtGui.QFont()
         font.setFamily("Arial")
         font.setBold(True)
@@ -2386,7 +2377,6 @@ class Ui_CV(object):
         brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.NoRole, brush)
-        self.save_experiment_file_button.setPalette(palette)
         font = QtGui.QFont()
         font.setFamily("Arial")
         font.setBold(True)
@@ -2533,7 +2523,6 @@ class Ui_CV(object):
         brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.NoRole, brush)
-        self.generate_preview_button.setPalette(palette)
         font = QtGui.QFont()
         font.setFamily("Arial")
         font.setBold(True)
