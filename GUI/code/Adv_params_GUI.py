@@ -1,4 +1,13 @@
-from PySide2 import QtCore, QtGui, QtWidgets
+# -*- coding: utf-8 -*-
+
+# Form implementation generated from reading ui file 'Adv_Params_gui.ui'
+#
+# Created by: PyQt5 UI code generator 5.13.1
+#
+# WARNING! All changes made in this file will be lost!
+
+
+from PyQt5 import QtCore, QtGui, QtWidgets
 
 
 class Ui_Adv_Params(object):
@@ -1316,6 +1325,7 @@ class Ui_Adv_Params(object):
         brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.NoRole, brush)
+        self.save_experiment_file_button.setPalette(palette)
         font = QtGui.QFont()
         font.setFamily("Arial")
         font.setBold(True)

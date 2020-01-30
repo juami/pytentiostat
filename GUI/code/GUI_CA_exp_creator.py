@@ -1,8 +1,8 @@
 import yaml,os,datetime
 import numpy as np
 from functools import partial
-from PySide2.QtGui import QIcon
-from PySide2.QtWidgets import QGridLayout, QListWidgetItem
+from PyQt5.QtGui import QIcon
+from PyQt5.QtWidgets import QGridLayout, QListWidgetItem
 from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
 from matplotlib.figure import Figure
 

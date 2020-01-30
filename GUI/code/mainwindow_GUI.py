@@ -1,4 +1,13 @@
-from PySide2 import QtCore, QtGui, QtWidgets
+# -*- coding: utf-8 -*-
+
+# Form implementation generated from reading ui file 'PotDesign2.ui'
+#
+# Created by: PyQt5 UI code generator 5.13.1
+#
+# WARNING! All changes made in this file will be lost!
+
+
+from PyQt5 import QtCore, QtGui, QtWidgets
 from LSV_GUI import Ui_LSV
 from CV_GUI import Ui_CV
 from CA_GUI import Ui_CA
@@ -559,6 +568,7 @@ class Ui_MainWindow(object):
         brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.NoRole, brush)
+        self.add_experiment_button.setPalette(palette)
         font = QtGui.QFont()
         font.setFamily("Arial")
         font.setBold(True)
@@ -881,6 +891,7 @@ class Ui_MainWindow(object):
         brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.NoRole, brush)
+        self.remove_experiment_button.setPalette(palette)
         font = QtGui.QFont()
         font.setFamily("Arial")
         font.setBold(True)
@@ -1045,6 +1056,7 @@ class Ui_MainWindow(object):
         brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.NoRole, brush)
+        self.edit_experiment_button.setPalette(palette)
         font = QtGui.QFont()
         font.setFamily("Arial")
         font.setBold(True)
@@ -1381,6 +1393,7 @@ class Ui_MainWindow(object):
         brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.NoRole, brush)
+        self.load_experiment_button.setPalette(palette)
         font = QtGui.QFont()
         font.setFamily("Arial")
         font.setBold(True)
@@ -1682,6 +1695,7 @@ class Ui_MainWindow(object):
         brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.NoRole, brush)
+        self.find_potentiostat_button.setPalette(palette)
         font = QtGui.QFont()
         font.setFamily("Arial")
         font.setBold(True)
@@ -1914,6 +1928,7 @@ class Ui_MainWindow(object):
         brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.NoRole, brush)
+        self.disconnect_potentiostat_button.setPalette(palette)
         font = QtGui.QFont()
         font.setFamily("Arial")
         font.setBold(True)

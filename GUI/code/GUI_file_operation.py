@@ -1,6 +1,6 @@
 ## Standard libraries
-from PySide2.QtWidgets import QListWidgetItem
-from PySide2.QtGui import QIcon
+from PyQt5.QtWidgets import QListWidgetItem
+from PyQt5.QtGui import QIcon
 from functools import partial
 ## Local libraries
 # GUI window
