@@ -1,11 +1,3 @@
-# -*- coding: utf-8 -*-
-
-# Form implementation generated from reading ui file 'CA_gui_1.ui'
-#
-# Created by: PyQt5 UI code generator 5.13.1
-#
-# WARNING! All changes made in this file will be lost!
-
 ## Standard library
 from PySide2 import QtCore, QtGui, QtWidgets
 ## Local library

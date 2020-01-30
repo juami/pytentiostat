@@ -1,9 +1,3 @@
-# -*- coding: utf-8 -*-
-
-# Form implementation generated from reading ui file 'lsv_gui_3.ui'
-#
-# WARNING! All changes made in this file will be lost!
-
 ## Standard library
 from PySide2 import QtCore, QtGui, QtWidgets
 ## Local library

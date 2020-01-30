@@ -1,9 +1,3 @@
-# -*- coding: utf-8 -*-
-
-# Form implementation generated from reading ui file 'CV_gui_1.ui'
-#
-# WARNING! All changes made in this file will be lost!
-
 ## Standard library
 from PySide2 import QtCore, QtGui, QtWidgets
 ## Local library

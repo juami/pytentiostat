@@ -1,10 +1,3 @@
-# -*- coding: utf-8 -*-
-
-# Form implementation generated from reading ui file 'Adv_Params_gui.ui'
-#
-# WARNING! All changes made in this file will be lost!
-
-
 from PySide2 import QtCore, QtGui, QtWidgets
 
 
