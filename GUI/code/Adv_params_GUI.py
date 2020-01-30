@@ -1316,7 +1316,6 @@ class Ui_Adv_Params(object):
         brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.NoRole, brush)
-    #    self.save_experiment_file_button.setPalette(palette)
         font = QtGui.QFont()
         font.setFamily("Arial")
         font.setBold(True)
