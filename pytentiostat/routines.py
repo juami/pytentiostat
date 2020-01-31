@@ -47,10 +47,10 @@ def _initialize_arduino(com):
 
 
     except:
-        sys.exit("Error: Could not open port Arduino Uno is connected to. Exiting…")
+        sys.exit("ERROR: Could not open port Arduino Uno is connected to. Exiting…")
 
     if board.firmware == 'pytentiostat_firmata.ino':  # check if the board have the right firmware
-        print("INFO: Pytentiostat connected to {}.\n".format(com))
+        print("INFO: Pytentiostat connected to {}.".format(com))
     else:
         sys.exit("ERROR: Arduino Uno connected does not have correct firmware uploaded. Exitining...")
     return board
