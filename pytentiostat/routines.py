@@ -23,12 +23,12 @@ def _load_arduino():
     ports = list(serial.tools.list_ports.comports())
     n_arduinos = 0
     for p in ports:  # Checking for Arduino Unos connected
-        if re.search("tty|Arduino Uno|COM",p.description) is not None:
+        if re.search("ttyACM|Arduino Uno",p.description) is not None:
             com = p.device
             n_arduinos += 1
             print("INFO: Arduino Uno found at port.\n".format(com))
     if n_arduinos > 1:
-        sys.exit("ERROR: More than one Arduino Uno found. Exiting...")
+        sys.exit("ERROR: More than one Arduino Uno found. Please unplug any other Arduinos and retry.")
     if n_arduinos == 0:
         sys.exit("ERROR: No Arduino Uno found. Exiting...")
     return com
