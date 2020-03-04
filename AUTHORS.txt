@@ -8,6 +8,7 @@ The developers are
     Yao Tong
     Austin Plymill
     Jeremy Hitt
+    Weizi Yuan
 
 Contributions and extensive testing of the code was carried out by current
 members of the Haile and Billinge groups
