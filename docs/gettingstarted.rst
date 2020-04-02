@@ -27,5 +27,5 @@ Instructions for installing pytentiostat onto a Windows computer with a USB
 
    #. For further information on running experiments, continue to Basic Operation Instructions.
 
-.. todo:: Link text to Basic Operation Instructions page once combined in main repo.
+      .. todo:: Link text to Basic Operation Instructions page once combined in main repo.
 
