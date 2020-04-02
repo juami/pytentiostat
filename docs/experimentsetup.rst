@@ -1,3 +1,5 @@
+.. _setup:
+
 Experiment Setup
 =================
 

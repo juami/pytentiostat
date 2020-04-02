@@ -1,12 +1,14 @@
+.. _basic_operation:
+
 Basic Operation Instructions
-=================
+============================
 GUI-based Operation
----------------------------
+-------------------
 
 .. rubric:: Experimental Setup
 
 #. Plug the USB cable into the computer and the potentiostat.
-#. Attach electrodes from potentiostat as appropriate to the experimental setup.
+#. Attach electrodes from potentiostat as appropriate to the experimental setup (if you are not familiar with how to set up an electrochemical experiment, see :ref:`setup`.
 
 .. rubric:: Program Setup
 
@@ -27,7 +29,7 @@ GUI-based Operation
 #. Now the potentiostat is safe to be removed and the program closed.
 
 Command-Line Operation
----------------------------
+----------------------
 
 .. rubric:: Experimental Setup
 
