@@ -2,7 +2,7 @@
    and take any additional measures necessary prior to starting to use the pytentiostat
    for experiments.
 
-.. _quick_start:
+.. _get_started:
 
 Getting Started
 ================
@@ -11,7 +11,7 @@ Flash Drive Installation
 ------------------------
 
 Instructions for installing pytentiostat onto a Windows computer with a USB
-   #. copy the entire top level directory of Pytentiostat onto a USB flash drive.
+   #. Copy the entire top level directory of Pytentiostat onto a USB flash drive.
 
       .. important:: Download the Python 3.8 installer and corresponding wheel files onto the USB. Copy the python installer to the folder 'local_install' and the wheels to a subdirectory named 'whls'.
 
