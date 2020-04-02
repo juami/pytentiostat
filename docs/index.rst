@@ -28,6 +28,10 @@ If you have suggestions for new features in pytentiostat, or want to report a bu
 
    experimentsetup
 
+.. toctree::
+   :maxdepth: 2
+
+   basic_operation
 
 Indices and tables
 ==================
