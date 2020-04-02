@@ -25,7 +25,4 @@ Instructions for installing pytentiostat onto a Windows computer with a USB
 
       It will take a couple of minutes to install all the packages. If everything was successful, you will see no errors and the bottom of the command window will say 'press any key to continue...'
 
-   #. For further information on running experiments, continue to Basic Operation Instructions.
-
-      .. todo:: Link text to Basic Operation Instructions page once combined in main repo.
-
+   #. For further information on running experiments, continue to :ref:`basic_operation`.
