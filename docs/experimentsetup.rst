@@ -4,10 +4,27 @@ Experiment Setup
 =================
 
 A variety of cells can be characterized using a potentiostat. This section will briefly describe cell preparation and
-attachment to the potentiostat. In most cases, there will either be two electrodes of 3 electrodes. In a two electrode cell
-the voltage is dependent on changes that occur on both electrodes. Conversely, in a three electrode cell, the potentiall
-is measure against a constant reference. Therefore, any change in potential is ascribed to changes that occur on the
-working electrode.
+attachment to the potentiostat.
+
+Types of Cell Arrangements
+--------------------------
+
+Most potentiostats (including the JUAMI Potentiostat) have the option to connect three leads to an electrochemical cell.
+Electrochemical cells/devices commonly have two or three leads. An important distinction between the two arrangements is the
+dependencies of the potential.
+
+In a three electrode cell, there is a working electrode (with the material or reaction of interest) and counter electrode
+(source or sink for electrons) and a reference electrode. The reference electrode does not undergo any reactions, and it
+maintains a constant potential.
+
+In a two electrode cell, both electrodes (anode and cathode, or working electrode and counter electrode) undergo reactions.
+While the reactions occur at each electrode, the potential of both electrodes can change, therefore, there is no stable
+reference potential.
+
+Overall, the two electrode arrangement measures the cell potential (and requires a good understanding of what is happening
+at each electrode) and the three electrode arrangement enables the measurement of the potential solely of the working electrode
+against a known reference potential such as that of Ag/AgCl in KCl (0.1997 V vs. SHE). See the examples below for instructions
+on how to connect the potentiostat to each type of cell.
 
 Two-electrode experiment
 ------------------------
@@ -19,10 +36,12 @@ Examples:
 * Solar cell
 * Fuel cell
 
-In each of these applications, the device only has two electrical leads. However, the potentiostat has three clips.
+In each of these applications, the electrochemical cell only has two electrical leads. However, the potentiostat has three clips.
 To connect the potentiostat to one of these cells, attach the reference electrode clip from the potentiostat to the
 counter electrode clip. Now there should be a working electrode clip and a counter/reference clip to attach to the two
 leads on the electrochemical cell.
+
+.. todo:: add a diagram that shows an example.
 
 Three-electrode experiment
 ---------------------------
@@ -41,10 +60,4 @@ Three-electrode experiment
 
 
 
-.. rubric:: Data collection and analysis
-
-.. note::
-
-   To run a two-electrode cell, there will only be a working electrode and a counter electrode. In this case, the user
-   can simply attach the reference clip to the counter clip from the potentiostat and clip these to the counter electrode.
 
