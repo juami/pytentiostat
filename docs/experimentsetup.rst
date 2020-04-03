@@ -75,9 +75,9 @@ to the two leads on the electrochemical cell. Once these are attached to the ele
 Three-electrode experiment
 ---------------------------
 
+.. todo:: add brief explanation about the connections and add diagram that shows an example or two.
 
-
-.. rubric:: Experiment preparation
+.. rubric:: Cell/Device Connection
 
 
 
