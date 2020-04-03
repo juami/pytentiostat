@@ -65,8 +65,8 @@ Two-electrode experiment
 .. rubric:: Cell/Device Connection
 
 In each of these applications, the electrochemical cell only has two electrical leads. However, the potentiostat has
-three clips. To connect the potentiostat to one of these cells, attach the potentiostat reference electrode clip to the
-potentiostat counter electrode clip. Now there should be a working electrode clip and a counter/reference clip to attach
+three clips. To connect the potentiostat to one of these cells, attach the potentiostat reference electrode clip (white) to the
+potentiostat counter electrode clip (blue). Now there should be a working electrode clip (red) and a counter/reference clip (blue/white) to attach
 to the two leads on the electrochemical cell. Once these are attached to the electrochemical cell, you are ready to begin
 :ref:`operating the potentiostat <basic_operation>`.
 
@@ -75,10 +75,14 @@ to the two leads on the electrochemical cell. Once these are attached to the ele
 Three-electrode experiment
 ---------------------------
 
-.. todo:: add brief explanation about the connections and add diagram that shows an example or two.
+.. rubric:: Examples
+
+* Measure electrochemical behavior of materials
+* Sensing and detection experiments
 
 .. rubric:: Cell/Device Connection
 
+All three clips from the potentiostat can be attached to their respective electrodes in the cell, as shown in the figure below.
 
-
+.. todo:: add diagram that shows an example or two.
 
