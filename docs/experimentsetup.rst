@@ -25,10 +25,8 @@ reference potential.
 
 Overall, the two electrode arrangement measures the cell potential (and requires a good understanding of what is happening
 at each electrode) and the three electrode arrangement enables the measurement of the potential solely of the working electrode
-against a known reference potential such as that of Ag/AgCl in KCl (0.1997 V vs. SHE). See the examples below for instructions
+against a known reference potential such as that of Ag/AgCl in KCl (0.197 V vs. SHE). See the examples below for instructions
 on how to connect the potentiostat to each type of cell.
-
-.. todo:: check the Ag/AgCl reference electrode with Bard
 
 .. rubric:: Materials and Instrumentation
 
