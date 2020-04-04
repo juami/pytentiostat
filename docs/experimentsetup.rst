@@ -69,12 +69,17 @@ Two-electrode experiment
 In each of these applications, the electrochemical cell only has two electrical leads. However, the potentiostat has
 three clips. To connect the potentiostat to one of these cells, attach the potentiostat reference electrode clip (white) to the
 potentiostat counter electrode clip (blue). Now there should be a working electrode clip (red) and a counter/reference clip (blue/white) to attach
-to the two leads on the electrochemical cell (example in figure with solar cell connections). Once these are attached to the electrochemical cell, you are ready to begin
+to the two leads on the electrochemical cell, as shown in :ref:`Figure 1 <solar_cell_fig>`. Once these are attached to the electrochemical cell, you are ready to begin
 :ref:`operating the potentiostat <basic_operation>`.
 
-.. note:: The colors associated with the potentiostat wires can change depending on the convention used by the person building the potentiostat. If you built the JUAMI Potentiostat you are using, be sure to record which color was associated with each electrode. If the JUAMI Potentiostat was built by someone else, check the documentation that the builder might have provided you or contact them to find out what convention was used.
+.. _solar_cell_fig:
 
-.. todo:: add a diagram that shows an example.
+.. image:: _static/solar_two_electrode_setup.png
+
+.. rubric:: Figure 1: Two electrode solar cell diagram that shows the connection of the working electrode clip to one electrical contact (typically positive) and the counter and reference electrode clips connected to the other electrical contact (typically negative).
+
+
+.. note:: The colors associated with the potentiostat wires can change depending on the convention used by the person building the potentiostat. If you built the JUAMI Potentiostat you are using, be sure to record which color was associated with each electrode. If the JUAMI Potentiostat was built by someone else, check the documentation that the builder might have provided you or contact them to find out what convention was used.
 
 Three-electrode experiment
 ---------------------------
