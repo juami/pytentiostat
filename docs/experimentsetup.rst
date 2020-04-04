@@ -52,7 +52,7 @@ If testing an open cell (e.g. H cell, three-neck cell, etc.) you will need each 
 
     #. If you have never run an electrochemical reaction before, perform these experiments with a lab partner or consult with an instructor.
     #. Wear personal protective equipment (PPE; gloves, safety glasses, lab coat) when carrying out experiments.
-    #. Read the SDS for all materials, understand the reactions that are expected, and familiarize yourself with the potential risks of reaction product. Take necessary actions to prevent the formation of or exposure to dangerous gases/chemicals (e.g. carry out experiments in a fume hood).
+    #. Read the safety data sheet (SDS) for all materials, understand the reactions that are expected, and familiarize yourself with the potential risks of reaction product. Take necessary actions to prevent the formation of or exposure to dangerous gases/chemicals (e.g. carry out experiments in a fume hood).
 
 Two-electrode experiment
 ------------------------
