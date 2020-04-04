@@ -16,8 +16,9 @@ dependencies of the potential.
 In a three electrode cell, there is a working electrode (with the material or reaction of interest) and counter electrode
 (completes the circuit and allows charge to flow by facilitating a counter reaction) and a reference electrode.
 The reference electrode does not undergo any reactions, and it maintains a constant potential. The standard hydrogen
-electrode (SHE) is based on the formation of hydrogen gas from two protons and two electrons. The potential at which this
-reaction occurs is defined as 0 Volts on the scale of reduction potentials, from which other reactions can be referenced.
+electrode (SHE) is based on the formation of hydrogen gas from two protons and two electrons on a platinum electrode in an ideal solution.
+The potential at which this reaction occurs is defined as 0 Volts on the scale of reduction potentials, from which other
+reactions can be referenced.
 
 In a two electrode cell, both electrodes (anode and cathode, or working electrode and counter electrode) undergo reactions.
 While the reactions occur at each electrode, the potential of both electrodes can change, therefore, there is no stable
