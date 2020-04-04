@@ -72,6 +72,8 @@ potentiostat counter electrode clip (blue). Now there should be a working electr
 to the two leads on the electrochemical cell. Once these are attached to the electrochemical cell, you are ready to begin
 :ref:`operating the potentiostat <basic_operation>`.
 
+.. note:: The colors associated with the potentiostat wires can change depending on the convention used by the person building the potentiostat. If you built the JUAMI Potentiostat you are using, be sure to record which color was associated with each electrode. If the JUAMI Potentiostat was built by someone else, check the documentation that the builder might have provided you or contact them to find out what convention was used.
+
 .. todo:: add a diagram that shows an example.
 
 Three-electrode experiment
