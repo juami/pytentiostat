@@ -15,10 +15,7 @@ dependencies of the potential.
 
 In a three electrode cell, there is a working electrode (with the material or reaction of interest) and counter electrode
 (completes the circuit and allows charge to flow by facilitating a counter reaction) and a reference electrode.
-The reference electrode does not undergo any reactions, and it maintains a constant potential. The standard hydrogen
-electrode (SHE) is based on the formation of hydrogen gas from two protons and two electrons on a platinum electrode in an ideal solution.
-The potential at which this reaction occurs is defined as 0 Volts on the scale of reduction potentials, from which other
-reactions can be referenced.
+The voltage reading will be dependent on the type of reference electrode that is used in the experiment.
 
 In a two electrode cell, both electrodes (anode and cathode, or working electrode and counter electrode) undergo reactions.
 While the reactions occur at each electrode, the potential of both electrodes can change, therefore, there is no stable
@@ -26,8 +23,8 @@ reference potential.
 
 Overall, the two electrode arrangement measures the cell potential (and requires a good understanding of what is happening
 at each electrode) and the three electrode arrangement enables the measurement of the potential solely of the working electrode
-against a known reference potential such as that of Ag/AgCl in KCl (0.197 V vs. SHE). See the examples below for instructions
-on how to connect the potentiostat to each type of cell.
+against a known reference potential such as that of Ag/AgCl in KCl. See the examples below for instructions on how to connect
+the potentiostat to each type of cell.
 
 .. rubric:: Materials and Instrumentation
 
@@ -35,7 +32,7 @@ All experiments will require:
 
 #. Computer
 #. JUAMI Potentiostat
-#. USB adapter
+#. USB AB cable
 
 If testing a device (e.g. battery, solar cell, resistor, etc.), it can be attached directly to the potentiostat as described below.
 
