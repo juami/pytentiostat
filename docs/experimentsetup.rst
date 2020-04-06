@@ -90,7 +90,11 @@ Three-electrode experiment
 
 .. rubric:: Cell/Device Connection
 
-All three clips from the potentiostat can be attached to their respective electrodes in the cell, as shown in the figure below.
+All three clips from the potentiostat can be attached to their respective electrodes in the cell, as shown in :ref:`Figure 2 <three_electrode_fig>`.
 
-.. todo:: add diagram that shows an example or two.
+.. _three_electrode_fig:
+
+.. image:: _static/three_electrode_setup.png
+
+.. rubric:: Figure 2: Example of a three electrode setup in a three-neck round-bottom flask with a Pt rod counter electrode, foil working electrode, and a reference electrode in an aqueous electrolyte.
 
