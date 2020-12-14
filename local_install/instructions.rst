@@ -15,6 +15,6 @@ Instructions for installing pytentiostat onto a *Windows* computer with a USB
   by double clicking `pytent_cmd.bat`.
 - Refer to the main documentation in the 'docs' folder to start running experiments.
 
-Note: You can run the software on the flash drive without having to move the folder your \
+Note: You can run the software on the flash drive without having to move the folder to your \
 computer. This can be useful since the folder size is ~500 Mb. The data will always be \
 saved in the computer's desktop folder
