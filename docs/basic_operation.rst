@@ -9,7 +9,7 @@ GUI-based Operation
 
 #. Plug the USB cable into the computer and the potentiostat.
 #. Attach electrodes from potentiostat as appropriate to the experimental setup (if you are not familiar with how to set
-    up an electrochemical experiment, see `setup <setup.html>`_).
+    up an electrochemical experiment, see `setup <experimentalsetup.html>`_).
 
 .. rubric:: Program Setup
 
@@ -40,7 +40,7 @@ Command-Line Operation
 
 #. Plug the USB cable into the computer and the potentiostat.
 #. Attach electrodes from potentiostat as appropriate to the experimental setup (if you are not familiar with how to set
-    up an electrochemical experiment, see `setup <setup.html>`_).
+    up an electrochemical experiment, see `setup <experimentalsetup.html>`_).
 
 .. rubric:: Program Setup
 
