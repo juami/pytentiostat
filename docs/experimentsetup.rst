@@ -107,7 +107,7 @@ _______________________
 
 All three clips from the potentiostat can be attached to their respective electrodes in the cell, as shown below. For
 best practice, try to position the tip of the reference electrode as close as possible to the working electrode to
-minimize uncompensated solution resistance. This is most important in systems with low electrolyte conductivity. 
+minimize uncompensated solution resistance. This is most important in systems with low electrolyte conductivity.
 
 .. image:: _static/three_electrode_setup.png
 
