@@ -17,12 +17,10 @@ To get started, please go to `getting started <gettingstarted.html>`_.
 If you have suggestions for new features in pytentiostat, or want to report a bug or simply ask a question about the
 software, please submit an issue or email the developers at `<https://github.com/juami/pytentiostat>`_
 
+.. toctree::
+   :hidden:
 
-`getting started <gettingstarted.html>`_
-
-
-`experiment setup <experimentsetup.html>`_
-
-
-`basic operation <basic_operation.html>`_
+   gettingstarted
+   experimentsetup
+   basic_operation
 
