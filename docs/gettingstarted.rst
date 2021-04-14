@@ -2,8 +2,9 @@
    and take any additional measures necessary prior to starting to use the pytentiostat
    for experiments.
 
-.. _get_started:
+.. _getting started:
 
+================
 Getting Started
 ================
 

@@ -3,39 +3,26 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
+========================================
 Welcome to Pytentiostat's documentation!
 ========================================
 
-To post questions about anything to do with pytentiostat, please submit an issue at github.com/juami/pytentiostat
+pytentiostat provides a Python API package and GUI to control the JUAMI potentiostat
 
-pytentiostat provides a Python API package to the JUAMI potentiostat
+The goal of the pytentiostat package is to provide a free, user-friendly interface to run electrochemistry experiments
+with the JUAMI potentiostat
+
+To get started, please go to `getting started <gettingstarted.html>`_.
+
+If you have suggestions for new features in pytentiostat, or want to report a bug or simply ask a question about the
+software, please submit an issue or email the developers at `<https://github.com/juami/pytentiostat>`_
 
 
-The goal of the pytentiostat package is to provide a free, user-friendly interface to run electrochemistry experiments with the JUAMI potentiostat
-
-To get started, please go to :ref:`get_started`
-
-If you have suggestions for new features in pytentiostat, or want to report a bug or simply ask a question about the software, please send an email to Austin Plymill at austinplymill2021@u.northwestern.edu.
+`getting started <gettingstarted.html>`_
 
 
-.. toctree::
-   :maxdepth: 2
+`experiment setup <experimentsetup.html>`_
 
-   gettingstarted
 
-.. toctree::
-   :maxdepth: 2
+`basic operation <basic_operation.html>`_
 
-   experimentsetup
-
-.. toctree::
-   :maxdepth: 2
-
-   basic_operation
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`

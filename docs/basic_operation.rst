@@ -1,4 +1,4 @@
-.. _basic_operation:
+.. _basic operation:
 
 Basic Operation Instructions
 ============================
