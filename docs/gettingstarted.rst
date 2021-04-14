@@ -28,8 +28,28 @@ _______________________
 Installing from conda-forge
 ____________________________
 
+#. Installation with conda requires Anaconda to be installed already. To install pytentiostat with Anaconda enter the
+   following command in the Anaconda prompt.
+
+.. code-block:: shell
+
+                conda install pytentiostat -c conda-forge
+
+#. The application should be installed if there were no errors. Now move on to `basic operation <basic_operation.html>`_
+   to get started.
+
 Installing from PyPI
 _____________________
+
+#. Installation with pip requires python and pip to be installed already. To install pytentiostat with pip enter the
+   following command in your terminal.
+
+.. code-block:: shell
+
+                pip install pytentiostat
+
+#. The application should be installed if there were no errors. Now move on to `basic operation <basic_operation.html>`_
+   to get started.
 
 Flash Drive Installation
 _________________________
@@ -53,4 +73,4 @@ Instructions for installing pytentiostat onto a Windows computer with a USB
       It will take a couple of minutes to install all the packages. If everything was successful, you will see no errors
       and the bottom of the command window will say 'press any key to continue...'
 
-   #. For further information on running experiments, continue to `basic operation <basic_operation.rst>`_.
+   #. For further information on running experiments, continue to `basic operation <basic_operation.html>`_.
