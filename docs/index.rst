@@ -18,7 +18,6 @@ If you have suggestions for new features in pytentiostat, or want to report a bu
 software, please submit an issue or email the developers at `<https://github.com/juami/pytentiostat>`_
 
 .. toctree::
-   :hidden:
 
    gettingstarted
    experimentsetup
