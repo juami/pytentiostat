@@ -1,13 +1,13 @@
 from setuptools import setup, find_packages
+import subprocess
+import webbrowser
+import os
 
-names = [
-]
+subprocess.call([r'scripts\deploy_docs.bat'])
 
-#entry_points = {
-#    "console_scripts": [
-#        f"{name}= xpdan.startup.{name}:run_main" for name in names
-#    ]
-#}
+cwd = os.getcwd()
+url = 'file:///' + cwd + '/docs/_build/html/index.html'
+webbrowser.open(url, new=2)  # open in new tab
 
 setup(
     name="pytentiostat",
