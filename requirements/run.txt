@@ -6,3 +6,4 @@ pandas
 numpy
 pyserial
 pyside2
+sphinx
