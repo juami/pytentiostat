@@ -34,6 +34,8 @@ ____________________________
 
 .. code-block:: shell
 
+                conda create -y --name pytentiostat
+                conda activate pytentiostat
                 conda install pytentiostat -c conda-forge
 
 #. The application should be installed if there were no errors. Now move on to `basic operation <basic_operation.html>`_
