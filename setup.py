@@ -1,13 +1,4 @@
 from setuptools import setup, find_packages
-import subprocess
-import webbrowser
-import os
-
-subprocess.call([r'scripts\deploy_docs.bat'])
-
-cwd = os.getcwd()
-url = 'file:///' + cwd + '/docs/_build/html/index.html'
-webbrowser.open(url, new=2)  # open in new tab
 
 setup(
     name="pytentiostat",
@@ -17,6 +8,6 @@ setup(
     zip_safe=False,
     package_data={"pytentiostat": ["config/*"]},
     include_package_data=True,
-    url="http:/github.com/juami/pytentiostat",
+    url="https://github.com/juami/pytentiostat",
     scripts=["scripts/pytentiostat"],
 )
