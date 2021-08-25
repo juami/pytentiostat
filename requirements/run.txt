@@ -6,3 +6,5 @@ pandas
 numpy
 pyserial
 pyside2
+sphinx
+sphinx_rtd_theme
