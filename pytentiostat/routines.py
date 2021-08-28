@@ -1,5 +1,5 @@
 import sys
-
+import re
 from pyfirmata import Arduino, util
 import matplotlib.pyplot as plt
 import serial.tools.list_ports
@@ -23,13 +23,14 @@ def _load_arduino():
     ports = list(serial.tools.list_ports.comports())
     n_arduinos = 0
     for p in ports:  # Checking for Arduino Unos connected
-        if "Arduino Uno" in p.description:
+        if re.search("ttyACM|Arduino Uno",p.description) is not None:
             com = p.device
             n_arduinos += 1
+            print("INFO: Arduino Uno found at port.\n".format(com))
     if n_arduinos > 1:
-        sys.exit("More than one Arduino Uno found. Exiting...")
+        sys.exit("ERROR: More than one Arduino Uno found. Please unplug any other Arduinos and retry.")
     if n_arduinos == 0:
-        sys.exit("No JUAMI potentiostat found. Exiting...")
+        sys.exit("ERROR: No Arduino Uno found. Exiting...")
     return com
 
 
@@ -38,16 +39,20 @@ def _initialize_arduino(com):
     Creates board object with Arduino(). If the connection fails it prints an error message and exits.
     Parameters
     ----------
-    com: string
         the COM port that the potentiostat is connected to.
     """
     try:
         board = Arduino(com,
                         baudrate=_BAUD_RATE)  # opens communication to Arduino
-        print("Pytentiostat connected to {}.\n".format(
-            com))
+
+
     except:
-        sys.exit("Error. Could not open COM port")
+        sys.exit("ERROR: Could not open port Arduino Uno is connected to. Exiting…")
+
+    if board.firmware == 'pytentiostat_firmata.ino':  # check if the board have the right firmware
+        print("INFO: Pytentiostat connected to {}.".format(com))
+    else:
+        sys.exit("ERROR: Arduino Uno connected does not have correct firmware uploaded. Exitining...")
     return board
 
 
