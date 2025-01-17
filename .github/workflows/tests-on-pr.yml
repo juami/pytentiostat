@@ -1,0 +1,19 @@
+name: Tests on PR
+
+on:
+  push:
+    branches:
+      - main
+      - package
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  tests-on-pr:
+    uses: Billingegroup/release-scripts/.github/workflows/_tests-on-pr.yml@v0
+    with:
+      project: pytentiostat
+      c_extension: false
+      headless: true
+    secrets:
+      CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
