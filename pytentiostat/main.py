@@ -1,6 +1,5 @@
 # Pytentiostat function files
 import sys
-import time
 
 import matplotlib.pyplot as plt
 

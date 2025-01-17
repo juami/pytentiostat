@@ -4,6 +4,7 @@ import matplotlib.pyplot as plt
 import serial.tools.list_ports
 from pyfirmata import Arduino, util
 
+
 _BAUD_RATE = 115200
 RESTING_DUTY_CYCLE = 0.5
 
@@ -11,8 +12,10 @@ RESTING_DUTY_CYCLE = 0.5
 def _load_arduino():
     """Creates a list of all the active serial ports and then checks how many
     arduino unos are connected If only one is found, it's COM port is returned.
+
     If any other number is found, the corresponding error message is printed
     and the program exits.
+
 
     Returns
     -------
@@ -47,8 +50,8 @@ def _initialize_arduino(com):
             com, baudrate=_BAUD_RATE
         )  # opens communication to Arduino
         print("Pytentiostat connected to {}.\n".format(com))
-    except:
-        sys.exit("Error. Could not open COM port")
+    except Exception:
+        raise RuntimeError("Could not open COM port")
     return board
 
 
@@ -67,7 +70,7 @@ def startup_routine():
     """
 
     print("Welcome to the JUAMI pytentiostat interface!")
-    connect = input("Press enter to connect to a JUAMI potentiostat.")
+    input("Press enter to connect to a JUAMI potentiostat.")
     com = _load_arduino()
     board = _initialize_arduino(com)
 

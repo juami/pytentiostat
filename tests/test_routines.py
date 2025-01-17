@@ -1,7 +1,6 @@
 import mock
 import pytest
 
-from pytentiostat.config_reader import get_rest
 from pytentiostat.routines import _initialize_arduino, _load_arduino
 
 
