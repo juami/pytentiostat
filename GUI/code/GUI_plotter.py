@@ -1,10 +1,10 @@
-## Standard libraries
+# Standard libraries
 import sys
 from PySide2.QtWidgets import QApplication,QWidget
 from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
 from matplotlib.backends.backend_qt5agg import NavigationToolbar2QT as NavigationToolbar
 from matplotlib.figure import Figure
-##Local library
+#Local library
 #GUI_function
 import GUI_config_reader as cr
 

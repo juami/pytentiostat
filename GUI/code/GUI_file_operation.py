@@ -1,8 +1,8 @@
-## Standard libraries
+# Standard libraries
 from PySide2.QtWidgets import QListWidgetItem
 from PySide2.QtGui import QIcon
 from functools import partial
-## Local libraries
+# Local libraries
 # GUI window
 from warning_GUI import warning
 # GUI_function

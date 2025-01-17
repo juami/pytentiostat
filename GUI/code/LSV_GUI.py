@@ -1,6 +1,6 @@
-## Standard library
+# Standard library
 from PySide2 import QtCore, QtGui, QtWidgets
-## Local library
+# Local library
 # GUI_function
 from GUI_load_config import Ui_Load
 from Adv_params_GUI import Ui_Adv_Params

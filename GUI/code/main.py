@@ -1,8 +1,8 @@
-## Standard libraries
+# Standard libraries
 import sys
 from functools import partial
 from PySide2.QtWidgets import QApplication,QMainWindow,QGridLayout
-## Local libraries
+# Local libraries
 # GUI window
 from mainwindow_GUI import Ui_MainWindow
 # GUI function

@@ -1,7 +1,7 @@
-## Standard Libraries
+# Standard Libraries
 import time,datetime
 import numpy as np
-## Local library
+# Local library
 # GUI_function
 import GUI_config_reader as cr
 

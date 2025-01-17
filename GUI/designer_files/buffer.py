@@ -1,4 +1,4 @@
-## CA
+# CA
 from Load_config_GUI import Ui_Load
 from Adv_params_GUI import Ui_Adv_Params
 
@@ -34,7 +34,7 @@ class Ui_CA(object):
         self.window.show()
         return self.AP,self.window
 
-## CV
+# CV
 from Load_config_GUI import Ui_Load    # more
 from Adv_params_GUI import Ui_Adv_Params
 
@@ -69,7 +69,7 @@ class Ui_CV(object):
         self.window.show()
         return self.AP,self.window
 
-## LSV
+# LSV
 class Ui_LSV(object):
 
     def load_folder_name(self):
@@ -102,7 +102,7 @@ class Ui_LSV(object):
         return self.AP,self.window
 
 
-## main
+# main
 from LSV_GUI import Ui_LSV
 from CV_GUI import Ui_CV
 from CA_GUI import Ui_CA

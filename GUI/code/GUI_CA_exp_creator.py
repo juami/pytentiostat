@@ -9,7 +9,7 @@ from matplotlib.figure import Figure
 from warning_GUI import warning
 
 
-## PartI: load output filepath
+# PartI: load output filepath
 def load_folder(CA):
     """
     This function is connect with'Output Filepath' to load the folder window for the CA config file to be saved.
@@ -23,7 +23,7 @@ def load_folder(CA):
     CA.experiment_file_path.setText(CA.load_folder_name())  # CA.load_folder_name() returns folder path name
 
 
-## PartII: Save AP parameters
+# PartII: Save AP parameters
 def get_AP_parameters(exp):
     """
     This function is connect with'Advanced Parameter' button.
@@ -75,7 +75,7 @@ def load_APwindow(CA,AP_params):
             AP_window.close()
     AP.save_experiment_file_button.clicked.connect(change_params)
 
-## PartIII Preview
+# PartIII Preview
 def time_converter(time):
     """
     This function is to convert time to hour:minute:second.
@@ -149,7 +149,7 @@ def preview_CA(exp,grid):
     grid.addWidget(plot(times_step_list, steps_list))
     exp.experiment_duration.setText(time_converter(ca_time))
 
-## PartIV Save config file
+# PartIV Save config file
 def save_file(config_path_name,config_data,line_skipper):
     """
     This function is to save the input parameters as a yml file in the defined path.
@@ -370,7 +370,7 @@ def CA_window_writer(exp,config_data):
     exp.experiment_voltage.setText(str(config_data["chronoamperometry"]["voltage"]))
     exp.experiment_time.setText(str(config_data["chronoamperometry"]["time"]))
 
-## PartV: Main
+# PartV: Main
 def CA_main(ui,config_data=None):
     """
     This function is connect to 'CA' button in the Experiment Type window

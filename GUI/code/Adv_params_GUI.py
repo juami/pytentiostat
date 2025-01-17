@@ -1325,7 +1325,8 @@ class Ui_Adv_Params(object):
         self.save_experiment_file_button.setAcceptDrops(False)
         self.save_experiment_file_button.setWhatsThis("")
         self.save_experiment_file_button.setAutoFillBackground(True)
-        self.save_experiment_file_button.setLocale(QtCore.QLocale(QtCore.QLocale.English, QtCore.QLocale.UnitedStates))
+        self.save_experiment_file_button.setLocale(QtCore.QLocale(QtCore.QLocale.English,
+                                                                  QtCore.QLocale.UnitedStates))
         self.save_experiment_file_button.setInputMethodHints(QtCore.Qt.ImhNone)
         self.save_experiment_file_button.setAutoRepeatDelay(301)
         self.save_experiment_file_button.setAutoRepeatInterval(96)

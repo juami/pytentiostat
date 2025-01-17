@@ -1,6 +1,6 @@
-## Standard libraries
+# Standard libraries
 import os,csv
-## Local libraries
+# Local libraries
 # GUI window
 from PySide2.QtGui import QIcon
 from warning_GUI import warning
