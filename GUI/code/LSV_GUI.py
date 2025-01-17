@@ -3613,7 +3613,7 @@ class Ui_LSV(object):
         self.advanced_parameters_button.setStatusTip(
             _translate(
                 "LSV",
-                "Click this button to edit hardset paraemeters used for all experiments.",
+                "Click this button to edit hardset parameters used for all experiments.",
             )
         )
         self.advanced_parameters_button.setText(

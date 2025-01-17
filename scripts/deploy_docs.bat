@@ -1,4 +1,4 @@
-:: This batch script will build html files from the ReStructedtext files in docs
+:: This batch script will build html files from the ReStructuredtext files in docs
 @echo off
 cd docs
 make html
