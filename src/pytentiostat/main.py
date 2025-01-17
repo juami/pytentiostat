@@ -22,7 +22,8 @@ try:
     # com, board, a0, a2, d9 = startup_routine()
 except KeyboardInterrupt:
     sys.exit(
-        "Connection interrupted by user. Make sure the potentiostat is plugged in then restart the software.\n"
+        "Connection interrupted by user. Make sure the potentiostat "
+        "is plugged in then restart the software.\n"
         "Exiting..."
     )
 
@@ -42,16 +43,19 @@ while True:
         )
         if interrupt:
             save = input(
-                "Experiment interrupted. Would you like to save the data? [y/n]: "
+                "Experiment interrupted. Would you "
+                "like to save the data? [y/n]: "
             )
             if save.lower() == "y":
                 temp_data = zip(times, voltages, currents)
                 save_data_to_file(config_data, temp_data)
                 print("Saved.")
             reconfig = input(
-                "\nIf you want to do a different experiment, edit and save the config file then type"
+                "\nIf you want to do a different experiment, edit and "
+                "save the config file then type"
                 ' "new" and press enter.\n'
-                'If you need to reconnect the poteniostat, type "reconnect" then press enter.\n'
+                'If you need to reconnect the potentiostat, type "reconnect" '
+                "then press enter.\n"
                 "To close, just press enter. \n"
             )
             if reconfig.lower() == "new":
