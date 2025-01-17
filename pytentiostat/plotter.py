@@ -31,19 +31,19 @@ def plot_initializer(config_data):
 
     # Let's switch commands based on experiment run
     if exp_type == "LSV":
-        line, = axes.plot(voltages, currents, "r-")
+        (line,) = axes.plot(voltages, currents, "r-")
         plt.xlabel("Voltage (V)")
         plt.ylabel("Current (mA)")
         return line
 
     elif exp_type == "CA":
-        line, = axes.plot(times, currents, "r-")
+        (line,) = axes.plot(times, currents, "r-")
         plt.xlabel("Time (s)")
         plt.ylabel("Current (mA)")
         return line
 
     elif exp_type == "CV":
-        line, = axes.plot(voltages, currents, "r-")
+        (line,) = axes.plot(voltages, currents, "r-")
         plt.xlabel("Voltage (V)")
         plt.ylabel("Current (mA)")
         return line
@@ -56,7 +56,7 @@ def plot_updater(config_data, data, line):
     Parameters
     ----------
     config_data : dict
-        The parameters from the config file.  
+        The parameters from the config file.
     data : tuple
         Time, Voltage, and Current from current read/write cycle
     line : Line2D Instance

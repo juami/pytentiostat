@@ -42,10 +42,10 @@ def _initialize_arduino(com):
         the COM port that the potentiostat is connected to.
     """
     try:
-        board = Arduino(com,
-                        baudrate=_BAUD_RATE)  # opens communication to Arduino
-        print("Pytentiostat connected to {}.\n".format(
-            com))
+        board = Arduino(
+            com, baudrate=_BAUD_RATE
+        )  # opens communication to Arduino
+        print("Pytentiostat connected to {}.\n".format(com))
     except:
         sys.exit("Error. Could not open COM port")
     return board
