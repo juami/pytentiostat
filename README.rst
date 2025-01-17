@@ -37,7 +37,13 @@
 
 Python code for the JUAMI potentiostat
 
-* LONGER DESCRIPTION HERE
+The JUAMI potentiostat is a low-cost potentiostat, for classroom demonstrations and simple lab potentiostat experiments, that is built on the Arduino platform.
+
+This project is to build a Python API for controlling the potentiostat.
+
+For more info about JUAMI: http://www.juami.org/
+For more questions about the pytentionstat project: Austin Plymill: austinplymill2021@u.northwestern.edu
+Simon Billinge: sb2896@columbia.edu
 
 For more information about the pytentiostat library, please consult our `online documentation <https://juami.github.io/pytentiostat>`_.
 
@@ -46,7 +52,12 @@ Citation
 
 If you use pytentiostat in a scientific publication, we would like you to cite this package as
 
-        pytentiostat Package, https://github.com/juami/pytentiostat
+Yuguang C. Li, Elizabeth L. Melenbrink, Guy J. Cordonier, Christopher Boggs, Anupama Khan,
+Morko Kwembur Isaac, Lameck Kabambalika Nkhonjera, David Bahati, Billinge, Simon J.,
+Sossina M. Haile, Rodney A. Kreuter, Robert M. Crable, and Thomas E. Mallouk. “An easily fabricated
+low-cost potentiostat coupled with user- friendly software for introducing students to electrochemical
+reactions and electroanalytical techniques”. In: J. Chem. Educ. 95 (2018), pp. 1658-1661. DOI:
+10.1021/acs.jchemed.8b00340
 
 Installation
 ------------
