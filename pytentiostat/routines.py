@@ -4,7 +4,6 @@ import matplotlib.pyplot as plt
 import serial.tools.list_ports
 from pyfirmata import Arduino, util
 
-
 _BAUD_RATE = 115200
 RESTING_DUTY_CYCLE = 0.5
 

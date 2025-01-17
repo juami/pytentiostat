@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 
 from pytentiostat.config_reader import parse_config_file
 from pytentiostat.operator import experiment
-from pytentiostat.plotter import plot_initializer, plot_updater
+from pytentiostat.plotter import plot_updater
 from pytentiostat.reporter import save_data_to_file
 from pytentiostat.routines import closing_routine, startup_routine
 
