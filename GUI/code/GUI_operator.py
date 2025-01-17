@@ -1,14 +1,16 @@
 ## Standard Libraries
-import time,datetime
-import numpy as np
+import datetime
+import time
+
 ## Local library
 # GUI_function
 import GUI_config_reader as cr
+import numpy as np
 
 
 def start_exp(d9, normalized_start, data):
-    """
-    Initializes the writing pin and gets the current time before the experiment starts
+    """Initializes the writing pin and gets the current time before the
+    experiment starts.
 
     Parameters
     ----------
@@ -20,7 +22,6 @@ def start_exp(d9, normalized_start, data):
     Returns
     ------
     start_time: float , Starting time of the experiment
-
     """
 
     d9.write(normalized_start)
@@ -31,11 +32,30 @@ def start_exp(d9, normalized_start, data):
     return start_time
 
 
-def read_write(start_time,d9,a0,a2,step_number,steps_list,current_exp_time,
-               average,time_step,cf,sr,ini_plot,times,voltages,currents,pr,tr,total_exp_time,passed_exp_time,cycle_number):
-    """
-    Writes voltages to pin 9 using d9, reads voltages from pin 0 and 2 using a0
-    and a2, and calculates current from the voltage on a2.
+def read_write(
+    start_time,
+    d9,
+    a0,
+    a2,
+    step_number,
+    steps_list,
+    current_exp_time,
+    average,
+    time_step,
+    cf,
+    sr,
+    ini_plot,
+    times,
+    voltages,
+    currents,
+    pr,
+    tr,
+    total_exp_time,
+    passed_exp_time,
+    cycle_number,
+):
+    """Writes voltages to pin 9 using d9, reads voltages from pin 0 and 2 using
+    a0 and a2, and calculates current from the voltage on a2.
 
     Parameters (passed from GUI_operator - experiment function)
     __________
@@ -102,12 +122,13 @@ def read_write(start_time,d9,a0,a2,step_number,steps_list,current_exp_time,
     voltages: list , List of floats containing the corrected voltages at each data point
 
     currents: list , List of floats containing the corrected currents at each data point
-
     """
 
     starting_time = time.time()
     ending_time = starting_time + current_exp_time
-    times_list = np.linspace(starting_time, ending_time, num=(step_number+1)*cycle_number)
+    times_list = np.linspace(
+        starting_time, ending_time, num=(step_number + 1) * cycle_number
+    )
     times_diff_list = [x - starting_time for x in times_list]
     times_diff_list.append(0)
     t = 1
@@ -123,9 +144,13 @@ def read_write(start_time,d9,a0,a2,step_number,steps_list,current_exp_time,
             current_catcher = 0
 
             while i < average:
-                d9.write(x)  # Writes Value Between 0 and 1 (-2.5V to 2.5V) 256 possible
+                d9.write(
+                    x
+                )  # Writes Value Between 0 and 1 (-2.5V to 2.5V) 256 possible
                 time.sleep(time_step)
-                pin0value = (a0.read())  # Reads Value Between 0 and 1 (-2.5V to 2.5V) 1024 possible
+                pin0value = (
+                    a0.read()
+                )  # Reads Value Between 0 and 1 (-2.5V to 2.5V) 1024 possible
                 pin2value = a2.read()
                 real_voltage = (pin0value - 0.5) * -1 * cf
                 real_current = ((pin2value - 0.5) * -1 * cf) / sr
@@ -136,17 +161,19 @@ def read_write(start_time,d9,a0,a2,step_number,steps_list,current_exp_time,
             voltage_average = voltage_catcher / average
             current_average = current_catcher / average
             voltages.append(voltage_average)
-            currents.append(-1*current_average)
+            currents.append(-1 * current_average)
             collected_data = (times, voltages, currents)
 
             ###############   update the plot, progress bar and remaining time   ###############
             ini_plot.plot_updater(collected_data)
-            pr.setValue((times[-1] + passed_exp_time) / total_exp_time*100)
+            pr.setValue((times[-1] + passed_exp_time) / total_exp_time * 100)
 
-            if total_exp_time-passed_exp_time-times[-1]> 0:
-                rtime = round(total_exp_time-passed_exp_time-times[-1],0) # rtime = remaining time
+            if total_exp_time - passed_exp_time - times[-1] > 0:
+                rtime = round(
+                    total_exp_time - passed_exp_time - times[-1], 0
+                )  # rtime = remaining time
             else:
-                rtime =  0 # if rtime < 0 ,set it to 0
+                rtime = 0  # if rtime < 0 ,set it to 0
 
             tr.setText(str(datetime.timedelta(seconds=rtime)))
             ###############     ###############    ###############
@@ -162,10 +189,22 @@ def read_write(start_time,d9,a0,a2,step_number,steps_list,current_exp_time,
     return times, voltages, currents
 
 
-
-def experiment(config_data, board, a0, a2,d9,ini_plot,times,voltages,currents,pr,tr,total_exp_time,passed_exp_time):
-    """
-    Determines which experiment to run and applies the appropriate voltages
+def experiment(
+    config_data,
+    board,
+    a0,
+    a2,
+    d9,
+    ini_plot,
+    times,
+    voltages,
+    currents,
+    pr,
+    tr,
+    total_exp_time,
+    passed_exp_time,
+):
+    """Determines which experiment to run and applies the appropriate voltages
     to perform the experiment based on the inputs from the config file. Plots
     the data for and returns the data as lists to be saved.
 
@@ -217,11 +256,17 @@ def experiment(config_data, board, a0, a2,d9,ini_plot,times,voltages,currents,pr
     voltages : list , List of floats containing the corrected voltages at each data point
 
     currents : list , List of floats containing the corrected currents at each data point
-
     """
 
     # Constants for every experiment
-    conversion_factor, set_gain, set_offset, shunt_resistor, time_step, average_number = cr.get_adv_params(config_data)
+    (
+        conversion_factor,
+        set_gain,
+        set_offset,
+        shunt_resistor,
+        time_step,
+        average_number,
+    ) = cr.get_adv_params(config_data)
     step_number = cr.get_steps(config_data)
     exp_type = cr.get_exp_type(config_data)
 
@@ -232,23 +277,38 @@ def experiment(config_data, board, a0, a2,d9,ini_plot,times,voltages,currents,pr
         normalized_end = (end_voltage + 2.5) / 5
 
         voltage_range = abs(end_voltage - start_voltage)  # V
-        current_exp_time = voltage_range *1000 / (sweep_rate)  # s
-        steps_list = np.linspace(normalized_start, normalized_end, num=step_number+1) * set_gain + set_offset
+        current_exp_time = voltage_range * 1000 / (sweep_rate)  # s
+        steps_list = (
+            np.linspace(normalized_start, normalized_end, num=step_number + 1)
+            * set_gain
+            + set_offset
+        )
         cycle_number = 1
         start_time = start_exp(d9, normalized_start, config_data)
-
 
     elif exp_type == "CA":
 
         voltage, current_exp_time = cr.get_ca_params(config_data)
         normalized_voltage = (voltage + 2.5) / 5
-        steps_list = np.linspace(normalized_voltage, normalized_voltage, step_number+1) * set_gain + set_offset
+        steps_list = (
+            np.linspace(
+                normalized_voltage, normalized_voltage, step_number + 1
+            )
+            * set_gain
+            + set_offset
+        )
         cycle_number = 1
         start_time = start_exp(d9, normalized_voltage, config_data)
 
     elif exp_type == "CV":
 
-        start_voltage, first_turnover, second_turnover, sweep_rate, cycle_number = cr.get_cv_params(config_data)
+        (
+            start_voltage,
+            first_turnover,
+            second_turnover,
+            sweep_rate,
+            cycle_number,
+        ) = cr.get_cv_params(config_data)
         normalized_start = (start_voltage + 2.5) / 5
         norm_first_turnover = (first_turnover + 2.5) / 5
         norm_second_turnover = (second_turnover + 2.5) / 5
@@ -256,27 +316,48 @@ def experiment(config_data, board, a0, a2,d9,ini_plot,times,voltages,currents,pr
         first_voltage_range = abs(first_turnover - start_voltage)  # V
         second_voltage_range = abs(second_turnover - first_turnover)  # V
         third_voltage_range = abs(start_voltage - second_turnover)  # V
-        fall = (first_voltage_range + second_voltage_range + third_voltage_range) # V
-        f1 = first_voltage_range/fall
-        num1 = int(f1*step_number)
+        fall = (
+            first_voltage_range + second_voltage_range + third_voltage_range
+        )  # V
+        f1 = first_voltage_range / fall
+        num1 = int(f1 * step_number)
         f2 = second_voltage_range / fall
         num2 = int(f2 * step_number)
-        num3 = step_number - num1 - num2+1
+        num3 = step_number - num1 - num2 + 1
 
-        first_steps_list = np.linspace(
-            normalized_start, norm_first_turnover, num=num1,endpoint=False) * set_gain + set_offset
-        second_steps_list = np.linspace(
-            norm_first_turnover, norm_second_turnover, num=num2,endpoint=False) * set_gain + set_offset
-        third_steps_list = np.linspace(
-            norm_second_turnover, normalized_start, num=num3) * set_gain + set_offset
-        steps_list = np.concatenate((first_steps_list,second_steps_list,third_steps_list),axis = None)
-        current_exp_time = fall/sweep_rate*1000*cycle_number
+        first_steps_list = (
+            np.linspace(
+                normalized_start, norm_first_turnover, num=num1, endpoint=False
+            )
+            * set_gain
+            + set_offset
+        )
+        second_steps_list = (
+            np.linspace(
+                norm_first_turnover,
+                norm_second_turnover,
+                num=num2,
+                endpoint=False,
+            )
+            * set_gain
+            + set_offset
+        )
+        third_steps_list = (
+            np.linspace(norm_second_turnover, normalized_start, num=num3)
+            * set_gain
+            + set_offset
+        )
+        steps_list = np.concatenate(
+            (first_steps_list, second_steps_list, third_steps_list), axis=None
+        )
+        current_exp_time = fall / sweep_rate * 1000 * cycle_number
         start_time = start_exp(d9, normalized_start, config_data)
 
     # Call the read_write function to record and plot data
     pin_objects = (d9, a0, a2)
 
-    read_write(start_time,
+    read_write(
+        start_time,
         *pin_objects,
         step_number,
         steps_list,
@@ -293,7 +374,7 @@ def experiment(config_data, board, a0, a2,d9,ini_plot,times,voltages,currents,pr
         tr,
         total_exp_time,
         passed_exp_time,
-        cycle_number)
+        cycle_number
+    )
 
-    return times,voltages,currents
-
+    return times, voltages, currents

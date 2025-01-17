@@ -8,17 +8,36 @@
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
 
-from PySide2.QtCore import (QCoreApplication, QMetaObject, QObject, QPoint,
-    QRect, QSize, QUrl, Qt)
-from PySide2.QtGui import (QBrush, QColor, QConicalGradient, QFont,
-    QFontDatabase, QIcon, QLinearGradient, QPalette, QPainter, QPixmap,
-    QRadialGradient)
+from PySide2.QtCore import (
+    QCoreApplication,
+    QMetaObject,
+    QObject,
+    QPoint,
+    QRect,
+    QSize,
+    Qt,
+    QUrl,
+)
+from PySide2.QtGui import (
+    QBrush,
+    QColor,
+    QConicalGradient,
+    QFont,
+    QFontDatabase,
+    QIcon,
+    QLinearGradient,
+    QPainter,
+    QPalette,
+    QPixmap,
+    QRadialGradient,
+)
 from PySide2.QtWidgets import *
+
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if MainWindow.objectName():
-            MainWindow.setObjectName(u"MainWindow")
+            MainWindow.setObjectName("MainWindow")
         MainWindow.resize(1272, 953)
         palette = QPalette()
         brush = QBrush(QColor(255, 255, 255, 255))
@@ -31,18 +50,18 @@ class Ui_MainWindow(object):
         palette.setBrush(QPalette.Disabled, QPalette.Window, brush)
         MainWindow.setPalette(palette)
         icon = QIcon()
-        icon.addFile(u"logo_version_1_0.png", QSize(), QIcon.Normal, QIcon.Off)
+        icon.addFile("logo_version_1_0.png", QSize(), QIcon.Normal, QIcon.Off)
         MainWindow.setWindowIcon(icon)
         self.actionSdgsdg = QAction(MainWindow)
-        self.actionSdgsdg.setObjectName(u"actionSdgsdg")
+        self.actionSdgsdg.setObjectName("actionSdgsdg")
         self.actionOpen = QAction(MainWindow)
-        self.actionOpen.setObjectName(u"actionOpen")
+        self.actionOpen.setObjectName("actionOpen")
         self.actionEdit = QAction(MainWindow)
-        self.actionEdit.setObjectName(u"actionEdit")
+        self.actionEdit.setObjectName("actionEdit")
         self.centralwidget = QWidget(MainWindow)
-        self.centralwidget.setObjectName(u"centralwidget")
+        self.centralwidget.setObjectName("centralwidget")
         self.experiment_label = QLabel(self.centralwidget)
-        self.experiment_label.setObjectName(u"experiment_label")
+        self.experiment_label.setObjectName("experiment_label")
         self.experiment_label.setEnabled(True)
         self.experiment_label.setGeometry(QRect(18, 170, 532, 41))
         palette1 = QPalette()
@@ -107,9 +126,9 @@ class Ui_MainWindow(object):
         palette1.setBrush(QPalette.Disabled, QPalette.ToolTipText, brush2)
         self.experiment_label.setPalette(palette1)
         font = QFont()
-        font.setFamily(u"Arial")
+        font.setFamily("Arial")
         font.setBold(True)
-        font.setWeight(75);
+        font.setWeight(75)
         self.experiment_label.setFont(font)
         self.experiment_label.setContextMenuPolicy(Qt.NoContextMenu)
         self.experiment_label.setAcceptDrops(False)
@@ -119,9 +138,11 @@ class Ui_MainWindow(object):
         self.experiment_label.setLineWidth(1)
         self.experiment_label.setMidLineWidth(1)
         self.experiment_label.setScaledContents(False)
-        self.experiment_label.setTextInteractionFlags(Qt.LinksAccessibleByMouse)
+        self.experiment_label.setTextInteractionFlags(
+            Qt.LinksAccessibleByMouse
+        )
         self.time_remaining_label = QLabel(self.centralwidget)
-        self.time_remaining_label.setObjectName(u"time_remaining_label")
+        self.time_remaining_label.setObjectName("time_remaining_label")
         self.time_remaining_label.setEnabled(True)
         self.time_remaining_label.setGeometry(QRect(830, 830, 241, 41))
         palette2 = QPalette()
@@ -180,9 +201,11 @@ class Ui_MainWindow(object):
         self.time_remaining_label.setLineWidth(1)
         self.time_remaining_label.setMidLineWidth(1)
         self.time_remaining_label.setScaledContents(False)
-        self.time_remaining_label.setTextInteractionFlags(Qt.LinksAccessibleByMouse)
+        self.time_remaining_label.setTextInteractionFlags(
+            Qt.LinksAccessibleByMouse
+        )
         self.add_experiment_button = QPushButton(self.centralwidget)
-        self.add_experiment_button.setObjectName(u"add_experiment_button")
+        self.add_experiment_button.setObjectName("add_experiment_button")
         self.add_experiment_button.setGeometry(QRect(18, 210, 133, 31))
         palette3 = QPalette()
         palette3.setBrush(QPalette.Active, QPalette.WindowText, brush2)
@@ -240,25 +263,31 @@ class Ui_MainWindow(object):
         self.add_experiment_button.setContextMenuPolicy(Qt.PreventContextMenu)
         self.add_experiment_button.setAcceptDrops(False)
         self.add_experiment_button.setAutoFillBackground(True)
-        self.add_experiment_button.setLocale(QLocale(QLocale.English, QLocale.UnitedStates))
+        self.add_experiment_button.setLocale(
+            QLocale(QLocale.English, QLocale.UnitedStates)
+        )
         self.add_experiment_button.setInputMethodHints(Qt.ImhNone)
         self.add_experiment_button.setAutoRepeatDelay(301)
         self.add_experiment_button.setAutoRepeatInterval(96)
         self.add_experiment_button.setAutoDefault(False)
         self.add_experiment_button.setFlat(False)
         self.start_abort_experiment_button = QPushButton(self.centralwidget)
-        self.start_abort_experiment_button.setObjectName(u"start_abort_experiment_button")
+        self.start_abort_experiment_button.setObjectName(
+            "start_abort_experiment_button"
+        )
         self.start_abort_experiment_button.setGeometry(QRect(830, 170, 41, 41))
-        self.start_abort_experiment_button.setStyleSheet(u"background-color: rgb(255, 255, 255);")
+        self.start_abort_experiment_button.setStyleSheet(
+            "background-color: rgb(255, 255, 255);"
+        )
         icon1 = QIcon()
-        icon1.addFile(u"pics/icon_run.ico", QSize(), QIcon.Normal, QIcon.Off)
-        icon1.addFile(u"pause.ico", QSize(), QIcon.Normal, QIcon.On)
+        icon1.addFile("pics/icon_run.ico", QSize(), QIcon.Normal, QIcon.Off)
+        icon1.addFile("pause.ico", QSize(), QIcon.Normal, QIcon.On)
         self.start_abort_experiment_button.setIcon(icon1)
         self.start_abort_experiment_button.setIconSize(QSize(40, 40))
         self.start_abort_experiment_button.setCheckable(True)
         self.start_abort_experiment_button.setFlat(True)
         self.experiment_status_label = QLabel(self.centralwidget)
-        self.experiment_status_label.setObjectName(u"experiment_status_label")
+        self.experiment_status_label.setObjectName("experiment_status_label")
         self.experiment_status_label.setEnabled(True)
         self.experiment_status_label.setGeometry(QRect(950, 170, 241, 41))
         palette4 = QPalette()
@@ -317,17 +346,21 @@ class Ui_MainWindow(object):
         self.experiment_status_label.setLineWidth(1)
         self.experiment_status_label.setMidLineWidth(1)
         self.experiment_status_label.setScaledContents(False)
-        self.experiment_status_label.setTextInteractionFlags(Qt.LinksAccessibleByMouse)
+        self.experiment_status_label.setTextInteractionFlags(
+            Qt.LinksAccessibleByMouse
+        )
         self.long_logo = QPushButton(self.centralwidget)
-        self.long_logo.setObjectName(u"long_logo")
+        self.long_logo.setObjectName("long_logo")
         self.long_logo.setGeometry(QRect(790, 10, 301, 121))
         icon2 = QIcon()
-        icon2.addFile(u"logo_verision_1_0_long.png", QSize(), QIcon.Normal, QIcon.Off)
+        icon2.addFile(
+            "logo_verision_1_0_long.png", QSize(), QIcon.Normal, QIcon.Off
+        )
         self.long_logo.setIcon(icon2)
         self.long_logo.setIconSize(QSize(360, 120))
         self.long_logo.setFlat(True)
         self.delete_experiment_button = QPushButton(self.centralwidget)
-        self.delete_experiment_button.setObjectName(u"delete_experiment_button")
+        self.delete_experiment_button.setObjectName("delete_experiment_button")
         self.delete_experiment_button.setGeometry(QRect(417, 210, 133, 31))
         palette5 = QPalette()
         palette5.setBrush(QPalette.Active, QPalette.WindowText, brush2)
@@ -374,32 +407,45 @@ class Ui_MainWindow(object):
         palette5.setBrush(QPalette.Disabled, QPalette.NoRole, brush2)
         self.delete_experiment_button.setPalette(palette5)
         self.delete_experiment_button.setFont(font)
-        self.delete_experiment_button.setContextMenuPolicy(Qt.PreventContextMenu)
+        self.delete_experiment_button.setContextMenuPolicy(
+            Qt.PreventContextMenu
+        )
         self.delete_experiment_button.setAcceptDrops(False)
         self.delete_experiment_button.setToolTipDuration(1)
         self.delete_experiment_button.setAutoFillBackground(True)
-        self.delete_experiment_button.setLocale(QLocale(QLocale.English, QLocale.UnitedStates))
+        self.delete_experiment_button.setLocale(
+            QLocale(QLocale.English, QLocale.UnitedStates)
+        )
         self.delete_experiment_button.setInputMethodHints(Qt.ImhNone)
         self.delete_experiment_button.setAutoRepeatDelay(301)
         self.delete_experiment_button.setAutoRepeatInterval(96)
         self.delete_experiment_button.setAutoDefault(False)
         self.delete_experiment_button.setFlat(False)
         self.experiment_status_indicator = QPushButton(self.centralwidget)
-        self.experiment_status_indicator.setObjectName(u"experiment_status_indicator")
+        self.experiment_status_indicator.setObjectName(
+            "experiment_status_indicator"
+        )
         self.experiment_status_indicator.setGeometry(QRect(1210, 168, 41, 41))
         icon3 = QIcon()
-        icon3.addFile(u"pics/icon_off_transparent_bg.ico", QSize(), QIcon.Normal, QIcon.Off)
-        icon3.addFile(u"pics/icon_on_transparent_bg.ico", QSize(), QIcon.Normal, QIcon.On)
+        icon3.addFile(
+            "pics/icon_off_transparent_bg.ico",
+            QSize(),
+            QIcon.Normal,
+            QIcon.Off,
+        )
+        icon3.addFile(
+            "pics/icon_on_transparent_bg.ico", QSize(), QIcon.Normal, QIcon.On
+        )
         self.experiment_status_indicator.setIcon(icon3)
         self.experiment_status_indicator.setIconSize(QSize(40, 40))
         self.experiment_status_indicator.setCheckable(True)
         self.experiment_status_indicator.setFlat(True)
         self.progress_bar = QProgressBar(self.centralwidget)
-        self.progress_bar.setObjectName(u"progress_bar")
+        self.progress_bar.setObjectName("progress_bar")
         self.progress_bar.setGeometry(QRect(580, 830, 231, 41))
         self.progress_bar.setValue(0)
         self.edit_experiment_button = QPushButton(self.centralwidget)
-        self.edit_experiment_button.setObjectName(u"edit_experiment_button")
+        self.edit_experiment_button.setObjectName("edit_experiment_button")
         self.edit_experiment_button.setGeometry(QRect(284, 210, 133, 31))
         palette6 = QPalette()
         palette6.setBrush(QPalette.Active, QPalette.WindowText, brush2)
@@ -449,32 +495,48 @@ class Ui_MainWindow(object):
         self.edit_experiment_button.setContextMenuPolicy(Qt.PreventContextMenu)
         self.edit_experiment_button.setAcceptDrops(False)
         self.edit_experiment_button.setAutoFillBackground(True)
-        self.edit_experiment_button.setLocale(QLocale(QLocale.English, QLocale.UnitedStates))
+        self.edit_experiment_button.setLocale(
+            QLocale(QLocale.English, QLocale.UnitedStates)
+        )
         self.edit_experiment_button.setInputMethodHints(Qt.ImhNone)
         self.edit_experiment_button.setAutoRepeatDelay(301)
         self.edit_experiment_button.setAutoRepeatInterval(96)
         self.edit_experiment_button.setAutoDefault(False)
         self.edit_experiment_button.setFlat(False)
         self.program_label = QPushButton(self.centralwidget)
-        self.program_label.setObjectName(u"program_label")
+        self.program_label.setObjectName("program_label")
         self.program_label.setGeometry(QRect(79, 9, 441, 61))
         icon4 = QIcon()
-        icon4.addFile(u"logo2.png", QSize(), QIcon.Normal, QIcon.Off)
+        icon4.addFile("logo2.png", QSize(), QIcon.Normal, QIcon.Off)
         self.program_label.setIcon(icon4)
         self.program_label.setIconSize(QSize(360, 120))
         self.program_label.setFlat(True)
         self.arduino_connection_indicator = QPushButton(self.centralwidget)
-        self.arduino_connection_indicator.setObjectName(u"arduino_connection_indicator")
+        self.arduino_connection_indicator.setObjectName(
+            "arduino_connection_indicator"
+        )
         self.arduino_connection_indicator.setGeometry(QRect(500, 80, 51, 41))
         icon5 = QIcon()
-        icon5.addFile(u"pics/icon_disconnected_transparent_bg.ico", QSize(), QIcon.Normal, QIcon.Off)
-        icon5.addFile(u"pics/icon_connected_transparent_bg.ico", QSize(), QIcon.Normal, QIcon.On)
+        icon5.addFile(
+            "pics/icon_disconnected_transparent_bg.ico",
+            QSize(),
+            QIcon.Normal,
+            QIcon.Off,
+        )
+        icon5.addFile(
+            "pics/icon_connected_transparent_bg.ico",
+            QSize(),
+            QIcon.Normal,
+            QIcon.On,
+        )
         self.arduino_connection_indicator.setIcon(icon5)
         self.arduino_connection_indicator.setIconSize(QSize(40, 40))
         self.arduino_connection_indicator.setCheckable(True)
         self.arduino_connection_indicator.setFlat(True)
         self.potentiostat_connection_label = QLabel(self.centralwidget)
-        self.potentiostat_connection_label.setObjectName(u"potentiostat_connection_label")
+        self.potentiostat_connection_label.setObjectName(
+            "potentiostat_connection_label"
+        )
         self.potentiostat_connection_label.setEnabled(True)
         self.potentiostat_connection_label.setGeometry(QRect(18, 80, 321, 41))
         palette7 = QPalette()
@@ -525,7 +587,9 @@ class Ui_MainWindow(object):
         palette7.setBrush(QPalette.Disabled, QPalette.ToolTipText, brush2)
         self.potentiostat_connection_label.setPalette(palette7)
         self.potentiostat_connection_label.setFont(font)
-        self.potentiostat_connection_label.setContextMenuPolicy(Qt.NoContextMenu)
+        self.potentiostat_connection_label.setContextMenuPolicy(
+            Qt.NoContextMenu
+        )
         self.potentiostat_connection_label.setAcceptDrops(False)
         self.potentiostat_connection_label.setAutoFillBackground(True)
         self.potentiostat_connection_label.setFrameShape(QFrame.Box)
@@ -533,13 +597,15 @@ class Ui_MainWindow(object):
         self.potentiostat_connection_label.setLineWidth(1)
         self.potentiostat_connection_label.setMidLineWidth(1)
         self.potentiostat_connection_label.setScaledContents(False)
-        self.potentiostat_connection_label.setTextInteractionFlags(Qt.LinksAccessibleByMouse)
+        self.potentiostat_connection_label.setTextInteractionFlags(
+            Qt.LinksAccessibleByMouse
+        )
         self.time_remaining_display = QLineEdit(self.centralwidget)
-        self.time_remaining_display.setObjectName(u"time_remaining_display")
+        self.time_remaining_display.setObjectName("time_remaining_display")
         self.time_remaining_display.setGeometry(QRect(1090, 830, 161, 41))
         self.time_remaining_display.setReadOnly(True)
         self.experiment_queue = QListWidget(self.centralwidget)
-        self.experiment_queue.setObjectName(u"experiment_queue")
+        self.experiment_queue.setObjectName("experiment_queue")
         self.experiment_queue.setGeometry(QRect(18, 241, 532, 631))
         self.experiment_queue.setFrameShape(QFrame.Box)
         self.experiment_queue.setFrameShadow(QFrame.Plain)
@@ -547,9 +613,11 @@ class Ui_MainWindow(object):
         self.experiment_queue.setDragDropMode(QAbstractItemView.InternalMove)
         self.experiment_queue.setDefaultDropAction(Qt.MoveAction)
         self.experiment_queue.setAlternatingRowColors(False)
-        self.experiment_queue.setSelectionMode(QAbstractItemView.MultiSelection)
+        self.experiment_queue.setSelectionMode(
+            QAbstractItemView.MultiSelection
+        )
         self.load_experiment_button = QPushButton(self.centralwidget)
-        self.load_experiment_button.setObjectName(u"load_experiment_button")
+        self.load_experiment_button.setObjectName("load_experiment_button")
         self.load_experiment_button.setGeometry(QRect(151, 210, 133, 31))
         palette8 = QPalette()
         palette8.setBrush(QPalette.Active, QPalette.WindowText, brush2)
@@ -599,14 +667,18 @@ class Ui_MainWindow(object):
         self.load_experiment_button.setContextMenuPolicy(Qt.PreventContextMenu)
         self.load_experiment_button.setAcceptDrops(False)
         self.load_experiment_button.setAutoFillBackground(True)
-        self.load_experiment_button.setLocale(QLocale(QLocale.English, QLocale.UnitedStates))
+        self.load_experiment_button.setLocale(
+            QLocale(QLocale.English, QLocale.UnitedStates)
+        )
         self.load_experiment_button.setInputMethodHints(Qt.ImhNone)
         self.load_experiment_button.setAutoRepeatDelay(301)
         self.load_experiment_button.setAutoRepeatInterval(96)
         self.load_experiment_button.setAutoDefault(False)
         self.load_experiment_button.setFlat(False)
         self.start_abort_experiment_label = QLabel(self.centralwidget)
-        self.start_abort_experiment_label.setObjectName(u"start_abort_experiment_label")
+        self.start_abort_experiment_label.setObjectName(
+            "start_abort_experiment_label"
+        )
         self.start_abort_experiment_label.setEnabled(True)
         self.start_abort_experiment_label.setGeometry(QRect(580, 170, 241, 41))
         palette9 = QPalette()
@@ -657,7 +729,9 @@ class Ui_MainWindow(object):
         palette9.setBrush(QPalette.Disabled, QPalette.ToolTipText, brush2)
         self.start_abort_experiment_label.setPalette(palette9)
         self.start_abort_experiment_label.setFont(font)
-        self.start_abort_experiment_label.setContextMenuPolicy(Qt.NoContextMenu)
+        self.start_abort_experiment_label.setContextMenuPolicy(
+            Qt.NoContextMenu
+        )
         self.start_abort_experiment_label.setAcceptDrops(False)
         self.start_abort_experiment_label.setAutoFillBackground(True)
         self.start_abort_experiment_label.setFrameShape(QFrame.Box)
@@ -665,9 +739,11 @@ class Ui_MainWindow(object):
         self.start_abort_experiment_label.setLineWidth(1)
         self.start_abort_experiment_label.setMidLineWidth(1)
         self.start_abort_experiment_label.setScaledContents(False)
-        self.start_abort_experiment_label.setTextInteractionFlags(Qt.LinksAccessibleByMouse)
+        self.start_abort_experiment_label.setTextInteractionFlags(
+            Qt.LinksAccessibleByMouse
+        )
         self.find_potentiostat_button = QPushButton(self.centralwidget)
-        self.find_potentiostat_button.setObjectName(u"find_potentiostat_button")
+        self.find_potentiostat_button.setObjectName("find_potentiostat_button")
         self.find_potentiostat_button.setGeometry(QRect(20, 130, 256, 31))
         palette10 = QPalette()
         palette10.setBrush(QPalette.Active, QPalette.WindowText, brush2)
@@ -714,33 +790,38 @@ class Ui_MainWindow(object):
         palette10.setBrush(QPalette.Disabled, QPalette.NoRole, brush2)
         self.find_potentiostat_button.setPalette(palette10)
         self.find_potentiostat_button.setFont(font)
-        self.find_potentiostat_button.setContextMenuPolicy(Qt.PreventContextMenu)
+        self.find_potentiostat_button.setContextMenuPolicy(
+            Qt.PreventContextMenu
+        )
         self.find_potentiostat_button.setAcceptDrops(False)
         self.find_potentiostat_button.setAutoFillBackground(True)
-        self.find_potentiostat_button.setLocale(QLocale(QLocale.English, QLocale.UnitedStates))
+        self.find_potentiostat_button.setLocale(
+            QLocale(QLocale.English, QLocale.UnitedStates)
+        )
         self.find_potentiostat_button.setInputMethodHints(Qt.ImhNone)
         self.find_potentiostat_button.setAutoRepeatDelay(301)
         self.find_potentiostat_button.setAutoRepeatInterval(96)
         self.find_potentiostat_button.setAutoDefault(False)
         self.find_potentiostat_button.setFlat(False)
         self.plot_area = QWidget(self.centralwidget)
-        self.plot_area.setObjectName(u"plot_area")
+        self.plot_area.setObjectName("plot_area")
         self.plot_area.setGeometry(QRect(580, 240, 671, 571))
-        self.plot_area.setStyleSheet(u"border: 1px solid black;\n"
-"")
+        self.plot_area.setStyleSheet("border: 1px solid black;\n" "")
         self.stop_experiment_button = QPushButton(self.centralwidget)
-        self.stop_experiment_button.setObjectName(u"stop_experiment_button")
+        self.stop_experiment_button.setObjectName("stop_experiment_button")
         self.stop_experiment_button.setGeometry(QRect(890, 170, 41, 41))
-        self.stop_experiment_button.setStyleSheet(u"background-color: rgb(255, 255, 255);")
+        self.stop_experiment_button.setStyleSheet(
+            "background-color: rgb(255, 255, 255);"
+        )
         icon6 = QIcon()
-        icon6.addFile(u"stop.ico", QSize(), QIcon.Normal, QIcon.Off)
+        icon6.addFile("stop.ico", QSize(), QIcon.Normal, QIcon.Off)
         self.stop_experiment_button.setIcon(icon6)
         self.stop_experiment_button.setIconSize(QSize(40, 40))
         self.stop_experiment_button.setCheckable(True)
         self.stop_experiment_button.setFlat(True)
         self.arduino_connection_name = QComboBox(self.centralwidget)
         self.arduino_connection_name.addItem(QString())
-        self.arduino_connection_name.setObjectName(u"arduino_connection_name")
+        self.arduino_connection_name.setObjectName("arduino_connection_name")
         self.arduino_connection_name.setGeometry(QRect(380, 80, 101, 41))
         palette11 = QPalette()
         palette11.setBrush(QPalette.Active, QPalette.WindowText, brush2)
@@ -765,10 +846,16 @@ class Ui_MainWindow(object):
         palette11.setBrush(QPalette.Disabled, QPalette.Base, brush)
         palette11.setBrush(QPalette.Disabled, QPalette.Window, brush)
         self.arduino_connection_name.setPalette(palette11)
-        self.arduino_connection_name.setStyleSheet(u"background-color: rgb(255, 255, 255);")
+        self.arduino_connection_name.setStyleSheet(
+            "background-color: rgb(255, 255, 255);"
+        )
         self.disconnect_potentiostat_button = QPushButton(self.centralwidget)
-        self.disconnect_potentiostat_button.setObjectName(u"disconnect_potentiostat_button")
-        self.disconnect_potentiostat_button.setGeometry(QRect(290, 130, 256, 31))
+        self.disconnect_potentiostat_button.setObjectName(
+            "disconnect_potentiostat_button"
+        )
+        self.disconnect_potentiostat_button.setGeometry(
+            QRect(290, 130, 256, 31)
+        )
         palette12 = QPalette()
         palette12.setBrush(QPalette.Active, QPalette.WindowText, brush2)
         palette12.setBrush(QPalette.Active, QPalette.Button, brush2)
@@ -814,10 +901,14 @@ class Ui_MainWindow(object):
         palette12.setBrush(QPalette.Disabled, QPalette.NoRole, brush2)
         self.disconnect_potentiostat_button.setPalette(palette12)
         self.disconnect_potentiostat_button.setFont(font)
-        self.disconnect_potentiostat_button.setContextMenuPolicy(Qt.PreventContextMenu)
+        self.disconnect_potentiostat_button.setContextMenuPolicy(
+            Qt.PreventContextMenu
+        )
         self.disconnect_potentiostat_button.setAcceptDrops(False)
         self.disconnect_potentiostat_button.setAutoFillBackground(True)
-        self.disconnect_potentiostat_button.setLocale(QLocale(QLocale.English, QLocale.UnitedStates))
+        self.disconnect_potentiostat_button.setLocale(
+            QLocale(QLocale.English, QLocale.UnitedStates)
+        )
         self.disconnect_potentiostat_button.setInputMethodHints(Qt.ImhNone)
         self.disconnect_potentiostat_button.setAutoRepeatDelay(301)
         self.disconnect_potentiostat_button.setAutoRepeatInterval(96)
@@ -825,23 +916,23 @@ class Ui_MainWindow(object):
         self.disconnect_potentiostat_button.setFlat(False)
         MainWindow.setCentralWidget(self.centralwidget)
         self.statusbar = QStatusBar(MainWindow)
-        self.statusbar.setObjectName(u"statusbar")
-        self.statusbar.setStyleSheet(u"background-color: rgb(228, 228, 228);")
+        self.statusbar.setObjectName("statusbar")
+        self.statusbar.setStyleSheet("background-color: rgb(228, 228, 228);")
         MainWindow.setStatusBar(self.statusbar)
         self.menubar = QMenuBar(MainWindow)
-        self.menubar.setObjectName(u"menubar")
+        self.menubar.setObjectName("menubar")
         self.menubar.setGeometry(QRect(0, 0, 1272, 18))
-        self.menubar.setStyleSheet(u"background-color: rgb(228, 228, 228);")
+        self.menubar.setStyleSheet("background-color: rgb(228, 228, 228);")
         self.menuSdgsdgsdg = QMenu(self.menubar)
-        self.menuSdgsdgsdg.setObjectName(u"menuSdgsdgsdg")
+        self.menuSdgsdgsdg.setObjectName("menuSdgsdgsdg")
         self.menuEdit = QMenu(self.menubar)
-        self.menuEdit.setObjectName(u"menuEdit")
+        self.menuEdit.setObjectName("menuEdit")
         self.menuView = QMenu(self.menubar)
-        self.menuView.setObjectName(u"menuView")
+        self.menuView.setObjectName("menuView")
         self.menuTools = QMenu(self.menubar)
-        self.menuTools.setObjectName(u"menuTools")
+        self.menuTools.setObjectName("menuTools")
         self.menuHelp = QMenu(self.menubar)
-        self.menuHelp.setObjectName(u"menuHelp")
+        self.menuHelp.setObjectName("menuHelp")
         MainWindow.setMenuBar(self.menubar)
 
         self.menubar.addAction(self.menuSdgsdgsdg.menuAction())
@@ -859,95 +950,227 @@ class Ui_MainWindow(object):
         self.find_potentiostat_button.setDefault(False)
         self.disconnect_potentiostat_button.setDefault(False)
 
-
         QMetaObject.connectSlotsByName(MainWindow)
+
     # setupUi
 
     def retranslateUi(self, MainWindow):
-        MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"MainWindow", None))
-        self.actionSdgsdg.setText(QCoreApplication.translate("MainWindow", u"sdgsdg", None))
-        self.actionOpen.setText(QCoreApplication.translate("MainWindow", u"Open", None))
-        self.actionEdit.setText(QCoreApplication.translate("MainWindow", u"Edit", None))
-        self.experiment_label.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\">Experiment</p></body></html>", None))
-        self.time_remaining_label.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\">Time Remaining</p></body></html>", None))
-#if QT_CONFIG(statustip)
-        self.add_experiment_button.setStatusTip(QCoreApplication.translate("MainWindow", u"Click this button to start building a new experiment to add to the queue.", None))
-#endif // QT_CONFIG(statustip)
-#if QT_CONFIG(whatsthis)
+        MainWindow.setWindowTitle(
+            QCoreApplication.translate("MainWindow", "MainWindow", None)
+        )
+        self.actionSdgsdg.setText(
+            QCoreApplication.translate("MainWindow", "sdgsdg", None)
+        )
+        self.actionOpen.setText(
+            QCoreApplication.translate("MainWindow", "Open", None)
+        )
+        self.actionEdit.setText(
+            QCoreApplication.translate("MainWindow", "Edit", None)
+        )
+        self.experiment_label.setText(
+            QCoreApplication.translate(
+                "MainWindow",
+                '<html><head/><body><p align="center">Experiment</p></body></html>',
+                None,
+            )
+        )
+        self.time_remaining_label.setText(
+            QCoreApplication.translate(
+                "MainWindow",
+                '<html><head/><body><p align="center">Time Remaining</p></body></html>',
+                None,
+            )
+        )
+        # if QT_CONFIG(statustip)
+        self.add_experiment_button.setStatusTip(
+            QCoreApplication.translate(
+                "MainWindow",
+                "Click this button to start building a new experiment to add to the queue.",
+                None,
+            )
+        )
+        # endif // QT_CONFIG(statustip)
+        # if QT_CONFIG(whatsthis)
         self.add_experiment_button.setWhatsThis("")
-#endif // QT_CONFIG(whatsthis)
-        self.add_experiment_button.setText(QCoreApplication.translate("MainWindow", u"Add", None))
-#if QT_CONFIG(statustip)
-        self.start_abort_experiment_button.setStatusTip(QCoreApplication.translate("MainWindow", u"Press this button to abort current experiment.", None))
-#endif // QT_CONFIG(statustip)
+        # endif // QT_CONFIG(whatsthis)
+        self.add_experiment_button.setText(
+            QCoreApplication.translate("MainWindow", "Add", None)
+        )
+        # if QT_CONFIG(statustip)
+        self.start_abort_experiment_button.setStatusTip(
+            QCoreApplication.translate(
+                "MainWindow",
+                "Press this button to abort current experiment.",
+                None,
+            )
+        )
+        # endif // QT_CONFIG(statustip)
         self.start_abort_experiment_button.setText("")
-        self.experiment_status_label.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\">Experiment Status</p></body></html>", None))
+        self.experiment_status_label.setText(
+            QCoreApplication.translate(
+                "MainWindow",
+                '<html><head/><body><p align="center">Experiment Status</p></body></html>',
+                None,
+            )
+        )
         self.long_logo.setText("")
-#if QT_CONFIG(tooltip)
+        # if QT_CONFIG(tooltip)
         self.delete_experiment_button.setToolTip("")
-#endif // QT_CONFIG(tooltip)
-#if QT_CONFIG(statustip)
-        self.delete_experiment_button.setStatusTip(QCoreApplication.translate("MainWindow", u"Click this to delete highlighted experiment.", None))
-#endif // QT_CONFIG(statustip)
-#if QT_CONFIG(whatsthis)
+        # endif // QT_CONFIG(tooltip)
+        # if QT_CONFIG(statustip)
+        self.delete_experiment_button.setStatusTip(
+            QCoreApplication.translate(
+                "MainWindow",
+                "Click this to delete highlighted experiment.",
+                None,
+            )
+        )
+        # endif // QT_CONFIG(statustip)
+        # if QT_CONFIG(whatsthis)
         self.delete_experiment_button.setWhatsThis("")
-#endif // QT_CONFIG(whatsthis)
-        self.delete_experiment_button.setText(QCoreApplication.translate("MainWindow", u"Delete", None))
-#if QT_CONFIG(statustip)
-        self.experiment_status_indicator.setStatusTip(QCoreApplication.translate("MainWindow", u"Red indicates experiment not currently running. Green indicates experiment currently running.", None))
-#endif // QT_CONFIG(statustip)
+        # endif // QT_CONFIG(whatsthis)
+        self.delete_experiment_button.setText(
+            QCoreApplication.translate("MainWindow", "Delete", None)
+        )
+        # if QT_CONFIG(statustip)
+        self.experiment_status_indicator.setStatusTip(
+            QCoreApplication.translate(
+                "MainWindow",
+                "Red indicates experiment not currently running. Green indicates experiment currently running.",
+                None,
+            )
+        )
+        # endif // QT_CONFIG(statustip)
         self.experiment_status_indicator.setText("")
-#if QT_CONFIG(statustip)
-        self.progress_bar.setStatusTip(QCoreApplication.translate("MainWindow", u"Percent of experiment completed.", None))
-#endif // QT_CONFIG(statustip)
-#if QT_CONFIG(statustip)
-        self.edit_experiment_button.setStatusTip(QCoreApplication.translate("MainWindow", u"Click this button to load a previous experiment file and modify it.", None))
-#endif // QT_CONFIG(statustip)
-#if QT_CONFIG(whatsthis)
+        # if QT_CONFIG(statustip)
+        self.progress_bar.setStatusTip(
+            QCoreApplication.translate(
+                "MainWindow", "Percent of experiment completed.", None
+            )
+        )
+        # endif // QT_CONFIG(statustip)
+        # if QT_CONFIG(statustip)
+        self.edit_experiment_button.setStatusTip(
+            QCoreApplication.translate(
+                "MainWindow",
+                "Click this button to load a previous experiment file and modify it.",
+                None,
+            )
+        )
+        # endif // QT_CONFIG(statustip)
+        # if QT_CONFIG(whatsthis)
         self.edit_experiment_button.setWhatsThis("")
-#endif // QT_CONFIG(whatsthis)
-        self.edit_experiment_button.setText(QCoreApplication.translate("MainWindow", u"Edit", None))
+        # endif // QT_CONFIG(whatsthis)
+        self.edit_experiment_button.setText(
+            QCoreApplication.translate("MainWindow", "Edit", None)
+        )
         self.program_label.setText("")
-#if QT_CONFIG(statustip)
-        self.arduino_connection_indicator.setStatusTip(QCoreApplication.translate("MainWindow", u"Red indicates potentiostat not connected. Green indicates potentiostat connected.", None))
-#endif // QT_CONFIG(statustip)
+        # if QT_CONFIG(statustip)
+        self.arduino_connection_indicator.setStatusTip(
+            QCoreApplication.translate(
+                "MainWindow",
+                "Red indicates potentiostat not connected. Green indicates potentiostat connected.",
+                None,
+            )
+        )
+        # endif // QT_CONFIG(statustip)
         self.arduino_connection_indicator.setText("")
-        self.potentiostat_connection_label.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\">Potentiostat Connection</p></body></html>", None))
-#if QT_CONFIG(statustip)
-        self.time_remaining_display.setStatusTip(QCoreApplication.translate("MainWindow", u"Time Remaining on experiment in Hours : Minutes : Seconds", None))
-#endif // QT_CONFIG(statustip)
-#if QT_CONFIG(statustip)
-        self.load_experiment_button.setStatusTip(QCoreApplication.translate("MainWindow", u"Click this button to find a select a compatible config file to add to the experiment queue.", None))
-#endif // QT_CONFIG(statustip)
-#if QT_CONFIG(whatsthis)
+        self.potentiostat_connection_label.setText(
+            QCoreApplication.translate(
+                "MainWindow",
+                '<html><head/><body><p align="center">Potentiostat Connection</p></body></html>',
+                None,
+            )
+        )
+        # if QT_CONFIG(statustip)
+        self.time_remaining_display.setStatusTip(
+            QCoreApplication.translate(
+                "MainWindow",
+                "Time Remaining on experiment in Hours : Minutes : Seconds",
+                None,
+            )
+        )
+        # endif // QT_CONFIG(statustip)
+        # if QT_CONFIG(statustip)
+        self.load_experiment_button.setStatusTip(
+            QCoreApplication.translate(
+                "MainWindow",
+                "Click this button to find a select a compatible config file to add to the experiment queue.",
+                None,
+            )
+        )
+        # endif // QT_CONFIG(statustip)
+        # if QT_CONFIG(whatsthis)
         self.load_experiment_button.setWhatsThis("")
-#endif // QT_CONFIG(whatsthis)
-        self.load_experiment_button.setText(QCoreApplication.translate("MainWindow", u"  Load", None))
-        self.start_abort_experiment_label.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\">Start/Stop Experiment</p></body></html>", None))
-#if QT_CONFIG(statustip)
-        self.find_potentiostat_button.setStatusTip(QCoreApplication.translate("MainWindow", u"Click this button to connect potentiostat", None))
-#endif // QT_CONFIG(statustip)
-#if QT_CONFIG(whatsthis)
+        # endif // QT_CONFIG(whatsthis)
+        self.load_experiment_button.setText(
+            QCoreApplication.translate("MainWindow", "  Load", None)
+        )
+        self.start_abort_experiment_label.setText(
+            QCoreApplication.translate(
+                "MainWindow",
+                '<html><head/><body><p align="center">Start/Stop Experiment</p></body></html>',
+                None,
+            )
+        )
+        # if QT_CONFIG(statustip)
+        self.find_potentiostat_button.setStatusTip(
+            QCoreApplication.translate(
+                "MainWindow", "Click this button to connect potentiostat", None
+            )
+        )
+        # endif // QT_CONFIG(statustip)
+        # if QT_CONFIG(whatsthis)
         self.find_potentiostat_button.setWhatsThis("")
-#endif // QT_CONFIG(whatsthis)
-        self.find_potentiostat_button.setText(QCoreApplication.translate("MainWindow", u"Find Potentiostat", None))
-#if QT_CONFIG(statustip)
-        self.stop_experiment_button.setStatusTip(QCoreApplication.translate("MainWindow", u"Press this button to abort current experiment.", None))
-#endif // QT_CONFIG(statustip)
+        # endif // QT_CONFIG(whatsthis)
+        self.find_potentiostat_button.setText(
+            QCoreApplication.translate("MainWindow", "Find Potentiostat", None)
+        )
+        # if QT_CONFIG(statustip)
+        self.stop_experiment_button.setStatusTip(
+            QCoreApplication.translate(
+                "MainWindow",
+                "Press this button to abort current experiment.",
+                None,
+            )
+        )
+        # endif // QT_CONFIG(statustip)
         self.stop_experiment_button.setText("")
-        self.arduino_connection_name.setItemText(0, QCoreApplication.translate("MainWindow", u"COM3", None))
+        self.arduino_connection_name.setItemText(
+            0, QCoreApplication.translate("MainWindow", "COM3", None)
+        )
 
-#if QT_CONFIG(statustip)
-        self.disconnect_potentiostat_button.setStatusTip(QCoreApplication.translate("MainWindow", u"Click this button to disconnect potentiostat.", None))
-#endif // QT_CONFIG(statustip)
-#if QT_CONFIG(whatsthis)
+        # if QT_CONFIG(statustip)
+        self.disconnect_potentiostat_button.setStatusTip(
+            QCoreApplication.translate(
+                "MainWindow",
+                "Click this button to disconnect potentiostat.",
+                None,
+            )
+        )
+        # endif // QT_CONFIG(statustip)
+        # if QT_CONFIG(whatsthis)
         self.disconnect_potentiostat_button.setWhatsThis("")
-#endif // QT_CONFIG(whatsthis)
-        self.disconnect_potentiostat_button.setText(QCoreApplication.translate("MainWindow", u"Disconnect Potentiostat", None))
-        self.menuSdgsdgsdg.setTitle(QCoreApplication.translate("MainWindow", u"Experiment", None))
-        self.menuEdit.setTitle(QCoreApplication.translate("MainWindow", u"Edit", None))
-        self.menuView.setTitle(QCoreApplication.translate("MainWindow", u"View", None))
-        self.menuTools.setTitle(QCoreApplication.translate("MainWindow", u"Tools", None))
-        self.menuHelp.setTitle(QCoreApplication.translate("MainWindow", u"Help", None))
-    # retranslateUi
+        # endif // QT_CONFIG(whatsthis)
+        self.disconnect_potentiostat_button.setText(
+            QCoreApplication.translate(
+                "MainWindow", "Disconnect Potentiostat", None
+            )
+        )
+        self.menuSdgsdgsdg.setTitle(
+            QCoreApplication.translate("MainWindow", "Experiment", None)
+        )
+        self.menuEdit.setTitle(
+            QCoreApplication.translate("MainWindow", "Edit", None)
+        )
+        self.menuView.setTitle(
+            QCoreApplication.translate("MainWindow", "View", None)
+        )
+        self.menuTools.setTitle(
+            QCoreApplication.translate("MainWindow", "Tools", None)
+        )
+        self.menuHelp.setTitle(
+            QCoreApplication.translate("MainWindow", "Help", None)
+        )
 
+    # retranslateUi

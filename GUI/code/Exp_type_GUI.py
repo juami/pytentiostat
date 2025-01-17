@@ -4,27 +4,34 @@ from PySide2 import QtCore, QtGui, QtWidgets
 class Ui_Experiment(object):
 
     def setupUi(self, Experiment):
-        """
-        Initializes the Experiment Type window
-
-        """
+        """Initializes the Experiment Type window."""
         Experiment.setObjectName("Experiment")
         Experiment.resize(510, 226)
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("../pics/icon_pytentiostat.ico"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(
+            QtGui.QPixmap("../pics/icon_pytentiostat.ico"),
+            QtGui.QIcon.Normal,
+            QtGui.QIcon.Off,
+        )
         Experiment.setWindowIcon(icon)
         Experiment.setStyleSheet("background-color: rgb(255, 255, 255);")
         self.buttonBox = QtWidgets.QDialogButtonBox(Experiment)
         self.buttonBox.setGeometry(QtCore.QRect(10, 440, 621, 32))
         self.buttonBox.setOrientation(QtCore.Qt.Horizontal)
-        self.buttonBox.setStandardButtons(QtWidgets.QDialogButtonBox.Cancel|QtWidgets.QDialogButtonBox.Ok)
+        self.buttonBox.setStandardButtons(
+            QtWidgets.QDialogButtonBox.Cancel | QtWidgets.QDialogButtonBox.Ok
+        )
         self.buttonBox.setObjectName("buttonBox")
         self.ca_button = QtWidgets.QPushButton(Experiment)
         self.ca_button.setGeometry(QtCore.QRect(15, 50, 131, 121))
         self.ca_button.setStyleSheet("background-color: rgb(255, 255, 255);")
         self.ca_button.setText("")
         icon1 = QtGui.QIcon()
-        icon1.addPixmap(QtGui.QPixmap("../pics/icon_ca.ico"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon1.addPixmap(
+            QtGui.QPixmap("../pics/icon_ca.ico"),
+            QtGui.QIcon.Normal,
+            QtGui.QIcon.Off,
+        )
         self.ca_button.setIcon(icon1)
         self.ca_button.setIconSize(QtCore.QSize(120, 120))
         self.ca_button.setAutoDefault(False)
@@ -34,7 +41,11 @@ class Ui_Experiment(object):
         self.cv_button.setGeometry(QtCore.QRect(190, 50, 131, 121))
         self.cv_button.setText("")
         icon2 = QtGui.QIcon()
-        icon2.addPixmap(QtGui.QPixmap("../pics/icon_cv.ico"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon2.addPixmap(
+            QtGui.QPixmap("../pics/icon_cv.ico"),
+            QtGui.QIcon.Normal,
+            QtGui.QIcon.Off,
+        )
         self.cv_button.setIcon(icon2)
         self.cv_button.setIconSize(QtCore.QSize(120, 120))
         self.cv_button.setAutoDefault(False)
@@ -44,7 +55,11 @@ class Ui_Experiment(object):
         self.lsv_button.setGeometry(QtCore.QRect(360, 50, 131, 121))
         self.lsv_button.setText("")
         icon3 = QtGui.QIcon()
-        icon3.addPixmap(QtGui.QPixmap("../pics/icon_lsv.ico"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon3.addPixmap(
+            QtGui.QPixmap("../pics/icon_lsv.ico"),
+            QtGui.QIcon.Normal,
+            QtGui.QIcon.Off,
+        )
         self.lsv_button.setIcon(icon3)
         self.lsv_button.setIconSize(QtCore.QSize(120, 120))
         self.lsv_button.setAutoDefault(False)
@@ -55,7 +70,9 @@ class Ui_Experiment(object):
         palette = QtGui.QPalette()
         brush = QtGui.QBrush(QtGui.QColor(33, 125, 188))
         brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.WindowText, brush)
+        palette.setBrush(
+            QtGui.QPalette.Active, QtGui.QPalette.WindowText, brush
+        )
         brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Button, brush)
@@ -67,7 +84,9 @@ class Ui_Experiment(object):
         palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Window, brush)
         brush = QtGui.QBrush(QtGui.QColor(33, 125, 188))
         brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.WindowText, brush)
+        palette.setBrush(
+            QtGui.QPalette.Inactive, QtGui.QPalette.WindowText, brush
+        )
         brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Button, brush)
@@ -79,7 +98,9 @@ class Ui_Experiment(object):
         palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Window, brush)
         brush = QtGui.QBrush(QtGui.QColor(120, 120, 120))
         brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.WindowText, brush)
+        palette.setBrush(
+            QtGui.QPalette.Disabled, QtGui.QPalette.WindowText, brush
+        )
         brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Button, brush)
@@ -106,7 +127,9 @@ class Ui_Experiment(object):
         palette = QtGui.QPalette()
         brush = QtGui.QBrush(QtGui.QColor(0, 87, 36))
         brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.WindowText, brush)
+        palette.setBrush(
+            QtGui.QPalette.Active, QtGui.QPalette.WindowText, brush
+        )
         brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Button, brush)
@@ -118,7 +141,9 @@ class Ui_Experiment(object):
         palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Window, brush)
         brush = QtGui.QBrush(QtGui.QColor(0, 87, 36))
         brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.WindowText, brush)
+        palette.setBrush(
+            QtGui.QPalette.Inactive, QtGui.QPalette.WindowText, brush
+        )
         brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Button, brush)
@@ -130,7 +155,9 @@ class Ui_Experiment(object):
         palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Window, brush)
         brush = QtGui.QBrush(QtGui.QColor(120, 120, 120))
         brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.WindowText, brush)
+        palette.setBrush(
+            QtGui.QPalette.Disabled, QtGui.QPalette.WindowText, brush
+        )
         brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Button, brush)
@@ -157,7 +184,9 @@ class Ui_Experiment(object):
         palette = QtGui.QPalette()
         brush = QtGui.QBrush(QtGui.QColor(248, 221, 20))
         brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.WindowText, brush)
+        palette.setBrush(
+            QtGui.QPalette.Active, QtGui.QPalette.WindowText, brush
+        )
         brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Button, brush)
@@ -169,7 +198,9 @@ class Ui_Experiment(object):
         palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Window, brush)
         brush = QtGui.QBrush(QtGui.QColor(248, 221, 20))
         brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.WindowText, brush)
+        palette.setBrush(
+            QtGui.QPalette.Inactive, QtGui.QPalette.WindowText, brush
+        )
         brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Button, brush)
@@ -181,7 +212,9 @@ class Ui_Experiment(object):
         palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Window, brush)
         brush = QtGui.QBrush(QtGui.QColor(120, 120, 120))
         brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.WindowText, brush)
+        palette.setBrush(
+            QtGui.QPalette.Disabled, QtGui.QPalette.WindowText, brush
+        )
         brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Button, brush)
@@ -226,11 +259,14 @@ class Ui_Experiment(object):
         self.ca_label.setText(_translate("Experiment", "CA"))
         self.cv_label.setText(_translate("Experiment", "CV"))
         self.lsv_label.setText(_translate("Experiment", "LSV"))
-        self.question_label.setText(_translate("Experiment", "Please select an experiment"))
+        self.question_label.setText(
+            _translate("Experiment", "Please select an experiment")
+        )
 
 
 if __name__ == "__main__":
     import sys
+
     app = QtWidgets.QApplication(sys.argv)
     Experiment = QtWidgets.QDialog()
     ui = Ui_Experiment()
