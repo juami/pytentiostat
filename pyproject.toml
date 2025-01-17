@@ -1,3 +1,61 @@
+[build-system]
+requires = ["setuptools>=62.0", "setuptools-git-versioning>=2.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pytentiostat"
+dynamic=['version', 'dependencies']
+authors = [
+  { name="Simon Billinge", email=" sb2896@columbia.edu" },
+]
+maintainers = [
+  { name="Simon Billinge", email=" sb2896@columbia.edu" },
+]
+description = "Python code for the JUAMI potentiostat"
+keywords = ['potentiostat', 'electrochemistry', 'juami', 'pytentiostat']
+readme = "README.rst"
+requires-python = ">=3.11, <3.14"
+classifiers = [
+        'Development Status :: 5 - Production/Stable',
+        'Environment :: Console',
+        'Intended Audience :: Developers',
+        'Intended Audience :: Science/Research',
+        'License :: OSI Approved :: BSD License',
+        'Operating System :: MacOS :: MacOS X',
+        'Operating System :: Microsoft :: Windows',
+        'Operating System :: POSIX',
+        'Operating System :: Unix',
+        'Programming Language :: Python :: 3.11',
+        'Programming Language :: Python :: 3.12',
+        'Programming Language :: Python :: 3.13',
+        'Topic :: Scientific/Engineering :: Physics',
+        'Topic :: Scientific/Engineering :: Chemistry',
+]
+
+[project.urls]
+Homepage = "https://github.com/juami/pytentiostat/"
+Issues = "https://github.com/juami/pytentiostat/issues/"
+
+[tool.setuptools-git-versioning]
+enabled = true
+template = "{tag}"
+dev_template = "{tag}"
+dirty_template = "{tag}"
+
+[tool.setuptools.packages.find]
+where = ["src"]  # list of folders that contain the packages (["."] by default)
+include = ["*"]  # package names should match these glob patterns (["*"] by default)
+exclude = []  # exclude packages matching these glob patterns (empty by default)
+namespaces = false  # to disable scanning PEP 420 namespaces (true by default)
+
+[tool.setuptools.dynamic]
+dependencies = {file = ["requirements/pip.txt"]}
+
+[tool.codespell]
+exclude-file = ".codespell/ignore_lines.txt"
+ignore-words = ".codespell/ignore_words.txt"
+skip = "*.cif,*.dat"
+
 [tool.black]
 line-length = 79
 include = '\.pyi?$'
