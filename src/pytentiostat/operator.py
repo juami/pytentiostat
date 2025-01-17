@@ -385,7 +385,7 @@ def experiment(config_data, a0, a2, d9):
             config_data,
             times,
             voltages,
-            currents
+            currents,
         )
         return times, voltages, currents, Interrupt
 
@@ -405,7 +405,7 @@ def experiment(config_data, a0, a2, d9):
                 config_data,
                 times,
                 voltages,
-                currents
+                currents,
             )
             i = i + 1
         return times, voltages, currents, Interrupt
