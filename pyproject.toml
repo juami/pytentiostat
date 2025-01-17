@@ -37,7 +37,7 @@ Homepage = "https://github.com/juami/pytentiostat/"
 Issues = "https://github.com/juami/pytentiostat/issues/"
 
 [tool.setuptools]
-script-files = ["scripts/pytentiostat", "scripts/install_from_local", "scripts/deploy_docs_locally.bat"]
+script-files = ["scripts/pytentiostat"]
 
 [tool.setuptools-git-versioning]
 enabled = true
