@@ -41,7 +41,7 @@ def test_initialize_arduino():
     da = Dummy_arduino()
     da.name = "good_arduino"
 
-    with pytest.raises(SystemExit):
+    with pytest.raises(RuntimeError):
         _initialize_arduino("bad_port")
     with mock.patch(
         "pytentiostat.routines.Arduino",
