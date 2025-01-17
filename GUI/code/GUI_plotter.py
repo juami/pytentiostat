@@ -4,8 +4,12 @@ import sys
 ##Local library
 # GUI_function
 import GUI_config_reader as cr
-from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
-from matplotlib.backends.backend_qt5agg import NavigationToolbar2QT as NavigationToolbar
+from matplotlib.backends.backend_qt5agg import (
+    FigureCanvasQTAgg as FigureCanvas,
+)
+from matplotlib.backends.backend_qt5agg import (
+    NavigationToolbar2QT as NavigationToolbar,
+)
 from matplotlib.figure import Figure
 from PySide2.QtWidgets import QApplication, QWidget
 
