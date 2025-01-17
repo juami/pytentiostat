@@ -10,3 +10,4 @@ jobs:
       project: pytentiostat
       c_extension: false
       headless: true
+      python_version: 3.12

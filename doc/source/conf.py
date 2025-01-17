@@ -61,8 +61,9 @@ source_suffix = [".rst", ".md"]
 master_doc = "index"
 
 # General information about the project.
-project = "pytentiostat"
-copyright = "%Y, The Trustees of Columbia University in the City of New York"
+project = "Pytentiostat"
+copyright = "2019-2025, Austin Plymill, Jeremy Hitt, Yao Tong, Michael Spencer, Sun Hwi Bang, Weizi Yuan, Simon J. L. Billinge"
+authors = "Austin Plymill, Jeremy Hitt, Yao Tong, Michael Spencer, Sun Hwi Bang, Weizi Yuan, Simon J. L. Billinge"
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -90,7 +91,7 @@ copyright = copyright.replace("%Y", year)
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
-exclude_patterns = ["build"]
+exclude_patterns = ["build", "_build", "Thumbs.db", ".DS_Store"]
 
 # The reST default role (used for this markup: `text`) to use for all
 # documents.
@@ -153,7 +154,7 @@ html_theme_options = {
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
-# html_static_path = ['_static']
+html_static_path = ["_static"]
 
 # Add any extra paths that contain custom files (such as robots.txt or
 # .htaccess) here, relative to this directory. These files are copied

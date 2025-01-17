@@ -17,9 +17,12 @@ def save_data_to_file(
     data : array
         The data that will be output to a file.
     override_outpath : string
-        The path to which the file will be saved to. Optional. Default is saved in config directory
+        The path to which the file will be saved to. Optional.
+        Default is saved in config directory
     override_ts : string
-        String to replace timestamp in name. Optional. Defaults to leaving timestamp.
+        The string to replace timestamp in name. Optional. Defaults
+        to leaving timestamp.
+
     Returns
     -------
         nothing

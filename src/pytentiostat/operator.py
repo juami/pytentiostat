@@ -17,8 +17,9 @@ Exp_running = False
 def _signal_handler(signum, frame):
     """Changes behavior of keyboard interrupt when experiment is running.
 
-    Signal handler is called by signal.signal() when Ctrl+c is pressed by the user.
-    It checks to see if exp_running is true and if so, it sets the global interrupt to true.
+    Signal handler is called by signal.signal() when Ctrl+c is pressed
+    by the user.  It checks to see if exp_running is true and if so, it
+    sets the global interrupt to true.
     If exp_running is false, it raises KeyboardInterrupt.
 
     Parameters
@@ -106,11 +107,12 @@ def read_write(
     config_data: dict
         The dictionary that contains the data read from the config file.
     times: list
-        The initial list of time passed in seconds during the experiment at each point
+        The initial list of time passed in seconds during the experiment
+        at each point
     voltages: list
         The initial voltages measured at each point
     currents: list
-        The the initial currents measured at each point
+        The initial currents measured at each point
 
     Returns
     -------
@@ -360,7 +362,8 @@ def experiment(config_data, a0, a2, d9):
         )
     else:
         sys.exit(
-            "Error! \nThe experiment_type field in config.yml is not an accepted value"
+            "Error! \nThe experiment_type field in config.yml is not "
+            "an accepted value"
         )
 
     # Starting up the plot
@@ -385,7 +388,7 @@ def experiment(config_data, a0, a2, d9):
             config_data,
             times,
             voltages,
-            currents
+            currents,
         )
         return times, voltages, currents, Interrupt
 
@@ -405,7 +408,7 @@ def experiment(config_data, a0, a2, d9):
                 config_data,
                 times,
                 voltages,
-                currents
+                currents,
             )
             i = i + 1
         return times, voltages, currents, Interrupt
