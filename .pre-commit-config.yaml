@@ -24,12 +24,12 @@ repos:
     rev: 24.4.2
     hooks:
       - id: black
-        exclude: ^GUI/
+        exclude: ^src/GUI/
   - repo: https://github.com/pycqa/flake8
     rev: 7.0.0
     hooks:
       - id: flake8
-        exclude: ^GUI/
+        exclude: ^src/GUI/
   - repo: https://github.com/pycqa/isort
     rev: 5.13.2
     hooks:
