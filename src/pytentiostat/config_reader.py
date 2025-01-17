@@ -32,9 +32,8 @@ def parse_config_file(configlocation=None):
                 config_check = "Found"
         if config_check != "Found":
             sys.exit(
-                "No file named config.yml found in config directory {}. Exiting...".format(
-                    configlocation
-                )
+                f"No file named config.yml found in config directory "
+                f"{configlocation}. Exiting..."
             )
         else:
             with open(
@@ -47,9 +46,8 @@ def parse_config_file(configlocation=None):
 
     except FileNotFoundError:
         sys.exit(
-            "Directory containing config file, {}, not found. Exiting...".format(
-                configlocation
-            )
+            f"Directory containing config file, "
+            f"{configlocation}, not found. Exiting..."
         )
 
 
@@ -155,9 +153,10 @@ def param_checker(config_data):
         val = i["value"]
         if not isinstance(val, str):
             sys.exit(
-                """Warning! \nThe value {value} for {name} in config.yml is not valid.
-                     \nPlease enter a new value for {name} avoiding unusual characters.
-                     \nExiting...""".format(
+                """Warning! \nThe value {value} for {name} in
+                   config.yml is not valid. \nPlease enter a
+                   new value for {name} avoiding unusual characters.
+                   \nExiting...""".format(
                     **i
                 )
             )
@@ -166,9 +165,10 @@ def param_checker(config_data):
         val = i["value"]
         if not isinstance(val, int):
             sys.exit(
-                """Warning! \nThe value {value} for {name} in config.yml is not valid.
-                     \nPlease change the entry to a positive integer.
-                     \nExiting...""".format(
+                """Warning! \nThe value {value} for
+                   {name} in config.yml is not valid.
+                   \nPlease change the entry to a positive integer.
+                   \nExiting...""".format(
                     **i
                 )
             )
@@ -193,7 +193,8 @@ def param_checker(config_data):
         val = i["value"]
         if not isinstance(val, (float, int)):
             sys.exit(
-                """Warning! \nThe value {value} for {name} in config.yml is not valid.
+                """Warning! \nThe value {value} for
+                   {name} in config.yml is not valid.
                      \nPlease change the entry to a number.
                      \nExiting...""".format(
                     **i
@@ -216,9 +217,11 @@ def param_checker(config_data):
         val = i["value"]
         if val <= 0:
             sys.exit(
-                """Warning! \nThe value {value} for {name} in config.yml is not valid.
-                      \nPlease change the entry to a value greater than or equal to zero.
-                      \nExiting...""".format(
+                """Warning! \nThe value {value} for
+                   {name} in config.yml is not valid.
+                   \nPlease change the entry to a value greater than
+                   or equal to zero.
+                   \nExiting...""".format(
                     **i
                 )
             )
@@ -281,24 +284,27 @@ def param_checker(config_data):
         if val < voltage_lb or val > voltage_ub:
             sys.exit(
                 """Warning! \nVoltages in config.yml should be < {} and > {}.
-                     \n Please change value for {name} to value between the bounds.
-                     \nExiting...""".format(
+                   \n Please change value for {name} to value
+                   between the bounds.
+                   \nExiting...""".format(
                     str(voltage_ub), str(voltage_lb), **i
                 )
             )
     if time_step["value"] < time_step_lb:
         sys.exit(
             """Warning! \nTime step value in config.yml must be >= {}.
-                 \nPlease change the time step value to be greater than this.
-                 \nExiting...""".format(
+               \nPlease change the time step value to be greater than this.
+               \nExiting...""".format(
                 str(time_step_lb)
             )
         )
     if step_number["value"] > step_number_ub:
         sys.exit(
-            """Warning! \nStep number must be <= {} given the other input parameters.
-                 \nPlease change the step number in config.yml to be less than this.
-                 \nExiting...""".format(
+            """Warning! \nStep number must be <= {} given the other
+               input parameters.
+               \nPlease change the step number in config.yml to be
+               less than this.
+               \nExiting...""".format(
                 str(step_number_ub)
             )
         )
