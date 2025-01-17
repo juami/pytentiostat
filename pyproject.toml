@@ -36,6 +36,9 @@ classifiers = [
 Homepage = "https://github.com/juami/pytentiostat/"
 Issues = "https://github.com/juami/pytentiostat/issues/"
 
+[tool.setuptools]
+script-files = ["scripts/pytentiostat", "scripts/install_from_local", "scripts/deploy_docs_locally.bat"]
+
 [tool.setuptools-git-versioning]
 enabled = true
 template = "{tag}"
