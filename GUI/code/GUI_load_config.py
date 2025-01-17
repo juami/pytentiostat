@@ -1,6 +1,7 @@
 import sys
+
 from PySide2 import QtGui
-from PySide2.QtWidgets import QApplication, QWidget,  QFileDialog
+from PySide2.QtWidgets import QApplication, QFileDialog, QWidget
 
 
 class Ui_Load(QWidget):
@@ -9,7 +10,11 @@ class Ui_Load(QWidget):
         MainWindow.resize(640, 480)
         file = self.openFileNameDialog()
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("../pics/icon_pytentiostat.ico"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(
+            QtGui.QPixmap("../pics/icon_pytentiostat.ico"),
+            QtGui.QIcon.Normal,
+            QtGui.QIcon.Off,
+        )
         MainWindow.setWindowIcon(icon)
         return file
 
@@ -18,7 +23,11 @@ class Ui_Load(QWidget):
         MainWindow.resize(640, 480)
         folder = self.saveFileDialog()
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("../pics/icon_pytentiostat.ico"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(
+            QtGui.QPixmap("../pics/icon_pytentiostat.ico"),
+            QtGui.QIcon.Normal,
+            QtGui.QIcon.Off,
+        )
         MainWindow.setWindowIcon(icon)
         return folder
 
@@ -26,17 +35,23 @@ class Ui_Load(QWidget):
         options = QFileDialog.Options()
         options |= QFileDialog.DontUseNativeDialog
 
-        file, _ = QFileDialog.getOpenFileName(self, "Load config file", "","All Files (*);;Config Files (*config.yml)", options=options)
+        file, _ = QFileDialog.getOpenFileName(
+            self,
+            "Load config file",
+            "",
+            "All Files (*);;Config Files (*config.yml)",
+            options=options,
+        )
         if file:
             return file
 
     def saveFileDialog(self):
         folder = QFileDialog.getExistingDirectory(self, "Select directory")
         if folder:
-            return folder+'/'
+            return folder + "/"
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     app = QApplication(sys.argv)
     ex = Ui_Load()
     sys.exit(app.exec_())

@@ -113,4 +113,3 @@ minimize uncompensated solution resistance. This is most important in systems wi
 
 .. rubric:: Figure 2: Example of a three electrode setup in a three-neck round-bottom flask with a Pt rod counter
             electrode, foil working electrode, and a reference electrode in an aqueous electrolyte.
-

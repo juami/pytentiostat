@@ -1,10 +1,11 @@
 import matplotlib.pyplot as plt
+
 import pytentiostat.config_reader
 
 
 def plot_initializer(config_data):
-    """
-    Initializes plot based on experiment type and parameters in the config file.
+    """Initializes plot based on experiment type and parameters in the config
+    file.
 
     Parameters
     ----------
@@ -50,8 +51,7 @@ def plot_initializer(config_data):
 
 
 def plot_updater(config_data, data, line):
-    """
-    Updates the plot based on the read/write in tester.
+    """Updates the plot based on the read/write in tester.
 
     Parameters
     ----------

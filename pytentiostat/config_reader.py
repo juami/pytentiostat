@@ -1,12 +1,12 @@
-import yaml
 import datetime
-import sys
 import os
+import sys
+
+import yaml
 
 
 def parse_config_file(configlocation=None):
-    """
-    Reads config data from the config file
+    """Reads config data from the config file.
 
     the config file must be called config.yml.
 
@@ -54,8 +54,7 @@ def parse_config_file(configlocation=None):
 
 
 def param_checker(config_data):
-    """
-    Checks the parameters in the config file.
+    """Checks the parameters in the config file.
 
     If finds a parameter that is incorrect, will prompt user what is incorrect.
     Parameters
@@ -66,7 +65,6 @@ def param_checker(config_data):
     Returns
     -------
     None
-
     """
     average_number = {
         "name": "average_number",
@@ -158,7 +156,7 @@ def param_checker(config_data):
         if isinstance(val, str) == False:
             sys.exit(
                 """Warning! \nThe value {value} for {name} in config.yml is not valid.
-                     \nPlease enter a new value for {name} avoiding unusual characters. 
+                     \nPlease enter a new value for {name} avoiding unusual characters.
                      \nExiting...""".format(
                     **i
                 )
@@ -169,7 +167,7 @@ def param_checker(config_data):
         if isinstance(val, int) == False:
             sys.exit(
                 """Warning! \nThe value {value} for {name} in config.yml is not valid.
-                     \nPlease change the entry to a positive integer. 
+                     \nPlease change the entry to a positive integer.
                      \nExiting...""".format(
                     **i
                 )
@@ -229,7 +227,7 @@ def param_checker(config_data):
     val = exp_type["value"]
     if val not in exp_types:
         sys.exit(
-            """Warning! \nThe entry {value} for {name} is not valid. 
+            """Warning! \nThe entry {value} for {name} is not valid.
                  \nPlease change the entry to CA, CV, or LSV.
                  \nExiting...""".format(
                 **exp_type
@@ -403,9 +401,8 @@ def get_adv_params(adv_config_data):
 
 
 def check_config_inputs(arg):
-    """
-    Checks that all the data that should be numerical from that config
-    can be represented as a float.
+    """Checks that all the data that should be numerical from that config can
+    be represented as a float.
 
     Parameters
     ----------

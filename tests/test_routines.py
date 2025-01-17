@@ -1,17 +1,20 @@
 import mock
 import pytest
 
-from pytentiostat.routines import _load_arduino, _initialize_arduino
 from pytentiostat.config_reader import get_rest
+from pytentiostat.routines import _initialize_arduino, _load_arduino
+
 
 class Dummy_port:
     def __init__(self):
         self.description = "default"
         self.device = "com"
 
+
 class Dummy_arduino:
     def __init__(self):
         self.name = None
+
 
 def test_load_arduino():
     good_port = Dummy_port()

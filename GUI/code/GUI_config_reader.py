@@ -1,9 +1,11 @@
-import os,yaml,datetime
+import datetime
+import os
+
+import yaml
 
 
 def parse_config_file(filename):
-    """
-    Reads config data from the config file
+    """Reads config data from the config file.
 
     the config file must be called config.yml.
 
@@ -14,18 +16,19 @@ def parse_config_file(filename):
     Returns
     -------
     config_data : dictionary, the configuration data
-
     """
     with open(filename, "r") as stream:
         config_data = yaml.safe_load(stream)
         return config_data
 
+
 def get_output_params(config_data, override_ts=None):
     data_out_name = config_data["general_parameters"]["data_output_filename"]
     data_out_path = config_data["general_parameters"]["data_output_path"]
     if data_out_path.lower() == "desktop":
-        data_out_path = os.path.join(os.path.join(os.path.expanduser("~")),
-                                     "Desktop")
+        data_out_path = os.path.join(
+            os.path.join(os.path.expanduser("~")), "Desktop"
+        )
     ts = datetime.datetime.now().strftime("%H_%M_%S")
     if override_ts:
         ts = override_ts
@@ -51,12 +54,22 @@ def get_ca_params(config_data):
 
 def get_cv_params(config_data):
     start_voltage = config_data["cyclic_voltammetry"]["start_voltage"]
-    first_turnover = config_data["cyclic_voltammetry"]["first_turnover_voltage"]
-    second_turnover = config_data["cyclic_voltammetry"]["second_turnover_voltage"]
+    first_turnover = config_data["cyclic_voltammetry"][
+        "first_turnover_voltage"
+    ]
+    second_turnover = config_data["cyclic_voltammetry"][
+        "second_turnover_voltage"
+    ]
     sweep_rate = config_data["cyclic_voltammetry"]["sweep_rate"]
     cycle_number = config_data["cyclic_voltammetry"]["number_of_cycles"]
 
-    return start_voltage, first_turnover, second_turnover, sweep_rate, cycle_number
+    return (
+        start_voltage,
+        first_turnover,
+        second_turnover,
+        sweep_rate,
+        cycle_number,
+    )
 
 
 def get_exp_type(config_data):
@@ -83,9 +96,10 @@ def get_steps(config_data):
     return step_number
 
 
-
 def get_adv_params(adv_config_data):
-    conversion_factor = adv_config_data["advanced_parameters"]["conversion_factor"]
+    conversion_factor = adv_config_data["advanced_parameters"][
+        "conversion_factor"
+    ]
     set_gain = adv_config_data["advanced_parameters"]["setpoint_gain"]
     set_offset = adv_config_data["advanced_parameters"]["setpoint_offset"]
     shunt_resistor = adv_config_data["advanced_parameters"]["shunt_resistor"]
@@ -103,8 +117,8 @@ def get_adv_params(adv_config_data):
 
 
 def check_config_inputs(arg):
-    """
-    Checks that all the data that should be numerical from that config can be represented as a float.
+    """Checks that all the data that should be numerical from that config can
+    be represented as a float.
 
     Parameters
     __________
@@ -115,7 +129,6 @@ def check_config_inputs(arg):
     _______
     is_number: Boolean
         Value is True if the arg is a number, False if not.
-
     """
     try:
         return isinstance(float(arg), float)
