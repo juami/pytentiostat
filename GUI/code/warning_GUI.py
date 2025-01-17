@@ -1,8 +1,8 @@
-from PySide2 import QtGui,QtWidgets
+from PySide2 import QtGui, QtWidgets
+
 
 def warning(text):
-    """
-    Initializes the warning window.
+    """Initializes the warning window.
 
     Parameters
     ------
@@ -11,17 +11,22 @@ def warning(text):
     Return
     ------
     Boolean : True if 'OK' is clicked, False if 'cancel'.
-
     """
 
     msg = QtWidgets.QMessageBox()
     icon = QtGui.QIcon()
-    icon.addPixmap(QtGui.QPixmap("../pics/icon_pytentiostat.ico"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+    icon.addPixmap(
+        QtGui.QPixmap("../pics/icon_pytentiostat.ico"),
+        QtGui.QIcon.Normal,
+        QtGui.QIcon.Off,
+    )
     msg.setWindowIcon(icon)
     msg.setIcon(QtWidgets.QMessageBox.Warning)
     msg.setText(text)
     msg.setWindowTitle("Warning")
-    msg.setStandardButtons(QtWidgets.QMessageBox.Ok | QtWidgets.QMessageBox.Cancel)
+    msg.setStandardButtons(
+        QtWidgets.QMessageBox.Ok | QtWidgets.QMessageBox.Cancel
+    )
     msg.show()
     reply = msg.exec_()
     if reply == QtWidgets.QMessageBox.Ok:
@@ -29,4 +34,3 @@ def warning(text):
     elif reply == QtWidgets.QMessageBox.Cancel:
         return False
     return msg
-

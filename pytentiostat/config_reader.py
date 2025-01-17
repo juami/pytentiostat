@@ -1,12 +1,12 @@
-import yaml
 import datetime
-import sys
 import os
+import sys
+
+import yaml
 
 
 def parse_config_file(configlocation=None):
-    """
-    Reads config data from the config file
+    """Reads config data from the config file.
 
     the config file must be called config.yml.
 
@@ -54,8 +54,7 @@ def parse_config_file(configlocation=None):
 
 
 def param_checker(config_data):
-    """
-    Checks the parameters in the config file.
+    """Checks the parameters in the config file.
 
     If finds a parameter that is incorrect, will prompt user what is incorrect.
     Parameters
@@ -66,7 +65,6 @@ def param_checker(config_data):
     Returns
     -------
     None
-
     """
     average_number = {
         "name": "average_number",
@@ -401,9 +399,8 @@ def get_adv_params(adv_config_data):
 
 
 def check_config_inputs(arg):
-    """
-    Checks that all the data that should be numerical from that config
-    can be represented as a float.
+    """Checks that all the data that should be numerical from that config can
+    be represented as a float.
 
     Parameters
     ----------

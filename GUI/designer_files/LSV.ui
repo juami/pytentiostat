@@ -6707,7 +6707,7 @@
      <bool>false</bool>
     </property>
     <property name="statusTip">
-     <string>Click this button to edit hardset paraemeters used for all experiments.</string>
+     <string>Click this button to edit hardset parameters used for all experiments.</string>
     </property>
     <property name="whatsThis">
      <string/>

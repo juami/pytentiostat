@@ -1,8 +1,8 @@
 import sys
 
-from pyfirmata import Arduino, util
 import matplotlib.pyplot as plt
 import serial.tools.list_ports
+from pyfirmata import Arduino, util
 
 
 _BAUD_RATE = 115200
@@ -10,11 +10,11 @@ RESTING_DUTY_CYCLE = 0.5
 
 
 def _load_arduino():
-    """
-    Creates a list of all the active serial ports and then checks how many arduino unos are connected
+    """Creates a list of all the active serial ports and then checks how many
+    arduino unos are connected If only one is found, it's COM port is returned.
 
-    If only one is found, it's COM port is returned. If any other number is found, the corresponding
-    error message is printed and the program exits.
+    If any other number is found, the corresponding error message is printed
+    and the program exits.
 
 
     Returns
@@ -37,8 +37,9 @@ def _load_arduino():
 
 
 def _initialize_arduino(com):
-    """
-    Creates board object with Arduino(). If the connection fails it prints an error message and exits.
+    """Creates board object with Arduino(). If the connection fails it prints
+    an error message and exits.
+
     Parameters
     ----------
     com: string
@@ -55,8 +56,7 @@ def _initialize_arduino(com):
 
 
 def startup_routine():
-    """
-    Initializes the communication port with the JUAMI potentistat
+    """Initializes the communication port with the JUAMI potentistat.
 
     Returns
     -------
@@ -86,8 +86,8 @@ def startup_routine():
 
 
 def closing_routine(board, d9):
-    """
-    Called after experiment is finished. Function brings the potential back to 0 V and closes the board object.
+    """Called after experiment is finished. Function brings the potential back
+    to 0 V and closes the board object.
 
     Parameters
     ----------

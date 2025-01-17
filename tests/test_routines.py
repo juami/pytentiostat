@@ -1,7 +1,7 @@
 import mock
 import pytest
 
-from pytentiostat.routines import _load_arduino, _initialize_arduino
+from pytentiostat.routines import _initialize_arduino, _load_arduino
 
 
 class Dummy_port:

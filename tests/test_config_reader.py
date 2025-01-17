@@ -1,12 +1,15 @@
 import os
+
 import pytest
+import yaml
 
 from pytentiostat.config_reader import parse_config_file
+
 THIS_DIR = os.path.dirname(os.path.abspath(__file__))
 
 
 def test_parse_config_files():
-    confdir = os.path.join(THIS_DIR, 'static/')
+    confdir = os.path.join(THIS_DIR, "static/")
     config_data = parse_config_file(confdir)
     assert isinstance(config_data, dict)
     with (pytest.raises(SystemExit) as pytest_exit_object):

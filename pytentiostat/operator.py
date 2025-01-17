@@ -1,22 +1,21 @@
 # Standard Libraries
-import time
-import sys
-import numpy as np
 import signal
+import sys
+import time
 
+import numpy as np
+
+import pytentiostat.config_reader as cr
 
 # Pytentiostat function files
 from pytentiostat.plotter import plot_initializer, plot_updater
-import pytentiostat.config_reader as cr
-
 
 Interrupt = False
 Exp_running = False
 
 
 def _signal_handler(signum, frame):
-    """
-    Changes behavior of keyboard interrupt when experiment is running.
+    """Changes behavior of keyboard interrupt when experiment is running.
 
     Signal handler is called by signal.signal() when Ctrl+c is pressed by the user.
     It checks to see if exp_running is true and if so, it sets the global interrupt to true.
@@ -38,8 +37,7 @@ signal.signal(signal.SIGINT, _signal_handler)
 
 
 def start_exp(d9, normalized_start, data):
-    """
-    Initializes the writing pin
+    """Initializes the writing pin.
 
     Parameters
     ----------
@@ -78,8 +76,7 @@ def read_write(
     voltages,
     currents,
 ):
-    """
-    Performs a submitted read/write schedule to carry out an experiment.
+    """Performs a submitted read/write schedule to carry out an experiment.
 
     Writes voltages to pin 9 using d9, reads voltages from pin 0 and 2 using a0
     and a2, and calculates current from the voltage on a2.
@@ -175,8 +172,7 @@ def read_write(
 
 
 def experiment(config_data, a0, a2, d9):
-    """
-    Writes experiment to send to read_write.
+    """Writes experiment to send to read_write.
 
     Determines which experiment to run and applies the appropriate voltages
     to perform the experiment based on the inputs from the config file. Plots

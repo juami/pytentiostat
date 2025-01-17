@@ -1,11 +1,14 @@
-import pandas as pd
 import os
+
+import pandas as pd
+
 from pytentiostat.config_reader import get_output_params
 
 
-def save_data_to_file(config_data, data, override_outpath=None, override_ts=None):
-    """
-    Saves measured config_data to a csv file
+def save_data_to_file(
+    config_data, data, override_outpath=None, override_ts=None
+):
+    """Saves measured config_data to a csv file.
 
 
     Parameters
@@ -21,7 +24,6 @@ def save_data_to_file(config_data, data, override_outpath=None, override_ts=None
     Returns
     -------
         nothing
-
     """
 
     filename, export_path = get_output_params(
