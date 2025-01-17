@@ -30,9 +30,11 @@ class Ui_CA(object):
         self.window.show()
         return self.AP, self.window
 
-## CV
-from Load_config_GUI import Ui_Load    # more
+
 from Adv_params_GUI import Ui_Adv_Params
+
+## CV
+from Load_config_GUI import Ui_Load  # more
 
 
 class Ui_CV(object):
@@ -61,6 +63,7 @@ class Ui_CV(object):
         self.AP.setupUi(self.window)
         self.window.show()
         return self.AP, self.window
+
 
 ## LSV
 class Ui_LSV(object):
@@ -91,14 +94,12 @@ class Ui_LSV(object):
         return self.AP, self.window
 
 
-## main
-from LSV_GUI import Ui_LSV
-from CV_GUI import Ui_CV
 from CA_GUI import Ui_CA
 from CV_GUI import Ui_CV
 from Exp_type_GUI import Ui_Experiment
 from Load_config_GUI import Ui_Load
 
+## main
 ## main
 from LSV_GUI import Ui_LSV
 
