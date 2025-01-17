@@ -1,0 +1,8 @@
+python >=3
+pyfirmata
+matplotlib-base
+pyyaml
+pandas
+numpy
+pyserial
+pyside2

@@ -1,10 +1,12 @@
+# As of now, flake8 does not natively support configuration via pyproject.toml
+# https://github.com/microsoft/vscode-flake8/issues/135
 [flake8]
 exclude =
     .git,
     __pycache__,
     build,
     dist,
-    doc/source/conf.py,fla
+    doc/source/conf.py
     GUI/
 max-line-length = 115
 # Ignore some style 'errors' produced while formatting by 'black'
