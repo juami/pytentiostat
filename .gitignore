@@ -8,6 +8,7 @@ __pycache__/
 
 # Distribution / packaging
 .Python
+env/
 build/
 develop-eggs/
 dist/
@@ -23,7 +24,10 @@ wheels/
 *.egg-info/
 .installed.cfg
 *.egg
-MANIFEST
+bin/
+temp/
+tags/
+errors.err
 
 # PyInstaller
 #  Usually these files are written by a python script from a template
@@ -34,6 +38,7 @@ MANIFEST
 # Installer logs
 pip-log.txt
 pip-delete-this-directory.txt
+MANIFEST
 
 # Unit test / coverage reports
 htmlcov/
@@ -51,6 +56,11 @@ coverage.xml
 *.mo
 *.pot
 
+# Mr Developer
+.mr.developer.cfg
+.project
+.pydevproject
+
 # Django stuff:
 *.log
 local_settings.py
@@ -64,12 +74,31 @@ instance/
 .scrapy
 
 # Sphinx documentation
-docs/_build/
+docs/build/
+docs/source/generated/
+
+# pytest
+.pytest_cache/
 
 # PyBuilder
 target/
 
-# Jupyter Notebook
+# Editor files
+# mac
+.DS_Store
+*~
+
+# vim
+*.swp
+*.swo
+
+# pycharm
+.idea/
+
+# VSCode
+.vscode/
+
+# Ipython Notebook
 .ipynb_checkpoints
 
 # pyenv
