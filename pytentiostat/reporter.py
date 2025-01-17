@@ -3,11 +3,10 @@ import os
 from pytentiostat.config_reader import get_output_params
 
 
-def save_data_to_file(
-    config_data, data, override_outpath=None, override_ts=None
-):
+def save_data_to_file(config_data, data, override_outpath=None, override_ts=None):
     """
     Saves measured config_data to a csv file
+
 
     Parameters
     ----------

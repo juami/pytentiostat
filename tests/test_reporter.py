@@ -7,6 +7,7 @@ from pytentiostat.config_reader import parse_config_file
 
 THIS_DIR = os.path.dirname(os.path.abspath(__file__))
 
+
 @pytest.mark.parametrize(
     "input,expected",
     [

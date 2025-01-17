@@ -234,7 +234,6 @@ def experiment(config_data, a0, a2, d9):
                 " in adv.config.yml is not a number" + "\x1b[0m",
             )
             sys.exit()
-    time_per_measurement = time_step * average_number
     # This will be loaded from config
     exp_type = cr.get_exp_type(config_data)
 

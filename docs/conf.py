@@ -13,12 +13,13 @@
 # import os
 # import sys
 # sys.path.insert(0, os.path.abspath('.'))
-import sphinx_rtd_theme
+# import sphinx_rtd_theme
 
 # -- Project information -----------------------------------------------------
 
 project = 'Pytentiostat'
-copyright = "2019, Austin Plymill, Jeremy Hitt, Yao Tong, Michael Spencer, Sun Hwi Bang, Weizi Yuan, Simon J. L. Billinge"
+copyright = ("2019, Austin Plymill, Jeremy Hitt, Yao Tong, Michael Spencer, Sun Hwi Bang, Weizi Yuan, "
+             "Simon J. L. Billinge")
 author = "Austin Plymill, Jeremy Hitt, Yao Tong, Michael Spencer, Sun Hwi Bang, Weizi Yuan, Simon J. L. Billinge"
 
 # The full version, including alpha/beta/rc tags
@@ -49,7 +50,7 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 # a list of builtin themes.
 #
 html_theme = 'sphinx_rtd_theme'
-#html_theme = 'alabaster'
+# html_theme = 'alabaster'
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,

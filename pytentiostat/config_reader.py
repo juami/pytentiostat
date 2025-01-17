@@ -155,10 +155,10 @@ def param_checker(config_data):
 
     for i in [data_out_name, data_out_path]:
         val = i["value"]
-        if isinstance(val, str) == False:
+        if not isinstance(val, str):
             sys.exit(
                 """Warning! \nThe value {value} for {name} in config.yml is not valid.
-                     \nPlease enter a new value for {name} avoiding unusual characters. 
+                     \nPlease enter a new value for {name} avoiding unusual characters.
                      \nExiting...""".format(
                     **i
                 )
@@ -166,10 +166,10 @@ def param_checker(config_data):
 
     for i in [average_number, cycle_number, step_number]:
         val = i["value"]
-        if isinstance(val, int) == False:
+        if not isinstance(val, int):
             sys.exit(
                 """Warning! \nThe value {value} for {name} in config.yml is not valid.
-                     \nPlease change the entry to a positive integer. 
+                     \nPlease change the entry to a positive integer.
                      \nExiting...""".format(
                     **i
                 )
@@ -193,7 +193,7 @@ def param_checker(config_data):
         voltage,
     ]:
         val = i["value"]
-        if isinstance(val, (float, int)) == False:
+        if not isinstance(val, (float, int)):
             sys.exit(
                 """Warning! \nThe value {value} for {name} in config.yml is not valid.
                      \nPlease change the entry to a number.
@@ -229,7 +229,7 @@ def param_checker(config_data):
     val = exp_type["value"]
     if val not in exp_types:
         sys.exit(
-            """Warning! \nThe entry {value} for {name} is not valid. 
+            """Warning! \nThe entry {value} for {name} is not valid.
                  \nPlease change the entry to CA, CV, or LSV.
                  \nExiting...""".format(
                 **exp_type
@@ -265,9 +265,7 @@ def param_checker(config_data):
         sys.exit(
             """Warning! \nThe total time for range in config.yml in not valid.
                  \nPlease enter a new value greater than 0 and try again.
-                 \nExiting...""".format(
-                str(time_for_range)
-            )
+                 \nExiting..."""
         )
 
     lag_tolerance = 2
@@ -419,7 +417,7 @@ def check_config_inputs(arg):
     """
     try:
         return isinstance(float(arg), float)
-    except:
+    except ValueError or TypeError:
         return False
 
 
