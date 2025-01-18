@@ -4,7 +4,7 @@
 
 **Changed:**
 
-* <news item>
+* Updated package to new scikit-package standards
 
 **Deprecated:**
 

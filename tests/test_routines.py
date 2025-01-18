@@ -1,17 +1,19 @@
 import mock
 import pytest
 
-from pytentiostat.routines import _load_arduino, _initialize_arduino
-from pytentiostat.config_reader import get_rest
+from pytentiostat.routines import _initialize_arduino, _load_arduino
+
 
 class Dummy_port:
     def __init__(self):
         self.description = "default"
         self.device = "com"
 
+
 class Dummy_arduino:
     def __init__(self):
         self.name = None
+
 
 def test_load_arduino():
     good_port = Dummy_port()
@@ -39,7 +41,7 @@ def test_initialize_arduino():
     da = Dummy_arduino()
     da.name = "good_arduino"
 
-    with pytest.raises(SystemExit):
+    with pytest.raises(RuntimeError):
         _initialize_arduino("bad_port")
     with mock.patch(
         "pytentiostat.routines.Arduino",
