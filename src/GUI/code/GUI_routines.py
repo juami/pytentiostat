@@ -2,7 +2,7 @@ import sys
 
 import serial.tools.list_ports
 from pyfirmata import Arduino, util
-from PySide2.QtGui import QIcon
+from PySide6.QtGui import QIcon
 from warning_GUI import warning
 
 _BAUD_RATE = 115200

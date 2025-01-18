@@ -3,7 +3,7 @@ from CV_GUI import Ui_CV
 from Exp_type_GUI import Ui_Experiment
 from GUI_load_config import Ui_Load
 from LSV_GUI import Ui_LSV
-from PySide2 import QtCore, QtGui, QtWidgets
+from PySide6 import QtCore, QtGui, QtWidgets
 
 
 class Ui_MainWindow(object):

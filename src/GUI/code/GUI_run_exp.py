@@ -10,7 +10,7 @@ from GUI_plotter import Ui_Plot
 
 ## Local libraries
 # GUI window
-from PySide2.QtGui import QIcon
+from PySide6.QtGui import QIcon
 from warning_GUI import warning
 
 

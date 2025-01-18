@@ -1,7 +1,7 @@
 import sys
 
-from PySide2 import QtGui
-from PySide2.QtWidgets import QApplication, QFileDialog, QWidget
+from PySide6 import QtGui
+from PySide6.QtWidgets import QApplication, QFileDialog, QWidget
 
 
 class Ui_Load(QWidget):
