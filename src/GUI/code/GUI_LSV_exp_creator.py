@@ -8,8 +8,8 @@ from matplotlib.backends.backend_qt5agg import (
     FigureCanvasQTAgg as FigureCanvas,
 )
 from matplotlib.figure import Figure
-from PySide2.QtGui import QIcon
-from PySide2.QtWidgets import QGridLayout, QListWidgetItem
+from PySide6.QtGui import QIcon
+from PySide6.QtWidgets import QGridLayout, QListWidgetItem
 from warning_GUI import warning
 
 

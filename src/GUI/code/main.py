@@ -11,7 +11,7 @@ from GUI_run_exp import run_exp_main
 ## Local libraries
 # GUI window
 from mainwindow_GUI import Ui_MainWindow
-from PySide2.QtWidgets import QApplication, QGridLayout, QMainWindow
+from PySide6.QtWidgets import QApplication, QGridLayout, QMainWindow
 
 # load the main window
 app = QApplication(sys.argv)

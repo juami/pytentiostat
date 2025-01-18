@@ -6,8 +6,8 @@ from GUI_CA_exp_creator import CA_main, CA_window_writer
 from GUI_config_reader import parse_config_file
 from GUI_CV_exp_creator import CV_main, CV_window_writer
 from GUI_LSV_exp_creator import LSV_main, LSV_window_writer
-from PySide2.QtGui import QIcon
-from PySide2.QtWidgets import QListWidgetItem
+from PySide6.QtGui import QIcon
+from PySide6.QtWidgets import QListWidgetItem
 
 ## Local libraries
 # GUI window
