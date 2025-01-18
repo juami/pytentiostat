@@ -132,7 +132,8 @@ trying to commit again.
 
 Improvements and fixes are always appreciated.
 
-Before contributing, please read our `Code of Conduct <https://github.com/juami/pytentiostat/blob/main/CODE_OF_CONDUCT.rst>`_.
+Before contributing, please read our `Code of Conduct <https://github.com/juami/pytentiostat/blob/main/CODE_OF_CONDUCT.rst>`_
+and `Our coding standards <https://billingegroup.github.io/scikit-package/frequently-asked-questions.html#billinge-group-standards>`_.
 
 Contact
 -------
