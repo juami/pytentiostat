@@ -53,9 +53,9 @@ Citation
 If you use pytentiostat in a scientific publication, we would like you to cite this package as
 
 Yuguang C. Li, Elizabeth L. Melenbrink, Guy J. Cordonier, Christopher Boggs, Anupama Khan,
-Morko Kwembur Isaac, Lameck Kabambalika Nkhonjera, David Bahati, Billinge, Simon J.,
+Morko Kwembur Isaac, Lameck Kabambalika Nkhonjera, David Bahati, Simon J. L. Billinge,
 Sossina M. Haile, Rodney A. Kreuter, Robert M. Crable, and Thomas E. Mallouk. “An easily fabricated
-low-cost potentiostat coupled with user- friendly software for introducing students to electrochemical
+low-cost potentiostat coupled with user-friendly software for introducing students to electrochemical
 reactions and electroanalytical techniques”. In: J. Chem. Educ. 95 (2018), pp. 1658-1661. DOI:
 10.1021/acs.jchemed.8b00340
 

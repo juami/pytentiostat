@@ -1,30 +1,60 @@
 :tocdepth: -1
 
-|title|
-=======
-
-.. |title| replace:: pytentiostat package
+pytentiostat package
+====================
 
 .. automodule:: pytentiostat
     :members:
     :undoc-members:
     :show-inheritance:
 
-Subpackages
------------
-
-.. toctree::
-   pytentiostat.example_package
-
 Submodules
 ----------
 
-|module|
---------
+pytentiostat.config_reader module
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. |module| replace:: pytentiostat.example_submodule module
+.. automodule:: pytentiostat.config_reader
+    :members:
+    :undoc-members:
+    :show-inheritance:
 
-.. automodule:: pytentiostat.example_submodule
+pytentiostat.main module
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. automodule:: pytentiostat.main
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+pytentiostat.operator module
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. automodule:: pytentiostat.operator
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+pytentiostat.plotter module
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. automodule:: pytentiostat.plotter
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+pytentiostat.reporter module
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. automodule:: pytentiostat.reporter
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+pytentiostat.routines module
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. automodule:: pytentiostat.routines
     :members:
     :undoc-members:
     :show-inheritance:
