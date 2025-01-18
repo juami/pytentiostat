@@ -39,10 +39,10 @@ Python code for the JUAMI potentiostat
 
 The JUAMI potentiostat is a low-cost potentiostat, for classroom demonstrations and simple lab potentiostat experiments, that is built on the Arduino platform.
 
-This project is to build a Python API for controlling the potentiostat.
+This project provides a Python API for controlling the potentiostat.
 
 For more info about JUAMI: http://www.juami.org/
-For more questions about the pytentionstat project: Austin Plymill: austinplymill2021@u.northwestern.edu
+For more questions about the pytentiostat project: Dylan Bardgett (DylanBardgett2024@u.northwestern.edu), Austin Plymill (austinplymill2021@u.northwestern.edu)
 Simon Billinge: sb2896@columbia.edu
 
 For more information about the pytentiostat library, please consult our `online documentation <https://juami.github.io/pytentiostat>`_.
@@ -61,6 +61,9 @@ reactions and electroanalytical techniques”. In: J. Chem. Educ. 95 (2018), pp.
 
 Installation
 ------------
+
+For the JUAMI hackathon participants, Please see installation instructions  the
+Support and Participation section below.
 
 The preferred method is to use `Miniconda Python
 <https://docs.conda.io/projects/miniconda/en/latest/miniconda-install.html>`_
@@ -109,8 +112,10 @@ If you see a bug or want to request a feature, please `report it as an issue <ht
 Feel free to fork the project and contribute. To install pytentiostat
 in a development mode, with its sources being directly used by Python
 rather than copied to a package directory, use the following in the root
-directory ::
+directory of the package (i.e., the top level `pytentiostat/` directory)::
 
+        conda create -n pytentiostat-dev python=3.12
+        conda install --file requirements/conda.txt
         pip install -e .
 
 To ensure code quality and to prevent accidental commits into the default branch, please set up the use of our pre-commit
