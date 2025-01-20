@@ -292,7 +292,7 @@ class Ui_MainWindow(object):
         font = QtGui.QFont()
         font.setFamily("Arial")
         font.setBold(True)
-        font.setLegacyWeight(75) 
+        font.setLegacyWeight(75)
         self.experiment_label.setFont(font)
         self.experiment_label.setContextMenuPolicy(QtCore.Qt.NoContextMenu)
         self.experiment_label.setAcceptDrops(False)

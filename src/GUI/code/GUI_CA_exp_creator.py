@@ -4,9 +4,7 @@ from functools import partial
 
 import numpy as np
 import yaml
-from matplotlib.backends.backend_qtagg import (
-    FigureCanvasQTAgg as FigureCanvas,
-)
+from matplotlib.backends.backend_qtagg import FigureCanvasQTAgg as FigureCanvas
 from matplotlib.figure import Figure
 from PySide6.QtGui import QIcon
 from PySide6.QtWidgets import QGridLayout, QListWidgetItem
