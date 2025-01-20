@@ -250,7 +250,7 @@ class Ui_LSV(object):
         font = QtGui.QFont()
         font.setFamily("Arial")
         font.setBold(True)
-        font.setWeight(75)
+        font.setLegacyWeight(75)
         self.rest_time_label.setFont(font)
         self.rest_time_label.setContextMenuPolicy(QtCore.Qt.NoContextMenu)
         self.rest_time_label.setAcceptDrops(False)
@@ -447,7 +447,7 @@ class Ui_LSV(object):
         font = QtGui.QFont()
         font.setFamily("Arial")
         font.setBold(True)
-        font.setWeight(75)
+        font.setLegacyWeight(75)
         self.experiment_type_label.setFont(font)
         self.experiment_type_label.setContextMenuPolicy(
             QtCore.Qt.NoContextMenu
@@ -479,7 +479,7 @@ class Ui_LSV(object):
         font = QtGui.QFont()
         font.setFamily("Arial")
         font.setBold(True)
-        font.setWeight(75)
+        font.setLegacyWeight(75)
         self.experiment_step_number.setFont(font)
         self.experiment_step_number.setText("")
         self.experiment_step_number.setFrame(True)
@@ -650,7 +650,7 @@ class Ui_LSV(object):
         font = QtGui.QFont()
         font.setFamily("Arial")
         font.setBold(True)
-        font.setWeight(75)
+        font.setLegacyWeight(75)
         self.select_output_filepath_button.setFont(font)
         self.select_output_filepath_button.setAcceptDrops(False)
         self.select_output_filepath_button.setWhatsThis("")
@@ -847,7 +847,7 @@ class Ui_LSV(object):
         font = QtGui.QFont()
         font.setFamily("Arial")
         font.setBold(True)
-        font.setWeight(75)
+        font.setLegacyWeight(75)
         self.sweep_rate_label.setFont(font)
         self.sweep_rate_label.setContextMenuPolicy(QtCore.Qt.NoContextMenu)
         self.sweep_rate_label.setAcceptDrops(False)
@@ -1044,7 +1044,7 @@ class Ui_LSV(object):
         font = QtGui.QFont()
         font.setFamily("Arial")
         font.setBold(True)
-        font.setWeight(75)
+        font.setLegacyWeight(75)
         self.end_voltage_label.setFont(font)
         self.end_voltage_label.setContextMenuPolicy(QtCore.Qt.NoContextMenu)
         self.end_voltage_label.setAcceptDrops(False)
@@ -1243,7 +1243,7 @@ class Ui_LSV(object):
         font = QtGui.QFont()
         font.setFamily("Arial")
         font.setBold(True)
-        font.setWeight(75)
+        font.setLegacyWeight(75)
         self.general_parameters_label.setFont(font)
         self.general_parameters_label.setContextMenuPolicy(
             QtCore.Qt.NoContextMenu
@@ -1275,7 +1275,7 @@ class Ui_LSV(object):
         font = QtGui.QFont()
         font.setFamily("Arial")
         font.setBold(True)
-        font.setWeight(75)
+        font.setLegacyWeight(75)
         self.experiment_end_voltage.setFont(font)
         self.experiment_end_voltage.setText("")
         self.experiment_end_voltage.setFrame(True)
@@ -1324,7 +1324,7 @@ class Ui_LSV(object):
         font = QtGui.QFont()
         font.setFamily("Arial")
         font.setBold(True)
-        font.setWeight(75)
+        font.setLegacyWeight(75)
         self.experiment_type_verify.setFont(font)
         self.experiment_type_verify.setStyleSheet(
             "background-color: rgb(240, 240, 240);"
@@ -1351,7 +1351,7 @@ class Ui_LSV(object):
         font = QtGui.QFont()
         font.setFamily("Arial")
         font.setBold(True)
-        font.setWeight(75)
+        font.setLegacyWeight(75)
         self.experiment_start_voltage.setFont(font)
         self.experiment_start_voltage.setText("")
         self.experiment_start_voltage.setFrame(True)
@@ -1540,7 +1540,7 @@ class Ui_LSV(object):
         font = QtGui.QFont()
         font.setFamily("Arial")
         font.setBold(True)
-        font.setWeight(75)
+        font.setLegacyWeight(75)
         self.output_filename_label.setFont(font)
         self.output_filename_label.setContextMenuPolicy(
             QtCore.Qt.NoContextMenu
@@ -1572,7 +1572,7 @@ class Ui_LSV(object):
         font = QtGui.QFont()
         font.setFamily("Arial")
         font.setBold(True)
-        font.setWeight(75)
+        font.setLegacyWeight(75)
         self.experiment_file_name.setFont(font)
         self.experiment_file_name.setInputMethodHints(QtCore.Qt.ImhNone)
         self.experiment_file_name.setText("")
@@ -1762,7 +1762,7 @@ class Ui_LSV(object):
         font = QtGui.QFont()
         font.setFamily("Arial")
         font.setBold(True)
-        font.setWeight(75)
+        font.setLegacyWeight(75)
         self.step_number_label.setFont(font)
         self.step_number_label.setContextMenuPolicy(QtCore.Qt.NoContextMenu)
         self.step_number_label.setAcceptDrops(False)
@@ -1792,7 +1792,7 @@ class Ui_LSV(object):
         font = QtGui.QFont()
         font.setFamily("Arial")
         font.setBold(True)
-        font.setWeight(75)
+        font.setLegacyWeight(75)
         self.experiment_sweep_rate.setFont(font)
         self.experiment_sweep_rate.setText("")
         self.experiment_sweep_rate.setFrame(True)
@@ -1983,7 +1983,7 @@ class Ui_LSV(object):
         font = QtGui.QFont()
         font.setFamily("Arial")
         font.setBold(True)
-        font.setWeight(75)
+        font.setLegacyWeight(75)
         self.experiment_parameters_label.setFont(font)
         self.experiment_parameters_label.setContextMenuPolicy(
             QtCore.Qt.NoContextMenu
@@ -2019,7 +2019,7 @@ class Ui_LSV(object):
         font = QtGui.QFont()
         font.setFamily("Arial")
         font.setBold(True)
-        font.setWeight(75)
+        font.setLegacyWeight(75)
         self.experiment_duration.setFont(font)
         self.experiment_duration.setText("")
         self.experiment_duration.setFrame(True)
@@ -2043,7 +2043,7 @@ class Ui_LSV(object):
         font.setFamily("Arial")
         font.setPointSize(7)
         font.setBold(True)
-        font.setWeight(75)
+        font.setLegacyWeight(75)
         self.experiment_file_path.setFont(font)
         self.experiment_file_path.setText("")
         self.experiment_file_path.setFrame(True)
@@ -2235,7 +2235,7 @@ class Ui_LSV(object):
         font = QtGui.QFont()
         font.setFamily("Arial")
         font.setBold(True)
-        font.setWeight(75)
+        font.setLegacyWeight(75)
         self.experiment_preview_label.setFont(font)
         self.experiment_preview_label.setContextMenuPolicy(
             QtCore.Qt.NoContextMenu
@@ -2294,7 +2294,7 @@ class Ui_LSV(object):
         font = QtGui.QFont()
         font.setFamily("Arial")
         font.setBold(True)
-        font.setWeight(75)
+        font.setLegacyWeight(75)
         self.sweep_rate_units_label.setFont(font)
         self.sweep_rate_units_label.setStatusTip("")
         self.sweep_rate_units_label.setStyleSheet(
@@ -2487,7 +2487,7 @@ class Ui_LSV(object):
         font = QtGui.QFont()
         font.setFamily("Arial")
         font.setBold(True)
-        font.setWeight(75)
+        font.setLegacyWeight(75)
         self.experiment_duration_label.setFont(font)
         self.experiment_duration_label.setContextMenuPolicy(
             QtCore.Qt.NoContextMenu
@@ -2548,7 +2548,7 @@ class Ui_LSV(object):
         font = QtGui.QFont()
         font.setFamily("Arial")
         font.setBold(True)
-        font.setWeight(75)
+        font.setLegacyWeight(75)
         self.v_vs_label_1.setFont(font)
         self.v_vs_label_1.setStatusTip("")
         self.v_vs_label_1.setStyleSheet(
@@ -2599,7 +2599,7 @@ class Ui_LSV(object):
         font = QtGui.QFont()
         font.setFamily("Arial")
         font.setBold(True)
-        font.setWeight(75)
+        font.setLegacyWeight(75)
         self.v_vs_label_2.setFont(font)
         self.v_vs_label_2.setStatusTip("")
         self.v_vs_label_2.setStyleSheet(
@@ -2623,7 +2623,7 @@ class Ui_LSV(object):
         font = QtGui.QFont()
         font.setFamily("Arial")
         font.setBold(True)
-        font.setWeight(75)
+        font.setLegacyWeight(75)
         self.experiment_rest_time.setFont(font)
         self.experiment_rest_time.setText("")
         self.experiment_rest_time.setFrame(True)
@@ -2793,7 +2793,7 @@ class Ui_LSV(object):
         font = QtGui.QFont()
         font.setFamily("Arial")
         font.setBold(True)
-        font.setWeight(75)
+        font.setLegacyWeight(75)
         self.advanced_parameters_button.setFont(font)
         self.advanced_parameters_button.setContextMenuPolicy(
             QtCore.Qt.PreventContextMenu
@@ -2996,7 +2996,7 @@ class Ui_LSV(object):
         font = QtGui.QFont()
         font.setFamily("Arial")
         font.setBold(True)
-        font.setWeight(75)
+        font.setLegacyWeight(75)
         self.start_voltage_label.setFont(font)
         self.start_voltage_label.setContextMenuPolicy(QtCore.Qt.NoContextMenu)
         self.start_voltage_label.setAcceptDrops(False)
@@ -3053,7 +3053,7 @@ class Ui_LSV(object):
         font = QtGui.QFont()
         font.setFamily("Arial")
         font.setBold(True)
-        font.setWeight(75)
+        font.setLegacyWeight(75)
         self.rest_time_units_label.setFont(font)
         self.rest_time_units_label.setStatusTip("")
         self.rest_time_units_label.setStyleSheet(
@@ -3225,7 +3225,7 @@ class Ui_LSV(object):
         font = QtGui.QFont()
         font.setFamily("Arial")
         font.setBold(True)
-        font.setWeight(75)
+        font.setLegacyWeight(75)
         self.save_experiment_file_button.setFont(font)
         self.save_experiment_file_button.setContextMenuPolicy(
             QtCore.Qt.PreventContextMenu
@@ -3409,7 +3409,7 @@ class Ui_LSV(object):
         font = QtGui.QFont()
         font.setFamily("Arial")
         font.setBold(True)
-        font.setWeight(75)
+        font.setLegacyWeight(75)
         self.generate_preview_button.setFont(font)
         self.generate_preview_button.setContextMenuPolicy(
             QtCore.Qt.PreventContextMenu
@@ -3431,7 +3431,7 @@ class Ui_LSV(object):
         self.voltage_ref.setGeometry(QtCore.QRect(310, 300, 101, 31))
         font = QtGui.QFont()
         font.setBold(False)
-        font.setWeight(50)
+        font.setLegacyWeight(50)
         self.voltage_ref.setFont(font)
         self.voltage_ref.setEditable(False)
         self.voltage_ref.setInsertPolicy(QtWidgets.QComboBox.InsertAtBottom)
@@ -3442,7 +3442,7 @@ class Ui_LSV(object):
         self.voltage_ref_2.setGeometry(QtCore.QRect(310, 340, 101, 31))
         font = QtGui.QFont()
         font.setBold(False)
-        font.setWeight(50)
+        font.setLegacyWeight(50)
         self.voltage_ref_2.setFont(font)
         self.voltage_ref_2.setEditable(False)
         self.voltage_ref_2.setInsertPolicy(QtWidgets.QComboBox.InsertAtBottom)

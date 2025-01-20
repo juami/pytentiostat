@@ -292,7 +292,7 @@ class Ui_MainWindow(object):
         font = QtGui.QFont()
         font.setFamily("Arial")
         font.setBold(True)
-        font.setWeight(75)
+        font.setLegacyWeight(75) 
         self.experiment_label.setFont(font)
         self.experiment_label.setContextMenuPolicy(QtCore.Qt.NoContextMenu)
         self.experiment_label.setAcceptDrops(False)
@@ -489,7 +489,7 @@ class Ui_MainWindow(object):
         font = QtGui.QFont()
         font.setFamily("Arial")
         font.setBold(True)
-        font.setWeight(75)
+        font.setLegacyWeight(75)
         self.time_remaining_label.setFont(font)
         self.time_remaining_label.setContextMenuPolicy(QtCore.Qt.NoContextMenu)
         self.time_remaining_label.setAcceptDrops(False)
@@ -663,7 +663,7 @@ class Ui_MainWindow(object):
         font = QtGui.QFont()
         font.setFamily("Arial")
         font.setBold(True)
-        font.setWeight(75)
+        font.setLegacyWeight(75)
         self.add_experiment_button.setFont(font)
         self.add_experiment_button.setContextMenuPolicy(
             QtCore.Qt.PreventContextMenu
@@ -894,7 +894,7 @@ class Ui_MainWindow(object):
         font = QtGui.QFont()
         font.setFamily("Arial")
         font.setBold(True)
-        font.setWeight(75)
+        font.setLegacyWeight(75)
         self.experiment_status_label.setFont(font)
         self.experiment_status_label.setContextMenuPolicy(
             QtCore.Qt.NoContextMenu
@@ -1087,7 +1087,7 @@ class Ui_MainWindow(object):
         font = QtGui.QFont()
         font.setFamily("Arial")
         font.setBold(True)
-        font.setWeight(75)
+        font.setLegacyWeight(75)
         self.remove_experiment_button.setFont(font)
         self.remove_experiment_button.setContextMenuPolicy(
             QtCore.Qt.PreventContextMenu
@@ -1301,7 +1301,7 @@ class Ui_MainWindow(object):
         font = QtGui.QFont()
         font.setFamily("Arial")
         font.setBold(True)
-        font.setWeight(75)
+        font.setLegacyWeight(75)
         self.edit_experiment_button.setFont(font)
         self.edit_experiment_button.setContextMenuPolicy(
             QtCore.Qt.PreventContextMenu
@@ -1547,7 +1547,7 @@ class Ui_MainWindow(object):
         font = QtGui.QFont()
         font.setFamily("Arial")
         font.setBold(True)
-        font.setWeight(75)
+        font.setLegacyWeight(75)
         self.potentiostat_connection_label.setFont(font)
         self.potentiostat_connection_label.setContextMenuPolicy(
             QtCore.Qt.NoContextMenu
@@ -1749,7 +1749,7 @@ class Ui_MainWindow(object):
         font = QtGui.QFont()
         font.setFamily("Arial")
         font.setBold(True)
-        font.setWeight(75)
+        font.setLegacyWeight(75)
         self.load_experiment_button.setFont(font)
         self.load_experiment_button.setContextMenuPolicy(
             QtCore.Qt.PreventContextMenu
@@ -1954,7 +1954,7 @@ class Ui_MainWindow(object):
         font = QtGui.QFont()
         font.setFamily("Arial")
         font.setBold(True)
-        font.setWeight(75)
+        font.setLegacyWeight(75)
         self.start_abort_experiment_label.setFont(font)
         self.start_abort_experiment_label.setContextMenuPolicy(
             QtCore.Qt.NoContextMenu
@@ -2138,7 +2138,7 @@ class Ui_MainWindow(object):
         font = QtGui.QFont()
         font.setFamily("Arial")
         font.setBold(True)
-        font.setWeight(75)
+        font.setLegacyWeight(75)
         self.find_potentiostat_button.setFont(font)
         self.find_potentiostat_button.setContextMenuPolicy(
             QtCore.Qt.PreventContextMenu
@@ -2427,7 +2427,7 @@ class Ui_MainWindow(object):
         font = QtGui.QFont()
         font.setFamily("Arial")
         font.setBold(True)
-        font.setWeight(75)
+        font.setLegacyWeight(75)
         self.disconnect_potentiostat_button.setFont(font)
         self.disconnect_potentiostat_button.setContextMenuPolicy(
             QtCore.Qt.PreventContextMenu
@@ -2469,11 +2469,11 @@ class Ui_MainWindow(object):
         self.menuHelp = QtWidgets.QMenu(self.menubar)
         self.menuHelp.setObjectName("menuHelp")
         MainWindow.setMenuBar(self.menubar)
-        self.actionSdgsdg = QtWidgets.QAction(MainWindow)
+        self.actionSdgsdg = QtGui.QAction(MainWindow)
         self.actionSdgsdg.setObjectName("actionSdgsdg")
-        self.actionOpen = QtWidgets.QAction(MainWindow)
+        self.actionOpen = QtGui.QAction(MainWindow)
         self.actionOpen.setObjectName("actionOpen")
-        self.actionEdit = QtWidgets.QAction(MainWindow)
+        self.actionEdit = QtGui.QAction(MainWindow)
         self.actionEdit.setObjectName("actionEdit")
         self.menubar.addAction(self.menuSdgsdgsdg.menuAction())
         self.menubar.addAction(self.menuEdit.menuAction())

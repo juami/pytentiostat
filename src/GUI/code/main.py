@@ -66,4 +66,4 @@ def start_exp(grid):
 
 ui.start_abort_experiment_button.clicked.connect(partial(start_exp, grid))
 
-sys.exit(app.exec_())
+sys.exit(app.exec())
