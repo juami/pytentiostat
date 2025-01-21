@@ -8,7 +8,7 @@
 
 **Deprecated:**
 
-* Updated deprecated instances of app.exec_() to app.exec()
+* Updated a few deprecated instances of app.exec()
 
 **Removed:**
 
