@@ -202,7 +202,7 @@ class Ui_Adv_Params(object):
         font = QtGui.QFont()
         font.setFamily("Arial")
         font.setBold(True)
-        font.setWeight(75)
+        font.setWeight(font.Weight.Medium)
         self.experiment_conversion_factor_label.setFont(font)
         self.experiment_conversion_factor_label.setContextMenuPolicy(
             QtCore.Qt.NoContextMenu
@@ -411,7 +411,7 @@ class Ui_Adv_Params(object):
         font = QtGui.QFont()
         font.setFamily("Arial")
         font.setBold(True)
-        font.setWeight(75)
+        font.setWeight(font.Weight.Medium)
         self.experiment_averag_number_label.setFont(font)
         self.experiment_averag_number_label.setContextMenuPolicy(
             QtCore.Qt.NoContextMenu
@@ -449,7 +449,7 @@ class Ui_Adv_Params(object):
         font = QtGui.QFont()
         font.setFamily("Arial")
         font.setBold(True)
-        font.setWeight(75)
+        font.setWeight(font.Weight.Medium)
         self.experiment_setpoint_gain.setFont(font)
         self.experiment_setpoint_gain.setStyleSheet("")
         self.experiment_setpoint_gain.setFrame(True)
@@ -642,7 +642,7 @@ class Ui_Adv_Params(object):
         font = QtGui.QFont()
         font.setFamily("Arial")
         font.setBold(True)
-        font.setWeight(75)
+        font.setWeight(font.Weight.Medium)
         self.experiment_shunt_resistor_label.setFont(font)
         self.experiment_shunt_resistor_label.setContextMenuPolicy(
             QtCore.Qt.NoContextMenu
@@ -849,7 +849,7 @@ class Ui_Adv_Params(object):
         font = QtGui.QFont()
         font.setFamily("Arial")
         font.setBold(True)
-        font.setWeight(75)
+        font.setWeight(font.Weight.Medium)
         self.advanced_parameters_label.setFont(font)
         self.advanced_parameters_label.setContextMenuPolicy(
             QtCore.Qt.NoContextMenu
@@ -887,7 +887,7 @@ class Ui_Adv_Params(object):
         font = QtGui.QFont()
         font.setFamily("Arial")
         font.setBold(True)
-        font.setWeight(75)
+        font.setWeight(font.Weight.Medium)
         self.experiment_shunt_resistor.setFont(font)
         self.experiment_shunt_resistor.setStyleSheet("")
         self.experiment_shunt_resistor.setFrame(True)
@@ -915,7 +915,7 @@ class Ui_Adv_Params(object):
         font = QtGui.QFont()
         font.setFamily("Arial")
         font.setBold(True)
-        font.setWeight(75)
+        font.setWeight(font.Weight.Medium)
         self.experiment_setpoint_offset.setFont(font)
         self.experiment_setpoint_offset.setStyleSheet("")
         self.experiment_setpoint_offset.setFrame(True)
@@ -1108,7 +1108,7 @@ class Ui_Adv_Params(object):
         font = QtGui.QFont()
         font.setFamily("Arial")
         font.setBold(True)
-        font.setWeight(75)
+        font.setWeight(font.Weight.Medium)
         self.experiment_time_step_label.setFont(font)
         self.experiment_time_step_label.setContextMenuPolicy(
             QtCore.Qt.NoContextMenu
@@ -1313,7 +1313,7 @@ class Ui_Adv_Params(object):
         font = QtGui.QFont()
         font.setFamily("Arial")
         font.setBold(True)
-        font.setWeight(75)
+        font.setWeight(font.Weight.Medium)
         self.experiment_setpoint_gain_label.setFont(font)
         self.experiment_setpoint_gain_label.setContextMenuPolicy(
             QtCore.Qt.NoContextMenu
@@ -1353,7 +1353,7 @@ class Ui_Adv_Params(object):
         font = QtGui.QFont()
         font.setFamily("Arial")
         font.setBold(True)
-        font.setWeight(75)
+        font.setWeight(font.Weight.Medium)
         self.experiment_conversion_factor.setFont(font)
         self.experiment_conversion_factor.setStyleSheet("")
         self.experiment_conversion_factor.setFrame(True)
@@ -1548,7 +1548,7 @@ class Ui_Adv_Params(object):
         font = QtGui.QFont()
         font.setFamily("Arial")
         font.setBold(True)
-        font.setWeight(75)
+        font.setWeight(font.Weight.Medium)
         self.experiment_setpoint_offset_label.setFont(font)
         self.experiment_setpoint_offset_label.setContextMenuPolicy(
             QtCore.Qt.NoContextMenu
@@ -1734,7 +1734,7 @@ class Ui_Adv_Params(object):
         font = QtGui.QFont()
         font.setFamily("Arial")
         font.setBold(True)
-        font.setWeight(75)
+        font.setWeight(font.Weight.Medium)
         self.save_experiment_file_button.setFont(font)
         self.save_experiment_file_button.setContextMenuPolicy(
             QtCore.Qt.PreventContextMenu
@@ -1770,7 +1770,7 @@ class Ui_Adv_Params(object):
         font = QtGui.QFont()
         font.setFamily("Arial")
         font.setBold(True)
-        font.setWeight(75)
+        font.setWeight(font.Weight.Medium)
         self.experiment_time_step.setFont(font)
         self.experiment_time_step.setStyleSheet("")
         self.experiment_time_step.setFrame(True)
@@ -1794,7 +1794,7 @@ class Ui_Adv_Params(object):
         font = QtGui.QFont()
         font.setFamily("Arial")
         font.setBold(True)
-        font.setWeight(75)
+        font.setWeight(font.Weight.Medium)
         self.experiment_averag_number.setFont(font)
         self.experiment_averag_number.setStyleSheet("")
         self.experiment_averag_number.setFrame(True)
@@ -1808,9 +1808,9 @@ class Ui_Adv_Params(object):
         )
         self.statusbar.setObjectName("statusbar")
         Adv_Params.setStatusBar(self.statusbar)
-        self.actionAg_AgCl = QtWidgets.QAction(Adv_Params)
+        self.actionAg_AgCl = QtGui.QAction(Adv_Params)
         self.actionAg_AgCl.setObjectName("actionAg_AgCl")
-        self.actionSCE = QtWidgets.QAction(Adv_Params)
+        self.actionSCE = QtGui.QAction(Adv_Params)
         self.actionSCE.setObjectName("actionSCE")
 
         self.retranslateUi(Adv_Params)

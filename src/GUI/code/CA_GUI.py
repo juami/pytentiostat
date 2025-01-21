@@ -230,7 +230,7 @@ class Ui_CA(object):
         font = QtGui.QFont()
         font.setFamily("Arial")
         font.setBold(True)
-        font.setWeight(75)
+        font.setWeight(font.Weight.Medium)
         self.rest_time_label.setFont(font)
         self.rest_time_label.setContextMenuPolicy(QtCore.Qt.NoContextMenu)
         self.rest_time_label.setAcceptDrops(False)
@@ -427,7 +427,7 @@ class Ui_CA(object):
         font = QtGui.QFont()
         font.setFamily("Arial")
         font.setBold(True)
-        font.setWeight(75)
+        font.setWeight(font.Weight.Medium)
         self.experiment_type_label.setFont(font)
         self.experiment_type_label.setContextMenuPolicy(
             QtCore.Qt.NoContextMenu
@@ -459,7 +459,7 @@ class Ui_CA(object):
         font = QtGui.QFont()
         font.setFamily("Arial")
         font.setBold(True)
-        font.setWeight(75)
+        font.setWeight(font.Weight.Medium)
         self.experiment_step_number.setFont(font)
         self.experiment_step_number.setStyleSheet("")
         self.experiment_step_number.setText("")
@@ -631,7 +631,7 @@ class Ui_CA(object):
         font = QtGui.QFont()
         font.setFamily("Arial")
         font.setBold(True)
-        font.setWeight(75)
+        font.setWeight(font.Weight.Medium)
         self.select_output_filepath_button.setFont(font)
         self.select_output_filepath_button.setAcceptDrops(False)
         self.select_output_filepath_button.setWhatsThis("")
@@ -828,7 +828,7 @@ class Ui_CA(object):
         font = QtGui.QFont()
         font.setFamily("Arial")
         font.setBold(True)
-        font.setWeight(75)
+        font.setWeight(font.Weight.Medium)
         self.experiment_time_label.setFont(font)
         self.experiment_time_label.setContextMenuPolicy(
             QtCore.Qt.NoContextMenu
@@ -1029,7 +1029,7 @@ class Ui_CA(object):
         font = QtGui.QFont()
         font.setFamily("Arial")
         font.setBold(True)
-        font.setWeight(75)
+        font.setWeight(font.Weight.Medium)
         self.general_parameters_label.setFont(font)
         self.general_parameters_label.setContextMenuPolicy(
             QtCore.Qt.NoContextMenu
@@ -1061,7 +1061,7 @@ class Ui_CA(object):
         font = QtGui.QFont()
         font.setFamily("Arial")
         font.setBold(True)
-        font.setWeight(75)
+        font.setWeight(font.Weight.Medium)
         self.experiment_time.setFont(font)
         self.experiment_time.setStyleSheet("")
         self.experiment_time.setText("")
@@ -1111,7 +1111,7 @@ class Ui_CA(object):
         font = QtGui.QFont()
         font.setFamily("Arial")
         font.setBold(True)
-        font.setWeight(75)
+        font.setWeight(font.Weight.Medium)
         self.experiment_type_verify.setFont(font)
         self.experiment_type_verify.setStyleSheet(
             "background-color: rgb(240, 240, 240);"
@@ -1136,7 +1136,7 @@ class Ui_CA(object):
         font = QtGui.QFont()
         font.setFamily("Arial")
         font.setBold(True)
-        font.setWeight(75)
+        font.setWeight(font.Weight.Medium)
         self.experiment_voltage.setFont(font)
         self.experiment_voltage.setStyleSheet("")
         self.experiment_voltage.setText("")
@@ -1326,7 +1326,7 @@ class Ui_CA(object):
         font = QtGui.QFont()
         font.setFamily("Arial")
         font.setBold(True)
-        font.setWeight(75)
+        font.setWeight(font.Weight.Medium)
         self.output_filename_label.setFont(font)
         self.output_filename_label.setContextMenuPolicy(
             QtCore.Qt.NoContextMenu
@@ -1358,7 +1358,7 @@ class Ui_CA(object):
         font = QtGui.QFont()
         font.setFamily("Arial")
         font.setBold(True)
-        font.setWeight(75)
+        font.setWeight(font.Weight.Medium)
         self.experiment_file_name.setFont(font)
         self.experiment_file_name.setStyleSheet("")
         self.experiment_file_name.setInputMethodHints(QtCore.Qt.ImhNone)
@@ -1549,7 +1549,7 @@ class Ui_CA(object):
         font = QtGui.QFont()
         font.setFamily("Arial")
         font.setBold(True)
-        font.setWeight(75)
+        font.setWeight(font.Weight.Medium)
         self.step_number_label.setFont(font)
         self.step_number_label.setContextMenuPolicy(QtCore.Qt.NoContextMenu)
         self.step_number_label.setAcceptDrops(False)
@@ -1748,7 +1748,7 @@ class Ui_CA(object):
         font = QtGui.QFont()
         font.setFamily("Arial")
         font.setBold(True)
-        font.setWeight(75)
+        font.setWeight(font.Weight.Medium)
         self.experiment_parameters_label.setFont(font)
         self.experiment_parameters_label.setContextMenuPolicy(
             QtCore.Qt.NoContextMenu
@@ -1784,7 +1784,7 @@ class Ui_CA(object):
         font = QtGui.QFont()
         font.setFamily("Arial")
         font.setBold(True)
-        font.setWeight(75)
+        font.setWeight(font.Weight.Medium)
         self.experiment_duration.setFont(font)
         self.experiment_duration.setStyleSheet("")
         self.experiment_duration.setText("")
@@ -1809,7 +1809,7 @@ class Ui_CA(object):
         font.setFamily("Arial")
         font.setPointSize(7)
         font.setBold(True)
-        font.setWeight(75)
+        font.setWeight(font.Weight.Medium)
         self.experiment_file_path.setFont(font)
         self.experiment_file_path.setStyleSheet("")
         self.experiment_file_path.setText("")
@@ -2002,7 +2002,7 @@ class Ui_CA(object):
         font = QtGui.QFont()
         font.setFamily("Arial")
         font.setBold(True)
-        font.setWeight(75)
+        font.setWeight(font.Weight.Medium)
         self.experiment_preview_label.setFont(font)
         self.experiment_preview_label.setContextMenuPolicy(
             QtCore.Qt.NoContextMenu
@@ -2203,7 +2203,7 @@ class Ui_CA(object):
         font = QtGui.QFont()
         font.setFamily("Arial")
         font.setBold(True)
-        font.setWeight(75)
+        font.setWeight(font.Weight.Medium)
         self.experiment_duration_button.setFont(font)
         self.experiment_duration_button.setContextMenuPolicy(
             QtCore.Qt.NoContextMenu
@@ -2264,7 +2264,7 @@ class Ui_CA(object):
         font = QtGui.QFont()
         font.setFamily("Arial")
         font.setBold(True)
-        font.setWeight(75)
+        font.setWeight(font.Weight.Medium)
         self.v_vs_label.setFont(font)
         self.v_vs_label.setStatusTip("")
         self.v_vs_label.setStyleSheet("background-color: rgb(240, 240, 240);")
@@ -2286,7 +2286,7 @@ class Ui_CA(object):
         font = QtGui.QFont()
         font.setFamily("Arial")
         font.setBold(True)
-        font.setWeight(75)
+        font.setWeight(font.Weight.Medium)
         self.experiment_rest_time.setFont(font)
         self.experiment_rest_time.setStyleSheet("")
         self.experiment_rest_time.setText("")
@@ -2457,7 +2457,7 @@ class Ui_CA(object):
         font = QtGui.QFont()
         font.setFamily("Arial")
         font.setBold(True)
-        font.setWeight(75)
+        font.setWeight(font.Weight.Medium)
         self.advanced_parameters_button.setFont(font)
         self.advanced_parameters_button.setContextMenuPolicy(
             QtCore.Qt.PreventContextMenu
@@ -2660,7 +2660,7 @@ class Ui_CA(object):
         font = QtGui.QFont()
         font.setFamily("Arial")
         font.setBold(True)
-        font.setWeight(75)
+        font.setWeight(font.Weight.Medium)
         self.voltage_label.setFont(font)
         self.voltage_label.setContextMenuPolicy(QtCore.Qt.NoContextMenu)
         self.voltage_label.setAcceptDrops(False)
@@ -2717,7 +2717,7 @@ class Ui_CA(object):
         font = QtGui.QFont()
         font.setFamily("Arial")
         font.setBold(True)
-        font.setWeight(75)
+        font.setWeight(font.Weight.Medium)
         self.rest_time_units_label.setFont(font)
         self.rest_time_units_label.setStatusTip("")
         self.rest_time_units_label.setStyleSheet(
@@ -2889,7 +2889,7 @@ class Ui_CA(object):
         font = QtGui.QFont()
         font.setFamily("Arial")
         font.setBold(True)
-        font.setWeight(75)
+        font.setWeight(font.Weight.Medium)
         self.save_experiment_file_button.setFont(font)
         self.save_experiment_file_button.setContextMenuPolicy(
             QtCore.Qt.PreventContextMenu
@@ -3073,7 +3073,7 @@ class Ui_CA(object):
         font = QtGui.QFont()
         font.setFamily("Arial")
         font.setBold(True)
-        font.setWeight(75)
+        font.setWeight(font.Weight.Medium)
         self.generate_preview_button.setFont(font)
         self.generate_preview_button.setContextMenuPolicy(
             QtCore.Qt.PreventContextMenu
@@ -3145,7 +3145,7 @@ class Ui_CA(object):
         font = QtGui.QFont()
         font.setFamily("Arial")
         font.setBold(True)
-        font.setWeight(75)
+        font.setWeight(font.Weight.Medium)
         self.rest_time_units_label_2.setFont(font)
         self.rest_time_units_label_2.setStatusTip("")
         self.rest_time_units_label_2.setStyleSheet(
@@ -3157,7 +3157,7 @@ class Ui_CA(object):
         self.voltage_ref.setGeometry(QtCore.QRect(320, 300, 101, 31))
         font = QtGui.QFont()
         font.setBold(False)
-        font.setWeight(50)
+        font.setWeight(font.Weight.Medium)
         self.voltage_ref.setFont(font)
         self.voltage_ref.setEditable(False)
         self.voltage_ref.setInsertPolicy(QtWidgets.QComboBox.InsertAtBottom)
@@ -3176,9 +3176,9 @@ class Ui_CA(object):
         )
         self.statusbar.setObjectName("statusbar")
         CA.setStatusBar(self.statusbar)
-        self.actionVref = QtWidgets.QAction(CA)
+        self.actionVref = QtGui.QAction(CA)
         self.actionVref.setObjectName("actionVref")
-        self.actionVocv = QtWidgets.QAction(CA)
+        self.actionVocv = QtGui.QAction(CA)
         self.actionVocv.setObjectName("actionVocv")
 
         self.retranslateUi(CA)
