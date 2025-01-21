@@ -4,9 +4,7 @@ from functools import partial
 
 import numpy as np
 import yaml
-from matplotlib.backends.backend_qt5agg import (
-    FigureCanvasQTAgg as FigureCanvas,
-)
+from matplotlib.backends.backend_qtagg import FigureCanvasQTAgg as FigureCanvas
 from matplotlib.figure import Figure
 from PySide6.QtGui import QIcon
 from PySide6.QtWidgets import QGridLayout, QListWidgetItem
@@ -101,7 +99,7 @@ def plot(x, y):
 
     Return
     ------
-    canvas : the 'matplotlib.backends.backend_qt5agg.FigureCanvasQTAgg' object
+    canvas : the 'matplotlib.backends.backend_qtagg.FigureCanvasQTAgg' object
     """
     fig = Figure(figsize=(10, 7.5))
     fig.set_facecolor((1, 1, 1))
