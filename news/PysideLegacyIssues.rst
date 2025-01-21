@@ -8,7 +8,7 @@
 
 **Deprecated:**
 
-* Updated a few deprecated instances of app.exec()
+* <news item>
 
 **Removed:**
 
@@ -16,7 +16,7 @@
 
 **Fixed:**
 
-* Fixed several bugs resulting from transfer from Pyside2 to Pyside6
+* Upgraded from Pyside2 to Pyside6
 
 **Security:**
 
