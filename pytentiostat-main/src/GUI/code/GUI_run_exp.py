@@ -187,7 +187,7 @@ def run_exp(ui, com, board_objects, ini_plot, grid, pr, tr):
                     pr,
                     tr,
                     total_exp_time,
-                    passed_exp_time
+                    passed_exp_time,
                 )
                 try:
                     with open(config_path_name, "w", newline="") as csv_file:
