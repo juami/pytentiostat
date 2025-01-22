@@ -1,0 +1,13 @@
+name: Deploy Documentation on Release
+
+on:
+  workflow_dispatch:
+
+jobs:
+  docs:
+    uses: Billingegroup/release-scripts/.github/workflows/_publish-docs-on-release.yml@v0
+    with:
+      project: pytentiostat
+      c_extension: false
+      headless: true
+      python_version: 3.12
