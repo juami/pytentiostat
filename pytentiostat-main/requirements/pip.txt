@@ -1,0 +1,7 @@
+pyfirmata
+matplotlib
+pyyaml
+pandas
+numpy
+pyserial
+pyside6
