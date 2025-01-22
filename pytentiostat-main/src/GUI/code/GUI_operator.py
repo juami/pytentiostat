@@ -374,7 +374,7 @@ def experiment(
         tr,
         total_exp_time,
         passed_exp_time,
-        cycle_number
+        cycle_number,
     )
 
     return times, voltages, currents
