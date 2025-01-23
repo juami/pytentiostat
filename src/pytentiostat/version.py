@@ -15,28 +15,32 @@
 ##############################################################################
 """Definition of __version__."""
 import argparse
-from importlib.metadata import version
+from importlib.metadata import PackageNotFoundError, version
 
 # Obtain version information
 __version__ = version("pytentiostat")
 
+# Obtain version information
+try:
+    __version__ = version("pytentiostat")
+except PackageNotFoundError:
+    print("Error: pytentiostat package is not installed.")
 
-def main():
-    # Set up argument parsing
-    parser = argparse.ArgumentParser(
-        description="Pytentiostat Command Line Interface"
-    )
-    parser.add_argument(
-        "--version",
-        action="store_true",
-        help="Show the version of pytentiostat",
-    )
+# Set up argument parsing
+parser = argparse.ArgumentParser(
+    description="Pytentiostat Command Line Interface"
+)
+parser.add_argument(
+    "--version",
+    action="store_true",
+    help="Show the version of pytentiostat",
+)
 
-    # Parse the arguments
-    args = parser.parse_args()
+# Parse the arguments
+args = parser.parse_args()
 
-    # Check if the version flag is set
-    if args.version:
-        print(f"Pytentiostat version: {__version__}")
-    else:
-        print("No command provided. Use --version to get the version.")
+# Check if the version flag is set
+if args.version:
+    print(f"Pytentiostat version: {__version__}")
+else:
+    print("No command provided. Use --version to get the version.")
