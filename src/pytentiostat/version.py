@@ -40,7 +40,3 @@ def main():
         print(f"Pytentiostat version: {__version__}")
     else:
         print("No command provided. Use --version to get the version.")
-
-
-if __name__ == "__main__":
-    main()
