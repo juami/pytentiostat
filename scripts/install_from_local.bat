@@ -40,7 +40,7 @@ pip install requests
 pip install pytest
 pip install mock
 pip install codecov
-pip install PySide6
+pip install pyside6
 
 cd ..
 python setup.py install
