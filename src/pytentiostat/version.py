@@ -18,9 +18,6 @@ import argparse
 from importlib.metadata import PackageNotFoundError, version
 
 # Obtain version information
-__version__ = version("pytentiostat")
-
-# Obtain version information
 try:
     __version__ = version("pytentiostat")
 except PackageNotFoundError:
