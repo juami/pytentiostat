@@ -27,6 +27,7 @@ except PackageNotFoundError:
 parser = argparse.ArgumentParser(
     description="Pytentiostat Command Line Interface"
 )
+
 parser.add_argument(
     "--version",
     action="store_true",
