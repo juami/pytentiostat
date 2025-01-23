@@ -21,10 +21,17 @@ from importlib.metadata import version
 # Obtain version information
 __version__ = version("pytentiostat")
 
+
 def main():
     # Set up argument parsing
-    parser = argparse.ArgumentParser(description="Pytentiostat Command Line Interface")
-    parser.add_argument('--version', action='store_true', help='Show the version of pytentiostat')
+    parser = argparse.ArgumentParser(
+        description="Pytentiostat Command Line Interface"
+    )
+    parser.add_argument(
+        "--version",
+        action="store_true",
+        help="Show the version of pytentiostat",
+    )
 
     # Parse the arguments
     args = parser.parse_args()
@@ -36,6 +43,7 @@ def main():
         # If no command is provided, argparse will automatically show help
         # print("No command provided. Use --version to get the version.")
         parser.print_help()
+
 
 if __name__ == "__main__":
     main()
