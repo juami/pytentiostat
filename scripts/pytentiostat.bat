@@ -1,9 +1,18 @@
 @echo off
 call :s_which py.exe
+
 if not "%_path%" == "" (
-  py -3 -m pytentiostat %*
+  if "%1" == "--version" (
+    py -3 -c "import pytentiostat; print(pytentiostat.__version__)"
+  ) else (
+    py -3 -m pytentiostat %*
+  )
 ) else (
-  python -m pytentiostat %*
+  if "%1" == "--version" (
+    python -c "import pytentiostat; print(pytentiostat.__version__)"
+  ) else (
+    python -m pytentiostat %*
+  )
 )
 
 goto :eof

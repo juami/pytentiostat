@@ -5,7 +5,7 @@
 # All rights reserved.
 #
 # File coded by: Simon J. L. Billinge, Michael Spencer, Yao Tong, Austin
-#    Plymill, eremy Hitt, Weizi Yuan, and JUAMI community contributors.u
+#    Plymill, Jeremy Hitt, Weizi Yuan, and JUAMI community contributors.
 #
 # See GitHub contributions for a more detailed list of contributors.
 # https://github.com/juami/pytentiostat/graphs/contributors
@@ -14,13 +14,31 @@
 #
 ##############################################################################
 """Definition of __version__."""
+import argparse
+from importlib.metadata import PackageNotFoundError, version
 
-#  We do not use the other three variables, but can be added back if needed.
-#  __all__ = ["__date__", "__git_commit__", "__timestamp__", "__version__"]
+# Obtain version information
+try:
+    __version__ = version("pytentiostat")
+except PackageNotFoundError:
+    print("Error: pytentiostat package is not installed.")
 
-# obtain version information
-from importlib.metadata import version
+# Set up argument parsing
+parser = argparse.ArgumentParser(
+    description="Pytentiostat Command Line Interface"
+)
 
-__version__ = version("pytentiostat")
+parser.add_argument(
+    "--version",
+    action="store_true",
+    help="Show the version of pytentiostat",
+)
 
-# End of file
+# Parse the arguments
+args = parser.parse_args()
+
+# Check if the version flag is set
+if args.version:
+    print(f"Pytentiostat version: {__version__}")
+else:
+    print("No command provided. Use --version to get the version.")
