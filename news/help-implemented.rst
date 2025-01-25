@@ -16,7 +16,7 @@
 
 **Fixed:**
 
-* Updated the existing code to return the version when pytentiostat --version is executed
+* Updated the existing code to display help message when pytentiostat --help is executed
 
 **Security:**
 

@@ -24,6 +24,9 @@ def main_wrapper():
         action="store_true",
         help="Show the version of pytentiostat",
     )
+    parser.add_argument(
+        "--help", action="help", help="Show this help message and exit"
+    )
 
     # Parse the arguments
     args = parser.parse_args()
