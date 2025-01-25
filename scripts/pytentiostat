@@ -1,4 +1,37 @@
 #!/usr/bin/env python
+import argparse
+from importlib.metadata import PackageNotFoundError, version
+
 from pytentiostat.main import main
 
 main()
+
+
+def print_version():
+    """Print the version of the pytentiostat package."""
+    try:
+        pkg_version = version("pytentiostat")
+        print(f"Pytentiostat version: {pkg_version}")
+    except PackageNotFoundError:
+        print("Error: pytentiostat package is not installed.")
+
+
+def main():
+    # Set up argument parsing
+    parser = argparse.ArgumentParser(
+        description="Pytentiostat Command Line Interface"
+    )
+    parser.add_argument(
+        "--version",
+        action="store_true",
+        help="Show the version of pytentiostat",
+    )
+
+    # Parse the arguments
+    args = parser.parse_args()
+
+    # Check if the version flag is set
+    if args.version:
+        print_version()
+    else:
+        main()
