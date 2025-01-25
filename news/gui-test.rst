@@ -1,6 +1,6 @@
 **Added:**
 
-* <news item>
+* Added unit test codes for the GUI
 
 **Changed:**
 
@@ -16,7 +16,7 @@
 
 **Fixed:**
 
-* Updated the existing code to display help message when pytentiostat --help is executed
+* <news item>
 
 **Security:**
 
