@@ -57,12 +57,12 @@ def main():
         board_instance.pin_a2,
         board_instance.pin_d9,
     )
-    parse = input("Press enter to load the config file.")
+    input("Press enter to load the config file.")
     config_data = parse_config_file()
     while True:
         while True:
             # Run the experiment and get the config_data
-            start = input("Press enter to start the experiment.")
+            input("Press enter to start the experiment.")
             times, voltages, currents, interrupt = experiment(
                 config_data, *board_objects
             )
@@ -79,8 +79,8 @@ def main():
                     "\nIf you want to do a different experiment, edit and "
                     "save the config file then type"
                     ' "new" and press enter.\n'
-                    'If you need to reconnect the potentiostat, type "reconnect" '
-                    "then press enter.\n"
+                    "If you need to reconnect the potentiostat, type "
+                    '"reconnect" then press enter.\n'
                     "To close, just press enter. \n"
                 )
                 if reconfig.lower() == "new":
