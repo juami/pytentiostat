@@ -5,7 +5,7 @@
 # All rights reserved.
 #
 # File coded by: Simon J. L. Billinge, Michael Spencer, Yao Tong, Austin
-#    Plymill, eremy Hitt, Weizi Yuan, and JUAMI community contributors.u
+#    Plymill, Jeremy Hitt, Weizi Yuan, and JUAMI community contributors.
 #
 # See GitHub contributions for a more detailed list of contributors.
 # https://github.com/juami/pytentiostat/graphs/contributors
