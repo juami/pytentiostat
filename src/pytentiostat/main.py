@@ -1,6 +1,6 @@
 # Pytentiostat function files
-import sys
 import argparse
+import sys
 
 import matplotlib.pyplot as plt
 
@@ -10,13 +10,14 @@ from pytentiostat.reporter import save_data_to_file
 from pytentiostat.routines import closing_routine, startup_routine
 from pytentiostat.version import __version__
 
+
 def parser():
     parser = argparse.ArgumentParser(
         description="Pytentiostat Command Line Interface.  To use, first plug "
-                    "in the potentiostat, then run the software by typing"
-                    "pytentiostat at the command line and follow the prompts."
-                    "For more information, see the documentation at "
-                    "juami.github.io/pytentiostat"
+        "in the potentiostat, then run the software by typing"
+        "pytentiostat at the command line and follow the prompts."
+        "For more information, see the documentation at "
+        "juami.github.io/pytentiostat"
     )
     parser.add_argument(
         "--version",
@@ -26,11 +27,13 @@ def parser():
     args = parser.parse_args()
     return args
 
+
 class BoardCom:
     def __init__(self):
         self.com, self.board, self.pin_a0, self.pin_a2, self.pin_d9 = (
             startup_routine()
         )
+
 
 def main():
     args = parser()
@@ -85,7 +88,9 @@ def main():
                     config_data = parse_config_file()
                 elif reconfig.lower() == "reconnect":
                     plt.close()
-                    closing_routine(board_instance.board, board_instance.pin_d9)
+                    closing_routine(
+                        board_instance.board, board_instance.pin_d9
+                    )
                     board_instance.__init__()
                     board_objects = (
                         board_instance.pin_a0,
@@ -93,7 +98,9 @@ def main():
                         board_instance.pin_d9,
                     )
                 else:
-                    closing_routine(board_instance.board, board_instance.pin_d9)
+                    closing_routine(
+                        board_instance.board, board_instance.pin_d9
+                    )
                     sys.exit(0)
             else:
                 break
@@ -112,6 +119,7 @@ def main():
 
     # Wrap things up
     closing_routine(board_instance.board, board_instance.pin_d9)
+
 
 if __name__ == "__main__":
     main()
