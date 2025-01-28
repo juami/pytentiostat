@@ -8,7 +8,8 @@ from matplotlib.backends.backend_qtagg import FigureCanvasQTAgg as FigureCanvas
 from matplotlib.figure import Figure
 from PySide6.QtGui import QIcon
 from PySide6.QtWidgets import QGridLayout, QListWidgetItem
-from warning_GUI import warning
+
+from .warning_GUI import warning
 
 
 ## PartI: load output filepath
@@ -203,6 +204,7 @@ def config_writer_CA(
 
     Parameters
     ------
+    stp_num
     exp_type: string, experiment type
 
     rt: int, rest time

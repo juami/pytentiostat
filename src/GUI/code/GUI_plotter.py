@@ -1,9 +1,6 @@
 ## Standard libraries
 import sys
 
-##Local library
-# GUI_function
-import GUI_config_reader as cr
 from matplotlib.backends.backend_qt5agg import (
     FigureCanvasQTAgg as FigureCanvas,
 )
@@ -12,6 +9,10 @@ from matplotlib.backends.backend_qt5agg import (
 )
 from matplotlib.figure import Figure
 from PySide6.QtWidgets import QApplication, QWidget
+
+##Local library
+# GUI_function
+import src.GUI.code.GUI_config_reader as cr
 
 
 class Ui_Plot(QWidget):

@@ -1,6 +1,12 @@
 ## CA
-from Adv_params_GUI import Ui_Adv_Params
-from Load_config_GUI import Ui_Load
+from PyQt6 import QtWidgets
+
+from src.GUI.code.Adv_params_GUI import Ui_Adv_Params
+from src.GUI.code.CA_GUI import Ui_CA
+from src.GUI.code.CV_GUI import Ui_CV
+from src.GUI.code.Exp_type_GUI import Ui_Experiment
+from src.GUI.code.GUI_load_config import Ui_Load
+from src.GUI.code.LSV_GUI import Ui_LSV
 
 
 class Ui_CA(object):
@@ -29,12 +35,6 @@ class Ui_CA(object):
         self.AP.setupUi(self.window)
         self.window.show()
         return self.AP, self.window
-
-
-from Adv_params_GUI import Ui_Adv_Params
-
-## CV
-from Load_config_GUI import Ui_Load  # more
 
 
 class Ui_CV(object):
@@ -92,16 +92,6 @@ class Ui_LSV(object):
         self.AP.setupUi(self.window)
         self.window.show()
         return self.AP, self.window
-
-
-from CA_GUI import Ui_CA
-from CV_GUI import Ui_CV
-from Exp_type_GUI import Ui_Experiment
-from Load_config_GUI import Ui_Load
-
-## main
-## main
-from LSV_GUI import Ui_LSV
 
 
 class Ui_MainWindow(object):

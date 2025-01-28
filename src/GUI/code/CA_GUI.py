@@ -1,10 +1,11 @@
 ## Standard library
-from Adv_params_GUI import Ui_Adv_Params
+from PySide6 import QtCore, QtGui, QtWidgets
+
+from src.GUI.code.Adv_params_GUI import Ui_Adv_Params
 
 ## Local library
 # GUI_function
-from GUI_load_config import Ui_Load
-from PySide6 import QtCore, QtGui, QtWidgets
+from src.GUI.code.GUI_load_config import Ui_Load
 
 
 class Ui_CA(object):
