@@ -203,6 +203,7 @@ def config_writer_CA(
 
     Parameters
     ------
+    stp_num
     exp_type: string, experiment type
 
     rt: int, rest time
