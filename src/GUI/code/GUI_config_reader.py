@@ -138,6 +138,6 @@ def check_config_inputs(arg):
 
 if __name__ == "__main__":
     # used for debugging.  Does the function load the configs?
-    data = parse_config_file("pytentiostat/tests/static")
+    data = parse_config_file("C:/Users/user/PycharmProjects/pytentiostat/tests/static/config.yml")
     data_out_name = data["general_parameters"]["data_output_filename"]
     print(data_out_name)
