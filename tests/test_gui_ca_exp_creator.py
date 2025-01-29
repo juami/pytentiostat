@@ -123,14 +123,6 @@ def test_time_converter():
     assert time_converter(-1) == "0:00:00"
 
 
-# Test for plot function
-def test_plot():
-    x = [0, 1, 2]
-    y = [0, 1, 0]
-    canvas = plot(x, y)
-    assert canvas is not None
-
-
 # Test for preview_CA function
 def test_preview_CA():
     exp = MockUiExperiment()
@@ -257,6 +249,14 @@ def test_CA_main():
     config_data = None
     CA = CA_main(ui, config_data)
     assert CA is not None
+
+
+# Test for plot function
+def test_plot():
+    x = [0, 1, 2]
+    y = [0, 1, 0]
+    canvas = plot(x, y)
+    assert canvas is not None
 
 
 if __name__ == "__main__":

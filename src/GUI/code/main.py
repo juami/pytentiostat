@@ -2,26 +2,16 @@
 import sys
 from functools import partial
 
-from PySide6.QtWidgets import QApplication, QGridLayout, QMainWindow
-
-from src.GUI.code.GUI_file_operation import (
-    add_exp,
-    edit_file,
-    load_file,
-    remove_file,
-)
+from GUI_file_operation import add_exp, edit_file, load_file, remove_file
 
 # GUI function
-from src.GUI.code.GUI_routines import (
-    _load_arduino,
-    disconnect_port_main,
-    find_port_main,
-)
-from src.GUI.code.GUI_run_exp import run_exp_main
+from GUI_routines import _load_arduino, disconnect_port_main, find_port_main
+from GUI_run_exp import run_exp_main
 
 ## Local libraries
 # GUI window
-from src.GUI.code.mainwindow_GUI import Ui_MainWindow
+from mainwindow_GUI import Ui_MainWindow
+from PySide6.QtWidgets import QApplication, QGridLayout, QMainWindow
 
 # load the main window
 app = QApplication(sys.argv)

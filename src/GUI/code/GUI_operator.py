@@ -2,11 +2,10 @@
 import datetime
 import time
 
-import numpy as np
-
 ## Local library
 # GUI_function
-import src.GUI.code.GUI_config_reader as cr
+import GUI_config_reader as cr
+import numpy as np
 
 
 def start_exp(d9, normalized_start, data):

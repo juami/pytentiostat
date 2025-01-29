@@ -1,10 +1,9 @@
+from CA_GUI import Ui_CA
+from CV_GUI import Ui_CV
+from Exp_type_GUI import Ui_Experiment
+from GUI_load_config import Ui_Load
+from LSV_GUI import Ui_LSV
 from PySide6 import QtCore, QtGui, QtWidgets
-
-from src.GUI.code.CA_GUI import Ui_CA
-from src.GUI.code.CV_GUI import Ui_CV
-from src.GUI.code.Exp_type_GUI import Ui_Experiment
-from src.GUI.code.GUI_load_config import Ui_Load
-from src.GUI.code.LSV_GUI import Ui_LSV
 
 
 class Ui_MainWindow(object):
