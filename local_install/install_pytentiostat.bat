@@ -10,7 +10,7 @@ IF ERRORLEVEL 1 (
 
 REM Create a new conda environment
 echo Creating conda environment "%ENV_NAME%"...
-conda create -n %ENV_NAME% python=3.8 -y
+conda create -n %ENV_NAME% python=3.12 -y
 
 REM Activate the new environment
 echo Activating conda environment "%ENV_NAME%"...
