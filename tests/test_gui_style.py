@@ -1,9 +1,10 @@
 import pytest
 
-
-pytest.importorskip("PySide6")
-
-from GUI.code.app_setup import create_app
+try:
+    import PySide6  
+    from GUI.code.app_setup import create_app
+except ImportError:
+    pytest.skip("PySide6 not available", allow_module_level=True)
 
 
 def test_app_stylesheet_sets_readable_colors():
