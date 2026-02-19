@@ -15,6 +15,26 @@ from PySide6.QtWidgets import QApplication, QGridLayout, QMainWindow
 
 # load the main window
 app = QApplication(sys.argv)
+
+# Ensure readable text/background colors across platforms (e.g. macOS dark mode)
+app.setStyleSheet(
+    """
+    QWidget {
+        color: black;
+    }
+
+    QLineEdit,
+    QListWidget,
+    QComboBox,
+    QPlainTextEdit,
+    QTextEdit,
+    QTableView,
+    QTreeView {
+        color: black;
+        background-color: white;
+    }
+    """
+)
 window = QMainWindow()
 ui = Ui_MainWindow()
 ui.setupUi(window)
