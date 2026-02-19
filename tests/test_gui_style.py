@@ -1,6 +1,5 @@
 import pytest
 
-
 pytest.importorskip("PySide6")
 
 from GUI.code.app_setup import create_app
@@ -19,4 +18,3 @@ def test_app_stylesheet_sets_readable_colors():
     # Ensure text and background colors are explicitly set
     assert "color: black" in stylesheet
     assert "background-color: white" in stylesheet
-

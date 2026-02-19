@@ -2,6 +2,7 @@
 import sys
 from functools import partial
 
+from app_setup import create_app
 from GUI_file_operation import add_exp, edit_file, load_file, remove_file
 
 # GUI function
@@ -12,8 +13,6 @@ from GUI_run_exp import run_exp_main
 # GUI window
 from mainwindow_GUI import Ui_MainWindow
 from PySide6.QtWidgets import QGridLayout, QMainWindow
-
-from app_setup import create_app
 
 
 def main():
@@ -70,4 +69,3 @@ def main():
 
 if __name__ == "__main__":
     sys.exit(main())
-

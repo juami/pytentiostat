@@ -33,4 +33,3 @@ def create_app(argv=None):
     )
 
     return app
-
