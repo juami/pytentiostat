@@ -1,6 +1,5 @@
 import pytest
 
-
 pytest.importorskip("PySide6")
 
 from GUI.code.app_setup import create_app
