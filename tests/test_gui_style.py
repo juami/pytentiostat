@@ -1,8 +1,8 @@
 import pytest
 
-pytest.importorskip("PySide6")
-
 from GUI.code.app_setup import create_app
+
+pytest.importorskip("PySide6")
 
 
 def test_app_stylesheet_sets_readable_colors():
