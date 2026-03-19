@@ -22,6 +22,7 @@ def parse_config_file(configlocation=None):
     config_data : dict
         the configuration data
     """
+    user_specified = configlocation is not None
     if not configlocation:
         configlocation = "./"
     try:
@@ -31,18 +32,26 @@ def parse_config_file(configlocation=None):
             if i == "config.yml":
                 config_check = "Found"
         if config_check != "Found":
-            sys.exit(
-                f"No file named config.yml found in config directory "
-                f"{configlocation}. Exiting..."
-            )
-        else:
-            with open(
-                os.path.join(configlocation, "config.yml"), "r"
-            ) as stream:
-                config_data = yaml.safe_load(stream)
-                print("Config loaded.\n")
-                param_checker(config_data)
-                return config_data
+            # Fall back to the bundled config.yml only when the caller
+            # did not explicitly specify a directory.
+            _pkg_dir = os.path.dirname(os.path.abspath(__file__))
+            _bundled = os.path.join(_pkg_dir, "config.yml")
+            if not user_specified and os.path.isfile(_bundled):
+                configlocation = _pkg_dir
+                print(
+                    f"No config.yml in current directory. "
+                    f"Using bundled default: {_bundled}"
+                )
+            else:
+                sys.exit(
+                    f"No file named config.yml found in config directory "
+                    f"{configlocation}. Exiting..."
+                )
+        with open(os.path.join(configlocation, "config.yml"), "r") as stream:
+            config_data = yaml.safe_load(stream)
+            print("Config loaded.\n")
+            param_checker(config_data)
+            return config_data
 
     except FileNotFoundError:
         sys.exit(
