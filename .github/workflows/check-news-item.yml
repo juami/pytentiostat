@@ -9,4 +9,4 @@ jobs:
   check-news-item:
     uses: scikit-package/release-scripts/.github/workflows/_check-news-item.yml@v0
     with:
-      project: diffpy.my-project
+      project: pytentiostat
