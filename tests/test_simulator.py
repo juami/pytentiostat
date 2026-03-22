@@ -1,3 +1,5 @@
+from unittest.mock import patch
+
 import matplotlib
 import pytest
 
@@ -80,8 +82,9 @@ class TestSimulatedPotentiostat:
         assert sim._duty == 1.0
 
     def test_reproducible_with_seed(self):
-        sim1 = SimulatedPotentiostat(seed=7)
-        sim2 = SimulatedPotentiostat(seed=7)
+        fake_clock = lambda: 1000.0  # noqa: E731
+        sim1 = SimulatedPotentiostat(seed=7, clock=fake_clock)
+        sim2 = SimulatedPotentiostat(seed=7, clock=fake_clock)
         sim1.d9.write(0.6)
         sim2.d9.write(0.6)
         assert sim1.a0.read() == sim2.a0.read()
@@ -120,13 +123,10 @@ class TestSimulatedStartup:
 # ---------------------------------------------------------------------------
 # Integration: run each experiment type through the simulator
 # ---------------------------------------------------------------------------
-def _run_experiment(config_data, exp_type, monkeypatch):
+def _run_experiment(config_data, exp_type):
     from pytentiostat.operator import experiment
 
     config_data["general_parameters"]["experiment_type"] = exp_type
-    monkeypatch.setattr(
-        "pytentiostat.operator.time.sleep", lambda *a, **kw: None
-    )
     sim = SimulatedPotentiostat(
         conversion_factor=config_data["advanced_parameters"][
             "conversion_factor"
@@ -134,31 +134,26 @@ def _run_experiment(config_data, exp_type, monkeypatch):
         shunt_resistor=config_data["advanced_parameters"]["shunt_resistor"],
         seed=0,
     )
-    return experiment(config_data, sim.a0, sim.a2, sim.d9)
+    with patch("pytentiostat.operator.time.sleep"):
+        return experiment(config_data, sim.a0, sim.a2, sim.d9)
 
 
-def test_simulated_ca_experiment(config_data, monkeypatch):
-    times, voltages, currents, interrupt = _run_experiment(
-        config_data, "CA", monkeypatch
-    )
+def test_simulated_ca_experiment(config_data):
+    times, voltages, currents, interrupt = _run_experiment(config_data, "CA")
     assert not interrupt
     assert len(times) == len(voltages) == len(currents)
     assert len(times) > 0
 
 
-def test_simulated_lsv_experiment(config_data, monkeypatch):
-    times, voltages, currents, interrupt = _run_experiment(
-        config_data, "LSV", monkeypatch
-    )
+def test_simulated_lsv_experiment(config_data):
+    times, voltages, currents, interrupt = _run_experiment(config_data, "LSV")
     assert not interrupt
     assert len(times) == len(voltages) == len(currents)
     assert len(times) > 0
 
 
-def test_simulated_cv_experiment(config_data, monkeypatch):
-    times, voltages, currents, interrupt = _run_experiment(
-        config_data, "CV", monkeypatch
-    )
+def test_simulated_cv_experiment(config_data):
+    times, voltages, currents, interrupt = _run_experiment(config_data, "CV")
     assert not interrupt
     assert len(times) == len(voltages) == len(currents)
     assert len(times) > 0

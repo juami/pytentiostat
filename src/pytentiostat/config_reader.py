@@ -1,6 +1,6 @@
 import datetime
-import os
 import sys
+from pathlib import Path
 
 import yaml
 
@@ -24,20 +24,18 @@ def parse_config_file(configlocation=None):
     """
     user_specified = configlocation is not None
     if not configlocation:
-        configlocation = "./"
+        configlocation = Path(".")
+    else:
+        configlocation = Path(configlocation)
     try:
-        files_in_configlocation = os.listdir(configlocation)
-        config_check = "Not Found"
-        for i in files_in_configlocation:
-            if i == "config.yml":
-                config_check = "Found"
-        if config_check != "Found":
+        config_file = configlocation / "config.yml"
+        if not config_file.is_file():
             # Fall back to the bundled config.yml only when the caller
             # did not explicitly specify a directory.
-            _pkg_dir = os.path.dirname(os.path.abspath(__file__))
-            _bundled = os.path.join(_pkg_dir, "config.yml")
-            if not user_specified and os.path.isfile(_bundled):
-                configlocation = _pkg_dir
+            _pkg_dir = Path(__file__).resolve().parent
+            _bundled = _pkg_dir / "config.yml"
+            if not user_specified and _bundled.is_file():
+                config_file = _bundled
                 print(
                     f"No config.yml in current directory. "
                     f"Using bundled default: {_bundled}"
@@ -47,7 +45,7 @@ def parse_config_file(configlocation=None):
                     f"No file named config.yml found in config directory "
                     f"{configlocation}. Exiting..."
                 )
-        with open(os.path.join(configlocation, "config.yml"), "r") as stream:
+        with open(config_file, "r") as stream:
             config_data = yaml.safe_load(stream)
             print("Config loaded.\n")
             param_checker(config_data)
@@ -323,9 +321,7 @@ def get_output_params(config_data, override_ts=None):
     data_out_name = config_data["general_parameters"]["data_output_filename"]
     data_out_path = config_data["general_parameters"]["data_output_path"]
     if data_out_path.lower() == "desktop":
-        data_out_path = os.path.join(
-            os.path.join(os.path.expanduser("~")), "Desktop"
-        )
+        data_out_path = str(Path.home() / "Desktop")
     ts = datetime.datetime.now().strftime("%H_%M_%S")
     if override_ts:
         ts = override_ts

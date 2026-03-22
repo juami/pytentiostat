@@ -71,11 +71,13 @@ class SimulatedPotentiostat:
         shunt_resistor: float = 1000.0,
         params: SimulationParams | None = None,
         seed: int | None = 0,
+        clock=None,
     ):
         self._cf = float(conversion_factor)
         self._sr = float(shunt_resistor)
         self._p = params or SimulationParams()
         self._rng = random.Random(seed)
+        self._clock = clock or time.time
 
         # The ADC pin (a2) returns values in [0, 1].  The operator recovers
         # current as: i = (a2 - 0.5) * -cf / sr.  So the maximum current
@@ -96,7 +98,7 @@ class SimulatedPotentiostat:
         self.board = SimulatedBoard()
 
     def set_duty_cycle(self, duty: float) -> None:
-        now = time.time()
+        now = self._clock()
         if self._t0 is None:
             self._t0 = now
         self._last_write_t = now
@@ -112,9 +114,9 @@ class SimulatedPotentiostat:
 
     def _elapsed_s(self) -> float:
         if self._t0 is None:
-            self._t0 = time.time()
+            self._t0 = self._clock()
             self._last_write_t = self._t0
-        return time.time() - self._t0
+        return self._clock() - self._t0
 
     def _setpoint_v(self) -> float:
         # Matches the project's normalization: duty 0..1 ↔ -2.5..+2.5 V
@@ -142,7 +144,7 @@ class SimulatedPotentiostat:
         v = self._setpoint_v()
         # If the duty cycle has been held constant, produce CA-like decay.
         if self._ca_start_t is not None:
-            ca_t = time.time() - self._ca_start_t
+            ca_t = self._clock() - self._ca_start_t
             return self._ca_current_ma(v, ca_t)
         return self._iv_current_ma(v, t)
 
