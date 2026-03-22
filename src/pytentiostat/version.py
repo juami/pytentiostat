@@ -1,14 +1,14 @@
 #!/usr/bin/env python
 ##############################################################################
 #
-# (c) 2025 The Trustees of Columbia University in the City of New York.
+# (c) 20125-2026 pytentiostat contributors.
 # All rights reserved.
 #
 # File coded by: Simon J. L. Billinge, Michael Spencer, Yao Tong, Austin
-#    Plymill, eremy Hitt, Weizi Yuan, and JUAMI community contributors.u
+#    Plymill, eremy Hitt, Weizi Yuan, and JUAMI community contributors.
 #
 # See GitHub contributions for a more detailed list of contributors.
-# https://github.com/juami/pytentiostat/graphs/contributors
+# https://github.com/juami/pytentiostat/graphs/contributors  # noqa: E501
 #
 # See LICENSE.rst for license information.
 #
@@ -19,8 +19,9 @@
 #  __all__ = ["__date__", "__git_commit__", "__timestamp__", "__version__"]
 
 # obtain version information
-from importlib.metadata import version
+from importlib.metadata import PackageNotFoundError, version
 
-__version__ = version("pytentiostat")
-
-# End of file
+try:
+    __version__ = version("pytentiostat")
+except PackageNotFoundError:
+    __version__ = "unknown"

@@ -1,0 +1,20 @@
+{
+  "author_names": "Dylan Bardgett, Austin Plymill, Simon Billinge",
+  "author_emails": "dylanbardgett2024@u.northwestern.edu, austinplymill2021@u.northwestern.edu, sbillinge@ucsb.edu",
+  "maintainer_names": "Simon Billinge",
+  "maintainer_emails": "sbillinge@ucsb.edu",
+  "maintainer_github_usernames": "sbillinge",
+  "contributors": "Dylan Bardgett, Austin Plymill, Simon Billinge, and pytentiostat contributors",
+  "license_holders": "pytentiostat contributors",
+  "project_name": "pytentiostat",
+  "github_username_or_orgname": "juami",
+  "github_repo_name": "pytentiostat",
+  "conda_pypi_package_dist_name": "pytentiostat",
+  "package_dir_name": "pytentiostat",
+  "project_short_description": "Python code for the JUAMI potentiostat",
+  "project_keywords": "potentiostat, electrochemistry, juami, pytentiostat",
+  "minimum_supported_python_version": "3.11",
+  "maximum_supported_python_version": "3.13",
+  "project_needs_c_code_compiled": "No",
+  "project_has_gui_tests": "Yes"
+}

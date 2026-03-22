@@ -8,7 +8,7 @@
         :target: https://juami.github.io/pytentiostat
         :height: 100px
 
-|PyPi| |Forge| |PythonVersion| |PR|
+|PyPI| |Forge| |PythonVersion| |PR|
 
 |CI| |Codecov| |Black| |Tracking|
 
@@ -25,8 +25,9 @@
         :target: https://anaconda.org/conda-forge/pytentiostat
 
 .. |PR| image:: https://img.shields.io/badge/PR-Welcome-29ab47ff
+        :target: https://github.com/juami/pytentiostat/pulls
 
-.. |PyPi| image:: https://img.shields.io/pypi/v/pytentiostat
+.. |PyPI| image:: https://img.shields.io/pypi/v/pytentiostat
         :target: https://pypi.org/project/pytentiostat/
 
 .. |PythonVersion| image:: https://img.shields.io/pypi/pyversions/pytentiostat
@@ -97,6 +98,19 @@ and run the following ::
 
         pip install .
 
+This package also provides command-line utilities. To check the software has been installed correctly, type ::
+
+        pytentiostat --version
+
+You can also type the following command to verify the installation. ::
+
+        python -c "import pytentiostat; print(pytentiostat.__version__)"
+
+
+To view the basic usage and available commands, type ::
+
+        pytentiostat -h
+
 Getting Started
 ---------------
 
@@ -105,9 +119,7 @@ You may consult our `online documentation <https://juami.github.io/pytentiostat>
 Support and Contribute
 ----------------------
 
-`Diffpy user group <https://groups.google.com/g/diffpy-users>`_ is the discussion forum for general questions and discussions about the use of pytentiostat. Please join the pytentiostat users community by joining the Google group. The pytentiostat project welcomes your expertise and enthusiasm!
-
-If you see a bug or want to request a feature, please `report it as an issue <https://github.com/juami/pytentiostat/issues>`_ and/or `submit a fix as a PR <https://github.com/juami/pytentiostat/pulls>`_. You can also post it to the `Diffpy user group <https://groups.google.com/g/diffpy-users>`_.
+If you see a bug or want to request a feature, please `report it as an issue <https://github.com/juami/pytentiostat/issues>`_ and/or `submit a fix as a PR <https://github.com/juami/pytentiostat/pulls>`_.
 
 Feel free to fork the project and contribute. To install pytentiostat
 in a development mode, with its sources being directly used by Python
@@ -116,6 +128,7 @@ directory of the package (i.e., the top level `pytentiostat/` directory)::
 
         conda create -n pytentiostat-dev python=3.12
         conda install --file requirements/conda.txt
+
         pip install -e .
 
 To ensure code quality and to prevent accidental commits into the default branch, please set up the use of our pre-commit
@@ -132,10 +145,14 @@ trying to commit again.
 
 Improvements and fixes are always appreciated.
 
-Before contributing, please read our `Code of Conduct <https://github.com/juami/pytentiostat/blob/main/CODE_OF_CONDUCT.rst>`_
-and `Our coding standards <https://billingegroup.github.io/scikit-package/frequently-asked-questions.html#billinge-group-standards>`_.
+Before contributing, please read our `Code of Conduct <https://github.com/juami/pytentiostat/blob/main/CODE-OF-CONDUCT.rst>`_.
 
 Contact
 -------
 
-For more information on pytentiostat please visit the project `web-page <https://juami.github.io/>`_ or email Prof. Simon Billinge at  sb2896@columbia.edu.
+For more information on pytentiostat please visit the project `web-page <https://juami.github.io/>`_ or email the maintainers ``Simon Billinge(sbillinge@ucsb.edu)``.
+
+Acknowledgements
+----------------
+
+``pytentiostat`` is built and maintained with `scikit-package <https://scikit-package.github.io/scikit-package/>`_.

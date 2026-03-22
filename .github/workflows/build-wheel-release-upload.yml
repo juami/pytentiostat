@@ -1,4 +1,4 @@
-name: Release (GitHub/PyPI) and Deploy Docs
+name: Build Wheel, Release on GitHub/PyPI, and Deploy Docs
 
 on:
   workflow_dispatch:
@@ -7,12 +7,12 @@ on:
       - "*" # Trigger on all tags initially, but tag and release privilege are verified in _build-wheel-release-upload.yml
 
 jobs:
-  release:
-    uses: Billingegroup/release-scripts/.github/workflows/_build-wheel-release-upload.yml@v0
+  build-release:
+    uses: scikit-package/release-scripts/.github/workflows/_build-wheel-release-upload.yml@v0
     with:
-      project: pytentiostat
+      project: diffpy.my-project
       c_extension: false
-      github_admin_username: sbillinge
+      maintainer_github_username: sbillinge
     secrets:
       PYPI_TOKEN: ${{ secrets.PYPI_TOKEN }}
       PAT_TOKEN: ${{ secrets.PAT_TOKEN }}

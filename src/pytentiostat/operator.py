@@ -15,7 +15,8 @@ Exp_running = False
 
 
 def _signal_handler(signum, frame):
-    """Changes behavior of keyboard interrupt when experiment is running.
+    """Changes behavior of keyboard interrupt when experiment is
+    running.
 
     Signal handler is called by signal.signal() when Ctrl+c is pressed
     by the user.  It checks to see if exp_running is true and if so, it
@@ -77,7 +78,8 @@ def read_write(
     voltages,
     currents,
 ):
-    """Performs a submitted read/write schedule to carry out an experiment.
+    """Performs a submitted read/write schedule to carry out an
+    experiment.
 
     Writes voltages to pin 9 using d9, reads voltages from pin 0 and 2 using a0
     and a2, and calculates current from the voltage on a2.
