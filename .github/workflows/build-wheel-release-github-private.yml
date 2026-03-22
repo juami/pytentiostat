@@ -1,0 +1,16 @@
+name: Build Wheel and Release on GitHub
+
+on:
+  workflow_dispatch:
+#  push:
+#    tags:
+#      - "*" # Trigger on all tags; release privilege is verified in the reusable workflow
+
+jobs:
+  build-release:
+    uses: scikit-package/release-scripts/.github/workflows/_build-release-github-private-pure.yml@v0
+    with:
+      project: pytentiostat
+      maintainer_github_username: sbillinge
+    secrets:
+      PAT_TOKEN: ${{ secrets.PAT_TOKEN }}

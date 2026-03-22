@@ -20,13 +20,17 @@ from pathlib import Path
 
 # If extensions (or modules to document with autodoc) are in another directory,
 # add these directories to sys.path here. If the directory is relative to the
-# documentation root, use Path().resolve() to make it absolute, like shown here.
+# documentation root, use Path().resolve() to make it absolute, as shown here.
 # sys.path.insert(0, str(Path(".").resolve()))
 sys.path.insert(0, str(Path("../..").resolve()))
 sys.path.insert(0, str(Path("../../src").resolve()))
 
 # abbreviations
-ab_authors = "Simon J. L. Billinge, Michael Spencer, Yao Tong, Austin Plymill, eremy Hitt, Weizi Yuan, and JUAMI community contributors"
+ab_authors = (
+    "Simon J. L. Billinge, Michael Spencer, Yao Tong, Austin "
+    "Plymill, Jeremy Hitt, Weizi Yuan, and JUAMI community "
+    "contributors"
+)
 
 # -- General configuration ------------------------------------------------
 
@@ -62,8 +66,15 @@ master_doc = "index"
 
 # General information about the project.
 project = "Pytentiostat"
-copyright = "2019-2025, Austin Plymill, Jeremy Hitt, Yao Tong, Michael Spencer, Sun Hwi Bang, Weizi Yuan, Simon J. L. Billinge"
-authors = "Austin Plymill, Jeremy Hitt, Yao Tong, Michael Spencer, Sun Hwi Bang, Weizi Yuan, Simon J. L. Billinge"
+copyright = (
+    "2019-present, Austin Plymill, Jeremy Hitt, Yao Tong, "
+    "Michael Spencer, Sun Hwi Bang, Weizi Yuan, "
+    "Simon J. L. Billinge"
+)
+authors = (
+    "Austin Plymill, Jeremy Hitt, Yao Tong, Michael Spencer, "
+    "Sun Hwi Bang, Weizi Yuan, Simon J. L. Billinge"
+)
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the

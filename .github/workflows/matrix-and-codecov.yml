@@ -1,9 +1,9 @@
-name: CI
+name: Matrix and Codecov
 
 on:
-  push:
-    branches:
-      - main
+  # push:
+  #   branches:
+  #     - main
   release:
     types:
       - prereleased
@@ -12,11 +12,10 @@ on:
 
 jobs:
   matrix-coverage:
-    uses: Billingegroup/release-scripts/.github/workflows/_matrix-and-codecov-on-merge-to-main.yml@v0
+    uses: scikit-package/release-scripts/.github/workflows/_matrix-and-codecov-on-merge-to-main.yml@v0
     with:
       project: pytentiostat
       c_extension: false
-      headless: true
-      python_versions: "3.11, 3.12"
+      headless: false
     secrets:
       CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}

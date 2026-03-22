@@ -117,8 +117,8 @@ def get_adv_params(adv_config_data):
 
 
 def check_config_inputs(arg):
-    """Checks that all the data that should be numerical from that config can
-    be represented as a float.
+    """Checks that all the data that should be numerical from that
+    config can be represented as a float.
 
     Parameters
     __________
@@ -132,7 +132,7 @@ def check_config_inputs(arg):
     """
     try:
         return isinstance(float(arg), float)
-    except:
+    except Exception:
         return False
 
 
