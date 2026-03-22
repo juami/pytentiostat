@@ -15,6 +15,33 @@ from mainwindow_GUI import Ui_MainWindow
 from PySide6.QtWidgets import QGridLayout, QMainWindow
 
 
+class AppState:
+    """Holds mutable state shared between GUI callbacks."""
+
+    def __init__(self):
+        self.com = None
+        self.board_objects = (None, None, None, None)
+        self.board = None
+        self.d9 = None
+
+
+def find_port(ui, state):
+    """Find and connect to the potentiostat."""
+    state.com, state.board_objects = find_port_main(ui)
+    state.board, state.d9 = state.board_objects[0], state.board_objects[3]
+
+
+def disconnect_port(ui, state):
+    """Disconnect from the potentiostat."""
+    state.com = None
+    disconnect_port_main(ui, state.board, state.d9)
+
+
+def start_exp(ui, state, grid_layout):
+    """Start the experiment."""
+    run_exp_main(ui, state.com, state.board_objects, grid_layout)
+
+
 def main():
     """Entry point for the GUI application."""
     app = create_app(sys.argv)
@@ -23,30 +50,17 @@ def main():
     ui = Ui_MainWindow()
     ui.setupUi(window)
     window.show()
-    com = None  # initialize the parameters; if potentiostat is not connected, com, board objects will be None
-    board_objects = (
-        None,
-        None,
-        None,
-        None,
-    )  # board_objects = (board, a0, a2, d9)
-    board, d9 = board_objects[0], board_objects[3]
+
+    state = AppState()
 
     # 'Find Potentiostat'
-    def find_port():
-        nonlocal com, board_objects, board, d9
-        com, board_objects = find_port_main(ui)
-        board, d9 = board_objects[0], board_objects[3]
-
     _load_arduino(ui)
-    ui.find_potentiostat_button.clicked.connect(find_port)
+    ui.find_potentiostat_button.clicked.connect(partial(find_port, ui, state))
 
-    def disconnect_port():
-        nonlocal com, board, d9
-        com = None
-        disconnect_port_main(ui, board, d9)
-
-    ui.disconnect_potentiostat_button.clicked.connect(disconnect_port)
+    # 'Disconnect Potentiostat'
+    ui.disconnect_potentiostat_button.clicked.connect(
+        partial(disconnect_port, ui, state)
+    )
 
     # 'Add'
     ui.add_experiment_button.clicked.connect(partial(add_exp, ui))
@@ -63,11 +77,9 @@ def main():
     # 'Start/Abort Experiment'
     grid = QGridLayout()  # set up the layout for live plot
     ui.plot_area.setLayout(grid)
-
-    def start_exp(grid_layout):
-        run_exp_main(ui, com, board_objects, grid_layout)
-
-    ui.start_abort_experiment_button.clicked.connect(partial(start_exp, grid))
+    ui.start_abort_experiment_button.clicked.connect(
+        partial(start_exp, ui, state, grid)
+    )
 
     return app.exec()
 
