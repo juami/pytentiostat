@@ -4,7 +4,8 @@ from PySide6.QtWidgets import QApplication
 
 
 def create_app(argv=None):
-    """Create or return a QApplication with a consistent, readable style."""
+    """Create or return a QApplication with a consistent, readable
+    style."""
     if argv is None:
         argv = sys.argv
 

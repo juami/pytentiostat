@@ -6,7 +6,8 @@ pytest.importorskip("PySide6")
 
 
 def test_app_stylesheet_sets_readable_colors():
-    """The global stylesheet should enforce readable text/background colors."""
+    """The global stylesheet should enforce readable text/background
+    colors."""
     app = create_app(["test"])
     stylesheet = app.styleSheet()
 

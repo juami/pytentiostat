@@ -12,7 +12,8 @@ def _clamp(v: float, lo: float, hi: float) -> float:
 
 @dataclass
 class SimulationParams:
-    """Parameters controlling the simulated potentiostat signal shape."""
+    """Parameters controlling the simulated potentiostat signal
+    shape."""
 
     noise_std: float = 0.0008  # noise in duty-cycle units (0-1)
     r_solution_ohm: float = 220.0  # effective solution resistance
@@ -22,7 +23,8 @@ class SimulationParams:
 
 
 class SimulatedBoard:
-    """Minimal board-like object compatible with routines.closing_routine()."""
+    """Minimal board-like object compatible with
+    routines.closing_routine()."""
 
     def exit(self) -> None:  # pragma: no cover
         return
