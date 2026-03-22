@@ -54,8 +54,8 @@ def calculate_time(filename):
 
 
 def total_time(ui):
-    """Calculate the experiment time of each file in the experiment queue and
-    append them to a list.
+    """Calculate the experiment time of each file in the experiment
+    queue and append them to a list.
 
     Parameters
     -------
@@ -187,7 +187,7 @@ def run_exp(ui, com, board_objects, ini_plot, grid, pr, tr):
                     pr,
                     tr,
                     total_exp_time,
-                    passed_exp_time
+                    passed_exp_time,
                 )
                 try:
                     with open(config_path_name, "w", newline="") as csv_file:
@@ -211,8 +211,8 @@ def run_exp(ui, com, board_objects, ini_plot, grid, pr, tr):
 
 
 def run_exp_main(ui, com, board_objects, grid):
-    """The main function of run experiment. Initialize ini_plot,pr,tr and pass
-    it to the run_exp function.
+    """The main function of run experiment. Initialize ini_plot,pr,tr
+    and pass it to the run_exp function.
 
     Parameters
     -------
