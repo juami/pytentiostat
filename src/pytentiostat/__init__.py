@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 ##############################################################################
 #
-# (c) 2025 The Trustees of Columbia University in the City of New York.
+# (c) 2025-2026 pytentiostat contributors.
 # All rights reserved.
 #
 # File coded by: Simon J. L. Billinge, Michael Spencer, Yao Tong, Austin
@@ -16,7 +16,7 @@
 """Python code for the JUAMI potentiostat."""
 
 # package version
-from pytentiostat.version import __version__
+from pytentiostat.version import __version__  # noqa
 
 # silence the pyflakes syntax checker
 assert __version__ or True
