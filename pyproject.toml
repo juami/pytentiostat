@@ -6,10 +6,12 @@ build-backend = "setuptools.build_meta"
 name = "pytentiostat"
 dynamic=['version', 'dependencies']
 authors = [
-  { name="Simon Billinge", email=" sb2896@columbia.edu" },
+  {name='Dylan Bardgett', email='dylanbardgett2024@u.northwestern.edu'},
+  {name='Austin Plymill', email='austinplymill2021@u.northwestern.edu'},
+  {name='Simon Billinge', email='sbillinge@ucsb.edu'},
 ]
 maintainers = [
-  { name="Simon Billinge", email=" sb2896@columbia.edu" },
+  {name='Simon Billinge', email='sbillinge@ucsb.edu'},
 ]
 description = "Python code for the JUAMI potentiostat"
 keywords = ['potentiostat', 'electrochemistry', 'juami', 'pytentiostat']
@@ -58,29 +60,30 @@ exclude-file = ".codespell/ignore_lines.txt"
 ignore-words = ".codespell/ignore_words.txt"
 skip = "*.cif,*.dat"
 
+[tool.docformatter]
+recursive = true
+wrap-summaries = 72
+wrap-descriptions = 72
+
 [tool.black]
 line-length = 79
 include = '\.pyi?$'
 exclude = '''
 /(
     \.git
-| \.hg
-| \.mypy_cache
-| \.tox
-| \.venv
-| \.rst
-| \.txt
-| _build
-| buck-out
-| build
-| dist
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | \.rst
+  | \.txt
+  | _build
+  | buck-out
+  | build
+  | dist
 
-# The following are specific to Black, you probably don't want those.
-| blib2to3
-| tests/data
+  # The following are specific to Black, you probably don't want those.
+  | blib2to3
+  | tests/data
 )/
 '''
-
-[tool.isort]
-profile = "black"
-line_length = 79  # Match Black's default line length

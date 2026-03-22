@@ -41,7 +41,7 @@ def _initialize_arduino(com):
         board = Arduino(
             com, baudrate=_BAUD_RATE
         )  # opens communication to Arduino
-    except:
+    except Exception:
         sys.exit("Error. Could not open COM port")
     return board
 

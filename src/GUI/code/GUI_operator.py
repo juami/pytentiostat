@@ -1,8 +1,8 @@
-## Standard Libraries
+# Standard Libraries
 import datetime
 import time
 
-## Local library
+# Local library
 # GUI_function
 import GUI_config_reader as cr
 import numpy as np
@@ -54,8 +54,8 @@ def read_write(
     passed_exp_time,
     cycle_number,
 ):
-    """Writes voltages to pin 9 using d9, reads voltages from pin 0 and 2 using
-    a0 and a2, and calculates current from the voltage on a2.
+    """Writes voltages to pin 9 using d9, reads voltages from pin 0 and
+    2 using a0 and a2, and calculates current from the voltage on a2.
 
     Parameters (passed from GUI_operator - experiment function)
     __________
@@ -164,7 +164,7 @@ def read_write(
             currents.append(-1 * current_average)
             collected_data = (times, voltages, currents)
 
-            ###############   update the plot, progress bar and remaining time   ###############
+            # update the plot, progress bar and remaining time   ###############
             ini_plot.plot_updater(collected_data)
             pr.setValue((times[-1] + passed_exp_time) / total_exp_time * 100)
 
@@ -176,7 +176,7 @@ def read_write(
                 rtime = 0  # if rtime < 0 ,set it to 0
 
             tr.setText(str(datetime.timedelta(seconds=rtime)))
-            ###############     ###############    ###############
+            # ######################################
             rel_time = 0
 
             while rel_time < times_diff_list[t]:
@@ -204,9 +204,10 @@ def experiment(
     total_exp_time,
     passed_exp_time,
 ):
-    """Determines which experiment to run and applies the appropriate voltages
-    to perform the experiment based on the inputs from the config file. Plots
-    the data for and returns the data as lists to be saved.
+    """Determines which experiment to run and applies the appropriate
+    voltages to perform the experiment based on the inputs from the
+    config file. Plots the data for and returns the data as lists to be
+    saved.
 
     Parameters
     ----------
@@ -374,7 +375,7 @@ def experiment(
         tr,
         total_exp_time,
         passed_exp_time,
-        cycle_number
+        cycle_number,
     )
 
     return times, voltages, currents
