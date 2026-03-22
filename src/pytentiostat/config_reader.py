@@ -320,8 +320,8 @@ def param_checker(config_data):
 def get_output_params(config_data, override_ts=None):
     data_out_name = config_data["general_parameters"]["data_output_filename"]
     data_out_path = config_data["general_parameters"]["data_output_path"]
-    if data_out_path.lower() == "desktop":
-        data_out_path = str(Path.home() / "Desktop")
+    if not data_out_path:
+        data_out_path = str(Path.cwd())
     ts = datetime.datetime.now().strftime("%H_%M_%S")
     if override_ts:
         ts = override_ts
