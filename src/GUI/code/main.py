@@ -24,7 +24,12 @@ def main():
     ui.setupUi(window)
     window.show()
     com = None  # initialize the parameters; if potentiostat is not connected, com, board objects will be None
-    board_objects = (None, None, None, None)  # board_objects = (board, a0, a2, d9)
+    board_objects = (
+        None,
+        None,
+        None,
+        None,
+    )  # board_objects = (board, a0, a2, d9)
     board, d9 = board_objects[0], board_objects[3]
 
     # 'Find Potentiostat'
