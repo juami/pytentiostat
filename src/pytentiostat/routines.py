@@ -11,8 +11,9 @@ RESTING_DUTY_CYCLE = 0.5
 
 
 def _load_arduino():
-    """Creates a list of all the active serial ports and then checks how many
-    arduino unos are connected If only one is found, it's COM port is returned.
+    """Creates a list of all the active serial ports and then checks how
+    many arduino unos are connected If only one is found, it's COM port
+    is returned.
 
     If any other number is found, the corresponding error message is printed
     and the program exits.
@@ -38,8 +39,8 @@ def _load_arduino():
 
 
 def _initialize_arduino(com):
-    """Creates board object with Arduino(). If the connection fails it prints
-    an error message and exits.
+    """Creates board object with Arduino(). If the connection fails it
+    prints an error message and exits.
 
     Parameters
     ----------
@@ -91,8 +92,8 @@ def startup_routine(*, simulate: bool = False):
 
 
 def closing_routine(board, d9):
-    """Called after experiment is finished. Function brings the potential back
-    to 0 V and closes the board object.
+    """Called after experiment is finished. Function brings the
+    potential back to 0 V and closes the board object.
 
     Parameters
     ----------

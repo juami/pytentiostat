@@ -1,4 +1,4 @@
-## Standard libraries
+# Standard libraries
 from functools import partial
 
 # GUI_function
@@ -9,7 +9,7 @@ from GUI_LSV_exp_creator import LSV_main, LSV_window_writer
 from PySide6.QtGui import QIcon
 from PySide6.QtWidgets import QListWidgetItem
 
-## Local libraries
+# Local libraries
 # GUI window
 from warning_GUI import warning
 
@@ -30,8 +30,8 @@ def add_exp(ui):
 
 
 def load_file(ui):
-    """Initializes the 'Load config file' window. Once loaded, the filename
-    will show up in the experiment queue window.
+    """Initializes the 'Load config file' window. Once loaded, the
+    filename will show up in the experiment queue window.
 
     Parameters
     ------
