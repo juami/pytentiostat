@@ -1,37 +1,32 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'mainwindow.ui'
-##
-## Created by: Qt User Interface Compiler version 5.14.0
-##
-## WARNING! All changes made in this file will be lost when recompiling UI file!
+# Form generated from reading UI file 'mainwindow.ui'
+#
+# Created by: Qt User Interface Compiler version 5.14.0
+#
+# WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
 
-from PySide6.QtCore import (
-    QCoreApplication,
-    QMetaObject,
-    QObject,
-    QPoint,
-    QRect,
-    QSize,
-    Qt,
-    QUrl,
+from PySide6.QtCore import QCoreApplication, QMetaObject, QRect, QSize, Qt
+from PySide6.QtGui import QBrush, QColor, QFont, QIcon, QPalette
+from PySide6.QtWidgets import (
+    QAbstractItemView,
+    QAction,
+    QComboBox,
+    QFrame,
+    QLabel,
+    QLineEdit,
+    QListWidget,
+    QLocale,
+    QMenu,
+    QMenuBar,
+    QProgressBar,
+    QPushButton,
+    QStatusBar,
+    QString,
+    QWidget,
 )
-from PySide6.QtGui import (
-    QBrush,
-    QColor,
-    QConicalGradient,
-    QFont,
-    QFontDatabase,
-    QIcon,
-    QLinearGradient,
-    QPainter,
-    QPalette,
-    QPixmap,
-    QRadialGradient,
-)
-from PySide6.QtWidgets import *
 
 
 class Ui_MainWindow(object):

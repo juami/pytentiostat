@@ -1,7 +1,7 @@
-## Standard libraries
+# Standard libraries
 import sys
 
-##Local library
+# Local library
 # GUI_function
 import GUI_config_reader as cr
 from matplotlib.backends.backend_qt5agg import (

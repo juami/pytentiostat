@@ -1,8 +1,8 @@
-## Standard Libraries
+# Standard Libraries
 import datetime
 import time
 
-## Local library
+# Local library
 # GUI_function
 import GUI_config_reader as cr
 import numpy as np
@@ -164,7 +164,7 @@ def read_write(
             currents.append(-1 * current_average)
             collected_data = (times, voltages, currents)
 
-            ###############   update the plot, progress bar and remaining time   ###############
+            # update the plot, progress bar and remaining time   ###############
             ini_plot.plot_updater(collected_data)
             pr.setValue((times[-1] + passed_exp_time) / total_exp_time * 100)
 
@@ -176,7 +176,7 @@ def read_write(
                 rtime = 0  # if rtime < 0 ,set it to 0
 
             tr.setText(str(datetime.timedelta(seconds=rtime)))
-            ###############     ###############    ###############
+            # ######################################
             rel_time = 0
 
             while rel_time < times_diff_list[t]:

@@ -1,6 +1,14 @@
-## CA
+# CA
 from Adv_params_GUI import Ui_Adv_Params
+
+# from CA_GUI import Ui_CA
+# from CV_GUI import Ui_CV
+from Exp_type_GUI import Ui_Experiment
 from Load_config_GUI import Ui_Load
+
+# main
+# from LSV_GUI import Ui_LSV
+from PySide6 import QtWidgets
 
 
 class Ui_CA(object):
@@ -31,12 +39,6 @@ class Ui_CA(object):
         return self.AP, self.window
 
 
-from Adv_params_GUI import Ui_Adv_Params
-
-## CV
-from Load_config_GUI import Ui_Load  # more
-
-
 class Ui_CV(object):
     """Initializes the 'Load config file' window.
 
@@ -65,7 +67,7 @@ class Ui_CV(object):
         return self.AP, self.window
 
 
-## LSV
+# LSV
 class Ui_LSV(object):
 
     def load_folder_name(self):
@@ -92,16 +94,6 @@ class Ui_LSV(object):
         self.AP.setupUi(self.window)
         self.window.show()
         return self.AP, self.window
-
-
-from CA_GUI import Ui_CA
-from CV_GUI import Ui_CV
-from Exp_type_GUI import Ui_Experiment
-from Load_config_GUI import Ui_Load
-
-## main
-## main
-from LSV_GUI import Ui_LSV
 
 
 class Ui_MainWindow(object):

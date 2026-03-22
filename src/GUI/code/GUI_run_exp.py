@@ -1,4 +1,4 @@
-## Standard libraries
+# Standard libraries
 import csv
 import os
 
@@ -8,7 +8,7 @@ from GUI_operator import experiment
 # GUI function
 from GUI_plotter import Ui_Plot
 
-## Local libraries
+# Local libraries
 # GUI window
 from PySide6.QtGui import QIcon
 from warning_GUI import warning
@@ -194,9 +194,9 @@ def run_exp(ui, com, board_objects, ini_plot, grid, pr, tr):
                         writer = csv.writer(csv_file)
                         writer.writerow(["Time", "Voltage", "Current"])
                         writer.writerows(zip(time, voltage, current))
-                except:
+                except Exception:
                     warning("Filepath not exist!")
-            except:
+            except Exception:
                 warning("Wrong port connected!")
                 break
 

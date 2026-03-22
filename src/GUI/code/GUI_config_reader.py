@@ -132,7 +132,7 @@ def check_config_inputs(arg):
     """
     try:
         return isinstance(float(arg), float)
-    except:
+    except Exception:
         return False
 
 

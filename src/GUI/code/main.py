@@ -1,4 +1,4 @@
-## Standard libraries
+# Standard libraries
 import sys
 from functools import partial
 
@@ -8,7 +8,7 @@ from GUI_file_operation import add_exp, edit_file, load_file, remove_file
 from GUI_routines import _load_arduino, disconnect_port_main, find_port_main
 from GUI_run_exp import run_exp_main
 
-## Local libraries
+# Local libraries
 # GUI window
 from mainwindow_GUI import Ui_MainWindow
 from PySide6.QtWidgets import QApplication, QGridLayout, QMainWindow
@@ -52,10 +52,10 @@ ui.load_experiment_button.clicked.connect(partial(load_file, ui))
 # 'Edit'
 ui.edit_experiment_button.clicked.connect((partial(edit_file, ui)))
 
-#'Delete'
+# 'Delete'
 ui.remove_experiment_button.clicked.connect(partial(remove_file, ui))
 
-#'Start/Abort Experiment'
+# 'Start/Abort Experiment'
 grid = QGridLayout()  # set up the layout for live plot
 ui.plot_area.setLayout(grid)
 

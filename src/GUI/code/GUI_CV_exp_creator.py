@@ -11,7 +11,7 @@ from PySide6.QtWidgets import QGridLayout, QListWidgetItem
 from warning_GUI import warning
 
 
-## PartI: load output filepath
+# PartI: load output filepath
 def load_folder(CV):
     """This function is connect with'Output Filepath' to load the folder
     window for the CV config file to be saved.
@@ -25,7 +25,7 @@ def load_folder(CV):
     )  # CA.load_folder_name() returns folder path name
 
 
-## PartII: Save AP parameters
+# PartII: Save AP parameters
 def get_AP_parameters(exp):
     """This function is connect with'Advanced Parameter' button.
 
@@ -74,7 +74,7 @@ def load_APwindow(CV, AP_params):
     AP.save_experiment_file_button.clicked.connect(change_params)
 
 
-## PartIII Preview
+# PartIII Preview
 def time_converter(time):
     """This function is to convert time to hour:minute:second.
 
@@ -214,7 +214,7 @@ def preview_CV(exp, grid):
     exp.experiment_duration.setText(time_converter((x[-1] * cyc_num)))
 
 
-## PartIV Save config file
+# PartIV Save config file
 def save_file(config_path_name, config_data, line_skipper):
     """This function is to save the input parameters as a yml file in
     the defined path.
@@ -438,7 +438,7 @@ def CV_window_writer(exp, config_data):
 
     config_data: dictionary which contains the input experiment parameters
     """
-    exp_type = config_data["general_parameters"]["experiment_type"]
+    _ = config_data["general_parameters"]["experiment_type"]
     data_out_name = config_data["general_parameters"]["data_output_filename"]
     data_out_path = config_data["general_parameters"]["data_output_path"]
     rest_time = config_data["general_parameters"]["rest_time"]
@@ -466,7 +466,7 @@ def CV_window_writer(exp, config_data):
     )
 
 
-## PartV: Main
+# PartV: Main
 def CV_main(ui, config_data=None):
     """This function is connect to 'CA' button in the Experiment Type
     window.
