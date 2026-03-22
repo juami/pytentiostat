@@ -273,7 +273,8 @@ def experiment(config_data, a0, a2, d9):
                     " in config.yml is not a number" + "\x1b[0m",
                 )
                 sys.exit()
-        normalized_voltage = (voltage + 2.5) / 5
+        normalized_start = (voltage + 2.5) / 5
+        normalized_voltage = normalized_start
 
         steps_list = (
             np.linspace(
