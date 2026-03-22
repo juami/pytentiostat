@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(cp src/GUI/code/*.py src/pytentiostat/gui/)",
+      "Bash(cp src/GUI/designer_files/*.py src/pytentiostat/gui/designer_files/)",
+      "Bash(cp src/GUI/designer_files/*.ui src/pytentiostat/gui/designer_files/)"
+    ]
+  }
+}
