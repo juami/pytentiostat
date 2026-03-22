@@ -54,8 +54,8 @@ def read_write(
     passed_exp_time,
     cycle_number,
 ):
-    """Writes voltages to pin 9 using d9, reads voltages from pin 0 and 2 using
-    a0 and a2, and calculates current from the voltage on a2.
+    """Writes voltages to pin 9 using d9, reads voltages from pin 0 and
+    2 using a0 and a2, and calculates current from the voltage on a2.
 
     Parameters (passed from GUI_operator - experiment function)
     __________
@@ -204,9 +204,10 @@ def experiment(
     total_exp_time,
     passed_exp_time,
 ):
-    """Determines which experiment to run and applies the appropriate voltages
-    to perform the experiment based on the inputs from the config file. Plots
-    the data for and returns the data as lists to be saved.
+    """Determines which experiment to run and applies the appropriate
+    voltages to perform the experiment based on the inputs from the
+    config file. Plots the data for and returns the data as lists to be
+    saved.
 
     Parameters
     ----------
@@ -374,7 +375,7 @@ def experiment(
         tr,
         total_exp_time,
         passed_exp_time,
-        cycle_number
+        cycle_number,
     )
 
     return times, voltages, currents

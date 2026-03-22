@@ -30,8 +30,8 @@ def add_exp(ui):
 
 
 def load_file(ui):
-    """Initializes the 'Load config file' window. Once loaded, the filename
-    will show up in the experiment queue window.
+    """Initializes the 'Load config file' window. Once loaded, the
+    filename will show up in the experiment queue window.
 
     Parameters
     ------

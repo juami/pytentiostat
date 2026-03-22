@@ -4,8 +4,8 @@ import pytentiostat.config_reader
 
 
 def plot_initializer(config_data):
-    """Initializes plot based on experiment type and parameters in the config
-    file.
+    """Initializes plot based on experiment type and parameters in the
+    config file.
 
     Parameters
     ----------

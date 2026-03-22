@@ -13,8 +13,8 @@ from warning_GUI import warning
 
 ## PartI: load output filepath
 def load_folder(LSV):
-    """This function is connect with'Output Filepath' to load the folder window
-    for the LSV config file to be saved.
+    """This function is connect with'Output Filepath' to load the folder
+    window for the LSV config file to be saved.
 
     Parameters
     ------
@@ -48,8 +48,8 @@ def get_AP_parameters(exp):
 
 
 def load_APwindow(LSV, AP_params):
-    """This function is connected to 'Advanced Parameters' button to load the
-    advanced parameters window.
+    """This function is connected to 'Advanced Parameters' button to
+    load the advanced parameters window.
 
     Parameters
     ------
@@ -150,8 +150,8 @@ def preview_LSV(exp, grid):
 
 ## PartIV Save config file
 def save_file(config_path_name, config_data, line_skipper):
-    """This function is to save the input parameters as a yml file in the
-    defined path.
+    """This function is to save the input parameters as a yml file in
+    the defined path.
 
     Parameters
     ------
@@ -383,7 +383,8 @@ def LSV_window_writer(exp, config_data):
 
 ## PartV: Main
 def LSV_main(ui, config_data=None):
-    """This function is connect to 'CA' button in the Experiment Type window.
+    """This function is connect to 'CA' button in the Experiment Type
+    window.
 
     Parameters
     ------
