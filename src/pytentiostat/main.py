@@ -1,5 +1,4 @@
 # Pytentiostat function files
-import os
 import sys
 
 import matplotlib.pyplot as plt
@@ -12,17 +11,8 @@ from pytentiostat.routines import closing_routine, startup_routine
 
 class BoardCom:
     def __init__(self):
-        simulate = os.environ.get(
-            "PYTENTIOSTAT_SIMULATE", ""
-        ).strip().lower() in {
-            "1",
-            "true",
-            "yes",
-            "y",
-            "on",
-        }
         self.com, self.board, self.pin_a0, self.pin_a2, self.pin_d9 = (
-            startup_routine(simulate=simulate)
+            startup_routine()
         )
 
 
@@ -91,30 +81,12 @@ while True:
         collected_data = zip(times, voltages, currents)
         save_data_to_file(config_data, collected_data)
         print("Saved.")
-    stop = input(
-        "\nWould you like to run another experiment?\n"
-        '  "y"     - repeat the same experiment\n'
-        '  "LSV"   - run Linear Sweep Voltammetry\n'
-        '  "CV"    - run Cyclic Voltammetry\n'
-        '  "CA"    - run Chronoamperometry\n'
-        '  "new"   - reload the config file from disk\n'
-        "  Enter   - quit\n"
-        "Choice: "
-    )
-    choice = stop.strip().upper()
-    if choice in ("LSV", "CV", "CA"):
-        config_data["general_parameters"]["experiment_type"] = choice
-        interrupt = False
-        plt.close()
-    elif choice == "Y":
-        interrupt = False
-        plt.close()
-    elif choice == "NEW":
-        config_data = parse_config_file()
-        interrupt = False
-        plt.close()
-    else:
+    stop = input("\nWould you like to repeat the last experiment? [y/n]: ")
+    if stop.lower() != "y":
         break
+    else:
+        interrupt = False
+        plt.close()
 
 # Wrap things up
 closing_routine(board_instance.board, board_instance.pin_d9)
