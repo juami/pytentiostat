@@ -1,17 +1,18 @@
 # Standard libraries
 from functools import partial
 
-# GUI_function
-from GUI_CA_exp_creator import CA_main, CA_window_writer
-from GUI_config_reader import parse_config_file
-from GUI_CV_exp_creator import CV_main, CV_window_writer
-from GUI_LSV_exp_creator import LSV_main, LSV_window_writer
 from PySide6.QtGui import QIcon
 from PySide6.QtWidgets import QListWidgetItem
 
+# GUI_function
+from pytentiostat.gui.GUI_CA_exp_creator import CA_main, CA_window_writer
+from pytentiostat.gui.GUI_config_reader import parse_config_file
+from pytentiostat.gui.GUI_CV_exp_creator import CV_main, CV_window_writer
+from pytentiostat.gui.GUI_LSV_exp_creator import LSV_main, LSV_window_writer
+
 # Local libraries
 # GUI window
-from warning_GUI import warning
+from pytentiostat.gui.warning_GUI import warning
 
 
 def add_exp(ui):

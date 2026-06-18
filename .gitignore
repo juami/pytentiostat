@@ -91,3 +91,6 @@ target/
 
 # Ipython Notebook
 .ipynb_checkpoints
+
+# Claude Code local settings
+.claude/
