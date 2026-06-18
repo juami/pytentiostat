@@ -7,7 +7,10 @@ ci:
   autoupdate_branch: "pre-commit-autoupdate"
   autoupdate_commit_msg: "[pre-commit.ci] pre-commit autoupdate"
   autoupdate_schedule: monthly
-  skip: [no-commit-to-branch]
+  # docformatter is skipped on pre-commit.ci: its dependency untokenize
+  # (sdist-only) fails to build on the CI's Python 3.12+ runner. It still
+  # runs in local pre-commit installs.
+  skip: [no-commit-to-branch, docformatter]
   submodules: false
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
