@@ -120,7 +120,7 @@ def read_write(
     -------
     None
     """
-    global Interrupt, Exp_running
+    global Exp_running
     voltage_offset = 0.5
     Exp_running = True
     start_time = time.time()
