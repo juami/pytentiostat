@@ -165,7 +165,7 @@ def param_checker(config_data):
                      valid. \nPlease enter a new value for {name}
                      avoiding unusual characters. \nExiting...
                      """
-                                  .format(**i))
+                        .format(**i))
 
     for i in [average_number, cycle_number, step_number]:
         val = i["value"]
@@ -177,7 +177,7 @@ def param_checker(config_data):
                      valid. \nPlease change the entry to a positive
                      integer. \nExiting...
                      """
-                                  .format(**i))
+                        .format(**i))
 
     for i in [
         conversion_factor,
@@ -205,7 +205,7 @@ def param_checker(config_data):
                      valid.   \nPlease change the entry to a number.
                      \nExiting...
                      """
-                                    .format(**i))
+                        .format(**i))
 
     for i in [
         rest_time,
@@ -229,7 +229,7 @@ def param_checker(config_data):
                      valid. \nPlease change the entry to a value greater
                      than or equal to zero. \nExiting...
                      """
-                                  .format(**i))
+                        .format(**i))
 
     exp_types = ["LSV", "CV", "CA"]
     val = exp_type["value"]
@@ -240,7 +240,7 @@ def param_checker(config_data):
                  \nThe entry {value} for {name} is not valid. \nPlease
                  change the entry to CA, CV, or LSV. \nExiting...
                  """
-                                .format(**exp_type))
+                    .format(**exp_type))
 
     voltage_ub = 2.2
     voltage_lb = -2.2
@@ -268,14 +268,14 @@ def param_checker(config_data):
         time_for_range = exp_time["value"]
 
     if time_for_range == 0:
-        sys.exit(
-            """Warning!
+        sys.exit(\
+                 """Warning!
 
-            \nThe total time for range in config.yml in not valid.
-            \nPlease enter a new value greater than 0 and try again.
-            \nExiting...
-            """
-        )
+                 \nThe total time for range in config.yml in not valid.
+                 \nPlease enter a new value greater than 0 and try
+                 again. \nExiting...
+                 """
+               )
 
     lag_tolerance = 2
     step_number_ub = int(1 / (lag_tolerance * time_per_step / time_for_range))
@@ -290,17 +290,14 @@ def param_checker(config_data):
     ]:
         val = i["value"]
         if val < voltage_lb or val > voltage_ub:
-            sys.exit(
-                """Warning!
+            sys.exit(\
+                     """Warning!
 
-                \nVoltages in config.yml should be < {} and > {}. \n
-                Please change value for {name} to value between the
-                bounds. \nExiting...
-                """
-                                  .format(
-                    str(voltage_ub), str(voltage_lb), **i
-                )
-            )
+                     \nVoltages in config.yml should be < {} and > {}.
+                     \n Please change value for {name} to value between
+                     the bounds. \nExiting...
+                     """
+                   .format(str(voltage_ub), str(voltage_lb), **i))
     if time_step["value"] < time_step_lb:
         sys.exit(\
                  """Warning!
@@ -309,7 +306,7 @@ def param_checker(config_data):
                  change the time step value to be greater than this.
                  \nExiting...
                  """
-                              .format(str(time_step_lb)))
+                    .format(str(time_step_lb)))
     if step_number["value"] > step_number_ub:
         sys.exit(\
                  """Warning!
@@ -318,7 +315,7 @@ def param_checker(config_data):
                  parameters. \nPlease change the step number in
                  config.yml to be less than this. \nExiting...
                  """
-                              .format(str(step_number_ub)))
+                    .format(str(step_number_ub)))
 
 
 def get_output_params(config_data, override_ts=None):
