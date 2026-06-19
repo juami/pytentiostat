@@ -171,7 +171,6 @@ def simulated_startup(
 ) -> tuple[str, SimulatedBoard, object, object, object]:
     """Drop-in replacement for routines.startup_routine() for simulation
     mode."""
-
     sim = SimulatedPotentiostat(
         conversion_factor=conversion_factor,
         shunt_resistor=shunt_resistor,

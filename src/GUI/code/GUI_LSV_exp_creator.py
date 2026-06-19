@@ -394,7 +394,6 @@ def LSV_main(ui, config_data=None):
     ------
     CA: the Ui_ca object
     """
-
     LSV, LSV_window = ui.show_LSVwindow()
     grid = QGridLayout()
     LSV.plot_area.setLayout(grid)

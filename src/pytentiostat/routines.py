@@ -39,8 +39,9 @@ def _load_arduino():
 
 
 def _initialize_arduino(com):
-    """Creates board object with Arduino(). If the connection fails it
-    prints an error message and exits.
+    """Creates board object with Arduino().
+
+    If the connection fails it prints an error message and exits.
 
     Parameters
     ----------
@@ -70,7 +71,6 @@ def startup_routine(*, simulate: bool = False):
     a2 : location of analog read pin 2
     d9 : location of digital pwm pin 9
     """
-
     print("Welcome to the JUAMI pytentiostat interface!")
     if simulate:
         print("Simulation mode enabled. No hardware will be used.\n")
@@ -92,8 +92,9 @@ def startup_routine(*, simulate: bool = False):
 
 
 def closing_routine(board, d9):
-    """Called after experiment is finished. Function brings the
-    potential back to 0 V and closes the board object.
+    """Called after experiment is finished.
+
+    Function brings the potential back to 0 V and closes the board object.
 
     Parameters
     ----------

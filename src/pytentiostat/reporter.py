@@ -27,7 +27,6 @@ def save_data_to_file(
     -------
         nothing
     """
-
     filename, export_path = get_output_params(
         config_data, override_ts=override_ts
     )

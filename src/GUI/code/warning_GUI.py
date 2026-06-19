@@ -12,7 +12,6 @@ def warning(text):
     ------
     Boolean : True if 'OK' is clicked, False if 'cancel'.
     """
-
     msg = QtWidgets.QMessageBox()
     icon = QtGui.QIcon()
     icon.addPixmap(
