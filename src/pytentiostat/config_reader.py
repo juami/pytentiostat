@@ -159,25 +159,24 @@ def param_checker(config_data):
     for i in [data_out_name, data_out_path]:
         val = i["value"]
         if not isinstance(val, str):
-            sys.exit("""Warning!
+            message = """Warning!
 
                      \nThe value {value} for {name} in config.yml is not
                      valid. \nPlease enter a new value for {name}
                      avoiding unusual characters. \nExiting...
                      """
-                        .format(**i))
+            sys.exit(message.format(**i))
 
     for i in [average_number, cycle_number, step_number]:
         val = i["value"]
         if not isinstance(val, int):
-            sys.exit(\
-                     """Warning!
+            message = """Warning!
 
                      \nThe value {value} for {name} in config.yml is not
                      valid. \nPlease change the entry to a positive
                      integer. \nExiting...
                      """
-                        .format(**i))
+            sys.exit(message.format(**i))
 
     for i in [
         conversion_factor,
@@ -198,14 +197,13 @@ def param_checker(config_data):
     ]:
         val = i["value"]
         if not isinstance(val, (float, int)):
-            sys.exit(\
-                     """Warning!
+            message = """Warning!
 
                      \nThe value {value} for {name} in config.yml is not
                      valid.   \nPlease change the entry to a number.
                      \nExiting...
                      """
-                        .format(**i))
+            sys.exit(message.format(**i))
 
     for i in [
         rest_time,
@@ -222,25 +220,23 @@ def param_checker(config_data):
     ]:
         val = i["value"]
         if val <= 0:
-            sys.exit(\
-                     """Warning!
+            message = """Warning!
 
                      \nThe value {value} for {name} in config.yml is not
                      valid. \nPlease change the entry to a value greater
                      than or equal to zero. \nExiting...
                      """
-                        .format(**i))
+            sys.exit(message.format(**i))
 
     exp_types = ["LSV", "CV", "CA"]
     val = exp_type["value"]
     if val not in exp_types:
-        sys.exit(\
-                 """Warning!
+        message = """Warning!
 
                  \nThe entry {value} for {name} is not valid. \nPlease
                  change the entry to CA, CV, or LSV. \nExiting...
                  """
-                    .format(**exp_type))
+        sys.exit(message.format(**exp_type))
 
     voltage_ub = 2.2
     voltage_lb = -2.2
@@ -268,14 +264,13 @@ def param_checker(config_data):
         time_for_range = exp_time["value"]
 
     if time_for_range == 0:
-        sys.exit(\
-                 """Warning!
+        message = """Warning!
 
-                 \nThe total time for range in config.yml in not valid.
-                 \nPlease enter a new value greater than 0 and try
-                 again. \nExiting...
-                 """
-               )
+            \nThe total time for range in config.yml in not valid.
+            \nPlease enter a new value greater than 0 and try again.
+            \nExiting...
+            """
+        sys.exit(message)
 
     lag_tolerance = 2
     step_number_ub = int(1 / (lag_tolerance * time_per_step / time_for_range))
@@ -290,32 +285,29 @@ def param_checker(config_data):
     ]:
         val = i["value"]
         if val < voltage_lb or val > voltage_ub:
-            sys.exit(\
-                     """Warning!
+            message = """Warning!
 
-                     \nVoltages in config.yml should be < {} and > {}.
-                     \n Please change value for {name} to value between
-                     the bounds. \nExiting...
-                     """
-                   .format(str(voltage_ub), str(voltage_lb), **i))
+                \nVoltages in config.yml should be < {} and > {}. \n
+                Please change value for {name} to value between the
+                bounds. \nExiting...
+                """
+            sys.exit(message.format(str(voltage_ub), str(voltage_lb), **i))
     if time_step["value"] < time_step_lb:
-        sys.exit(\
-                 """Warning!
+        message = """Warning!
 
                  \nTime step value in config.yml must be >= {}. \nPlease
                  change the time step value to be greater than this.
                  \nExiting...
                  """
-                    .format(str(time_step_lb)))
+        sys.exit(message.format(str(time_step_lb)))
     if step_number["value"] > step_number_ub:
-        sys.exit(\
-                 """Warning!
+        message = """Warning!
 
                  \nStep number must be <= {} given the other input
                  parameters. \nPlease change the step number in
                  config.yml to be less than this. \nExiting...
                  """
-                    .format(str(step_number_ub)))
+        sys.exit(message.format(str(step_number_ub)))
 
 
 def get_output_params(config_data, override_ts=None):
@@ -407,6 +399,8 @@ def get_adv_params(adv_config_data):
         time_step,
         average_number,
     )
+
+
 def check_config_inputs(arg):
     """Checks that all the data that should be numerical from that
     config can be represented as a float.
