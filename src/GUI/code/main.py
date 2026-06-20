@@ -36,7 +36,7 @@ ui.find_potentiostat_button.clicked.connect(find_port)
 
 
 def disconnect_port():
-    global com, board, d9
+    global com
     com = None
     disconnect_port_main(ui, board, d9)
 

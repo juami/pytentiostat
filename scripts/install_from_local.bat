@@ -1,45 +1,90 @@
-:: This batch script will install python 3.8, pytentiostat and it's necessary packages
+:: Offline installer for pytentiostat.
+::
+:: Run this on the target (offline) Windows machine after the USB flash drive
+:: has been prepared on an internet-connected machine with:
+::     python scripts/build_local_install.py
+:: It installs Python (from a bundled installer if needed), creates a virtual
+:: environment, and installs pytentiostat plus its dependencies from the
+:: bundled wheels in local-install/whls -- no internet access required.
 @echo off
-cd ../local_install
-echo Installing python
-START /WAIT python-3.8.1-amd64
-python --version
-if errorlevel 1 goto NoPython
-pip install whls/pytz-2019.3-py2.py3-none-any.whl
-pip install whls/kiwisolver-1.1.0-cp38-none-win_amd64.whl
-pip install whls/six-1.14.0-py2.py3-none-any.whl
-pip install whls/pyparsing-2.4.6-py2.py3-none-any.whl
-pip install whls/python_dateutil-2.8.1-py2.py3-none-any.whl
-pip install whls/pyserial-3.4-py2.py3-none-any.whl
-pip install whls/pyFirmata-1.1.0-py2.py3-none-any.whl
-pip install whls/numpy-1.18.1-cp38-cp38-win_amd64.whl
-pip install whls/pandas-0.25.3-cp38-cp38-win_amd64.whl
-pip install whls/PyYAML-5.3-cp38-cp38-win_amd64.whl
-pip install whls/urllib3-1.25.8-py2.py3-none-any.whl
-pip install whls/py-1.8.1-py2.py3-none-any.whl
-pip install whls/idna-2.8-py2.py3-none-any.whl
-pip install whls/chardet-3.0.4-py2.py3-none-any.whl
-pip install whls/certifi-2019.11.28-py2.py3-none-any.whl
-pip install whls/pluggy-0.13.1-py2.py3-none-any.whl
-pip install whls/packaging-20.0-py2.py3-none-any.whl
-pip install whls/more_itertools-8.1.0-py3-none-any.whl
-pip install whls/wcwidth-0.1.8-py2.py3-none-any.whl
-pip install whls/atomicwrites-1.3.0-py2.py3-none-any.whl
-pip install whls/attrs-19.3.0-py2.py3-none-any.whl
-pip install whls/cycler-0.10.0-py2.py3-none-any.whl
-pip install whls/matplotlib-3.1.2-cp38-cp38-win_amd64.whl
-pip install whls/coverage-5.0.3.tar.gz
-pip install whls/colorama-0.4.3-py2.py3-none-any.whl
-pip install whls/requests-2.22.0-py2.py3-none-any.whl
-pip install whls/pytest-5.3.4-py3-none-any.whl
-pip install whls/mock-3.0.5-py2.py3-none-any.whl
-pip install whls/codecov-2.0.15-py2.py3-none-any.whl
-cd ..
-python setup.py install
-@pause
-goto:eof
+setlocal enabledelayedexpansion
 
-:NoPython
-echo Python installation failed. Please retry.
-@pause
-goto:eof
+set "HERE=%~dp0"
+set "WHLS=%HERE%..\local-install\whls"
+set "VENV=%HERE%..\pytentiostat-env"
+
+echo ==================================================
+echo  Installing pytentiostat (offline)
+echo ==================================================
+
+:: 1. Make sure Python is available; offer the bundled installer if not.
+python --version >nul 2>&1
+if not errorlevel 1 goto have_python
+
+echo Python was not found on PATH.
+set "PYEXE="
+for %%f in ("%HERE%..\local-install\python-*.exe") do set "PYEXE=%%f"
+if not defined PYEXE goto no_python
+echo Launching bundled Python installer: !PYEXE!
+echo IMPORTANT: tick "Add Python to PATH" on the first screen.
+start /wait "" "!PYEXE!"
+
+python --version >nul 2>&1
+if errorlevel 1 goto path_refresh
+
+:have_python
+:: 2. Check that the wheels were staged onto the USB.
+if not exist "%WHLS%" goto no_wheels
+
+:: 3. Create an isolated virtual environment for pytentiostat.
+echo Creating virtual environment at "%VENV%"...
+python -m venv "%VENV%"
+if errorlevel 1 goto venv_failed
+
+:: 4. Install pytentiostat and all dependencies offline from local wheels.
+echo Installing pytentiostat and dependencies from local wheels...
+"%VENV%\Scripts\python" -m pip install --no-index --find-links "%WHLS%" pytentiostat
+if errorlevel 1 goto install_failed
+
+echo.
+echo ==================================================
+echo  Success! pytentiostat is installed.
+echo  Activate the environment with:
+echo      "%VENV%\Scripts\activate"
+echo  then run:  pytentiostat
+echo ==================================================
+pause
+goto end
+
+:no_python
+echo No bundled Python installer (local-install\python-*.exe) was found.
+echo Please install Python 3.12 manually, then re-run this script.
+pause
+goto end
+
+:path_refresh
+echo Python was installed but is not on PATH yet.
+echo Close this window, open a new terminal, and run this script again.
+pause
+goto end
+
+:no_wheels
+echo Could not find wheels at "%WHLS%".
+echo Run "python scripts\build_local_install.py" on an internet-connected
+echo machine first to populate the USB, then try again.
+pause
+goto end
+
+:venv_failed
+echo Failed to create the virtual environment.
+pause
+goto end
+
+:install_failed
+echo Offline install failed. Check that the wheels match this machine's
+echo Python version and architecture.
+pause
+goto end
+
+:end
+endlocal

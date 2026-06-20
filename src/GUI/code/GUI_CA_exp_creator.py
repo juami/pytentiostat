@@ -20,7 +20,6 @@ def load_folder(CA):
     ------
     CA: the Ui_CA object
     """
-
     CA.experiment_file_path.setText(
         CA.load_folder_name()
     )  # CA.load_folder_name() returns folder path name
@@ -230,7 +229,6 @@ def config_writer_CA(
 
 
     """
-
     config_path_name = os.path.join(
         data_out_path, data_out_name + "_" + exp_type + "_config.yml"
     )
@@ -269,7 +267,6 @@ def check(x):
     ------
     boolean: True if x is a valid number, else False
     """
-
     if "-" in x:
         x = x.lstrip("-")
     if "." in x:
@@ -337,7 +334,6 @@ def write_to_file_CA(ui, CA, CA_window, AP_params):
 
     AP_parameters: list that contains the advanced parameters
     """
-
     config_params = get_parameters(CA, "CA", AP_params)
     data_out_name = config_params[3]
     data_out_path = config_params[4]
@@ -420,7 +416,6 @@ def CA_main(ui, config_data=None):
     ------
     CA: the Ui_ca object
     """
-
     CA, CA_window = (
         ui.show_CAwindow()
     )  # Initialize the CA window - CA window pops up

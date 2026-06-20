@@ -23,7 +23,6 @@ def start_exp(d9, normalized_start, data):
     ------
     start_time: float , Starting time of the experiment
     """
-
     d9.write(normalized_start)
     rest_time = cr.get_rest(data)
     time.sleep(rest_time)
@@ -258,7 +257,6 @@ def experiment(
 
     currents : list , List of floats containing the corrected currents at each data point
     """
-
     # Constants for every experiment
     (
         conversion_factor,
