@@ -10,7 +10,7 @@ jobs:
   build-release:
     uses: scikit-package/release-scripts/.github/workflows/_build-release-github-private-pure.yml@v0
     with:
-      project: diffpy.my-project
+      project: pytentiostat
       maintainer_github_username: sbillinge
     secrets:
       PAT_TOKEN: ${{ secrets.PAT_TOKEN }}

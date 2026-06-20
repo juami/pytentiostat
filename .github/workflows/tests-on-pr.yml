@@ -8,7 +8,7 @@ jobs:
   tests-on-pr:
     uses: scikit-package/release-scripts/.github/workflows/_tests-on-pr.yml@v0
     with:
-      project: diffpy.my-project
+      project: pytentiostat
       c_extension: false
       headless: false
     secrets:

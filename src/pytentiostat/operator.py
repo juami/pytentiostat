@@ -120,7 +120,7 @@ def read_write(
     -------
     None
     """
-    global Interrupt, Exp_running
+    global Exp_running
     voltage_offset = 0.5
     Exp_running = True
     start_time = time.time()
@@ -273,7 +273,8 @@ def experiment(config_data, a0, a2, d9):
                     " in config.yml is not a number" + "\x1b[0m",
                 )
                 sys.exit()
-        normalized_voltage = (voltage + 2.5) / 5
+        normalized_start = (voltage + 2.5) / 5
+        normalized_voltage = normalized_start
 
         steps_list = (
             np.linspace(

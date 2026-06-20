@@ -30,8 +30,9 @@ def add_exp(ui):
 
 
 def load_file(ui):
-    """Initializes the 'Load config file' window. Once loaded, the
-    filename will show up in the experiment queue window.
+    """Initializes the 'Load config file' window.
+
+    Once loaded, the filename will show up in the experiment queue window.
 
     Parameters
     ------
@@ -64,7 +65,6 @@ def edit_file(ui):
     ui: the Ui_mainwindow object
         Instance is created in the main.py
     """
-
     if ui.experiment_queue.currentItem():
         filename = ui.experiment_queue.currentItem().data(3)
         config_data = parse_config_file(filename)

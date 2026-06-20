@@ -479,7 +479,6 @@ def CV_main(ui, config_data=None):
     ------
     CA: the Ui_ca object
     """
-
     CV, CV_window = ui.show_CVwindow()
     grid = QGridLayout()
     CV.plot_area.setLayout(grid)

@@ -4,6 +4,8 @@ import matplotlib.pyplot as plt
 import serial.tools.list_ports
 from pyfirmata import Arduino, util
 
+from pytentiostat.simulator import simulated_startup
+
 _BAUD_RATE = 115200
 RESTING_DUTY_CYCLE = 0.5
 
@@ -37,8 +39,9 @@ def _load_arduino():
 
 
 def _initialize_arduino(com):
-    """Creates board object with Arduino(). If the connection fails it
-    prints an error message and exits.
+    """Creates board object with Arduino().
+
+    If the connection fails it prints an error message and exits.
 
     Parameters
     ----------
@@ -55,7 +58,7 @@ def _initialize_arduino(com):
     return board
 
 
-def startup_routine():
+def startup_routine(*, simulate: bool = False):
     """Initializes the communication port with the JUAMI potentistat.
 
     Returns
@@ -68,8 +71,11 @@ def startup_routine():
     a2 : location of analog read pin 2
     d9 : location of digital pwm pin 9
     """
-
     print("Welcome to the JUAMI pytentiostat interface!")
+    if simulate:
+        print("Simulation mode enabled. No hardware will be used.\n")
+        return simulated_startup()
+
     input("Press enter to connect to a JUAMI potentiostat.")
     com = _load_arduino()
     board = _initialize_arduino(com)
@@ -86,8 +92,9 @@ def startup_routine():
 
 
 def closing_routine(board, d9):
-    """Called after experiment is finished. Function brings the
-    potential back to 0 V and closes the board object.
+    """Called after experiment is finished.
+
+    Function brings the potential back to 0 V and closes the board object.
 
     Parameters
     ----------

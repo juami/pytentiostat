@@ -46,7 +46,10 @@ def main():
         com = None
         disconnect_port_main(ui, board, d9)
 
-    ui.disconnect_potentiostat_button.clicked.connect(disconnect_port)
+def disconnect_port():
+    global com
+    com = None
+    disconnect_port_main(ui, board, d9)
 
     # 'Add'
     ui.add_experiment_button.clicked.connect(partial(add_exp, ui))

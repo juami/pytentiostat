@@ -14,7 +14,7 @@ jobs:
   matrix-coverage:
     uses: scikit-package/release-scripts/.github/workflows/_matrix-and-codecov-on-merge-to-main.yml@v0
     with:
-      project: diffpy.my-project
+      project: pytentiostat
       c_extension: false
       headless: false
     secrets:

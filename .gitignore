@@ -91,3 +91,8 @@ target/
 
 # Ipython Notebook
 .ipynb_checkpoints
+
+# Offline local-install bundle artifacts (never commit wheels or installers)
+local-install/whls/
+local-install/*.exe
+pytentiostat-env/
