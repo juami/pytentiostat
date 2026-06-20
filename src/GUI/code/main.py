@@ -46,6 +46,7 @@ def main():
         com = None
         disconnect_port_main(ui, board, d9)
 
+
 def disconnect_port():
     global com
     com = None

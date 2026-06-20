@@ -13,8 +13,7 @@ def create_app(argv=None):
         app = QApplication(argv)
 
     # Ensure readable text/background colors across platforms (e.g. macOS dark mode)
-    app.setStyleSheet(
-        """
+    app.setStyleSheet("""
         QWidget {
             color: black;
         }
@@ -29,7 +28,6 @@ def create_app(argv=None):
             color: black;
             background-color: white;
         }
-        """
-    )
+        """)
 
     return app
