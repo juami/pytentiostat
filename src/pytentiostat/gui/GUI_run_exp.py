@@ -2,16 +2,16 @@
 import csv
 import os
 
-from GUI_config_reader import parse_config_file
-from GUI_operator import experiment
-
-# GUI function
-from GUI_plotter import Ui_Plot
-
 # Local libraries
 # GUI window
 from PySide6.QtGui import QIcon
-from warning_GUI import warning
+
+from pytentiostat.gui.GUI_config_reader import parse_config_file
+from pytentiostat.gui.GUI_operator import experiment
+
+# GUI function
+from pytentiostat.gui.GUI_plotter import Ui_Plot
+from pytentiostat.gui.warning_GUI import warning
 
 
 def calculate_time(filename):
