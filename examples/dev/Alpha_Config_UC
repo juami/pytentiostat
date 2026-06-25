@@ -1,0 +1,39 @@
+## Use Case (UC): Running default config on the JUAMI Potentiostat for Alpha release.
+Intended User: Graduate student (GS) who knows basic electrochemistry. Requires Windows OS. No python knowledge required.
+
+### Before Installation: 
+1. Member of dev team gives GS a JUAMI Potentiostat with a 1kOhm resistor.
+1. GS checks if miniconda installed on their computer.
+ 1. GS opens a terminal. 
+ 1. GS types conda. 
+ 1. If user recieves message "'conda' is not a recognized...", user enters "pip install conda" into the command line.
+
+### Installation:
+1. GS recieves email from member of dev team with link to release page.
+1. GS follow instructions on release page to install pytentiostat program.
+
+### Experimental Setup:
+1. GS plugs the USB cable into the computer and the potentiostat.
+1. GS attaches working electrode to one side of the resistor and attaches the remaining electrodes to the other side.
+
+### Program Setup:
+1. GS copies the default example config file to an easy to navigate to directory (WD).
+1. GS opens up a console window.
+1. GS navigates to the WD.
+1. GS types command pytentiostat.
+
+### Pytentiostat Operation:
+1. Pytentiostat prints to console "Welcome to the JUAMI pytentiostat interface!".
+1. Pyentiostat prompts "Press enter to connect to a JUAMI potentiostat.".
+1. GS presses enter.
+1. Pytentiostat prints to console "Searching for potentiostat...".
+1. Pyentiostat prints to console "Pytentiostat connected to COM".
+1. Pytentiostat prints to console "Press enter to load the config file".
+1. GS presses enter.
+1. Pytentiostat prints to console "Press enter to start the experiment".
+1. Pytentiostat runs experiment in config.
+1. Pyentiostat displays plot of real-time data to user.
+1. After running experiment, pytentiostat saves the data to their desktop.
+1. Pytentiostat promopts "Would you like to repeat the last experiment? [y/n]".
+1. GS types n.
+1. Pytentiostat program closes.
